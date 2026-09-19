@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.4.7 Abstandsbestimmungen &amp; Feuer in der Kimm · SailingX-Academy</title>
+<meta name="description" content="Abstand als kreisförmige Standlinie – und wann ein Feuer über der Kimm auftaucht.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.7_Abstandsbestimmungen.html">
+<link rel="icon" href="../../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../../assets/lektion.css">
+</head>
+<body data-root="../../../../" data-path="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.7_Abstandsbestimmungen.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Grundstoff · Modul C Navigation · <b>C.4 Berechnung &amp; Arbeit in der Karte</b></p>
+  <h1><span class="lnum">C.4.7</span>Abstandsbestimmungen & Feuer in der Kimm</h1>
+  <p class="lead">Abstand als kreisförmige Standlinie – und wann ein Feuer über der Kimm auftaucht.</p>
+  <div class="badges"><span class="badge">⏱ ca. 8 Min.</span><span class="badge">📘 Lektion 20 von 32</span><span class="badge">🧮 mit Rechner</span><span class="badge">✅ Selbsttest · 4 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Kennt man den <b>Abstand</b> zu einem Objekt, liegt man auf einem Kreisbogen um dieses Objekt – eine kreisförmige Standlinie.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du verstehst die kreisförmige Standlinie.</li><li>Du kennst die Wege zur Abstandsmessung.</li><li>Du kannst die Sichtweite eines Feuers berechnen.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>Abstand als Standlinie</h2><div class="step"><div class="ic">⭕</div><div class="tx"><b>Kreisbogen</b><br>Objekt = Mittelpunkt, Abstand = Radius. Der Standort liegt irgendwo auf diesem Kreis.</div></div><div class="step"><div class="ic">📐</div><div class="tx"><b>Messen</b><br>Mit Radar, teuren Lasergeräten oder – bei bekannter Objekthöhe – über den Sehwinkel (Fernglas mit Skala, Sextant, Miniarcus).</div></div></section><section class="card"><h2><span class="n">2</span>Feuer in der Kimm</h2><div class="step"><div class="ic">🌍</div><div class="tx"><b>Erdkrümmung</b><br>Je niedriger ein Objekt, desto früher taucht es unter die Kimm. Formel: E (sm) = 2,1·√Objekthöhe (m).</div></div><div class="step"><div class="ic">👁️</div><div class="tx"><b>Augenhöhe</b><br>Weil das Auge über dem Wasser liegt, kommt 2,1·√Augenhöhe dazu: E = 2,1·√Objekthöhe + 2,1·√Augenhöhe. Nicht die Höhen addieren!</div></div><div class="step"><div class="ic">🔦</div><div class="tx"><b>Sichtweite</b><br>Taucht ein Leuchtfeuer bekannter Höhe über der Kimm auf, ergibt das eine sehr sichere Standlinie (Sichtweite – nicht mit der Tragweite verwechseln). Das Leuchtfeuerverzeichnis enthält dafür eine Kimmtiefen-Tabelle.</div></div></section>
+  <section class="card"><h2><span class="n">🧮</span>Sichtweiten-Rechner</h2>
+<div class="calc" id="ck2">
+<h3>🧮 Feuer in der Kimm – Sichtweite</h3>
+<div class="row">
+ <div class="fld"><label>Objekthöhe (m)</label><input id="ck2-o" type="number" min="0" placeholder="30"></div>
+ <div class="fld"><label>Augenhöhe (m)</label><input id="ck2-a" type="number" min="0" placeholder="2"></div>
+</div>
+<button class="go" onclick="ck2Calc()">Berechnen</button>
+<div class="out" id="ck2-out"></div>
+<div class="hint">E = 2,1·√Objekthöhe + 2,1·√Augenhöhe. Höhen NICHT addieren und dann die Wurzel ziehen!</div>
+</div>
+<script>
+function ck2Calc(){var o=parseFloat(document.getElementById('ck2-o').value),a=parseFloat(document.getElementById('ck2-a').value),out=document.getElementById('ck2-out');
+ if(isNaN(o)||o<0){out.className='out show';out.innerHTML='Bitte eine gültige Objekthöhe eingeben.';return;}
+ if(isNaN(a))a=0;
+ var e1=2.1*Math.sqrt(o),e2=2.1*Math.sqrt(a),E=e1+e2;
+ out.className='out show';out.innerHTML='<div>2,1·√'+o+' = '+e1.toFixed(1)+' sm</div><div>2,1·√'+a+' = '+e2.toFixed(1)+' sm</div><div class="big">Sichtweite ≈ '+E.toFixed(1)+' sm</div>';}
+</script></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="C4.6.6_Einfache-Bordmittel.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.6.6_Einfache-Bordmittel.html"><small>← Vorherige Lektion</small><span>C.4.6.6 Seitenpeilung mit einfachen Bordmitteln</span></a>
+    <a class="next" href="C4.8_Tiefenlinien.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.8_Tiefenlinien.html"><small>Nächste Lektion →</small><span>C.4.8 Sonstige Standlinien: Tiefenlinien</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · C.4.7 Abstandsbestimmungen &amp; Feuer in der Kimm<br><a href="../../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../../ueben.html" data-top>Üben</a> · <a href="../../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Welche Form hat eine Standlinie aus einer Abstandsmessung?", "opts": ["Gerade", "Kreisbogen", "Dreieck", "Parabel"], "correct": 1, "expl": "Objekt = Mittelpunkt, Abstand = Radius → Kreisbogen."}, {"q": "Wie lautet die Kimm-Formel?", "opts": ["E = 2,1·√(Obj+Auge)", "E = 2,1·√Obj + 2,1·√Auge", "E = 2,1·(Obj+Auge)", "E = Obj·Auge"], "correct": 1, "expl": "Beide Wurzeln getrennt, dann addieren."}, {"q": "Objekthöhe 25 m, Augenhöhe 4 m – Sichtweite?", "opts": ["≈ 6,3 sm", "≈ 14,7 sm", "≈ 10,5 sm", "≈ 21 sm"], "correct": 1, "expl": "2,1·5 + 2,1·2 = 10,5 + 4,2 = 14,7 sm."}, {"q": "Was verwechselt man leicht mit der Sichtweite?", "opts": ["Die Tragweite", "Die Missweisung", "Die Peilung", "Die Fahrt"], "correct": 0, "expl": "Sichtweite (Geometrie/Kimm) ≠ Tragweite (Lichtstärke, C.6)."}];
+</script>
+<script src="../../../../assets/lektion.js"></script>
+</body>
+</html>

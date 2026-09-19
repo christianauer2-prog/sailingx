@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3.6 VMG &amp; Cross Track Error (XTE) · SailingX-Academy</title>
+<meta name="description" content="Wie schnell komme ich wirklich zum Ziel – und wie weit bin ich abgekommen?">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB3/Navigation/VMG-XTE.html">
+<link rel="icon" href="../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../assets/lektion.css">
+</head>
+<body data-root="../../../" data-path="_Kurs/FB3/Navigation/VMG-XTE.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Aufbaustoff · <b>Modul 3 Navigation (vertieft)</b></p>
+  <h1><span class="lnum">3.6</span>VMG & Cross Track Error (XTE)</h1>
+  <p class="lead">Wie schnell komme ich wirklich zum Ziel – und wie weit bin ich abgekommen?</p>
+  <div class="badges"><span class="badge">⏱ ca. 7 Min.</span><span class="badge">📘 Lektion 6 von 6</span><span class="badge">🧮 mit Rechner</span><span class="badge">✅ Selbsttest · 5 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Zwei moderne Größen der Wegpunktnavigation: <b>VMG</b> und <b>XTE</b>.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du verstehst VMG.</li><li>Du kennst die Quellen (GPS, Windmessgerät, Zeichnung).</li><li>Du verstehst den Cross Track Error.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>VMG</h2><div class="step"><div class="ic">🎯</div><div class="tx"><b>Bedeutung</b><br>VMG (Velocity Made Good) ist die Geschwindigkeit, mit der man tatsächlich zum Ziel (oder gegen den Wind) vorankommt: FüG × cos(Winkel zwischen Kurs und Zielrichtung).</div></div><div class="step"><div class="ic">📟</div><div class="tx"><b>Quellen</b><br>GPS zeigt sie live (ändert sich laufend); ein Windmessgerät zeigt nur das Ankommen gegen den Wind (ohne Abdrift, ändert sich nur bei Kursänderung). Zeichnerisch über das Stundendreieck.</div></div></section><section class="card"><h2><span class="n">2</span>Cross Track Error</h2><div class="step"><div class="ic">↔️</div><div class="tx"><b>XTE</b><br>Die seitliche Abweichung von der gespeicherten Ideallinie (Ausgangspunkt → Wegpunkt): das Lot vom aktuellen Standort auf die Linie, mit Länge und Seite (z. B. „0,5 sm Steuerbord“). Das GPS zeigt ihn laufend an.</div></div></section>
+  <section class="card"><h2><span class="n">🧮</span>VMG-Rechner</h2>
+<div class="calc" id="vg">
+<h3>🧮 VMG-Rechner</h3>
+<div class="row">
+ <div class="fld"><label>Kartenkurs KaK (°)</label><input id="vg-k" type="number" min="0" max="360" placeholder="40"></div>
+ <div class="fld"><label>Fahrt über Grund FüG (kn)</label><input id="vg-f" type="number" step="0.1" placeholder="6"></div>
+ <div class="fld"><label>Richtung zum Ziel (°)</label><input id="vg-z" type="number" min="0" max="360" placeholder="10"></div>
+</div>
+<button class="go" onclick="vgCalc()">Berechnen</button>
+<div class="out" id="vg-out"></div>
+<div class="hint">VMG = FüG · cos(Winkel zwischen Kurs und Zielrichtung).</div>
+</div>
+<script>
+function vgCalc(){var k=parseFloat(document.getElementById('vg-k').value),f=parseFloat(document.getElementById('vg-f').value),z=parseFloat(document.getElementById('vg-z').value),o=document.getElementById('vg-out');
+ if([k,f,z].some(isNaN)){o.className='out show';o.innerHTML='Bitte alle Felder ausfüllen.';return;}
+ var d=Math.abs(k-z)%360; if(d>180)d=360-d;
+ var vmg=f*Math.cos(d*Math.PI/180);
+ o.className='out show';o.innerHTML='<div>Winkel Kurs↔Ziel: '+d.toFixed(0)+'°</div><div class="big">VMG ≈ '+vmg.toFixed(1)+' kn</div>';}
+</script></section><section class="card"><h2><span class="n">🎬</span>VMG & Cross Track Error</h2><div style="max-width:320px;margin:6px auto 0;"><svg viewBox="0 0 280 170" style="width:100%;height:auto;" aria-hidden="true">
+<circle cx="40" cy="130" r="4" fill="#13314f"/>
+<line x1="40" y1="130" x2="240" y2="60" stroke="#5d6b78" stroke-width="1.6" stroke-dasharray="5 4"/><text x="150" y="80" font-size="10" fill="#5d6b78">Ideallinie zum Ziel</text>
+<line x1="40" y1="130" x2="170" y2="70" stroke="#1f4b73" stroke-width="2.5"/><text x="90" y="112" font-size="10" fill="#1f4b73">KaK · FüG</text>
+<line x1="170" y1="70" x2="196" y2="123" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="3 3"/>
+<line x1="40" y1="130" x2="196" y2="123" stroke="#1d8a5a" stroke-width="2"/><text x="70" y="145" font-size="10" fill="#1d8a5a">VMG</text>
+</svg></div><p class="figcap"><b>VMG</b> (Velocity Made Good) ist die Geschwindigkeit, mit der man tatsächlich zum Ziel (oder gegen den Wind) vorankommt. GPS zeigt sie live (ändert sich laufend), ein Windmessgerät zeigt nur das Ankommen gegen den Wind (ohne Abdrift). Zeichnerisch: FüG auf den Kartenkurs auftragen und auf die Ziellinie loten. <b>XTE</b> (Cross Track Error) ist die seitliche Abweichung von der gespeicherten Ideallinie (Lot vom Standort auf die Linie), z. B. „0,5 sm Steuerbord“.</p></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <section class="card cta-card"><p class="cta-kicker">Modul 3 geschafft? 🎉</p><h2>Die Theorie sitzt – jetzt ab aufs Wasser.</h2><p>Sailing X verbindet Segeln mit Coaching: 4–7-tägige Törns ab der Marina Kaštela in Kroatien, für Führungskräfte und Teams – auf modernen Yachten, mit zertifizierten Coaches und Zeit für deine Themen.</p><a class="cta-btn" href="https://sailingx.at/#programme" data-top>Sailing X kennenlernen →</a></section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="Stromdreieck.html" data-nav="_Kurs/FB3/Navigation/Stromdreieck.html"><small>← Vorherige Lektion</small><span>3.5 Das Stromdreieck</span></a>
+    <a class="next" href="../Gezeiten/Entstehung-der-Gezeiten.html" data-nav="_Kurs/FB3/Gezeiten/Entstehung-der-Gezeiten.html"><small>Nächstes Modul →</small><span>4.1 Wie Ebbe und Flut entstehen</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · 3.6 VMG &amp; Cross Track Error (XTE)<br><a href="../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../ueben.html" data-top>Üben</a> · <a href="../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Was ist VMG?", "opts": ["Die Fahrt durchs Wasser", "Die Geschwindigkeit zum Ziel hin", "Der Kurs", "Die Tiefe"], "correct": 1, "expl": "Velocity Made Good – die effektive Geschwindigkeit zum Ziel/gegen den Wind."}, {"q": "Wie berechnet man VMG?", "opts": ["FüG × cos(Winkel Kurs↔Ziel)", "FüG × Winkel", "FüG + Winkel", "FüG ÷ Zeit"], "correct": 0, "expl": "VMG = FüG · cos(Winkel zwischen Kurs und Zielrichtung)."}, {"q": "Was zeigt das Windmessgerät bei VMG NICHT?", "opts": ["Die Fahrt", "Die Abdrift", "Den Wind", "Die Zeit"], "correct": 1, "expl": "Die Abdrift wird nicht berücksichtigt."}, {"q": "Was ist der XTE?", "opts": ["Der Kurs", "Die seitliche Abweichung von der Ideallinie", "Die Fahrt", "Die ETA"], "correct": 1, "expl": "Das Lot vom Standort auf die gespeicherte Ideallinie."}, {"q": "Wer zeigt den XTE an?", "opts": ["Der Kompass", "Das GPS", "Das Log", "Das Barometer"], "correct": 1, "expl": "Der XTE wird vom GPS angezeigt."}];
+</script>
+<script src="../../../assets/lektion.js"></script>
+</body>
+</html>

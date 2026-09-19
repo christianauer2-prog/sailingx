@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E.3.2 Windgeschwindigkeit &amp; Beaufort-Skala · SailingX-Academy</title>
+<meta name="description" content="Von der leichten Brise zum Orkan – Wind einschätzen und umrechnen.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB2/E_Wetterkunde/E3_Wind/E3.2_Beaufort.html">
+<link rel="icon" href="../../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../../assets/lektion.css">
+</head>
+<body data-root="../../../../" data-path="_Kurs/FB2/E_Wetterkunde/E3_Wind/E3.2_Beaufort.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Grundstoff · Modul E Wetterkunde · <b>E.3 Wind</b></p>
+  <h1><span class="lnum">E.3.2</span>Windgeschwindigkeit & Beaufort-Skala</h1>
+  <p class="lead">Von der leichten Brise zum Orkan – Wind einschätzen und umrechnen.</p>
+  <div class="badges"><span class="badge">⏱ ca. 7 Min.</span><span class="badge">📘 Lektion 7 von 21</span><span class="badge">🧮 mit Rechner</span><span class="badge">✅ Selbsttest · 5 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Windgeschwindigkeit gibt man in Knoten oder <b>Beaufort</b> an. Die Skala verbindet Windstärke mit einem typischen Seegangsbild.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du kennst die Beaufort-Skala 0–12.</li><li>Du kannst Beaufort und Knoten umrechnen.</li><li>Du kennst die Küsten-Warnsignale.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>Die Skala</h2><div class="step"><div class="ic">🌊</div><div class="tx"><b>0–12</b><br>Von „still“ (0, spiegelglatt) über Brisen (1–5) und starken/steifen/stürmischen Wind (6–8) bis Sturm, orkanartiger Sturm und Orkan (9–12). Nach oben werden die Knoten-Spannen je Stufe größer.</div></div><div class="step"><div class="ic">⚠️</div><div class="tx"><b>Warnsignale</b><br>An manchen Küsten (Nord-/Ostsee) optische Signale: Starkwindwarnung ab 6 Bft, Sturmwarnung 8–9 Bft.</div></div></section><section class="card"><h2><span class="n">2</span>Umrechnung</h2><div class="step"><div class="ic">🧮</div><div class="tx"><b>Faustformeln</b><br>kn ≈ (Bft − 1) × 5 und Bft ≈ kn ÷ 5 + 1. Achtung: nur brauchbar für etwa 2–8 Bft.</div></div><div class="step"><div class="ic">🌊</div><div class="tx"><b>Seegang</b><br>Ab 6 Bft brechende Kämme und flächiger Schaum, ab 8 Bft weht Gischt von den Kämmen, ab 10 Bft rollt die See schwer mit Sichtbehinderung.</div></div></section>
+  <section class="card"><h2><span class="n">🧮</span>Beaufort-Rechner</h2>
+<div class="calc" id="cbf">
+<h3>🧮 Beaufort ↔ Knoten</h3>
+<div class="row">
+ <div class="fld"><label>Beaufort (Bft)</label><input id="cbf-b" type="number" min="0" max="12" placeholder="6" oninput="cbfFromB()"></div>
+ <div class="fld"><label>Knoten (kn, ungefähr)</label><input id="cbf-k" type="number" min="0" placeholder="25" oninput="cbfFromK()"></div>
+</div>
+<div class="hint">kn ≈ (Bft − 1) × 5 · Bft ≈ kn ÷ 5 + 1. Gilt nur näherungsweise für ca. 2–8 Bft!</div>
+</div>
+<script>
+function cbfFromB(){var b=parseFloat(document.getElementById('cbf-b').value);document.getElementById('cbf-k').value=isNaN(b)?'':Math.max(0,(b-1)*5).toFixed(0);}
+function cbfFromK(){var k=parseFloat(document.getElementById('cbf-k').value);document.getElementById('cbf-b').value=isNaN(k)?'':(k/5+1).toFixed(0);}
+</script></section><section class="card"><h2><span class="n">🎬</span>Die Beaufort-Skala</h2><div style="max-width:360px;margin:6px auto 0;"><svg viewBox="0 0 360 130" style="width:100%;height:auto;" aria-hidden="true">
+<g><rect x="10" y="104" width="24" height="6" fill="#2e87c4"/><rect x="37" y="96" width="24" height="14" fill="#2e87c4"/><rect x="64" y="88" width="24" height="22" fill="#2e87c4"/><rect x="91" y="80" width="24" height="30" fill="#2e87c4"/><rect x="118" y="72" width="24" height="38" fill="#2e87c4"/><rect x="145" y="64" width="24" height="46" fill="#2e87c4"/><rect x="172" y="56" width="24" height="54" fill="#e0a800"/><rect x="199" y="48" width="24" height="62" fill="#e0a800"/><rect x="226" y="40" width="24" height="70" fill="#e0a800"/><rect x="253" y="32" width="24" height="78" fill="#c0392b"/><rect x="280" y="24" width="24" height="86" fill="#c0392b"/><rect x="307" y="16" width="24" height="94" fill="#c0392b"/><rect x="334" y="8" width="24" height="102" fill="#c0392b"/></g>
+<g font-size="8.5" fill="#5d6b78" text-anchor="middle"><text x="22" y="124">0</text><text x="49" y="124">1</text><text x="76" y="124">2</text><text x="103" y="124">3</text><text x="130" y="124">4</text><text x="157" y="124">5</text><text x="184" y="124">6</text><text x="211" y="124">7</text><text x="238" y="124">8</text><text x="265" y="124">9</text><text x="292" y="124">10</text><text x="319" y="124">11</text><text x="346" y="124">12</text></g>
+<text x="50" y="20" font-size="10" fill="#2e87c4">0–5 Brisen</text><text x="175" y="20" font-size="10" fill="#e0a800">6–8 Wind/Sturm</text><text x="285" y="20" font-size="10" fill="#c0392b">9–12 Sturm/Orkan</text>
+</svg></div><p class="figcap">Windgeschwindigkeit wird in Knoten oder <b>Beaufort</b> (Bft) angegeben – eine 12-(bzw. 13-)stufige Skala von „still“ (0) bis „Orkan“ (12). Nach oben werden die Knoten-Bandbreiten je Stufe größer. Faustformeln (nur ~2–8 Bft): <b>kn ≈ (Bft − 1) × 5</b> bzw. <b>Bft ≈ kn ÷ 5 + 1</b>. Warnsignale an der Küste: Starkwind ab 6 Bft, Sturm 8–9 Bft.</p></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="E3.1_Wind-Coriolis.html" data-nav="_Kurs/FB2/E_Wetterkunde/E3_Wind/E3.1_Wind-Coriolis.html"><small>← Vorherige Lektion</small><span>E.3.1 Entstehung des Windes &amp; Coriolis-Effekt</span></a>
+    <a class="next" href="../E4_Wind-Drucksysteme/E4_Wind-Drucksysteme.html" data-nav="_Kurs/FB2/E_Wetterkunde/E4_Wind-Drucksysteme/E4_Wind-Drucksysteme.html"><small>Nächste Lektion →</small><span>E.4 Wind- &amp; Drucksysteme</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · E.3.2 Windgeschwindigkeit &amp; Beaufort-Skala<br><a href="../../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../../ueben.html" data-top>Üben</a> · <a href="../../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Wie viele Stufen hat die Beaufort-Skala (mit 0)?", "opts": ["10", "13 (0–12)", "5", "20"], "correct": 1, "expl": "0 bis 12, also 13 Stufen."}, {"q": "Etwa wie viele Knoten sind 6 Bft?", "opts": ["10 kn", "25 kn", "50 kn", "5 kn"], "correct": 1, "expl": "(6−1)×5 = 25 kn."}, {"q": "Ab welcher Stärke gibt es eine Sturmwarnung?", "opts": ["4 Bft", "6 Bft", "8–9 Bft", "2 Bft"], "correct": 2, "expl": "Sturmwarnung bei 8–9 Bft (Starkwind ab 6 Bft)."}, {"q": "Für welchen Bereich gelten die Umrechnungsformeln gut?", "opts": ["0–12 Bft", "ca. 2–8 Bft", "nur 12 Bft", "gar nicht"], "correct": 1, "expl": "Nur näherungsweise für etwa 2–8 Bft."}, {"q": "25 kn sind ungefähr wie viel Bft?", "opts": ["4 Bft", "6 Bft", "9 Bft", "2 Bft"], "correct": 1, "expl": "25÷5+1 = 6 Bft."}];
+</script>
+<script src="../../../../assets/lektion.js"></script>
+</body>
+</html>

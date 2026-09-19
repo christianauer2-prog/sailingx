@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4.5 HW/NW am Anschlussort berechnen · SailingX-Academy</title>
+<meta name="description" content="Zeit- und Höhenausgleich vom Bezugs- zum Anschlussort.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB3/Gezeiten/Berechnung-Anschlussort.html">
+<link rel="icon" href="../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../assets/lektion.css">
+</head>
+<body data-root="../../../" data-path="_Kurs/FB3/Gezeiten/Berechnung-Anschlussort.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Aufbaustoff · <b>Modul 4 Gezeiten</b></p>
+  <h1><span class="lnum">4.5</span>HW/NW am Anschlussort berechnen</h1>
+  <p class="lead">Zeit- und Höhenausgleich vom Bezugs- zum Anschlussort.</p>
+  <div class="badges"><span class="badge">⏱ ca. 10 Min.</span><span class="badge">📘 Lektion 5 von 6</span><span class="badge">✅ Selbsttest · 4 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Für einen <b>Anschlussort</b> rechnet man Zeiten und Höhen des Bezugsorts mit den Gezeitenunterschieden um – per Interpolation.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du kennst den Zeitausgleich.</li><li>Du kennst den Höhenausgleich.</li><li>Du verstehst das Vorgehen am Beispiel.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>Zeitausgleich</h2><div class="step"><div class="ic">🕐</div><div class="tx"><b>Interpolieren</b><br>Die Gezeitenunterschiede gelten für Standardzeiten (z. B. 0100/0800). Für die tatsächliche HW-/NW-Zeit interpoliert man linear zwischen den beiden Nachbarwerten.</div></div><div class="step"><div class="ic">📝</div><div class="tx"><b>Beispiel</b><br>St. Malo (Bezugsort) HW 0628. Unterschied bei 0100 = −17 min, bei 0800 = −22 min → −5 min auf 7 h; für 0528 nach 0100: 0,0119 min/min × 328 ≈ 4 min → Korrektur −0004.</div></div></section><section class="card"><h2><span class="n">2</span>Höhenausgleich</h2><div class="step"><div class="ic">📏</div><div class="tx"><b>Mittelwert</b><br>In der Mittzeit nimmt man den Mittelwert aus Spring- und Nippkorrektur, z. B. (−2,4 + −1,6)/2 = −2,0 m. Perfektionisten korrigieren noch anteilig für den Tag nach der Mitte der Mittzeit.</div></div><div class="step"><div class="ic">🎯</div><div class="tx"><b>Ergebnis</b><br>So erhält man HW-/NW-Zeit und -Höhe am Anschlussort. Danach folgt die Wasserstands-Ermittlung über die Tidenkurve.</div></div></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="Gezeitentafeln-Begriffe.html" data-nav="_Kurs/FB3/Gezeiten/Gezeitentafeln-Begriffe.html"><small>← Vorherige Lektion</small><span>4.4 Gezeitentafeln &amp; Abkürzungen</span></a>
+    <a class="next" href="Tidenkurve-Wasserstand.html" data-nav="_Kurs/FB3/Gezeiten/Tidenkurve-Wasserstand.html"><small>Nächste Lektion →</small><span>4.6 Tidenkurve, Wasserstand &amp; Kartentiefe</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · 4.5 HW/NW am Anschlussort berechnen<br><a href="../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../ueben.html" data-top>Üben</a> · <a href="../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Wie ermittelt man die genaue HW-Zeit am Anschlussort?", "opts": ["Ablesen", "Lineare Interpolation zwischen den Standardwerten", "Raten", "Mit dem Kompass"], "correct": 1, "expl": "Durch Interpolation zwischen den beiden Standard-Zeitkorrekturen."}, {"q": "Was nimmt man in der Mittzeit für den Höhenausgleich?", "opts": ["Nur Spring", "Den Mittelwert aus Spring- und Nippkorrektur", "Nur Nipp", "Null"], "correct": 1, "expl": "Den Mittelwert aus Spring- und Nippwert."}, {"q": "Gelten die Gezeitenunterschiede für jede Uhrzeit?", "opts": ["Ja", "Nein – für Standardzeiten, dazwischen interpolieren", "Nur nachts", "Nur bei Spring"], "correct": 1, "expl": "Sie gelten für Standardzeiten; dazwischen wird interpoliert."}, {"q": "Was ergibt der Zeitausgleich?", "opts": ["Die Höhe", "Die HW-/NW-Zeit am Anschlussort", "Den Strom", "Die Tiefe"], "correct": 1, "expl": "Die korrigierte Eintrittszeit am Anschlussort."}];
+</script>
+<script src="../../../assets/lektion.js"></script>
+</body>
+</html>

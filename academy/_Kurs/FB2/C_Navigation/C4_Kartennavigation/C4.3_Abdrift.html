@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.4.3 Abdrift durch Wind &amp; Strom · SailingX-Academy</title>
+<meta name="description" content="Warum die Jacht nicht genau ihre Kiellinie fährt – und wie man dafür beschickt.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.3_Abdrift.html">
+<link rel="icon" href="../../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../../assets/lektion.css">
+</head>
+<body data-root="../../../../" data-path="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.3_Abdrift.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Grundstoff · Modul C Navigation · <b>C.4 Berechnung &amp; Arbeit in der Karte</b></p>
+  <h1><span class="lnum">C.4.3</span>Abdrift durch Wind & Strom</h1>
+  <p class="lead">Warum die Jacht nicht genau ihre Kiellinie fährt – und wie man dafür beschickt.</p>
+  <div class="badges"><span class="badge">⏱ ca. 8 Min.</span><span class="badge">📘 Lektion 11 von 32</span><span class="badge">🧮 mit Rechner</span><span class="badge">✅ Selbsttest · 5 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Wind und Strom versetzen die Jacht seitlich. Der Kurs durchs Wasser (KdW) weicht daher vom rechtweisenden Kurs ab.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du verstehst die Formel rwK + BW = KdW.</li><li>Du kennst das Vorzeichen der Windbeschickung.</li><li>Du weißt, wovon die Abdrift abhängt und wie Strom angegeben wird.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>Abdrift durch Wind</h2><div class="step"><div class="ic">💨</div><div class="tx"><b>Grundformel</b><br>Auf allen Kursen außer Vor- und tiefem Raumwind wird die Jacht nach Lee versetzt: <b>rwK + BW = KdW</b> (BW = Beschickung für Wind).</div></div><div class="step"><div class="ic">↔️</div><div class="tx"><b>Vorzeichen</b><br>Wind von Backbord versetzt nach Stb (im Uhrzeigersinn) → BW „+“ (KdW größer). Wind von Steuerbord → BW „−“ (KdW kleiner).</div></div><div class="step"><div class="ic">📉</div><div class="tx"><b>Einflüsse</b><br>Mehr Abdrift bei: spitzerem Windeinfall (hoch am Wind), geringer Fahrt, hohem Seegang, kleinem Lateralplan. Man erkennt sie am Winkel zwischen Kielrichtung und Kielwasser.</div></div></section><section class="card"><h2><span class="n">2</span>Abdrift durch Strom</h2><div class="step"><div class="ic">🌊</div><div class="tx"><b>Stromversetzung</b><br>Eine Meeresströmung versetzt das Schiff wie ein Fluss ein treibendes Boot. Der über Grund gefahrene Kurs weicht um die Stromversetzung ab und wird durch eine weitere Beschickung korrigiert.</div></div><div class="step"><div class="ic">🧭</div><div class="tx"><b>Merke</b><br>Strom wird immer nach der Richtung angegeben, <b>in die</b> er setzt (anders als Wind, der aus einer Richtung kommt).</div></div></section>
+  <section class="card"><h2><span class="n">🧮</span>Windbeschickung berechnen</h2>
+<div class="calc" id="cb">
+<h3>🧮 Windbeschickung: rwK + BW = KdW</h3>
+<div class="row">
+ <div class="fld"><label>rechtweisender Kurs rwK (°)</label><input id="cb-r" type="number" min="0" max="360" placeholder="315"></div>
+ <div class="fld"><label>Windeinfall</label><select id="cb-s"><option value="1">von Backbord (Wind links) → +</option><option value="-1">von Steuerbord (Wind rechts) → −</option></select></div>
+ <div class="fld"><label>Beschickung BW (°, Betrag)</label><input id="cb-w" type="number" min="0" placeholder="8"></div>
+</div>
+<button class="go" onclick="cbCalc()">Berechnen</button>
+<div class="out" id="cb-out"></div>
+<div class="hint">Wind von Backbord versetzt nach Stb (im Uhrzeigersinn) → BW „+“. Wind von Stb → BW „−“.</div>
+</div>
+<script>
+function cbN(x){x=x%360;if(x<0)x+=360;return x;}
+function cbCalc(){var r=parseFloat(document.getElementById('cb-r').value),s=parseFloat(document.getElementById('cb-s').value),w=Math.abs(parseFloat(document.getElementById('cb-w').value)||0),o=document.getElementById('cb-out');
+ if(isNaN(r)){o.className='out show';o.innerHTML='Bitte den rwK eingeben.';return;}
+ var bw=s*w,kdw=cbN(r+bw);
+ o.className='out show';o.innerHTML='<div>rwK &nbsp;'+r.toFixed(0).padStart(3,'0')+'°</div><div>BW &nbsp;&nbsp;'+(bw>=0?'+':'−')+' '+Math.abs(bw)+'°</div><div class="big">KdW = '+kdw.toFixed(0).padStart(3,'0')+'°</div>';}
+</script></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="C4.2_Kurse.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.2_Kurse.html"><small>← Vorherige Lektion</small><span>C.4.2 Kurse: Kompasskurs ↔ rechtweisender Kurs</span></a>
+    <a class="next" href="C4.4_Besteckversetzung.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.4_Besteckversetzung.html"><small>Nächste Lektion →</small><span>C.4.4 Besteckversetzung</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · C.4.3 Abdrift durch Wind &amp; Strom<br><a href="../../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../../ueben.html" data-top>Üben</a> · <a href="../../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Wie lautet die Windformel?", "opts": ["rwK − BW = KdW", "rwK + BW = KdW", "KdW + BW = rwK", "BW = rwK · KdW"], "correct": 1, "expl": "rwK + BW = KdW."}, {"q": "Wind kommt von Backbord. Welches Vorzeichen hat die BW?", "opts": ["Plus (+)", "Minus (−)", "Kein", "Immer 0"], "correct": 0, "expl": "Wind von Bb versetzt nach Stb (im Uhrzeigersinn) → BW „+“."}, {"q": "Wann ist die Windabdrift am größten?", "opts": ["Bei hoher Fahrt", "Bei geringer Fahrt und hohem Seegang", "Vor dem Wind", "Bei großem Lateralplan"], "correct": 1, "expl": "Je geringer die Fahrt und je höher der Seegang, desto mehr Abdrift."}, {"q": "Wie wird Strom angegeben?", "opts": ["Nach der Richtung, aus der er kommt", "Nach der Richtung, in die er setzt", "Immer nach Norden", "Gar nicht"], "correct": 1, "expl": "Strom wird nach der Richtung angegeben, in die er setzt."}, {"q": "Woran erkennt man die Abdrift an Bord?", "opts": ["Am Kompass", "Am Winkel zwischen Kielrichtung und Kielwasser", "Am Echolot", "Am Log"], "correct": 1, "expl": "Am Winkel zwischen Kielrichtung und dem Kielwasser (Sog)."}];
+</script>
+<script src="../../../../assets/lektion.js"></script>
+</body>
+</html>

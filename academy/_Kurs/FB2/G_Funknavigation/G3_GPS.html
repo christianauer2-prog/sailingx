@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G.3 GPS · SailingX-Academy</title>
+<meta name="description" content="Satellitennavigation – Prinzip, Genauigkeit und das WGS-84-Bezugssystem.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB2/G_Funknavigation/G3_GPS.html">
+<link rel="icon" href="../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../assets/lektion.css">
+</head>
+<body data-root="../../../" data-path="_Kurs/FB2/G_Funknavigation/G3_GPS.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Grundstoff · <b>Modul G Funknavigation</b></p>
+  <h1><span class="lnum">G.3</span>GPS</h1>
+  <p class="lead">Satellitennavigation – Prinzip, Genauigkeit und das WGS-84-Bezugssystem.</p>
+  <div class="badges"><span class="badge">⏱ ca. 8 Min.</span><span class="badge">📘 Lektion 6 von 8</span><span class="badge">✅ Selbsttest · 5 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Das <b>GPS</b> ist das Navigationssystem schlechthin – weltweit und jederzeit verfügbar.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du kennst die Generationen der Funknavigation.</li><li>Du verstehst das GPS-Prinzip.</li><li>Du kennst WGS 84 und map datum.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>Prinzip</h2><div class="step"><div class="ic">🛰️</div><div class="tx"><b>Satelliten</b><br>24 Satelliten in ~20.000 km Höhe senden Zeitsignale; aus den Laufzeiten errechnet der Empfänger kreisförmige Standlinien, deren Schnitt die Position ist. 3 Satelliten für die Position, 4 mit Höhe – weltweit, jederzeit.</div></div><div class="step"><div class="ic">📜</div><div class="tx"><b>Generationen</b><br>GPS ist die „dritte Generation“ nach Funkpeilverfahren (1. Gen.) und Hyperbelverfahren wie DECCA/LORAN C (2. Gen.).</div></div></section><section class="card"><h2><span class="n">2</span>Genauigkeit & Bezug</h2><div class="step"><div class="ic">🎯</div><div class="tx"><b>Genauigkeit</b><br>Sehr genau (die zivile Version früher auf ~100–200 m künstlich verschlechtert; Differential-GPS korrigiert das). Liefert Position, Kurs über Grund, Fahrt über Grund und meist eine MOB-Taste.</div></div><div class="step"><div class="ic">🗺️</div><div class="tx"><b>WGS 84</b><br>GPS basiert auf WGS 84. Weicht das map datum der Karte ab, ist zu korrigieren (nicht mit „chart datum“ der Tiefenangaben verwechseln).</div></div></section>
+  <section class="card"><h2><span class="n">🎬</span>GPS – Position aus Satelliten</h2><div style="max-width:300px;margin:6px auto 0;"><svg viewBox="0 0 260 180" style="width:100%;height:auto;" aria-hidden="true">
+<g fill="#2e87c4"><rect x="40" y="20" width="16" height="10" rx="2"/><rect x="130" y="12" width="16" height="10" rx="2"/><rect x="210" y="26" width="16" height="10" rx="2"/></g>
+<path d="M48,30 L120,150" stroke="#85b7eb" stroke-width="1.2" stroke-dasharray="4 3"/><path d="M138,22 L120,150" stroke="#85b7eb" stroke-width="1.2" stroke-dasharray="4 3"/><path d="M218,36 L120,150" stroke="#85b7eb" stroke-width="1.2" stroke-dasharray="4 3"/>
+<path d="M100,150 l14,0 l-3,-14 l-8,0 z" fill="#13314f"/>
+<text x="70" y="175" font-size="10" fill="#5d6b78">3 Satelliten → Position (4 mit Höhe)</text>
+</svg></div><p class="figcap"><b>GPS</b> (Global Positioning System) ist das Funknavigationssystem der „dritten Generation“ (nach Funkpeil- und Hyperbelverfahren wie DECCA/LORAN C). 24 Satelliten in ~20.000 km Höhe senden Zeitsignale; aus der Laufzeit errechnet der Empfänger kreisförmige Standlinien, deren Schnitt die Position ist – weltweit, jederzeit (3 Satelliten für die Position, 4 mit Höhe). Es liefert Position, Kurs über Grund, Fahrt über Grund und hat meist eine <b>MOB-Taste</b>. Wichtig: GPS basiert auf <b>WGS 84</b>; weicht das <b>map datum</b> der Karte ab, ist zu korrigieren (nicht mit „chart datum“ der Tiefen verwechseln).</p></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="G2_Radar.html" data-nav="_Kurs/FB2/G_Funknavigation/G2_Radar.html"><small>← Vorherige Lektion</small><span>G.2 Radar</span></a>
+    <a class="next" href="G4_Wegpunktnavigation.html" data-nav="_Kurs/FB2/G_Funknavigation/G4_Wegpunktnavigation.html"><small>Nächste Lektion →</small><span>G.4 Wegpunktnavigation</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · G.3 GPS<br><a href="../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../ueben.html" data-top>Üben</a> · <a href="../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Wie viele Satelliten braucht man für eine Position ohne Höhe?", "opts": ["1", "2", "3", "10"], "correct": 2, "expl": "Drei Satelliten (vier mit Höhenangabe)."}, {"q": "Zu welcher „Generation“ zählt GPS?", "opts": ["Erste", "Zweite", "Dritte", "Vierte"], "correct": 2, "expl": "Dritte Generation (nach Funkpeil- und Hyperbelverfahren)."}, {"q": "Worauf basiert das GPS?", "opts": ["Auf chart datum", "Auf WGS 84", "Auf DECCA", "Auf dem Kompass"], "correct": 1, "expl": "Auf dem World Geodetic System WGS 84."}, {"q": "Was liefert ein modernes GPS NICHT?", "opts": ["Position", "Kurs über Grund", "Fahrt über Grund", "Die Wassertiefe"], "correct": 3, "expl": "Tiefe misst das Lot; GPS liefert Position, KüG und FüG."}, {"q": "Womit korrigiert man die künstliche Ungenauigkeit?", "opts": ["Mit dem Kompass", "Mit Differential-GPS", "Mit Radar", "Mit dem Log"], "correct": 1, "expl": "Differential-GPS über eine landfeste Referenzstation."}];
+</script>
+<script src="../../../assets/lektion.js"></script>
+</body>
+</html>

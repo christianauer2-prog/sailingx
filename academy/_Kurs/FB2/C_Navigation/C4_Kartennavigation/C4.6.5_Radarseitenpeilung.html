@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.4.6.5 Radarseitenpeilung (RASP) · SailingX-Academy</title>
+<meta name="description" content="Seitenwinkel messen und mit rwK + SP = rwP zur Standlinie machen.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.6.5_Radarseitenpeilung.html">
+<link rel="icon" href="../../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../../assets/lektion.css">
+</head>
+<body data-root="../../../../" data-path="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.6.5_Radarseitenpeilung.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Grundstoff · Modul C Navigation · C.4 Berechnung &amp; Arbeit in der Karte · <b>C.4.6 Peilungen</b></p>
+  <h1><span class="lnum">C.4.6.5</span>Radarseitenpeilung (RASP)</h1>
+  <p class="lead">Seitenwinkel messen und mit rwK + SP = rwP zur Standlinie machen.</p>
+  <div class="badges"><span class="badge">⏱ ca. 7 Min.</span><span class="badge">📘 Lektion 18 von 32</span><span class="badge">🧮 mit Rechner</span><span class="badge">✅ Selbsttest · 4 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Mit dem Radar (oder einer Seitenpeilscheibe) misst man den Winkel zwischen Kiellinie und Objekt – die <b>Seitenpeilung (SP)</b>.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du verstehst die Seitenpeilung und ihre Zählung.</li><li>Du beherrschst rwK + SP = rwP.</li><li>Du kennst die Deviationskontrolle per RASP.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>Seitenpeilung</h2><div class="step"><div class="ic">📡</div><div class="tx"><b>Zählung</b><br>Der Winkel wird von der Kiellinie (= rwK) im Uhrzeigersinn gemessen: voraus 0°, Stb querab 090°, achteraus 180°, Bb querab 270°.</div></div><div class="step"><div class="ic">🧮</div><div class="tx"><b>Umrechnung</b><br>rwK + SP = rwP. Kommt mehr als 360° heraus, einfach 360° abziehen. Beispiel: rwK 320° + SP 310° = 630° − 360° = rwP 270°.</div></div></section><section class="card"><h2><span class="n">2</span>Deviationskontrolle</h2><div class="step"><div class="ic">🔍</div><div class="tx"><b>Auch hier</b><br>Radar-Seitenpeilungen kann man wie Steuerkompass-Peilungen zur Deviationskontrolle heranziehen (Rechenturm über mwP und Mw).</div></div></section>
+  <section class="card"><h2><span class="n">🧮</span>RASP-Rechner</h2>
+<div class="calc" id="cr">
+<h3>🧮 Radarseitenpeilung: rwK + SP = rwP</h3>
+<div class="row">
+ <div class="fld"><label>rechtweisender Kurs rwK (°)</label><input id="cr-k" type="number" min="0" max="360" placeholder="320"></div>
+ <div class="fld"><label>Seitenpeilung SP (°, im Uhrzeigersinn)</label><input id="cr-s" type="number" min="0" max="360" placeholder="310"></div>
+</div>
+<button class="go" onclick="crCalc()">Berechnen</button>
+<div class="out" id="cr-out"></div>
+<div class="hint">SP: voraus 0°, Stb querab 090°, achteraus 180°, Bb querab 270°.</div>
+</div>
+<script>
+function crCalc(){var k=parseFloat(document.getElementById('cr-k').value),s=parseFloat(document.getElementById('cr-s').value),o=document.getElementById('cr-out');
+ if(isNaN(k)||isNaN(s)){o.className='out show';o.innerHTML='Bitte rwK und SP eingeben.';return;}
+ var sum=k+s,rwP=sum;if(rwP>=360)rwP-=360;
+ o.className='out show';o.innerHTML='<div>rwK &nbsp;'+k.toFixed(0).padStart(3,'0')+'° + SP '+s.toFixed(0).padStart(3,'0')+'° = '+sum.toFixed(0)+'°'+(sum>=360?' − 360':'')+'</div><div class="big">rwP = '+rwP.toFixed(0).padStart(3,'0')+'°</div>';}
+</script></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="C4.6.4_Steuerkompass.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.6.4_Steuerkompass.html"><small>← Vorherige Lektion</small><span>C.4.6.4 Peilung mittels Steuerkompass &amp; Deviationskontrolle</span></a>
+    <a class="next" href="C4.6.6_Einfache-Bordmittel.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.6.6_Einfache-Bordmittel.html"><small>Nächste Lektion →</small><span>C.4.6.6 Seitenpeilung mit einfachen Bordmitteln</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · C.4.6.5 Radarseitenpeilung (RASP)<br><a href="../../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../../ueben.html" data-top>Üben</a> · <a href="../../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Welche SP hat ein Objekt Stb querab?", "opts": ["000°", "090°", "180°", "270°"], "correct": 1, "expl": "Steuerbord querab = 090°."}, {"q": "Wie lautet die Umrechnung?", "opts": ["rwK − SP = rwP", "rwK + SP = rwP", "SP − rwK = rwP", "rwP = rwK"], "correct": 1, "expl": "rwK + SP = rwP (bei über 360° minus 360)."}, {"q": "rwK 320°, SP 310°. Wie groß ist rwP?", "opts": ["630°", "270°", "250°", "010°"], "correct": 1, "expl": "320+310=630, −360 = 270°."}, {"q": "Welche SP hat ein Objekt recht voraus?", "opts": ["000°", "090°", "180°", "270°"], "correct": 0, "expl": "Recht voraus = 0°."}];
+</script>
+<script src="../../../../assets/lektion.js"></script>
+</body>
+</html>

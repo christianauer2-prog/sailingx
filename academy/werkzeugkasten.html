@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Werkzeugkasten · SailingX-Academy</title>
+<meta name="description" content="Alle Rechner der SailingX-Academy auf einen Blick: Kursrechnung, Stromdreieck, Gezeiten, Beaufort und mehr.">
+<link rel="canonical" href="https://sailingx.at/academy/werkzeugkasten.html">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/ueben.css">
+</head>
+<body>
+<header class="topbar"><div class="topbar-in">
+  <a class="brand" href="index.html"><img src="assets/logo.svg" alt="SailingX" width="160" height="87"><span>Academy</span></a>
+  <nav class="topnav"><a href="../">Sailing X</a><a href="kursuebersicht.html">Kursübersicht</a><a href="ueben.html">Üben</a><a href="werkzeugkasten.html" aria-current="page">Werkzeugkasten</a><a class="cta" href="kurs.html">Zum Kurs →</a></nav>
+</div></header>
+<section class="pagehead"><div class="wrap"><h1>Werkzeugkasten</h1><p>Alle Rechner aus dem Kurs an einem Ort – zum Üben, zur Törnplanung und an Bord. Tippe auf einen Rechner, um ihn zu öffnen.</p></div></section>
+<main class="wrap page">
+  <div id="tools"><p>Die Rechner werden geladen … <a href="kursuebersicht.html">Zur Kursübersicht</a></p></div>
+  <p class="legend" style="max-width:780px;margin-top:28px">Hinweis: Die Rechner dienen dem Lernen und der Kontrolle. Sie ersetzen weder amtliche Seekarten und Gezeitentafeln noch die sorgfältige Navigation an Bord.</p>
+</main>
+<footer class="sitefoot"><div class="foot-in">
+  <div><img src="assets/logo-negativ.svg" alt="SailingX" width="120" height="65"><b>SailingX-Academy</b> · der Online-Segelkurs von <a href="../">Sailing X</a></div>
+  <div><a href="kursuebersicht.html">Kursübersicht</a> · <a href="ueben.html">Üben</a> · <a href="werkzeugkasten.html">Werkzeugkasten</a> · <a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a></div>
+</div></footer>
+<script src="assets/kursdaten.js"></script>
+<script>
+(function(){
+  var data = window.KURSDATEN || [], box = document.getElementById('tools'), frame = null, openBtn = null, holder = null;
+  function el(t, c, x){ var e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; }
+  var byPath = {};
+  box.innerHTML = '';
+  data.forEach(function(lv){ lv.modules.forEach(function(m){
+    var tools = m.lessons.filter(function(l){ return l.tools && l.tools.length; });
+    if (!tools.length) return;
+    box.appendChild(el('h2', 'grp', (lv.key === 'FB2' ? 'Modul ' : 'FB3 · Modul ') + m.num + ' · ' + m.name));
+    var g = el('div', 'tool-grid'); box.appendChild(g);
+    tools.forEach(function(l){
+      l.tools.forEach(function(t){
+        var b = el('button', 'tool'); b.type = 'button'; b.setAttribute('aria-expanded', 'false'); b.id = 'w-' + l.id;
+        b.appendChild(el('span', 'ti', '🧮'));
+        var tx = el('span'); tx.appendChild(el('b', null, t)); tx.appendChild(el('small', null, 'aus ' + l.num + ' ' + l.title)); b.appendChild(tx);
+        b.onclick = function(){ toggle(b, l, t); };
+        g.appendChild(b); byPath[l.path] = { b: b, l: l, t: t };
+      });
+    });
+  }); });
+  function toggle(b, l, t){
+    if (holder) { holder.parentNode.removeChild(holder); if (openBtn) openBtn.setAttribute('aria-expanded', 'false'); }
+    if (openBtn === b) { openBtn = null; holder = null; history.replaceState(null, '', location.pathname); return; }
+    openBtn = b; b.setAttribute('aria-expanded', 'true');
+    holder = el('div', 'tool-open');
+    var th = el('div', 'th'); th.appendChild(el('b', null, '🧮 ' + t));
+    var a = el('a', null, 'Zur Lektion ' + l.num + ' →'); a.href = 'kurs.html#' + encodeURIComponent(l.path); th.appendChild(a);
+    holder.appendChild(th);
+    frame = el('iframe'); frame.title = t; frame.src = l.path + '?rechner=1'; frame.setAttribute('data-path', l.path);
+    holder.appendChild(frame);
+    // unter der Zeile der Karte einfügen: nach der letzten Karte derselben Reihe
+    var grid = b.parentNode, cards = Array.prototype.slice.call(grid.children).filter(function(c){ return c.classList.contains('tool'); });
+    var top = b.offsetTop, last = b;
+    cards.forEach(function(c){ if (c.offsetTop === top) last = c; });
+    grid.insertBefore(holder, last.nextSibling);
+    history.replaceState(null, '', '#' + encodeURIComponent(l.path));
+    setTimeout(function(){ holder.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 60);
+  }
+  window.addEventListener('message', function(ev){
+    if (!frame || ev.source !== frame.contentWindow) return;
+    if (ev.data && ev.data.type === 'sx-height' && ev.data.h) frame.style.height = (ev.data.h + 4) + 'px';
+  });
+  var h = decodeURIComponent(location.hash.slice(1));
+  if (byPath[h]) toggle(byPath[h].b, byPath[h].l, byPath[h].t);
+})();
+</script>
+</body>
+</html>

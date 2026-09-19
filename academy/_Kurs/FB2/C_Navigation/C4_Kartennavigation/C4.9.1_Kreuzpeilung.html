@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.4.9.1 Kreuzpeilung · SailingX-Academy</title>
+<meta name="description" content="Zwei Peilstandlinien zum Schnitt bringen – der klassische Standort.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.9.1_Kreuzpeilung.html">
+<link rel="icon" href="../../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../../assets/lektion.css">
+</head>
+<body data-root="../../../../" data-path="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.9.1_Kreuzpeilung.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Grundstoff · Modul C Navigation · C.4 Berechnung &amp; Arbeit in der Karte · <b>C.4.9 Ortsbestimmung</b></p>
+  <h1><span class="lnum">C.4.9.1</span>Kreuzpeilung</h1>
+  <p class="lead">Zwei Peilstandlinien zum Schnitt bringen – der klassische Standort.</p>
+  <div class="badges"><span class="badge">⏱ ca. 8 Min.</span><span class="badge">📘 Lektion 22 von 32</span><span class="badge">🧮 mit Rechner</span><span class="badge">✅ Selbsttest · 4 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Der Standort ist immer der <b>Schnittpunkt</b> zweier Standlinien. Bei der Kreuzpeilung sind das zwei Peilungen.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du kennst das Grundprinzip des Schnittpunkts.</li><li>Du weißt, worauf es bei der Reihenfolge ankommt.</li><li>Du verstehst das Fehlerdreieck.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>Durchführung</h2><div class="step"><div class="ic">🎯</div><div class="tx"><b>Schnittpunkt</b><br>Zwei Peilstandlinien kreuzen sich im Standort. Der Schnittwinkel soll nahe 90° liegen (keine „schleifenden Schnitte“, bei denen kleine Fehler stark wirken).</div></div><div class="step"><div class="ic">⏱️</div><div class="tx"><b>Reihenfolge</b><br>Peilungen gleichzeitig oder unmittelbar nacheinander. Nahe Objekte sind genauer. Das querab liegende Objekt (wandert rascher aus) zuletzt peilen.</div></div><div class="step"><div class="ic">🔺</div><div class="tx"><b>Fehlerdreieck</b><br>Drei Objekte sind sicherer – die Standlinien bilden meist ein „Fehlerdreieck“. Ist es groß, Peilungen wiederholen; im Zweifel den ungünstigsten Punkt (z. B. nächste Untiefe) annehmen.</div></div></section>
+  <section class="card"><h2><span class="n">🧮</span>Kreuzpeilungs-Rechner</h2>
+<div class="calc" id="cx">
+<h3>🧮 Kreuzpeilung – Standort berechnen</h3>
+<p style="font-size:13px;color:#a9c4dc;margin:0 0 10px;">Gib für zwei Objekte die Kartenposition (Ost/Nord in sm, z. B. relativ zu einem Bezugspunkt) und die rechtweisende Peilung (rwP, Schiff → Objekt) ein.</p>
+<div class="row">
+ <div class="fld"><label>Objekt A – Ost (sm)</label><input id="cx-ax" type="number" placeholder="0"></div>
+ <div class="fld"><label>Objekt A – Nord (sm)</label><input id="cx-ay" type="number" placeholder="5"></div>
+ <div class="fld"><label>rwP zu A (°)</label><input id="cx-ab" type="number" min="0" max="360" placeholder="045"></div>
+</div>
+<div class="row" style="margin-top:8px;">
+ <div class="fld"><label>Objekt B – Ost (sm)</label><input id="cx-bx" type="number" placeholder="6"></div>
+ <div class="fld"><label>Objekt B – Nord (sm)</label><input id="cx-by" type="number" placeholder="4"></div>
+ <div class="fld"><label>rwP zu B (°)</label><input id="cx-bb" type="number" min="0" max="360" placeholder="315"></div>
+</div>
+<button class="go" onclick="cxCalc()">Standort berechnen</button>
+<div class="out" id="cx-out"></div>
+<div class="hint">Ost/Nord frei wählbarer Bezugspunkt (0/0). Schnittwinkel nahe 90° = gutes Ergebnis.</div>
+</div>
+<script>
+function cxCalc(){var ax=parseFloat(document.getElementById('cx-ax').value),ay=parseFloat(document.getElementById('cx-ay').value),ab=parseFloat(document.getElementById('cx-ab').value),
+ bx=parseFloat(document.getElementById('cx-bx').value),by=parseFloat(document.getElementById('cx-by').value),bb=parseFloat(document.getElementById('cx-bb').value),out=document.getElementById('cx-out');
+ if([ax,ay,ab,bx,by,bb].some(isNaN)){out.className='out show';out.innerHTML='Bitte alle sechs Felder ausfüllen.';return;}
+ function rad(d){return d*Math.PI/180;}
+ // Richtung Objekt -> Schiff = rwP + 180
+ var da=rad(ab+180),db=rad(bb+180);
+ var uax=Math.sin(da),uay=Math.cos(da),ubx=Math.sin(db),uby=Math.cos(db);
+ var det=uax*(-uby)-(-ubx)*uay;
+ if(Math.abs(det)<1e-9){out.className='out show';out.innerHTML='Standlinien sind (fast) parallel – schleifender Schnitt, kein sicherer Ort.';return;}
+ var t=((bx-ax)*(-uby)-(-ubx)*(by-ay))/det;
+ var sx=ax+t*uax, sy=ay+t*uay;
+ // Schnittwinkel
+ var ang=Math.abs(((ab-bb)%180+180)%180); if(ang>90)ang=180-ang;
+ out.className='out show';out.innerHTML='<div class="big">Standort ≈ Ost '+sx.toFixed(2)+' / Nord '+sy.toFixed(2)+' sm</div><div>Schnittwinkel ≈ '+ang.toFixed(0)+'°'+(ang<30?' ⚠️ schleifender Schnitt':'')+'</div>';}
+</script></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="C4.8_Tiefenlinien.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.8_Tiefenlinien.html"><small>← Vorherige Lektion</small><span>C.4.8 Sonstige Standlinien: Tiefenlinien</span></a>
+    <a class="next" href="C4.9.2_Doppelpeilung.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.9.2_Doppelpeilung.html"><small>Nächste Lektion →</small><span>C.4.9.2 Doppelpeilung (Versegelungspeilung)</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · C.4.9.1 Kreuzpeilung<br><a href="../../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../../ueben.html" data-top>Üben</a> · <a href="../../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Wie ergibt sich der Standort?", "opts": ["Aus einer Peilung", "Als Schnittpunkt zweier Standlinien", "Aus der Tiefe", "Aus dem Kurs"], "correct": 1, "expl": "Immer als Schnittpunkt zweier Standlinien."}, {"q": "Welcher Schnittwinkel ist ideal?", "opts": ["Nahe 0°", "Nahe 90°", "Nahe 180°", "Egal"], "correct": 1, "expl": "Nahe 90°, um schleifende Schnitte zu vermeiden."}, {"q": "Welches Objekt peilt man zuletzt?", "opts": ["Das entfernteste", "Das querab liegende (wandert rascher aus)", "Das vorlichste", "Egal"], "correct": 1, "expl": "Das querab liegende Objekt zuletzt, weil es rascher auswandert."}, {"q": "Was ist das Fehlerdreieck?", "opts": ["Ein Kartenzeichen", "Das Dreieck aus drei nicht exakt schneidenden Standlinien", "Eine Untiefe", "Ein Kompassfehler"], "correct": 1, "expl": "Bei drei Peilungen bilden die Linien meist ein kleines Dreieck."}];
+</script>
+<script src="../../../../assets/lektion.js"></script>
+</body>
+</html>

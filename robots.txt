@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sailingx.at/academy/sitemap.xml

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.4.9.3 Vierstrichpeilung · SailingX-Academy</title>
+<meta name="description" content="Der elegante Sonderfall: versegelte Strecke = Abstand zum Objekt.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.9.3_Vierstrichpeilung.html">
+<link rel="icon" href="../../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../../assets/lektion.css">
+</head>
+<body data-root="../../../../" data-path="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.9.3_Vierstrichpeilung.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Grundstoff · Modul C Navigation · C.4 Berechnung &amp; Arbeit in der Karte · <b>C.4.9 Ortsbestimmung</b></p>
+  <h1><span class="lnum">C.4.9.3</span>Vierstrichpeilung</h1>
+  <p class="lead">Der elegante Sonderfall: versegelte Strecke = Abstand zum Objekt.</p>
+  <div class="badges"><span class="badge">⏱ ca. 6 Min.</span><span class="badge">📘 Lektion 24 von 32</span><span class="badge">✅ Selbsttest · 4 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Die <b>Vierstrichpeilung</b> ist ein Sonderfall der Doppelpeilung mit einem hübschen geometrischen Trick.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du verstehst das 45°/90°-Prinzip.</li><li>Du weißt, warum Strecke = Abstand gilt.</li><li>Du kennst die RASP-Berichtigung bei Abdrift.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>Das Prinzip</h2><div class="step"><div class="ic">📐</div><div class="tx"><b>45° dann 90°</b><br>Erste Peilung: Objekt genau 45° (vier Strich) zum Kurs. Zweite Peilung: genau 90° (querab).</div></div><div class="step"><div class="ic">📏</div><div class="tx"><b>Strecke = Abstand</b><br>Dann liegt ein rechtwinklig-gleichschenkliges Dreieck vor: Die versegelte Strecke ist gleich dem Abstand zum Objekt bei der zweiten (Querab-)Peilung.</div></div></section><section class="card"><h2><span class="n">2</span>Bei RASP</h2><div class="step"><div class="ic">🧭</div><div class="tx"><b>Berichtigen</b><br>Werden die Winkel als RASP (zum rwK) gemessen und weicht der rwK durch Abdrift vom Kartenkurs ab, sind die Peilwinkel entsprechend zu berichtigen (z. B. rwK 260°, KaK 275° → statt 45°/90° die Winkel 60°/105° nach Stb).</div></div></section>
+  <section class="card"><h2><span class="n">🎬</span>Vierstrichpeilung: 45° dann 90°</h2><div style="max-width:300px;margin:6px auto 0;"><svg viewBox="0 0 260 190" style="width:100%;height:auto;" aria-hidden="true">
+<circle cx="210" cy="60" r="6" fill="#13314f"/><text x="180" y="52" font-size="10" fill="#13314f">Objekt</text>
+<line x1="60" y1="40" x2="60" y2="175" stroke="#5d6b78" stroke-width="1.4" stroke-dasharray="4 3"/><text x="30" y="120" font-size="10" fill="#5d6b78">Kurs</text>
+<line x1="60" y1="60" x2="210" y2="60" stroke="#2e87c4" stroke-width="1.6"/><text x="120" y="52" font-size="10" fill="#2e87c4">90°</text>
+<line x1="60" y1="150" x2="210" y2="60" stroke="#1d8a5a" stroke-width="1.6"/><text x="95" y="120" font-size="10" fill="#1d8a5a">45°</text>
+<path d="M60,150 L60,60 L210,60" fill="none" stroke="#c0392b" stroke-width="1" opacity="0.5"/>
+<text x="8" y="105" font-size="10" fill="#c0392b">= Abstand</text>
+</svg></div><p class="figcap">Die <b>Vierstrichpeilung</b> ist ein Sonderfall: Peilt man das Objekt zuerst unter 45° (vier Strich) zum Kurs und dann unter 90° (querab), so ist die zwischen beiden Peilungen versegelte <b>Strecke gleich dem Abstand</b> zum Objekt bei der zweiten Peilung (gleichschenklig-rechtwinkliges Dreieck). Bei RASP: stimmt rwK nicht mit dem Kartenkurs überein (Abdrift), sind die Peilwinkel entsprechend zu berichtigen.</p></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="C4.9.2_Doppelpeilung.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.9.2_Doppelpeilung.html"><small>← Vorherige Lektion</small><span>C.4.9.2 Doppelpeilung (Versegelungspeilung)</span></a>
+    <a class="next" href="../C5_Betonnung/C5.1_Seezeichen-Arten.html" data-nav="_Kurs/FB2/C_Navigation/C5_Betonnung/C5.1_Seezeichen-Arten.html"><small>Nächste Lektion →</small><span>C.5.1 Arten von Seezeichen</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · C.4.9.3 Vierstrichpeilung<br><a href="../../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../../ueben.html" data-top>Üben</a> · <a href="../../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Unter welchen Winkeln peilt man bei der Vierstrichpeilung?", "opts": ["30° und 60°", "45° und 90°", "45° und 135°", "60° und 90°"], "correct": 1, "expl": "Zuerst 45° (vier Strich), dann 90° (querab)."}, {"q": "Was gilt bei der zweiten Peilung?", "opts": ["Strecke = doppelter Abstand", "Versegelte Strecke = Abstand zum Objekt", "Strecke = halber Abstand", "Kein Zusammenhang"], "correct": 1, "expl": "Rechtwinklig-gleichschenkliges Dreieck: Strecke = Abstand."}, {"q": "Wovon ist die Vierstrichpeilung ein Sonderfall?", "opts": ["Der Kreuzpeilung", "Der Doppelpeilung", "Der Deckpeilung", "Der Kimmpeilung"], "correct": 1, "expl": "Ein Sonderfall der Doppelpeilung."}, {"q": "Warum muss man bei RASP ggf. berichtigen?", "opts": ["Wegen der Gezeiten", "Weil rwK durch Abdrift vom Kartenkurs abweichen kann", "Wegen der Missweisung", "Wegen des Logs"], "correct": 1, "expl": "RASP misst zum rwK; weicht dieser vom Kartenkurs ab, sind die Winkel zu berichtigen."}];
+</script>
+<script src="../../../../assets/lektion.js"></script>
+</body>
+</html>

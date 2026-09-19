@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4.6 Tidenkurve, Wasserstand &amp; Kartentiefe · SailingX-Academy</title>
+<meta name="description" content="Den Wasserstand zu jeder Zeit ablesen – und die Kartentiefe prüfen.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB3/Gezeiten/Tidenkurve-Wasserstand.html">
+<link rel="icon" href="../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../assets/lektion.css">
+</head>
+<body data-root="../../../" data-path="_Kurs/FB3/Gezeiten/Tidenkurve-Wasserstand.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Aufbaustoff · <b>Modul 4 Gezeiten</b></p>
+  <h1><span class="lnum">4.6</span>Tidenkurve, Wasserstand & Kartentiefe</h1>
+  <p class="lead">Den Wasserstand zu jeder Zeit ablesen – und die Kartentiefe prüfen.</p>
+  <div class="badges"><span class="badge">⏱ ca. 9 Min.</span><span class="badge">📘 Lektion 6 von 6</span><span class="badge">🧮 mit Rechner</span><span class="badge">✅ Selbsttest · 5 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Mit der <b>Tidenkurve</b> und einem Faktor berechnet man den Wasserstand zu jeder Zeit – die Kernaufgabe der Törnpraxis.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du liest den Faktor aus der Tidenkurve.</li><li>Du berechnest die Gezeitenhöhe.</li><li>Du bestimmst Wassertiefe und Kartentiefe.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>Faktor & Höhe</h2><div class="step"><div class="ic">📈</div><div class="tx"><b>Faktor</b><br>Vom Zeitabstand zur Hochwasserzeit auf der x-Achse hoch zur Spring-/Nippkurve, dann nach links den Faktor (0–1) ablesen.</div></div><div class="step"><div class="ic">🧮</div><div class="tx"><b>Höhe der Gezeit</b><br>Höhe der Gezeit = Faktor × Tidenfall. Beispiel: 0,8 × 8,52 m = 6,82 m (so viel fällt es noch).</div></div></section><section class="card"><h2><span class="n">2</span>Wassertiefe & Kartentiefe</h2><div class="step"><div class="ic">🌊</div><div class="tx"><b>Wassertiefe</b><br>Wassertiefe bei NW = gelotete Tiefe − Höhe der Gezeit. Beispiel: 10,0 − 6,82 = 3,18 m.</div></div><div class="step"><div class="ic">📐</div><div class="tx"><b>Kartentiefe</b><br>Kartentiefe = Wassertiefe − NW-Höhe über Kartennull. Beispiel: 3,18 − 1,17 = 2,01 m (Sollwert der Seekarte).</div></div></section>
+  <section class="card"><h2><span class="n">🧮</span>Wasserstands-Rechner</h2>
+<div class="calc" id="td">
+<h3>🧮 Wasserstand zur Ankunftszeit</h3>
+<div class="row">
+ <div class="fld"><label>gelotete Tiefe (m)</label><input id="td-l" type="number" step="0.1" placeholder="10.0"></div>
+ <div class="fld"><label>Tidenfall HW→NW (m)</label><input id="td-f" type="number" step="0.1" placeholder="8.52"></div>
+</div>
+<div class="row" style="margin-top:8px;">
+ <div class="fld"><label>Faktor aus Tidenkurve (0–1)</label><input id="td-k" type="number" step="0.05" placeholder="0.8"></div>
+ <div class="fld"><label>NW-Höhe über Kartennull (m)</label><input id="td-n" type="number" step="0.1" placeholder="1.17"></div>
+</div>
+<button class="go" onclick="tdCalc()">Berechnen</button>
+<div class="out" id="td-out"></div>
+<div class="hint">Höhe der Gezeit = Faktor × Tidenfall · Wassertiefe bei NW = gelotet − Höhe · Kartentiefe = Wassertiefe − NW-Höhe.</div>
+</div>
+<script>
+function tdCalc(){var l=parseFloat(document.getElementById('td-l').value),f=parseFloat(document.getElementById('td-f').value),k=parseFloat(document.getElementById('td-k').value),n=parseFloat(document.getElementById('td-n').value),o=document.getElementById('td-out');
+ if([l,f,k,n].some(isNaN)){o.className='out show';o.innerHTML='Bitte alle vier Felder ausfüllen.';return;}
+ var hoehe=k*f, wt=l-hoehe, kt=wt-n;
+ o.className='out show';o.innerHTML='<div>Höhe der Gezeit = '+hoehe.toFixed(2)+' m (fällt noch)</div><div class="big">Wassertiefe bei NW = '+wt.toFixed(2)+' m</div><div>Kartentiefe = '+kt.toFixed(2)+' m</div>';}
+</script></section><section class="card"><h2><span class="n">🎬</span>Tidenkurve & Faktor</h2><div style="max-width:340px;margin:6px auto 0;"><svg viewBox="0 0 340 160" style="width:100%;height:auto;" aria-hidden="true">
+<line x1="30" y1="130" x2="320" y2="130" stroke="#13314f"/><line x1="30" y1="20" x2="30" y2="130" stroke="#13314f"/>
+<path d="M40,30 Q120,30 175,80 T310,128" fill="none" stroke="#2e87c4" stroke-width="2.5"/>
+<text x="46" y="24" font-size="9" fill="#2e87c4">HW</text><text x="300" y="124" font-size="9" fill="#2e87c4">NW</text>
+<line x1="200" y1="20" x2="200" y2="130" stroke="#c0392b" stroke-dasharray="4 3"/><text x="180" y="150" font-size="9" fill="#c0392b">Ankunftszeit</text>
+<line x1="30" y1="95" x2="200" y2="95" stroke="#1d8a5a" stroke-dasharray="4 3"/><text x="205" y="98" font-size="9.5" fill="#1d8a5a">Faktor 0,8</text>
+</svg></div><p class="figcap">Mit der <b>Tidenkurve</b> ermittelt man den Wasserstand zu jeder Zeit. Man geht vom Zeitabstand zur Hochwasserzeit auf der x-Achse hoch zur Spring-/Nipp-Kurve und liest einen <b>Faktor</b> (0–1) ab. Damit: <b>Höhe der Gezeit = Faktor × Tidenfall</b>. Im Port-Beni-Beispiel: Faktor 0,8 × Tidenfall 8,52 m = 6,82 m (so viel fällt es noch) → Wassertiefe bei NW = gelotete 10,0 − 6,82 = <b>3,18 m</b>, Kartentiefe = 3,18 − NW-Höhe 1,17 = <b>2,01 m</b>.</p></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <section class="card cta-card"><p class="cta-kicker">Modul 4 geschafft? 🎉</p><h2>Die Theorie sitzt – jetzt ab aufs Wasser.</h2><p>Sailing X verbindet Segeln mit Coaching: 4–7-tägige Törns ab der Marina Kaštela in Kroatien, für Führungskräfte und Teams – auf modernen Yachten, mit zertifizierten Coaches und Zeit für deine Themen.</p><a class="cta-btn" href="https://sailingx.at/#programme" data-top>Sailing X kennenlernen →</a></section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="Berechnung-Anschlussort.html" data-nav="_Kurs/FB3/Gezeiten/Berechnung-Anschlussort.html"><small>← Vorherige Lektion</small><span>4.5 HW/NW am Anschlussort berechnen</span></a>
+    <a class="next" href="../Wetter/Mittelmeerwinde.html" data-nav="_Kurs/FB3/Wetter/Mittelmeerwinde.html"><small>Nächstes Modul →</small><span>5.1 Typische Winde &amp; Wetterlagen</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · 4.6 Tidenkurve, Wasserstand &amp; Kartentiefe<br><a href="../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../ueben.html" data-top>Üben</a> · <a href="../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Wie liest man den Faktor ab?", "opts": ["Aus der Deviationstabelle", "Aus der Tidenkurve (Zeitabstand zu HW)", "Aus dem Log", "Aus dem GPS"], "correct": 1, "expl": "Über den Zeitabstand zur HW-Zeit auf der Tidenkurve."}, {"q": "Wie berechnet man die Höhe der Gezeit?", "opts": ["Faktor + Tidenfall", "Faktor × Tidenfall", "Tidenfall ÷ Faktor", "Nur der Faktor"], "correct": 1, "expl": "Höhe der Gezeit = Faktor × Tidenfall."}, {"q": "Faktor 0,8, Tidenfall 8,52 m – wie viel fällt es?", "opts": ["6,82 m", "8,52 m", "1,7 m", "10 m"], "correct": 0, "expl": "0,8 × 8,52 = 6,82 m."}, {"q": "Gelotet 10 m, Höhe der Gezeit 6,82 m – Wassertiefe bei NW?", "opts": ["16,82 m", "3,18 m", "6,82 m", "1,17 m"], "correct": 1, "expl": "10,0 − 6,82 = 3,18 m."}, {"q": "Wassertiefe 3,18 m, NW-Höhe 1,17 m – Kartentiefe?", "opts": ["4,35 m", "2,01 m", "3,18 m", "1,17 m"], "correct": 1, "expl": "3,18 − 1,17 = 2,01 m."}];
+</script>
+<script src="../../../assets/lektion.js"></script>
+</body>
+</html>

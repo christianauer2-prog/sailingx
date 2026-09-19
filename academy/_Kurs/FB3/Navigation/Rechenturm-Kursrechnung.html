@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3.2 Der vollständige Rechenturm · SailingX-Academy</title>
+<meta name="description" content="Vom Kompasskurs über Wind und Strom zum Kurs über Grund.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB3/Navigation/Rechenturm-Kursrechnung.html">
+<link rel="icon" href="../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../assets/lektion.css">
+</head>
+<body data-root="../../../" data-path="_Kurs/FB3/Navigation/Rechenturm-Kursrechnung.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Aufbaustoff · <b>Modul 3 Navigation (vertieft)</b></p>
+  <h1><span class="lnum">3.2</span>Der vollständige Rechenturm</h1>
+  <p class="lead">Vom Kompasskurs über Wind und Strom zum Kurs über Grund.</p>
+  <div class="badges"><span class="badge">⏱ ca. 9 Min.</span><span class="badge">📘 Lektion 2 von 6</span><span class="badge">🧮 mit Rechner</span><span class="badge">✅ Selbsttest · 5 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Der FB3-<b>Rechenturm</b> erweitert die Kursrechnung um die Beschickungen für Wind und Strom.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du kennst alle Stufen des Rechenturms.</li><li>Du kannst KpK bis KüG durchrechnen.</li><li>Du kennst die Rolle von BW und BS.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>Die Stufen</h2><div class="step"><div class="ic">🧭</div><div class="tx"><b>Kompass → rechtweisend</b><br>KpK + Deviation = MwK; MwK + Missweisung = RwK. Deviation immer für den anliegenden Kurs nehmen.</div></div><div class="step"><div class="ic">💨</div><div class="tx"><b>Wind → Wasser</b><br>RwK + Beschickung Wind (BW) = KdW – der Kurs, den die Jacht durchs Wasser läuft.</div></div><div class="step"><div class="ic">🌊</div><div class="tx"><b>Strom → Grund</b><br>KdW + Beschickung Strom (BS, aus dem Stromdreieck) = KüG, der tatsächliche Kurs über Grund (Kartenkurs).</div></div></section><section class="card"><h2><span class="n">2</span>Anwenden</h2><div class="step"><div class="ic">🔄</div><div class="tx"><b>Rückwärts</b><br>Von KüG zu KpK: von unten nach oben mit umgekehrten Vorzeichen rechnen und immer kontrollieren.</div></div><div class="step"><div class="ic">📝</div><div class="tx"><b>Vorzeichen</b><br>Rechtsdrehende (östliche) Korrekturen sind „+“, linksdrehende „−“. Der KüG wird in die Karte eingezeichnet.</div></div></section>
+  <section class="card"><h2><span class="n">🧮</span>Rechenturm-Rechner</h2>
+<div class="calc" id="rt">
+<h3>🧮 Rechenturm KpK → KüG</h3>
+<div class="row">
+ <div class="fld"><label>KpK (°)</label><input id="rt-k" type="number" min="0" max="360" placeholder="153"></div>
+ <div class="fld"><label>Deviation (°, E+/W−)</label><input id="rt-d" type="number" placeholder="5"></div>
+ <div class="fld"><label>Missweisung (°, E+/W−)</label><input id="rt-m" type="number" placeholder="-2"></div>
+</div>
+<div class="row" style="margin-top:8px;">
+ <div class="fld"><label>Beschickung Wind BW (°)</label><input id="rt-w" type="number" placeholder="8"></div>
+ <div class="fld"><label>Beschickung Strom BS (°)</label><input id="rt-s" type="number" placeholder="-4"></div>
+</div>
+<button class="go" onclick="rtCalc()">Berechnen</button>
+<div class="out" id="rt-out"></div>
+<div class="hint">Alle Beschickungen mit Vorzeichen (E/rechtsdrehend = +). Leere Felder zählen als 0.</div>
+</div>
+<script>
+function rtN(x){x=x%360;if(x<0)x+=360;return x;}
+function rtP(x){return (x>=0?'+ ':'− ')+Math.abs(x);}
+function rtCalc(){var k=parseFloat(document.getElementById('rt-k').value),d=parseFloat(document.getElementById('rt-d').value)||0,m=parseFloat(document.getElementById('rt-m').value)||0,w=parseFloat(document.getElementById('rt-w').value)||0,s=parseFloat(document.getElementById('rt-s').value)||0,o=document.getElementById('rt-out');
+ if(isNaN(k)){o.className='out show';o.innerHTML='Bitte den Kompasskurs eingeben.';return;}
+ var mwK=rtN(k+d),rwK=rtN(mwK+m),kdw=rtN(rwK+w),kug=rtN(kdw+s);
+ o.className='out show';o.innerHTML='<div>KpK '+k.toFixed(0).padStart(3,'0')+' · Abl '+rtP(d)+'</div><div>MwK '+mwK.toFixed(0).padStart(3,'0')+' · Mw '+rtP(m)+'</div><div>RwK '+rwK.toFixed(0).padStart(3,'0')+' · BW '+rtP(w)+'</div><div>KdW '+kdw.toFixed(0).padStart(3,'0')+' · BS '+rtP(s)+'</div><div class="big">KüG = '+kug.toFixed(0).padStart(3,'0')+'°</div>';}
+</script></section><section class="card"><h2><span class="n">🎬</span>Der vollständige Rechenturm</h2><div style="max-width:320px;margin:6px auto 0;font-size:13.5px;color:#1c2733;">
+<table style="border-collapse:collapse;width:100%;">
+<tr><td style="padding:4px 10px;font-weight:700;color:#13314f;">KpK</td><td style="padding:4px 10px;color:#5d6b78;">Kompasskurs (abgelesen)</td></tr>
+<tr><td style="padding:4px 10px;">+ Abl</td><td style="padding:4px 10px;color:#5d6b78;">Deviation (Kurs!)</td></tr>
+<tr style="background:#e8f2fa;"><td style="padding:4px 10px;font-weight:700;">MwK</td><td style="padding:4px 10px;color:#5d6b78;">missweisender Kurs</td></tr>
+<tr><td style="padding:4px 10px;">+ Mw</td><td style="padding:4px 10px;color:#5d6b78;">Missweisung</td></tr>
+<tr style="background:#e8f2fa;"><td style="padding:4px 10px;font-weight:700;">RwK</td><td style="padding:4px 10px;color:#5d6b78;">rechtweisender Kurs</td></tr>
+<tr><td style="padding:4px 10px;">+ BW</td><td style="padding:4px 10px;color:#5d6b78;">Beschickung Wind</td></tr>
+<tr style="background:#e8f2fa;"><td style="padding:4px 10px;font-weight:700;">KdW</td><td style="padding:4px 10px;color:#5d6b78;">Kurs durchs Wasser</td></tr>
+<tr><td style="padding:4px 10px;">+ BS</td><td style="padding:4px 10px;color:#5d6b78;">Beschickung Strom</td></tr>
+<tr style="background:#d7e9f7;"><td style="padding:4px 10px;font-weight:700;">KüG</td><td style="padding:4px 10px;color:#5d6b78;">Kurs über Grund (Kartenkurs)</td></tr>
+</table></div><p class="figcap">Der FB3-<b>Rechenturm</b> geht über die einfache Kursrechnung hinaus: nach Deviation und Missweisung kommen zwei weitere Beschickungen dazu. <b>KpK + Abl = MwK</b>, <b>MwK + Mw = RwK</b>, <b>RwK + BW = KdW</b> (Beschickung Wind), <b>KdW + BS = KüG</b> (Beschickung Strom aus dem Stromdreieck). Der KüG ist der tatsächlich über Grund gefahrene Kartenkurs. Rückwärts (KüG → KpK) mit umgekehrten Vorzeichen – und stets kontrollieren.</p></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="Loxodrome-Orthodrome.html" data-nav="_Kurs/FB3/Navigation/Loxodrome-Orthodrome.html"><small>← Vorherige Lektion</small><span>3.1 Loxodrome &amp; Orthodrome</span></a>
+    <a class="next" href="Peilungsrechnung.html" data-nav="_Kurs/FB3/Navigation/Peilungsrechnung.html"><small>Nächste Lektion →</small><span>3.3 Peilungsrechnung &amp; Schiffsseitenpeilung</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · 3.2 Der vollständige Rechenturm<br><a href="../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../ueben.html" data-top>Üben</a> · <a href="../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Wie kommt man vom RwK zum KdW?", "opts": ["+ Missweisung", "+ Beschickung Wind", "+ Deviation", "+ Beschickung Strom"], "correct": 1, "expl": "RwK + BW = KdW."}, {"q": "Woher stammt die Beschickung Strom?", "opts": ["Aus der Deviationstabelle", "Aus dem Stromdreieck", "Aus der Kompassrose", "Aus dem Log"], "correct": 1, "expl": "Die BS ergibt sich aus dem Stromdreieck."}, {"q": "Welcher Kurs wird in die Karte eingezeichnet?", "opts": ["KpK", "MwK", "KdW", "KüG"], "correct": 3, "expl": "Der Kurs über Grund (Kartenkurs)."}, {"q": "KpK 153, Abl +5, Mw −2, BW +8, BS −4. KüG?", "opts": ["160", "156", "150", "164"], "correct": 0, "expl": "158→156→164→160°."}, {"q": "Wie rechnet man rückwärts (KüG→KpK)?", "opts": ["Gleiche Vorzeichen", "Umgekehrte Vorzeichen", "Nur Wind", "Gar nicht"], "correct": 1, "expl": "Von unten nach oben mit umgekehrten Vorzeichen."}];
+</script>
+<script src="../../../assets/lektion.js"></script>
+</body>
+</html>

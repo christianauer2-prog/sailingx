@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.4.2 Kurse: Kompasskurs ↔ rechtweisender Kurs · SailingX-Academy</title>
+<meta name="description" content="Der Rechenturm: vom abgelesenen Kompasskurs zum Kurs über Grund – und zurück.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.2_Kurse.html">
+<link rel="icon" href="../../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../../assets/lektion.css">
+</head>
+<body data-root="../../../../" data-path="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.2_Kurse.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Grundstoff · Modul C Navigation · <b>C.4 Berechnung &amp; Arbeit in der Karte</b></p>
+  <h1><span class="lnum">C.4.2</span>Kurse: Kompasskurs ↔ rechtweisender Kurs</h1>
+  <p class="lead">Der Rechenturm: vom abgelesenen Kompasskurs zum Kurs über Grund – und zurück.</p>
+  <div class="badges"><span class="badge">⏱ ca. 9 Min.</span><span class="badge">📘 Lektion 10 von 32</span><span class="badge">🧮 mit Rechner</span><span class="badge">✅ Selbsttest · 5 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Der am Kompass abgelesene Kurs ist selten der wahre Winkel zu den Meridianen. Mit Deviation und Missweisung „beschickt“ man ihn zum rechtweisenden Kurs (= Kartenkurs).</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du beherrschst das Schema MgK → mwK → rwK.</li><li>Du kannst die Rechnung auch rückwärts (rwK → MgK) durchführen.</li><li>Du kennst den 180-Grad-Fehler und die Kontrolle.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>Vom Kompass- zum rechtweisenden Kurs</h2><div class="step"><div class="ic">🧭</div><div class="tx"><b>Der Rechenturm</b><br>MgK  +/− Abl (Deviation)  = mwK.  mwK  +/− Mw (Missweisung)  = rwK. E-Werte „+“, W-Werte „−“.</div></div><div class="step"><div class="ic">📝</div><div class="tx"><b>Beispiel</b><br>MgK 153°, Abl +5°, Mw −2°: mwK = 158°, rwK = 156°. In die Karte kommt „156 (153)“ – rwK und in Klammer der Kompasskurs.</div></div></section><section class="card"><h2><span class="n">2</span>Rückwärts & Kontrolle</h2><div class="step"><div class="ic">🔄</div><div class="tx"><b>rwK → MgK</b><br>Von unten nach oben rechnen und dabei jedes Vorzeichen umkehren. Beispiel: rwK 290°, Mw +4°, Abl −10° → mwK 286°, MgK 296°.</div></div><div class="step"><div class="ic">⚠️</div><div class="tx"><b>Fehler vermeiden</b><br>Achte auf den „180-Grad-Fehler“ beim Anlegen des Dreiecks. Rechne zur Kontrolle immer noch einmal von oben nach unten.</div></div></section>
+  <section class="card"><h2><span class="n">🧮</span>Kursrechner</h2>
+<div class="calc" id="ck">
+<h3>🧮 Kursrechner (Rechenturm)</h3>
+<div class="seg"><button id="ck-a" class="on" onclick="ckMode('a')">MgK → rwK</button><button id="ck-b" onclick="ckMode('b')">rwK → MgK</button></div>
+<div class="row">
+ <div class="fld"><label id="ck-l1">Kompasskurs MgK (°)</label><input id="ck-k" type="number" min="0" max="360" placeholder="153"></div>
+ <div class="fld"><label>Deviation Abl (°, E=+ / W=−)</label><input id="ck-d" type="number" placeholder="+5"></div>
+ <div class="fld"><label>Missweisung Mw (°, E=+ / W=−)</label><input id="ck-m" type="number" placeholder="-2"></div>
+</div>
+<button class="go" onclick="ckCalc()">Berechnen</button>
+<div class="out" id="ck-out"></div>
+<div class="hint">E (Ost, im Uhrzeigersinn) = „+“, W (West) = „−“. Kontrolle: von oben nach unten nachrechnen.</div>
+</div>
+<script>
+var ckM='a';
+function ckMode(m){ckM=m;document.getElementById('ck-a').className=m==='a'?'on':'';document.getElementById('ck-b').className=m==='b'?'on':'';
+ document.getElementById('ck-l1').textContent=m==='a'?'Kompasskurs MgK (°)':'rechtweisender Kurs rwK (°)';
+ document.getElementById('ck-k').placeholder=m==='a'?'153':'290';document.getElementById('ck-out').className='out';}
+function n360(x){x=x%360;if(x<0)x+=360;return x;}
+function sgn(x){return (x>0?'+ ':(x<0?'− ':'  '))+Math.abs(x);}
+function ckCalc(){var k=parseFloat(document.getElementById('ck-k').value),d=parseFloat(document.getElementById('ck-d').value)||0,m=parseFloat(document.getElementById('ck-m').value)||0,o=document.getElementById('ck-out');
+ if(isNaN(k)){o.className='out show';o.innerHTML='Bitte einen Kurswert eingeben.';return;}
+ var html;
+ if(ckM==='a'){var mwK=n360(k+d),rwK=n360(mwK+m);
+  html='<div>MgK &nbsp;&nbsp;'+k.toFixed(0).padStart(3,'0')+'</div><div>Abl &nbsp;&nbsp;&nbsp;'+sgn(d)+'</div><div>mwK &nbsp;&nbsp;'+mwK.toFixed(0).padStart(3,'0')+'</div><div>Mw &nbsp;&nbsp;&nbsp;'+sgn(m)+'</div><div class="big">rwK = '+rwK.toFixed(0).padStart(3,'0')+'°</div>';}
+ else{var mwK=n360(k-m),Mgk=n360(mwK-d);
+  html='<div>rwK &nbsp;&nbsp;'+k.toFixed(0).padStart(3,'0')+'</div><div>Mw &nbsp;&nbsp;&nbsp;'+sgn(-m)+' (umgekehrtes Vorzeichen)</div><div>mwK &nbsp;&nbsp;'+mwK.toFixed(0).padStart(3,'0')+'</div><div>Abl &nbsp;&nbsp;&nbsp;'+sgn(-d)+' (umgekehrtes Vorzeichen)</div><div class="big">MgK = '+Mgk.toFixed(0).padStart(3,'0')+'°</div>';}
+ o.className='out show';o.innerHTML=html;}
+</script></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="C4.1_Grundaufgaben.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.1_Grundaufgaben.html"><small>← Vorherige Lektion</small><span>C.4.1 Grundaufgaben in der Karte</span></a>
+    <a class="next" href="C4.3_Abdrift.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.3_Abdrift.html"><small>Nächste Lektion →</small><span>C.4.3 Abdrift durch Wind &amp; Strom</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · C.4.2 Kurse: Kompasskurs ↔ rechtweisender Kurs<br><a href="../../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../../ueben.html" data-top>Üben</a> · <a href="../../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Wie lautet der Rechenturm von unten nach oben gelesen?", "opts": ["MgK, Abl, mwK, Mw, rwK", "rwK, Mw, mwK, Abl, MgK", "nur MgK und rwK", "Mw + Abl = MgK"], "correct": 0, "expl": "MgK +/− Abl = mwK; mwK +/− Mw = rwK."}, {"q": "MgK 153°, Abl +5°, Mw −2°. Wie groß ist der rwK?", "opts": ["150°", "156°", "160°", "148°"], "correct": 1, "expl": "158° − 2° = 156°."}, {"q": "Was muss man bei rwK → MgK beachten?", "opts": ["Gleiche Vorzeichen", "Jedes Vorzeichen umkehren", "Nur die Deviation", "Nichts"], "correct": 1, "expl": "Rückwärts rechnet man mit umgekehrten Vorzeichen."}, {"q": "Was schreibt man zur Kurslinie dazu?", "opts": ["Nur den Kompasskurs", "rwK und in Klammer den Kompasskurs, z. B. 156 (153)", "Nur die Uhrzeit", "Die Missweisung"], "correct": 1, "expl": "Der rwK, dahinter in Klammer der Kompasskurs."}, {"q": "Welcher typische Fehler droht beim Anlegen des Dreiecks?", "opts": ["Der 90-Grad-Fehler", "Der 180-Grad-Fehler", "Zu kurze Linie", "Falsche Farbe"], "correct": 1, "expl": "Der berüchtigte 180-Grad-Fehler (Kurs in die Gegenrichtung)."}];
+</script>
+<script src="../../../../assets/lektion.js"></script>
+</body>
+</html>

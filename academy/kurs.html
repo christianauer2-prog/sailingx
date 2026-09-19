@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kurs · SailingX-Academy</title>
+<meta name="description" content="Die Kurs-App der SailingX-Academy: alle Lektionen mit Seitenleiste, Suche und Lernfortschritt.">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/kurs.css">
+</head>
+<body>
+
+<header class="top">
+  <button class="menu-btn" id="menuBtn" aria-label="Lektionsliste öffnen" aria-controls="side">☰</button>
+  <a class="brand" href="index.html"><img src="assets/symbol.svg" alt="" width="40" height="40"><span>SailingX-Academy</span></a>
+  <div class="prog" title="Dein Lernfortschritt"><span>Fortschritt</span><span class="bar"><i id="progBar"></i></span><span id="progTxt">0 %</span></div>
+  <nav class="toplinks"><a href="kursuebersicht.html">Kursübersicht</a><a href="ueben.html">Üben <span class="pill" id="stapelPill" title="Fragen im Wiederholungsstapel"></span></a><a href="werkzeugkasten.html">Werkzeugkasten</a><a href="index.html">Academy-Start</a><a href="../">Sailing X</a></nav>
+</header>
+
+<div class="main">
+  <aside class="side" id="side" aria-label="Lektionen">
+    <div class="search"><input id="search" type="search" placeholder="🔍 Lektion oder Nummer suchen …" autocomplete="off" aria-label="Lektion suchen"></div>
+    <div class="side-scroll" id="sideScroll"></div>
+    <div class="nohit" id="noHit">Keine Lektion gefunden.</div>
+    <div class="side-links"><a href="ueben.html">🔁 Üben <span class="pill" id="stapelPill2"></span></a><a href="werkzeugkasten.html">🧮 Werkzeugkasten</a><button type="button" id="transferBtn">📲 Fortschritt übertragen</button></div>
+    <div class="side-foot"><a href="../impressum.html">Impressum</a><a href="../datenschutz.html">Datenschutz</a><button type="button" id="resetBtn">Fortschritt zurücksetzen</button></div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <main class="content">
+    <div class="cbar">
+      <button type="button" id="prevBtn">← Zurück</button>
+      <span class="ct" id="crumb">Wähle eine Lektion</span>
+      <button type="button" class="done-btn" id="doneBtn">Als erledigt markieren</button>
+      <button type="button" id="nextBtn">Weiter →</button>
+    </div>
+    <div class="frame-wrap">
+      <iframe id="lesson" title="Lektion" src="about:blank"></iframe>
+      <div class="welcome" id="welcome">
+        <div class="box">
+          <img src="assets/logo.svg" alt="SailingX" width="200" height="108">
+          <h1>Willkommen an Bord</h1>
+          <p id="welcomeTxt">Wähle links eine Lektion – oder starte direkt mit der ersten. Dein Fortschritt wird automatisch in diesem Browser gespeichert.</p>
+          <button type="button" class="go" id="startBtn">Mit der ersten Lektion beginnen →</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="modal" id="transfer" role="dialog" aria-modal="true" aria-labelledby="trTitle" hidden>
+  <div class="modal-box">
+    <button type="button" class="modal-x" id="trClose" aria-label="Schließen">×</button>
+    <h2 id="trTitle">Fortschritt übertragen</h2>
+    <div id="trImport" hidden>
+      <p id="trImportTxt"></p>
+      <div class="modal-btns"><button type="button" class="mb-primary" id="trImportOk">Übernehmen</button><button type="button" id="trImportNo">Abbrechen</button></div>
+    </div>
+    <div id="trExport">
+      <p class="muted">Scanne den QR-Code mit dem anderen Gerät – oder kopiere den Code und gib ihn dort ein. Bereits erledigte Lektionen bleiben erhalten, es wird nur ergänzt.</p>
+      <div class="qr" id="trQr"></div>
+      <label class="lbl" for="trCode">Dein Code (<span id="trCnt">0</span> erledigte Lektionen)</label>
+      <div class="coderow"><input id="trCode" readonly><button type="button" id="trCopy">Kopieren</button></div>
+      <div class="coderow"><button type="button" id="trLink">Link kopieren</button></div>
+      <hr>
+      <label class="lbl" for="trIn">Code von einem anderen Gerät eingeben</label>
+      <div class="coderow"><input id="trIn" placeholder="SX1.…" autocomplete="off"><button type="button" id="trInOk">Übernehmen</button></div>
+      <p class="tr-msg" id="trMsg" role="status"></p>
+    </div>
+  </div>
+</div>
+
+<script src="assets/kursdaten.js"></script>
+<script src="assets/vendor/qrcode.js"></script>
+<script>
+(function(){
+  'use strict';
+  var data = window.KURSDATEN || [];
+  var flat = [], byPath = {};
+  data.forEach(function(lv){ lv.modules.forEach(function(m){ m.lessons.forEach(function(l){
+    l._m = m; l._lv = lv; l._i = flat.length; flat.push(l); byPath[l.path] = l;
+  }); }); });
+
+  var KEY = 'segelacademy_done_v1';
+  var done = {};
+  try { done = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { done = {}; }
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {} }
+
+  var $ = function(id){ return document.getElementById(id); };
+  var side = $('sideScroll'), frame = $('lesson'), welcome = $('welcome');
+  var current = null;
+  function el(tag, cls, txt){ var x = document.createElement(tag); if (cls) x.className = cls; if (txt != null) x.textContent = txt; return x; }
+
+  /* ---------- Seitenleiste ---------- */
+  var linkByPath = {}, badgeByMod = {};
+  function buildSidebar(){
+    side.innerHTML = '';
+    data.forEach(function(lv){
+      side.appendChild(el('div', 'lvl', lv.name + ' · ' + lv.long));
+      lv.modules.forEach(function(m){
+        var d = el('details', 'mod'); d.setAttribute('data-mod', lv.key + '-' + m.key);
+        var s = el('summary');
+        s.appendChild(el('span', 'mnum', m.num));
+        s.appendChild(el('span', 'mname', m.name));
+        var b = el('span', 'mprog'); badgeByMod[lv.key + '-' + m.key] = { el: b, m: m }; s.appendChild(b);
+        d.appendChild(s);
+        var ul = el('ul', 'les'), chap = null;
+        m.lessons.forEach(function(l){
+          if (l.chapter !== chap) {
+            chap = l.chapter;
+            var cn = m.chapters[chap];
+            if (cn && chap !== l.num) { var li0 = el('li', 'chap', chap + ' ' + cn); li0.setAttribute('data-chap', chap); ul.appendChild(li0); }
+          }
+          var li = el('li'), a = el('a');
+          a.href = '#' + encodeURIComponent(l.path);
+          a.setAttribute('data-path', l.path);
+          a.appendChild(el('span', 'dot'));
+          a.appendChild(el('span', 'ln', l.num));
+          a.appendChild(el('span', 'lt', l.title));
+          a.title = l.lead;
+          li.setAttribute('data-chap', l.chapter);
+          li.appendChild(a); ul.appendChild(li);
+          linkByPath[l.path] = a;
+        });
+        d.appendChild(ul); side.appendChild(d);
+      });
+    });
+    refreshDone();
+  }
+
+  function refreshDone(){
+    flat.forEach(function(l){
+      var a = linkByPath[l.path]; if (!a) return;
+      var isD = !!done[l.path];
+      a.classList.toggle('done', isD);
+      a.querySelector('.dot').textContent = isD ? '✓' : '';
+    });
+    Object.keys(badgeByMod).forEach(function(k){
+      var o = badgeByMod[k], c = o.m.lessons.filter(function(l){ return done[l.path]; }).length;
+      o.el.textContent = c + '/' + o.m.lessons.length;
+      o.el.classList.toggle('full', c === o.m.lessons.length);
+    });
+    var total = flat.length, dc = flat.filter(function(l){ return done[l.path]; }).length;
+    var pct = total ? Math.round(dc / total * 100) : 0;
+    $('progBar').style.width = pct + '%';
+    $('progTxt').textContent = pct + ' % (' + dc + '/' + total + ')';
+    setDoneBtn();
+  }
+
+  function setDone(path, val){
+    if (val) done[path] = 1; else delete done[path];
+    save(); refreshDone();
+  }
+
+  /* ---------- Lektion öffnen ---------- */
+  function open(path){
+    var l = byPath[path]; if (!l) return;
+    current = l;
+    welcome.style.display = 'none';
+    var target = l.path;
+    if (frame.getAttribute('data-path') !== target) { frame.setAttribute('data-path', target); frame.src = target; }
+    $('crumb').innerHTML = '';
+    $('crumb').appendChild(el('b', null, l.num)); $('crumb').appendChild(document.createTextNode(l.title));
+    $('crumb').title = l._lv.name + ' · Modul ' + l._m.num + ' ' + l._m.name;
+    document.title = l.num + ' ' + l.title + ' · SailingX-Academy';
+    Array.prototype.forEach.call(side.querySelectorAll('a.active'), function(a){ a.classList.remove('active'); });
+    var a = linkByPath[path];
+    if (a) { a.classList.add('active'); var d = a.closest('details'); if (d) d.open = true; a.scrollIntoView({ block: 'nearest' }); }
+    $('prevBtn').disabled = l._i <= 0;
+    $('nextBtn').disabled = l._i >= flat.length - 1;
+    setDoneBtn();
+    closeNav();
+    try { localStorage.setItem('segelacademy_last_v1', path); } catch (e) {}
+  }
+  function setDoneBtn(){
+    if (!current) return;
+    var is = !!done[current.path], b = $('doneBtn');
+    b.classList.toggle('is-done', is);
+    b.textContent = is ? '✓ Erledigt' : 'Als erledigt markieren';
+  }
+  function go(path){
+    var h = '#' + encodeURIComponent(path);
+    if (location.hash === h) open(path); else location.hash = h;
+  }
+
+  $('doneBtn').addEventListener('click', function(){ if (current) setDone(current.path, !done[current.path]); });
+  $('prevBtn').addEventListener('click', function(){ if (current && current._i > 0) go(flat[current._i - 1].path); });
+  $('nextBtn').addEventListener('click', function(){
+    if (!current) return;
+    if (!done[current.path]) setDone(current.path, true);
+    if (current._i < flat.length - 1) go(flat[current._i + 1].path);
+  });
+  $('startBtn').addEventListener('click', function(){ go($('startBtn').getAttribute('data-path') || flat[0].path); });
+
+  /* Nachrichten aus der Lektion (Vor/Zurück-Links, Selbsttest bestanden) */
+  window.addEventListener('message', function(ev){
+    if (ev.source !== frame.contentWindow) return;
+    var msg = ev.data || {};
+    if (msg.type === 'sx-open' && byPath[msg.path]) {
+      if (current && byPath[msg.path]._i === current._i + 1 && !done[current.path]) setDone(current.path, true);
+      go(msg.path);
+    } else if (msg.type === 'sx-quiz' && msg.passed && byPath[msg.path]) {
+      setDone(msg.path, true);
+    } else if (msg.type === 'sx-stapel') {
+      stapelZahl(msg.n);
+    } else if (msg.type === 'sx-ready' && byPath[msg.path] && (!current || current.path !== msg.path)) {
+      frame.setAttribute('data-path', msg.path); go(msg.path);
+    }
+  });
+
+  /* ---------- Wiederholungsstapel-Zähler ---------- */
+  function stapelZahl(n){
+    if (n == null) { try { n = Object.keys(JSON.parse(localStorage.getItem('segelacademy_fehler_v1') || '{}') || {}).length; } catch (e) { n = 0; } }
+    ['stapelPill', 'stapelPill2'].forEach(function(id){ var p = $(id); p.textContent = n; p.style.display = n ? '' : 'none'; });
+  }
+  stapelZahl();
+
+  /* ---------- Fortschritt übertragen (Code / QR, rein lokal) ---------- */
+  var byId = {}; flat.forEach(function(l){ byId[l.id] = l; });
+  function b64u(bytes){ var s = ''; bytes.forEach(function(b){ s += String.fromCharCode(b); }); return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
+  function unb64u(str){ str = str.replace(/-/g, '+').replace(/_/g, '/'); while (str.length % 4) str += '='; var s = atob(str), a = []; for (var i = 0; i < s.length; i++) a.push(s.charCodeAt(i)); return a; }
+  function kodieren(){
+    var max = 0; flat.forEach(function(l){ if (l.id > max) max = l.id; });
+    var bytes = []; for (var i = 0; i < Math.ceil(max / 8); i++) bytes.push(0);
+    flat.forEach(function(l){ if (done[l.path]) bytes[(l.id - 1) >> 3] |= 1 << ((l.id - 1) & 7); });
+    while (bytes.length && !bytes[bytes.length - 1]) bytes.pop();
+    return 'SX1.' + b64u(bytes);
+  }
+  function dekodieren(code){
+    code = (code || '').trim().replace(/^.*#import=/, '');
+    if (!/^SX1\.[A-Za-z0-9_-]*$/.test(code)) return null;
+    var bytes; try { bytes = unb64u(code.slice(4)); } catch (e) { return null; }
+    var paths = [];
+    bytes.forEach(function(b, bi){ for (var k = 0; k < 8; k++) if (b & (1 << k)) { var l = byId[bi * 8 + k + 1]; if (l) paths.push(l.path); } });
+    return paths;
+  }
+  function uebernehmen(paths){
+    var neu = 0; paths.forEach(function(p){ if (!done[p]) { done[p] = 1; neu++; } });
+    save(); refreshDone(); return neu;
+  }
+  var modal = $('transfer'), pending = null;
+  function modalAuf(){ modal.hidden = false; document.body.classList.add('modal-open'); }
+  function modalZu(){ modal.hidden = true; document.body.classList.remove('modal-open'); pending = null; $('trImport').hidden = true; $('trExport').hidden = false; $('trMsg').textContent = ''; }
+  function linkFuer(code){ return location.href.split('#')[0] + '#import=' + code; }
+  function exportZeigen(){
+    var code = kodieren(), n = Object.keys(done).filter(function(p){ return byPath[p]; }).length;
+    $('trCode').value = code; $('trCnt').textContent = n;
+    var qrBox = $('trQr'); qrBox.innerHTML = '';
+    if (window.qrcode) { var q = qrcode(0, 'M'); q.addData(linkFuer(code)); q.make(); qrBox.innerHTML = q.createSvgTag({ cellSize: 4, margin: 2, scalable: true }); }
+    $('trImport').hidden = true; $('trExport').hidden = false; modalAuf();
+  }
+  function importFragen(paths){
+    pending = paths;
+    var neu = paths.filter(function(p){ return !done[p]; }).length;
+    $('trImportTxt').textContent = 'Dieser Code enthält ' + paths.length + ' erledigte Lektionen, davon ' + neu + ' neu für dieses Gerät. Möchtest du sie übernehmen? Dein bisheriger Fortschritt bleibt erhalten.';
+    $('trImport').hidden = false; $('trExport').hidden = true; modalAuf();
+  }
+  function kopieren(txt, btn){
+    var done2 = function(){ var o = btn.textContent; btn.textContent = 'Kopiert ✓'; setTimeout(function(){ btn.textContent = o; }, 1500); };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(txt).then(done2, function(){ $('trCode').select(); });
+    else { var i = $('trCode'); var v = i.value; i.value = txt; i.select(); try { document.execCommand('copy'); done2(); } catch (e) {} i.value = v; }
+  }
+  $('transferBtn').addEventListener('click', exportZeigen);
+  $('trClose').addEventListener('click', modalZu);
+  modal.addEventListener('click', function(e){ if (e.target === modal) modalZu(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !modal.hidden) modalZu(); });
+  $('trCopy').addEventListener('click', function(){ kopieren($('trCode').value, this); });
+  $('trLink').addEventListener('click', function(){ kopieren(linkFuer($('trCode').value), this); });
+  $('trInOk').addEventListener('click', function(){
+    var p = dekodieren($('trIn').value);
+    if (!p) { $('trMsg').textContent = 'Das ist kein gültiger Code. Er beginnt mit „SX1.“.'; return; }
+    var neu = uebernehmen(p); $('trMsg').textContent = '✓ Übernommen: ' + neu + ' neue Lektionen als erledigt markiert.'; exportZeigenStill();
+  });
+  function exportZeigenStill(){ $('trCode').value = kodieren(); $('trCnt').textContent = Object.keys(done).filter(function(p){ return byPath[p]; }).length; }
+  $('trImportOk').addEventListener('click', function(){ var neu = uebernehmen(pending || []); modalZu(); $('welcomeTxt').textContent = '✓ Fortschritt übernommen: ' + neu + ' Lektionen neu als erledigt markiert.'; });
+  $('trImportNo').addEventListener('click', modalZu);
+  function importAusHash(){
+    var m = location.hash.match(/^#import=(.+)$/);
+    if (!m) return false;
+    history.replaceState(null, '', location.pathname);
+    var p = dekodieren(decodeURIComponent(m[1]));
+    if (p) importFragen(p);
+    return true;
+  }
+
+  /* ---------- Suche ---------- */
+  function norm(s){ return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ß/g, 'ss'); }
+  $('search').addEventListener('input', function(){
+    var q = norm(this.value.trim()), anyHit = false;
+    Array.prototype.forEach.call(side.querySelectorAll('details.mod'), function(d){
+      var any = false;
+      Array.prototype.forEach.call(d.querySelectorAll('ul.les > li:not(.chap)'), function(li){
+        var a = li.querySelector('a'), l = byPath[a.getAttribute('data-path')];
+        var hit = !q || norm(l.num + ' ' + l.title + ' ' + l.lead + ' ' + l._m.name).indexOf(q) >= 0;
+        li.style.display = hit ? '' : 'none'; if (hit) any = true;
+      });
+      Array.prototype.forEach.call(d.querySelectorAll('li.chap'), function(c){
+        var ch = c.getAttribute('data-chap');
+        var vis = Array.prototype.some.call(d.querySelectorAll('li[data-chap="' + ch + '"]:not(.chap)'), function(li){ return li.style.display !== 'none'; });
+        c.style.display = vis ? '' : 'none';
+      });
+      d.style.display = any ? '' : 'none';
+      if (q && any) d.open = true;
+      if (any) anyHit = true;
+    });
+    Array.prototype.forEach.call(side.querySelectorAll('.lvl'), function(x){ x.style.display = q ? 'none' : ''; });
+    $('noHit').style.display = anyHit ? 'none' : 'block';
+  });
+
+  /* ---------- Fortschritt zurücksetzen (zweistufig, ohne Dialogfenster) ---------- */
+  var rb = $('resetBtn'), rbTimer = null;
+  rb.addEventListener('click', function(){
+    if (!rb.classList.contains('warn')) {
+      rb.classList.add('warn'); rb.textContent = 'Wirklich zurücksetzen?';
+      rbTimer = setTimeout(function(){ rb.classList.remove('warn'); rb.textContent = 'Fortschritt zurücksetzen'; }, 4000);
+    } else {
+      clearTimeout(rbTimer); done = {}; save(); refreshDone();
+      rb.classList.remove('warn'); rb.textContent = 'Fortschritt zurückgesetzt';
+    }
+  });
+
+  /* ---------- Mobile Navigation ---------- */
+  function closeNav(){ document.body.classList.remove('nav-open'); }
+  $('menuBtn').addEventListener('click', function(){ document.body.classList.add('nav-open'); });
+  $('scrim').addEventListener('click', closeNav);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeNav(); });
+
+  window.addEventListener('hashchange', function(){
+    if (importAusHash()) return;
+    var p = decodeURIComponent(location.hash.replace(/^#/, ''));
+    if (byPath[p]) open(p);
+  });
+
+  /* ---------- Start ---------- */
+  buildSidebar();
+  importAusHash();
+  var init = decodeURIComponent(location.hash.replace(/^#/, ''));
+  if (byPath[init]) { open(init); }
+  else {
+    var last = null; try { last = localStorage.getItem('segelacademy_last_v1'); } catch (e) {}
+    var firstOpen = flat.filter(function(l){ return !done[l.path]; })[0];
+    var resume = (last && byPath[last]) ? byPath[last] : (Object.keys(done).length ? firstOpen : null);
+    if (resume) {
+      $('welcomeTxt').textContent = 'Schön, dass du wieder da bist! Du warst zuletzt bei ' + resume.num + ' ' + resume.title + '.';
+      $('startBtn').textContent = 'Weiterlernen →';
+      $('startBtn').setAttribute('data-path', resume.path);
+    }
+    welcome.style.display = 'flex';
+    var fd = side.querySelector('details.mod'); if (fd) fd.open = true;
+  }
+})();
+</script>
+</body>
+</html>

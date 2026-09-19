@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4.3 Kartennull &amp; Wasserhöhen · SailingX-Academy</title>
+<meta name="description" content="Wie Gezeitenhöhe und Kartentiefe zur echten Wassertiefe werden.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB3/Gezeiten/Kartennull-Wasserhoehen.html">
+<link rel="icon" href="../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../assets/lektion.css">
+</head>
+<body data-root="../../../" data-path="_Kurs/FB3/Gezeiten/Kartennull-Wasserhoehen.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Aufbaustoff · <b>Modul 4 Gezeiten</b></p>
+  <h1><span class="lnum">4.3</span>Kartennull & Wasserhöhen</h1>
+  <p class="lead">Wie Gezeitenhöhe und Kartentiefe zur echten Wassertiefe werden.</p>
+  <div class="badges"><span class="badge">⏱ ca. 7 Min.</span><span class="badge">📘 Lektion 3 von 6</span><span class="badge">🧮 mit Rechner</span><span class="badge">✅ Selbsttest · 5 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Alle Gezeitenhöhen zählen über <b>Kartennull</b> – so lässt sich die tatsächliche Wassertiefe berechnen.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du kennst das Kartennull (LAT/MSpNw).</li><li>Du berechnest die Wassertiefe.</li><li>Du kennst die Folgen für Strom und Ankern.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>Kartennull & Tiefe</h2><div class="step"><div class="ic">📐</div><div class="tx"><b>Kartennull</b><br>Bewusst niedrig gewählt (heute meist LAT = niedrigstmögliches Gezeitenniveau; ältere deutsche Karten: MSpNw), damit man nie weniger Tiefe vorfindet als angegeben.</div></div><div class="step"><div class="ic">➕</div><div class="tx"><b>Rechnung</b><br>Gezeitenhöhen sind Höhen über Kartennull und werden zur Kartentiefe addiert: Wassertiefe = Kartentiefe + Gezeitenhöhe.</div></div></section><section class="card"><h2><span class="n">2</span>Praxis</h2><div class="step"><div class="ic">🌊</div><div class="tx"><b>Mittelmeer & Strom</b><br>Mittelmeer-Tidenhübe meist 0,3–0,8 m (Lagunen Venedig–Grado bis ~1,3 m, mit kräftigen Tidenströmen). Bei Flut setzt der Strom auflandig, bei Ebbe ablandig (180°-Wechsel).</div></div><div class="step"><div class="ic">⚓</div><div class="tx"><b>Ankern</b><br>Kettenlänge nach der Wassertiefe bei Hochwasser bemessen; beim Kentern des Stroms schwojt die Jacht um 180° – Vermuren erwägen.</div></div></section>
+  <section class="card"><h2><span class="n">🧮</span>Wassertiefe-Rechner</h2>
+<div class="calc" id="wt">
+<h3>🧮 Wassertiefe & Kartentiefe</h3>
+<div class="row">
+ <div class="fld"><label>Kartentiefe (m)</label><input id="wt-k" type="number" step="0.1" placeholder="2.0"></div>
+ <div class="fld"><label>Gezeitenhöhe über Kartennull (m)</label><input id="wt-g" type="number" step="0.1" placeholder="1.17"></div>
+</div>
+<button class="go" onclick="wtCalc()">Berechnen</button>
+<div class="out" id="wt-out"></div>
+<div class="hint">Wassertiefe = Kartentiefe + Gezeitenhöhe über Kartennull.</div>
+</div>
+<script>
+function wtCalc(){var k=parseFloat(document.getElementById('wt-k').value),g=parseFloat(document.getElementById('wt-g').value),o=document.getElementById('wt-out');
+ if(isNaN(k)||isNaN(g)){o.className='out show';o.innerHTML='Bitte beide Werte eingeben.';return;}
+ o.className='out show';o.innerHTML='<div class="big">Wassertiefe = '+(k+g).toFixed(2)+' m</div>';}
+</script></section><section class="card"><h2><span class="n">🎬</span>Wasserhöhe über Kartennull</h2><div style="max-width:320px;margin:6px auto 0;"><svg viewBox="0 0 300 170" style="width:100%;height:auto;" aria-hidden="true">
+<rect x="0" y="40" width="300" height="70" fill="#9cc3e6"/>
+<rect x="0" y="110" width="300" height="60" fill="#c9b487"/>
+<line x1="0" y1="110" x2="300" y2="110" stroke="#13314f"/><text x="6" y="124" font-size="9.5" fill="#8a5a0b">Grund</text>
+<line x1="0" y1="88" x2="300" y2="88" stroke="#1f4b73" stroke-dasharray="4 3"/><text x="6" y="84" font-size="9.5" fill="#1f4b73">Kartennull (≈ LAT)</text>
+<line x1="0" y1="40" x2="300" y2="40" stroke="#2e87c4"/><text x="6" y="36" font-size="9.5" fill="#2e87c4">aktueller Wasserstand</text>
+<line x1="250" y1="40" x2="250" y2="88" stroke="#c0392b" stroke-width="2"/><text x="255" y="66" font-size="9" fill="#c0392b">Gezeitenhöhe</text>
+<line x1="200" y1="88" x2="200" y2="110" stroke="#8a5a0b" stroke-width="2"/><text x="150" y="103" font-size="9" fill="#8a5a0b">Kartentiefe</text>
+</svg></div><p class="figcap">Alle Höhen in Gezeitentafeln sind <b>Wasserhöhen über Kartennull</b> – sie lassen sich einfach zur <b>Kartentiefe</b> addieren: <b>Wassertiefe = Kartentiefe + Gezeitenhöhe</b>. Das <b>Kartennull</b> ist bewusst niedrig gewählt (heute meist LAT = niedrigstmögliches Gezeitenniveau), damit man nie weniger Tiefe vorfindet als angegeben. Im Mittelmeer sind die Tidenhübe meist 0,3–0,8 m (nur in Lagunen wie Venedig–Grado bedeutsam, bis ~1,3 m). Bei Flut setzt der Strom auflandig, bei Ebbe ablandig (Richtungswechsel um 180°); beim Ankern nach Hochwasser-Tiefe stecken und mit Schwojen rechnen (Vermuren!).</p></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="Begriffe-Tidenhub.html" data-nav="_Kurs/FB3/Gezeiten/Begriffe-Tidenhub.html"><small>← Vorherige Lektion</small><span>4.2 Gezeiten-Begriffe, Spring &amp; Nipp</span></a>
+    <a class="next" href="Gezeitentafeln-Begriffe.html" data-nav="_Kurs/FB3/Gezeiten/Gezeitentafeln-Begriffe.html"><small>Nächste Lektion →</small><span>4.4 Gezeitentafeln &amp; Abkürzungen</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · 4.3 Kartennull &amp; Wasserhöhen<br><a href="../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../ueben.html" data-top>Üben</a> · <a href="../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Worauf beziehen sich Gezeitenhöhen?", "opts": ["Auf den Meeresspiegel", "Auf Kartennull", "Auf Hochwasser", "Auf die Küste"], "correct": 1, "expl": "Auf Kartennull – daher zur Kartentiefe addierbar."}, {"q": "Wie berechnet man die Wassertiefe?", "opts": ["Kartentiefe − Gezeitenhöhe", "Kartentiefe + Gezeitenhöhe", "Nur Gezeitenhöhe", "Nur Kartentiefe"], "correct": 1, "expl": "Wassertiefe = Kartentiefe + Gezeitenhöhe über Kartennull."}, {"q": "Warum ist das Kartennull so niedrig gewählt?", "opts": ["Zufall", "Damit man nie weniger Tiefe vorfindet als angegeben", "Für schönere Karten", "Wegen der Sonne"], "correct": 1, "expl": "Sicherheitsprinzip – die reale Tiefe ist nie geringer."}, {"q": "Wie ändert der Gezeitenstrom die Richtung?", "opts": ["Gar nicht", "Um 180° (Flut auflandig, Ebbe ablandig)", "Um 90°", "Ständig zufällig"], "correct": 1, "expl": "Bei Wechsel Flut/Ebbe dreht der Strom um 180°."}, {"q": "Wonach bemisst man die Ankerkette in Tiderevieren?", "opts": ["Nach Niedrigwasser", "Nach der Wassertiefe bei Hochwasser", "Nach der Kartentiefe", "Egal"], "correct": 1, "expl": "Nach der Wassertiefe bei Hochwasser (Vermuren wegen 180°-Schwojen)."}];
+</script>
+<script src="../../../assets/lektion.js"></script>
+</body>
+</html>

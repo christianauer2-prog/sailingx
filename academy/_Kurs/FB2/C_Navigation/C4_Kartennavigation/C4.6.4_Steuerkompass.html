@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.4.6.4 Peilung mittels Steuerkompass &amp; Deviationskontrolle · SailingX-Academy</title>
+<meta name="description" content="Peilen mit Peilaufsatz – und wie man damit die Deviationstabelle prüft.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.6.4_Steuerkompass.html">
+<link rel="icon" href="../../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../../assets/lektion.css">
+</head>
+<body data-root="../../../../" data-path="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.6.4_Steuerkompass.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Grundstoff · Modul C Navigation · C.4 Berechnung &amp; Arbeit in der Karte · <b>C.4.6 Peilungen</b></p>
+  <h1><span class="lnum">C.4.6.4</span>Peilung mittels Steuerkompass & Deviationskontrolle</h1>
+  <p class="lead">Peilen mit Peilaufsatz – und wie man damit die Deviationstabelle prüft.</p>
+  <div class="badges"><span class="badge">⏱ ca. 9 Min.</span><span class="badge">📘 Lektion 17 von 32</span><span class="badge">🧮 mit Rechner</span><span class="badge">✅ Selbsttest · 4 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Mit einem <b>Peilaufsatz</b> kann auch der Steuerkompass zum Peilen dienen. Weil er fest im Schiff sitzt, muss man hier zusätzlich die Deviation berücksichtigen.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du beherrschst den Peilungs-Rechenturm MgP → mwP → rwP.</li><li>Du nimmst die Deviation für den anliegenden Kurs.</li><li>Du kannst damit eine Deviationskontrolle durchführen.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>Der Peilungs-Rechenturm</h2><div class="step"><div class="ic">🧭</div><div class="tx"><b>Ablauf</b><br>MgP (Kompasspeilung) +/− Abl (Deviation für den <b>anliegenden Kurs</b>) = mwP; mwP +/− Mw = rwP. Die rwP zum Objekt eintragen = Standlinie.</div></div><div class="step"><div class="ic">📝</div><div class="tx"><b>Beispiel</b><br>Kurs 280°, abgelesene Peilung 024°, Abl (für Kurs 280°) −9°, Mw +5° → mwP 015°, rwP 020°.</div></div></section><section class="card"><h2><span class="n">2</span>Deviationskontrolle</h2><div class="step"><div class="ic">🔍</div><div class="tx"><b>Prinzip</b><br>Man braucht eine sichere rechtweisende Peilung (am besten eine Deckpeilung). Dieselben Objekte über den Steuerkompass peilen.</div></div><div class="step"><div class="ic">➖</div><div class="tx"><b>Vergleich</b><br>Deckpeilung um die Missweisung in eine mwP umrechnen. Die Differenz zwischen Kompasspeilung und mwP ist die tatsächliche Deviation – mit der Tabelle vergleichen.</div></div><div class="step"><div class="ic">🚪</div><div class="tx"><b>Vereinfacht</b><br>Von bekanntem Standort genau auf ein Kartenobjekt zuhalten → Kartenkurs bekannt. Mit umgekehrtem Vorzeichen um Mw beschicken = mwK; Differenz zum Kompasskurs = Deviation.</div></div></section>
+  <section class="card"><h2><span class="n">🧮</span>Peilungs-Rechenturm</h2>
+<div class="calc" id="cp">
+<h3>🧮 Peilungs-Rechenturm (Steuerkompass)</h3>
+<div class="row">
+ <div class="fld"><label>Kompasspeilung MgP (°)</label><input id="cp-p" type="number" min="0" max="360" placeholder="24"></div>
+ <div class="fld"><label>Deviation für anliegenden Kurs (°, E+/W−)</label><input id="cp-d" type="number" placeholder="-9"></div>
+ <div class="fld"><label>Missweisung Mw (°, E+/W−)</label><input id="cp-m" type="number" placeholder="+5"></div>
+</div>
+<button class="go" onclick="cpCalc()">Berechnen</button>
+<div class="out" id="cp-out"></div>
+<div class="hint">Wichtig: Deviation für den <b>anliegenden Kurs</b> nehmen, nicht für den Peilwinkel!</div>
+</div>
+<script>
+function cpN(x){x=x%360;if(x<0)x+=360;return x;}
+function cpS(x){return (x>=0?'+ ':'− ')+Math.abs(x);}
+function cpCalc(){var p=parseFloat(document.getElementById('cp-p').value),d=parseFloat(document.getElementById('cp-d').value)||0,m=parseFloat(document.getElementById('cp-m').value)||0,o=document.getElementById('cp-out');
+ if(isNaN(p)){o.className='out show';o.innerHTML='Bitte die Kompasspeilung eingeben.';return;}
+ var mwP=cpN(p+d),rwP=cpN(mwP+m);
+ o.className='out show';o.innerHTML='<div>MgP &nbsp;'+p.toFixed(0).padStart(3,'0')+'</div><div>Abl &nbsp;&nbsp;'+cpS(d)+'</div><div>mwP &nbsp;'+mwP.toFixed(0).padStart(3,'0')+'</div><div>Mw &nbsp;&nbsp;'+cpS(m)+'</div><div class="big">rwP = '+rwP.toFixed(0).padStart(3,'0')+'°</div>';}
+</script></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="C4.6.3_Handpeilkompass.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.6.3_Handpeilkompass.html"><small>← Vorherige Lektion</small><span>C.4.6.3 Peilung mit dem Handpeilkompass</span></a>
+    <a class="next" href="C4.6.5_Radarseitenpeilung.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.6.5_Radarseitenpeilung.html"><small>Nächste Lektion →</small><span>C.4.6.5 Radarseitenpeilung (RASP)</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · C.4.6.4 Peilung mittels Steuerkompass &amp; Deviationskontrolle<br><a href="../../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../../ueben.html" data-top>Üben</a> · <a href="../../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Warum braucht die Steuerkompass-Peilung eine Deviations-Berichtigung?", "opts": ["Weil sie ungenau ist", "Weil der Kompass fest im Schiff sitzt (Bordeisen)", "Wegen der Sonne", "Wegen des Windes"], "correct": 1, "expl": "Der fest eingebaute Steuerkompass unterliegt der Deviation – anders als der bewegliche Handpeilkompass."}, {"q": "Für welchen Wert nimmt man die Deviation?", "opts": ["Für den Peilwinkel", "Für den anliegenden Kurs", "Für rwN", "Für 000°"], "correct": 1, "expl": "Für den momentan anliegenden Kurs, nicht für den gemessenen Peilwinkel."}, {"q": "MgP 024°, Abl −9°, Mw +5°. Wie groß ist die rwP?", "opts": ["020°", "015°", "029°", "010°"], "correct": 0, "expl": "015° + 5° = 020°."}, {"q": "Was liefert eine Deviationskontrolle?", "opts": ["Den Kurs", "Die tatsächliche Deviation zum Vergleich mit der Tabelle", "Die Missweisung", "Die Tiefe"], "correct": 1, "expl": "Die tatsächliche Deviation, die man mit der Tabelle vergleicht."}];
+</script>
+<script src="../../../../assets/lektion.js"></script>
+</body>
+</html>

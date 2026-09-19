@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.4.4 Besteckversetzung · SailingX-Academy</title>
+<meta name="description" content="Wenn die Jacht woanders steht als gerechnet: die Differenz festhalten.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.4_Besteckversetzung.html">
+<link rel="icon" href="../../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../../assets/lektion.css">
+</head>
+<body data-root="../../../../" data-path="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.4_Besteckversetzung.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Grundstoff · Modul C Navigation · <b>C.4 Berechnung &amp; Arbeit in der Karte</b></p>
+  <h1><span class="lnum">C.4.4</span>Besteckversetzung</h1>
+  <p class="lead">Wenn die Jacht woanders steht als gerechnet: die Differenz festhalten.</p>
+  <div class="badges"><span class="badge">⏱ ca. 7 Min.</span><span class="badge">📘 Lektion 12 von 32</span><span class="badge">🧮 mit Rechner</span><span class="badge">✅ Selbsttest · 4 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Manchmal steht die Jacht nicht am gekoppelten (gerechneten) Ort, sondern woanders. Diese Differenz ist die <b>Besteckversetzung (BV)</b>.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du weißt, was die Besteckversetzung ist.</li><li>Du kannst sie in der Karte eintragen und ausmessen.</li><li>Du kennst die häufigsten Ursachen.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>Begriff & Eintragung</h2><div class="step"><div class="ic">📍</div><div class="tx"><b>Definition</b><br>Die Differenz zwischen dem rechnerisch-zeichnerisch ermittelten (gegissten) Ort und dem tatsächlichen (beobachteten) Ort heißt Besteckversetzung (BV).</div></div><div class="step"><div class="ic">➡️</div><div class="tx"><b>In der Karte</b><br>Den neuen wahren Ort als „Ringerl“ markieren und vom gegissten Ort einen Pfeil mit dem Zusatz „BV“ dorthin zeichnen. Länge (in sm) und Richtung (mit dem Kursdreieck) ergeben die BV.</div></div></section><section class="card"><h2><span class="n">2</span>Ursachen</h2><div class="step"><div class="ic">🔎</div><div class="tx"><b>Häufige Gründe</b><br>Stromversetzung, unaufmerksamer Rudergänger, falsch angenommene Windbeschickung, Instrumentenfehler (Kompass/Log) oder Rechenfehler des Navigators.</div></div><div class="step"><div class="ic">🗺️</div><div class="tx"><b>Kartenkurs</b><br>Der in die Karte einzuzeichnende Kurs ist immer der Kurs über Grund (KüG) – nach allen Berichtigungen für Deviation, Missweisung, Wind und Strom.</div></div></section>
+  <section class="card"><h2><span class="n">🧮</span>Besteckversetzung ausmessen</h2>
+<div class="calc" id="cv">
+<h3>🧮 Besteckversetzung ausmessen</h3>
+<p style="font-size:13px;color:#a9c4dc;margin:0 0 10px;">Trage die Verschiebung vom gegissten Ort (Koppelort) zum beobachteten Ort ein – nach Ost (E) und nach Nord (N) in Seemeilen. Werte nach W/S negativ.</p>
+<div class="row">
+ <div class="fld"><label>Δ Ost (sm)</label><input id="cv-e" type="number" placeholder="1.5"></div>
+ <div class="fld"><label>Δ Nord (sm)</label><input id="cv-n" type="number" placeholder="-1.3"></div>
+</div>
+<button class="go" onclick="cvCalc()">Berechnen</button>
+<div class="out" id="cv-out"></div>
+<div class="hint">Länge = √(Ost² + Nord²); Richtung als Kartenkurs (rechtweisend, 0°=N, im Uhrzeigersinn).</div>
+</div>
+<script>
+function cvCalc(){var e=parseFloat(document.getElementById('cv-e').value),n=parseFloat(document.getElementById('cv-n').value),o=document.getElementById('cv-out');
+ if(isNaN(e)||isNaN(n)){o.className='out show';o.innerHTML='Bitte beide Werte eingeben.';return;}
+ var len=Math.sqrt(e*e+n*n),brg=Math.atan2(e,n)*180/Math.PI;if(brg<0)brg+=360;
+ o.className='out show';o.innerHTML='<div class="big">BV = '+len.toFixed(1)+' sm</div><div>in Richtung <b>'+brg.toFixed(0).padStart(3,'0')+'°</b></div>';}
+</script></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="C4.3_Abdrift.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.3_Abdrift.html"><small>← Vorherige Lektion</small><span>C.4.3 Abdrift durch Wind &amp; Strom</span></a>
+    <a class="next" href="C4.5_Koppelnavigation-Weg-Zeit.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.5_Koppelnavigation-Weg-Zeit.html"><small>Nächste Lektion →</small><span>C.4.5 Koppelnavigation &amp; Weg-Zeit-Rechnung</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · C.4.4 Besteckversetzung<br><a href="../../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../../ueben.html" data-top>Üben</a> · <a href="../../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Was ist die Besteckversetzung?", "opts": ["Der Kompassfehler", "Differenz zwischen gegisstem und beobachtetem Ort", "Die Missweisung", "Der Passierabstand"], "correct": 1, "expl": "Die Differenz zwischen gerechnetem (gegisstem) und tatsächlichem Ort."}, {"q": "Wie trägt man sie ein?", "opts": ["Als Kreis", "Als Pfeil „BV“ vom gegissten zum wahren Ort", "Als gestrichelte Linie", "Gar nicht"], "correct": 1, "expl": "Ein Pfeil mit Zusatz „BV“ vom gegissten Ort zum neuen Ringerl."}, {"q": "Was ist KEINE typische Ursache?", "opts": ["Stromversetzung", "Unaufmerksamer Rudergänger", "Die Erdrotation", "Instrumentenfehler"], "correct": 2, "expl": "Erdrotation zählt nicht dazu; Strom, Rudergänger, Instrumenten-/Rechenfehler schon."}, {"q": "Welcher Kurs wird in die Karte eingezeichnet?", "opts": ["Der Kompasskurs", "Der Kurs über Grund (KüG)", "Der KdW", "Die Kiellinie"], "correct": 1, "expl": "Immer der Kurs über Grund nach allen Berichtigungen."}];
+</script>
+<script src="../../../../assets/lektion.js"></script>
+</body>
+</html>

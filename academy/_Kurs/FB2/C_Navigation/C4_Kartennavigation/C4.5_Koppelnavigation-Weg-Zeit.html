@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.4.5 Koppelnavigation &amp; Weg-Zeit-Rechnung · SailingX-Academy</title>
+<meta name="description" content="Den Weg fortschreiben, Koppelorte setzen und mit Weg-Zeit-Fahrt rechnen.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.5_Koppelnavigation-Weg-Zeit.html">
+<link rel="icon" href="../../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../../assets/lektion.css">
+</head>
+<body data-root="../../../../" data-path="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.5_Koppelnavigation-Weg-Zeit.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Grundstoff · Modul C Navigation · <b>C.4 Berechnung &amp; Arbeit in der Karte</b></p>
+  <h1><span class="lnum">C.4.5</span>Koppelnavigation & Weg-Zeit-Rechnung</h1>
+  <p class="lead">Den Weg fortschreiben, Koppelorte setzen und mit Weg-Zeit-Fahrt rechnen.</p>
+  <div class="badges"><span class="badge">⏱ ca. 9 Min.</span><span class="badge">📘 Lektion 13 von 32</span><span class="badge">🧮 mit Rechner</span><span class="badge">✅ Selbsttest · 5 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p><b>Koppeln</b> (Gissen) heißt: vom letzten sicheren Ort aus den Weg rechnerisch fortschreiben und markieren, wo die Jacht zu welcher Zeit stehen müsste.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du weißt, was Koppeln/Gissen bedeutet.</li><li>Du beherrschst die Weg-Zeit-Fahrt-Formeln.</li><li>Du kennst ETA, ETE, Etmal und Passierabstand.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>Koppeln</h2><div class="step"><div class="ic">📐</div><div class="tx"><b>Koppelort</b><br>Vom wahren Ort aus wird der Weg fortgeschrieben. Koppelorte (gegisste Orte) markiert man mit einem kurzen Querstrich zur Kurslinie und schreibt Uhrzeit und Loggenstand dazu.</div></div><div class="step"><div class="ic">🧮</div><div class="tx"><b>Formeln</b><br>Weg s (sm) = Fahrt v (kn) × Zeit t (h); t = s / v; v = s / t. Minuten immer durch 60 in Stunden umrechnen.</div></div></section><section class="card"><h2><span class="n">2</span>Wichtige Begriffe</h2><div class="step"><div class="ic">🕓</div><div class="tx"><b>ETA / ETE</b><br>ETA = errechnete Ankunftszeit am Ziel. ETE = errechnete Fahrtdauer bis zum Ziel.</div></div><div class="step"><div class="ic">📏</div><div class="tx"><b>Etmal / Passierabstand</b><br>Etmal = die zwischen 12:00 Uhr zweier Tage zurückgelegte Strecke. Passierabstand = kürzester Abstand zwischen einem Objekt und dem Kartenkurs.</div></div></section>
+  <section class="card"><h2><span class="n">🧮</span>Weg-Zeit-Rechner</h2>
+<div class="calc" id="cw">
+<h3>🧮 Weg – Zeit – Fahrt</h3>
+<p style="font-size:13px;color:#a9c4dc;margin:0 0 10px;">Zwei Felder ausfüllen, das dritte leer lassen – es wird berechnet.</p>
+<div class="row">
+ <div class="fld"><label>Weg s (sm)</label><input id="cw-s" type="number" min="0" placeholder="?"></div>
+ <div class="fld"><label>Fahrt v (kn)</label><input id="cw-v" type="number" min="0" placeholder="5.5"></div>
+ <div class="fld"><label>Zeit t (Minuten)</label><input id="cw-t" type="number" min="0" placeholder="90"></div>
+</div>
+<button class="go" onclick="cwCalc()">Berechnen</button>
+<div class="out" id="cw-out"></div>
+<div class="hint">Rechenbasis: s = v · t, wobei t in Stunden (Minuten ÷ 60).</div>
+</div>
+<script>
+function cwCalc(){var s=parseFloat(document.getElementById('cw-s').value),v=parseFloat(document.getElementById('cw-v').value),tm=parseFloat(document.getElementById('cw-t').value),o=document.getElementById('cw-out');
+ var have=[!isNaN(s),!isNaN(v),!isNaN(tm)].filter(Boolean).length;
+ if(have<2){o.className='out show';o.innerHTML='Bitte genau zwei Werte eingeben.';return;}
+ var res;
+ if(isNaN(s)){var t=tm/60;s=v*t;res='<div class="big">Weg s = '+s.toFixed(2)+' sm</div>';}
+ else if(isNaN(v)){var t=tm/60;v=s/t;res='<div class="big">Fahrt v = '+v.toFixed(2)+' kn</div>';}
+ else{var t=s/v;res='<div class="big">Zeit t = '+(t*60).toFixed(0)+' min</div><div>('+t.toFixed(2)+' h)</div>';}
+ o.className='out show';o.innerHTML=res;}
+</script></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="C4.4_Besteckversetzung.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.4_Besteckversetzung.html"><small>← Vorherige Lektion</small><span>C.4.4 Besteckversetzung</span></a>
+    <a class="next" href="C4.6.1_Deckpeilung.html" data-nav="_Kurs/FB2/C_Navigation/C4_Kartennavigation/C4.6.1_Deckpeilung.html"><small>Nächste Lektion →</small><span>C.4.6.1 Deckpeilung (Deckungspeilung)</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · C.4.5 Koppelnavigation &amp; Weg-Zeit-Rechnung<br><a href="../../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../../ueben.html" data-top>Üben</a> · <a href="../../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Was bedeutet Koppeln (Gissen)?", "opts": ["Peilen mit dem Kompass", "Den Weg vom letzten Ort rechnerisch fortschreiben", "Ankern", "Loten"], "correct": 1, "expl": "Das rechnerisch-zeichnerische Fortschreiben des Weges vom wahren Ort aus."}, {"q": "Wie berechnet man den Weg?", "opts": ["s = v / t", "s = v · t", "s = t / v", "s = v + t"], "correct": 1, "expl": "Weg = Fahrt × Zeit (Zeit in Stunden)."}, {"q": "5,5 kn über 90 Minuten – welcher Weg?", "opts": ["5,5 sm", "8,25 sm", "11 sm", "4,1 sm"], "correct": 1, "expl": "90 min = 1,5 h; 5,5 · 1,5 = 8,25 sm."}, {"q": "Was ist die ETA?", "opts": ["Fahrtdauer", "Errechnete Ankunftszeit", "Etmal", "Passierabstand"], "correct": 1, "expl": "ETA = Estimated Time of Arrival = errechnete Ankunftszeit."}, {"q": "Was ist der Passierabstand?", "opts": ["Die Tagesstrecke", "Der kürzeste Abstand zwischen Objekt und Kartenkurs", "Die Ankunftszeit", "Die Fahrtdauer"], "correct": 1, "expl": "Der kürzeste Abstand zwischen einem Objekt und dem Kartenkurs."}];
+</script>
+<script src="../../../../assets/lektion.js"></script>
+</body>
+</html>

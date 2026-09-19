@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2.5 Rumpfgeschwindigkeit · SailingX-Academy</title>
+<meta name="description" content="Die theoretische Höchstgeschwindigkeit eines Verdrängers – und ihre Formel.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB3/Yachtfuehrung-Langstrecken/Rumpfgeschwindigkeit.html">
+<link rel="icon" href="../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../assets/lektion.css">
+</head>
+<body data-root="../../../" data-path="_Kurs/FB3/Yachtfuehrung-Langstrecken/Rumpfgeschwindigkeit.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Aufbaustoff · <b>Modul 2 Yachtführung auf Langstrecken</b></p>
+  <h1><span class="lnum">2.5</span>Rumpfgeschwindigkeit</h1>
+  <p class="lead">Die theoretische Höchstgeschwindigkeit eines Verdrängers – und ihre Formel.</p>
+  <div class="badges"><span class="badge">⏱ ca. 7 Min.</span><span class="badge">📘 Lektion 8 von 11</span><span class="badge">🧮 mit Rechner</span><span class="badge">✅ Selbsttest · 5 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Die <b>Rumpfgeschwindigkeit</b> begrenzt die Fahrt eines Verdrängers – sie hängt nur von der Wasserlinienlänge ab.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du kennst die Formel und ihr Prinzip.</li><li>Du kannst die Rumpfgeschwindigkeit berechnen.</li><li>Du weißt, was beim Überschreiten passiert.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>Prinzip & Formel</h2><div class="step"><div class="ic">🌊</div><div class="tx"><b>Eigenes Wellensystem</b><br>Die Rumpfgeschwindigkeit ist die Ausbreitungsgeschwindigkeit des vom Schiff erzeugten Wellensystems (Bug- + Heckwelle). Bei ihr ist das Schiff zwischen diesen Wellen „gefangen“.</div></div><div class="step"><div class="ic">🧮</div><div class="tx"><b>Formel</b><br>v (kn) = 2,43 · √Wasserlinienlänge (m). Beispiele: 10 m ≈ 7,7 kn, 100 m ≈ 24 kn. Deshalb fahren größere Verdränger schneller.</div></div></section><section class="card"><h2><span class="n">2</span>Überschreiten</h2><div class="step"><div class="ic">⚠️</div><div class="tx"><b>Surfen</b><br>Wird sie überschritten (z. B. beim Abreiten einer Welle im Sturm), kann die Jacht außer Kontrolle geraten und der Rumpf beschädigt werden. Bremsen hilft: Trossen oder einen Treibanker nachschleppen. Nur echte Gleiter (flacher Rumpf) gehen leicht in Gleitfahrt.</div></div></section>
+  <section class="card"><h2><span class="n">🧮</span>Rumpfgeschwindigkeits-Rechner</h2>
+<div class="calc" id="cr">
+<h3>🧮 Rumpfgeschwindigkeit</h3>
+<div class="row">
+ <div class="fld"><label>Wasserlinienlänge LWL (m)</label><input id="cr-l" type="number" step="0.1" placeholder="10"></div>
+</div>
+<button class="go" onclick="crCalc()">Berechnen</button>
+<div class="out" id="cr-out"></div>
+<div class="hint">v (kn) = 2,43 · √LWL (m). Nur theoretischer Maximalwert der Verdrängerfahrt.</div>
+</div>
+<script>
+function crCalc(){var l=parseFloat(document.getElementById('cr-l').value),o=document.getElementById('cr-out');
+ if(isNaN(l)||l<=0){o.className='out show';o.innerHTML='Bitte eine gültige Wasserlinienlänge eingeben.';return;}
+ var v=2.43*Math.sqrt(l);
+ o.className='out show';o.innerHTML='<div>2,43 · √'+l+' m</div><div class="big">≈ '+v.toFixed(1)+' kn</div>';}
+</script></section><section class="card"><h2><span class="n">🎬</span>Zwischen Bug- und Heckwelle gefangen</h2><div style="max-width:340px;margin:6px auto 0;"><svg viewBox="0 0 340 120" style="width:100%;height:auto;" aria-hidden="true">
+<rect x="0" y="70" width="340" height="50" fill="#9cc3e6"/>
+<path d="M60,80 l120,0 l-16,20 l-88,0 z" fill="#1f4b73"/>
+<path d="M40,80 q20,-28 40,0" fill="none" stroke="#2e87c4" stroke-width="2.5"/>
+<path d="M160,80 q20,-28 40,0" fill="none" stroke="#2e87c4" stroke-width="2.5"/>
+<text x="30" y="60" font-size="9.5" fill="#2e87c4">Bugwelle</text><text x="170" y="60" font-size="9.5" fill="#2e87c4">Heckwelle</text>
+<text x="70" y="115" font-size="10" fill="#13314f">v ≈ 2,43 · √Wasserlinienlänge</text>
+</svg></div><p class="figcap">Die <b>Rumpfgeschwindigkeit</b> ist der theoretische Höchstwert der Verdrängerfahrt: <b>v (kn) = 2,43 · √Wasserlinienlänge (m)</b>. Sie ist die Ausbreitungsgeschwindigkeit des eigenen Wellensystems – bei Rumpfgeschwindigkeit ist das Schiff zwischen Bug- und Heckwelle „gefangen“. Beispiele: 10 m LWL ≈ 7,7 kn, 100 m ≈ 24 kn. Deshalb fahren größere Schiffe (Verdränger) schneller. Wird sie überschritten (z. B. Surfen im Sturm), drohen Kontrollverlust und Rumpfschäden – bremsen hilft (Trossen/Treibanker nachschleppen).</p></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="Liegen-im-Paket.html" data-nav="_Kurs/FB3/Yachtfuehrung-Langstrecken/Liegen-im-Paket.html"><small>← Vorherige Lektion</small><span>2.4 Liegen im Paket</span></a>
+    <a class="next" href="Schwerwetter/Schwerwetter-vorbereiten.html" data-nav="_Kurs/FB3/Yachtfuehrung-Langstrecken/Schwerwetter/Schwerwetter-vorbereiten.html"><small>Nächste Lektion →</small><span>2.6.1 Vorbereiten auf Schwerwetter</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · 2.5 Rumpfgeschwindigkeit<br><a href="../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../ueben.html" data-top>Üben</a> · <a href="../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Wovon hängt die Rumpfgeschwindigkeit ab?", "opts": ["Vom Gewicht", "Von der Wasserlinienlänge", "Von der Segelfläche", "Vom Wind"], "correct": 1, "expl": "Nur von der Wasserlinienlänge (LWL)."}, {"q": "Wie lautet die Formel?", "opts": ["2,43 × LWL", "2,43 × √LWL", "√LWL ÷ 2,43", "LWL²"], "correct": 1, "expl": "v (kn) = 2,43 · √LWL (m)."}, {"q": "Rumpfgeschwindigkeit bei 10 m LWL?", "opts": ["≈ 4 kn", "≈ 7,7 kn", "≈ 12 kn", "≈ 24 kn"], "correct": 1, "expl": "2,43 · √10 ≈ 7,7 kn."}, {"q": "Was droht beim Überschreiten (Verdränger)?", "opts": ["Nichts", "Kontrollverlust und Rumpfschäden", "Mehr Reichweite", "Weniger Verbrauch"], "correct": 1, "expl": "Die Jacht kann außer Kontrolle geraten, der Rumpf Schaden nehmen."}, {"q": "Wie bremst man beim Surfen?", "opts": ["Mehr Segel", "Trossen/Treibanker nachschleppen", "Motor Vollgas", "Ankern"], "correct": 1, "expl": "Nachschleppen von Trossen oder einem Treibanker verringert die Fahrt."}];
+</script>
+<script src="../../../assets/lektion.js"></script>
+</body>
+</html>

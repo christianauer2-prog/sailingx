@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2.3 Bordelektrik · SailingX-Academy</title>
+<meta name="description" content="Batterien, Laden und wie stark ein Gerät die Batterie belastet.">
+<link rel="canonical" href="https://sailingx.at/academy/_Kurs/FB3/Yachtfuehrung-Langstrecken/Bordelektrik.html">
+<link rel="icon" href="../../../favicon.png" type="image/png">
+<link rel="stylesheet" href="../../../assets/lektion.css">
+</head>
+<body data-root="../../../" data-path="_Kurs/FB3/Yachtfuehrung-Langstrecken/Bordelektrik.html">
+<header class="hero"><div class="hero-inner">
+  <p class="crumb">Aufbaustoff · <b>Modul 2 Yachtführung auf Langstrecken</b></p>
+  <h1><span class="lnum">2.3</span>Bordelektrik</h1>
+  <p class="lead">Batterien, Laden und wie stark ein Gerät die Batterie belastet.</p>
+  <div class="badges"><span class="badge">⏱ ca. 8 Min.</span><span class="badge">📘 Lektion 6 von 11</span><span class="badge">🧮 mit Rechner</span><span class="badge">✅ Selbsttest · 5 Fragen</span></div>
+</div></header>
+<main class="wrap">
+<!-- INHALT:START -->
+  <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Ohne Strom steht viel still. Wie das Bordnetz aufgebaut ist – und wie man den Verbrauch rechnet.</p>
+    <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du kennst das Zwei-Batterie-System.</li><li>Du kennst die Regeln der Batteriepflege.</li><li>Du kannst die Batteriebelastung berechnen.</li></ul></section>
+  <section class="card"><h2><span class="n">1</span>System & Laden</h2><div class="step"><div class="ic">🔋</div><div class="tx"><b>Zwei Batterien</b><br>Meist 12 V: eine reine Starterbatterie, die andere(n) für alle Verbraucher – so startet der Motor auch nach viel Verbrauch. Aufladen über die Lichtmaschine (bei laufendem Motor) oder in der Marina über Landstrom (Ladetrafo).</div></div><div class="step"><div class="ic">🧰</div><div class="tx"><b>Pflege</b><br>Nicht tiefentladen, regelmäßig nachladen, nicht überladen (Knallgas – Explosionsgefahr!), gut durchlüftet aufstellen, Säurestand halten, Pole sauber/mit Polfett. Kapazität in Amperestunden (Ah).</div></div></section><section class="card"><h2><span class="n">2</span>Verbrauch rechnen</h2><div class="step"><div class="ic">🧮</div><div class="tx"><b>Formeln</b><br>Ampere = Watt ÷ Volt; Belastung (Ah) = Ampere × Stunden. Beispiel: 36 W ÷ 12 V = 3 A × 6 h = 18 Ah.</div></div><div class="step"><div class="ic">⅔</div><div class="tx"><b>Faustregel</b><br>Nicht mehr als ~⅔ der Kapazität entnehmen. Bei 90 Ah wären das 60 Ah – der Kühlschrank aus dem Beispiel beansprucht davon rund ein Drittel.</div></div></section>
+  <section class="card"><h2><span class="n">🧮</span>Batterie-Rechner</h2>
+<div class="calc" id="cb">
+<h3>🧮 Batterie-Belastung</h3>
+<div class="row">
+ <div class="fld"><label>Leistung des Geräts (Watt)</label><input id="cb-w" type="number" placeholder="36"></div>
+ <div class="fld"><label>Spannung (Volt)</label><input id="cb-v" type="number" value="12"></div>
+ <div class="fld"><label>Betriebsdauer (Stunden)</label><input id="cb-h" type="number" placeholder="6"></div>
+</div>
+<button class="go" onclick="cbCalc()">Berechnen</button>
+<div class="out" id="cb-out"></div>
+<div class="hint">Ampere = Watt ÷ Volt · Belastung (Ah) = Ampere × Stunden. Faustregel: max. ⅔ der Kapazität entnehmen.</div>
+</div>
+<script>
+function cbCalc(){var w=parseFloat(document.getElementById('cb-w').value),v=parseFloat(document.getElementById('cb-v').value),h=parseFloat(document.getElementById('cb-h').value),o=document.getElementById('cb-out');
+ if(isNaN(w)||isNaN(v)||isNaN(h)||v<=0){o.className='out show';o.innerHTML='Bitte Watt, Volt und Stunden eingeben.';return;}
+ var a=w/v, ah=a*h;
+ o.className='out show';o.innerHTML='<div>'+w+' W ÷ '+v+' V = '+a.toFixed(1)+' A</div><div class="big">Belastung = '+ah.toFixed(1)+' Ah</div>';}
+</script></section><section class="card"><h2><span class="n">🎬</span>Zwei-Batterie-System</h2><div style="max-width:340px;margin:6px auto 0;"><svg viewBox="0 0 340 140" style="width:100%;height:auto;" aria-hidden="true">
+<rect x="20" y="40" width="80" height="50" rx="4" fill="#e8f2fa" stroke="#1f4b73" stroke-width="1.5"/><text x="60" y="60" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1f4b73">Starter</text><text x="60" y="76" text-anchor="middle" font-size="9" fill="#5d6b78">nur Motor</text>
+<rect x="130" y="40" width="80" height="50" rx="4" fill="#e8f2fa" stroke="#1f4b73" stroke-width="1.5"/><text x="170" y="60" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1f4b73">Verbraucher</text><text x="170" y="76" text-anchor="middle" font-size="9" fill="#5d6b78">Licht, Geräte…</text>
+<circle cx="285" cy="65" r="26" fill="#fff4e0" stroke="#e0a800" stroke-width="1.5"/><text x="285" y="62" text-anchor="middle" font-size="9.5" fill="#b5820a">Licht-</text><text x="285" y="74" text-anchor="middle" font-size="9.5" fill="#b5820a">maschine</text>
+<line x1="210" y1="65" x2="259" y2="65" stroke="#e0a800" stroke-width="2" marker-end="url(#lm)"/>
+<line x1="100" y1="80" x2="130" y2="80" stroke="#5d6b78" stroke-width="1.5"/><text x="70" y="120" font-size="9.5" fill="#13314f">Hauptschalter trennt vom Bordnetz</text>
+<defs><marker id="lm" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#e0a800"/></marker></defs>
+</svg></div><p class="figcap">Strom (meist <b>12 V</b>) braucht man für Start, Lichter und Geräte. Moderne Jachten haben mindestens zwei Batterien: eine reine <b>Starterbatterie</b>, die andere(n) für alle Verbraucher – so lässt sich der Motor auch nach starkem Verbrauch noch starten und lädt dann über die <b>Lichtmaschine</b> nach (24-V-Netze: 12-V-Batterien in Reihe). Batteriepflege: nicht tiefentladen, regelmäßig nachladen, nicht überladen (Knallgas – Explosionsgefahr!), gut durchlüftet aufstellen, Säurestand halten, Pole sauber/mit Polfett. Kapazität in Amperestunden (Ah).</p></section>
+<!-- INHALT:ENDE -->
+  <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
+    <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
+    <div id="quizBody"></div>
+    <div class="result" id="result"><div class="msg">Dein Ergebnis</div><div class="score" id="scoreTxt">0 / 0</div><div class="msg" id="resultMsg"></div><button type="button" class="retry" id="retryBtn">Nochmal versuchen</button></div>
+  </section>
+  <nav class="lnav" aria-label="Lektionsnavigation">
+    <a class="prev" href="Toernplanung.html" data-nav="_Kurs/FB3/Yachtfuehrung-Langstrecken/Toernplanung.html"><small>← Vorherige Lektion</small><span>2.2 Törnplanung</span></a>
+    <a class="next" href="Liegen-im-Paket.html" data-nav="_Kurs/FB3/Yachtfuehrung-Langstrecken/Liegen-im-Paket.html"><small>Nächste Lektion →</small><span>2.4 Liegen im Paket</span></a>
+  </nav>
+  <p class="foot">SailingX-Academy · 2.3 Bordelektrik<br><a href="../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../ueben.html" data-top>Üben</a> · <a href="../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../datenschutz.html" data-top>Datenschutz</a></p>
+</main>
+<script>
+var QUIZ = [{"q": "Wozu die getrennte Starterbatterie?", "opts": ["Für mehr Licht", "Damit der Motor auch nach viel Verbrauch startet", "Aus Vorschrift", "Ohne Grund"], "correct": 1, "expl": "So bleibt der Motorstart auch bei leerer Verbraucherbatterie möglich."}, {"q": "Was entsteht beim Überladen?", "opts": ["Nichts", "Knallgas – Explosionsgefahr", "Mehr Kapazität", "Wärme nur"], "correct": 1, "expl": "Knallgas – daher gut durchlüften und nicht überladen."}, {"q": "Wie rechnet man die Stromaufnahme?", "opts": ["Watt × Volt", "Watt ÷ Volt", "Volt ÷ Watt", "Watt × Stunden"], "correct": 1, "expl": "Ampere = Watt ÷ Volt."}, {"q": "36 W bei 12 V über 6 h – welche Belastung?", "opts": ["6 Ah", "18 Ah", "36 Ah", "72 Ah"], "correct": 1, "expl": "3 A × 6 h = 18 Ah."}, {"q": "Wie viel Kapazität sollte man höchstens entnehmen?", "opts": ["Alles", "Etwa ⅔", "Die Hälfte immer", "10 %"], "correct": 1, "expl": "Als Faustregel nicht mehr als etwa ⅔."}];
+</script>
+<script src="../../../assets/lektion.js"></script>
+</body>
+</html>
