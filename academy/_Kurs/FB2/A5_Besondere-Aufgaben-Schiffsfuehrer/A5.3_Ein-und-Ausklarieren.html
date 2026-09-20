@@ -21,18 +21,11 @@
   <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Bei Fahrten über Grenzen zur See sind <b>Behördenwege</b> zu erledigen. Es ist ein Gebot der Höflichkeit und Klugheit, dabei einigermaßen korrekt gekleidet aufzutreten.</p>
     <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du kennst den Ablauf des Einklarierens.</li><li>Du kennst den Ablauf des Ausklarierens.</li><li>Du weißt, wozu die gelbe „Q“-Flagge dient.</li></ul></section>
   <section class="card"><h2><span class="n">1</span>Vorab &amp; Einklarieren</h2><div class="step"><div class="ic">🏛️</div><div class="tx"><b>Zum Hafenkapitän</b><br>Vor Törnbeginn meist mit den Schiffspapieren zum Hafenkapitän; in manchen Ländern in jedem angelaufenen Hafen.</div></div><div class="step"><div class="ic">🚩</div><div class="tx"><b>„Q“ setzen</b><br>Bei der Einreise in ein Drittland die gelbe Einklarierungsflagge „Q“ in der Backbordsaling setzen und direkt einen Einklarierungshafen (Port of Entry) ansteuern; an der Zollmole festmachen.</div></div><div class="step"><div class="ic">🛂</div><div class="tx"><b>Formalitäten</b><br>Der Schiffsführer erledigt mit den Dokumenten die Einreise bei Hafenamt, Polizei und Zoll; die Crew bleibt an Bord. Danach die Q-Flagge einholen und die Zollmole verlassen.</div></div></section><section class="card"><h2><span class="n">2</span>Crew-Änderung &amp; Ausklarieren</h2><div class="step"><div class="ic">👥</div><div class="tx"><b>Crew-Änderung</b><br>Kommt jemand an Bord oder verlässt vorzeitig den Törn, ist das beim Hafenamt zu melden und die Crewliste anzupassen.</div></div><div class="step"><div class="ic">↩️</div><div class="tx"><b>Ausklarieren</b><br>Die Ausreise wird analog gemeldet. Nach dem Ausklarieren darf (außer im Notfall) kein Hafen mehr angelaufen und keine Bucht besucht werden – die Hoheitsgewässer sind direkt zu verlassen.</div></div></section>
-  <section class="card"><h2><span class="n">🎬</span>Einklarieren mit der „Q“-Flagge</h2><div style="max-width:260px;margin:6px auto 0;"><style>
-@keyframes qwave{0%,100%{transform:skewX(0)}50%{transform:skewX(-12deg)}}
-.qflag{animation:qwave 1.6s ease-in-out infinite;transform-origin:left center;}
-</style>
-<svg viewBox="0 0 240 180" style="width:100%;height:auto;" aria-hidden="true">
-<line x1="120" y1="20" x2="120" y2="120" stroke="#5f5e5a" stroke-width="4"/>
-<line x1="120" y1="46" x2="78" y2="46" stroke="#5f5e5a" stroke-width="3"/>
-<g class="qflag"><rect x="52" y="38" width="26" height="17" fill="#f2c400" stroke="#a07f00" stroke-width="1"/></g>
-<text x="30" y="34" font-size="12" font-weight="700" fill="#a07f00">Q</text>
-<path d="M60,120 C92,108 148,108 180,120 C148,132 92,132 60,120 Z" fill="#13314f"/>
-<text x="120" y="158" text-anchor="middle" font-size="11" fill="#1f4b73">gelbe Flagge in der Backbordsaling</text>
-</svg></div><p class="figcap">Bei der Einreise in ein Drittland setzt die Jacht die <b>gelbe Flagge „Q“</b> in der Backbordsaling und läuft direkt einen Einklarierungshafen (Port of Entry) an. Der Schiffsführer erledigt mit den Dokumenten die Formalitäten; danach wird die Q-Flagge eingeholt.</p></section>
+  <section class="card szene-card">
+    <h2><span class="n">🎬</span>Einklarieren mit der „Q“-Flagge</h2>
+    <div class="szene" data-szene="q-flagge"></div>
+    <p class="figcap">Bei der Einreise in ein Drittland wird die gelbe Flagge „Q“ unter der Backbordsaling gesetzt und direkt ein Einklarierungshafen (Port of Entry) angelaufen. Nach dem Einklarieren wird sie eingeholt.</p>
+  </section>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
     <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
@@ -48,6 +41,7 @@
 <script>
 var QUIZ = [{"q": "Welche Flagge setzt man beim Einklarieren?", "opts": ["Die Nationalflagge", "Die gelbe Flagge „Q“ in der Backbordsaling", "Eine rote Flagge", "Keine"], "correct": 1, "expl": "Die gelbe Einklarierungsflagge „Q“ wird in der Backbordsaling gesetzt."}, {"q": "Wohin läuft man zum Einklarieren?", "opts": ["In die nächste Bucht", "In einen Einklarierungshafen (Port of Entry), an die Zollmole", "In den Heimathafen", "Irgendeinen Hafen"], "correct": 1, "expl": "Auf kürzestem Weg in einen Einklarierungshafen und dort an die Zollmole."}, {"q": "Wer erledigt die Einreiseformalitäten?", "opts": ["Die ganze Crew", "Der Schiffsführer mit den Dokumenten; die Crew bleibt an Bord", "Der Hafenmeister allein", "Niemand"], "correct": 1, "expl": "Der Schiffsführer geht mit den Dokumenten zu den Behörden; die übrige Crew bleibt an Bord."}, {"q": "Was gilt nach dem Ausklarieren?", "opts": ["Man darf noch überall anlegen", "Kein Hafen/Bucht mehr (außer Notfall) – Hoheitsgewässer direkt verlassen", "Man muss ankern", "Man wartet 24 Stunden"], "correct": 1, "expl": "Nach dem Ausklarieren sind die Hoheitsgewässer direkt zu verlassen (Notfälle ausgenommen)."}];
 </script>
+<script src="../../../assets/szenen.js"></script><script src="../../../assets/szenen-kurs.js"></script><script src="../../../assets/szenen-technik.js"></script>
 <script src="../../../assets/lektion.js"></script>
 </body>
 </html>

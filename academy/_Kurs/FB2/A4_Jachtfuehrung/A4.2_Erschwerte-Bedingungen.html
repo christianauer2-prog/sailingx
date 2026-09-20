@@ -21,18 +21,11 @@
   <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Bei verminderter Sicht und bei Nacht gelten besondere Vorkehrungen, damit die Jacht gesehen wird und die Crew sicher bleibt.</p>
     <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du kennst die Maßnahmen bei verminderter Sicht.</li><li>Du kennst die Maßnahmen bei Nacht.</li><li>Du weißt, wann Rettungsgurte Pflicht sind.</li></ul></section>
   <section class="card"><h2><span class="n">1</span>Bei verminderter Sicht</h2><div class="step"><div class="ic">💡</div><div class="tx"><b>Lichter &amp; Schallsignale</b><br>Lichter führen und Schallsignale geben.</div></div><div class="step"><div class="ic">📡</div><div class="tx"><b>Radar</b><br>Falls vorhanden, das Radar einschalten und besetzen.</div></div><div class="step"><div class="ic">👁️</div><div class="tx"><b>Ausguck</b><br>Verstärkt Ausguck halten; Rettungsmittel einsatzbereit halten, evtl. Schwimmwesten anlegen.</div></div></section><section class="card"><h2><span class="n">2</span>Bei Nacht</h2><div class="step"><div class="ic">🌙</div><div class="tx"><b>Definition</b><br>Nacht ist die Zeit von Sonnenuntergang bis Sonnenaufgang.</div></div><div class="step"><div class="ic">💡</div><div class="tx"><b>Lichter &amp; Radar</b><br>Lichter führen; das Radar einschalten und besetzen – besonders in verkehrsreichen Seegebieten.</div></div><div class="step"><div class="ic">🦺</div><div class="tx"><b>Sicherung</b><br>Steht nur der Rudergänger in der Plicht, trägt er Rettungsgurt und pickt sich ein – ebenso jedes Crewmitglied außerhalb der Plicht. Weitere Crew muss rasch für Manöver bereitstehen.</div></div></section>
-  <section class="card"><h2><span class="n">🎬</span>Bei Nacht & verminderter Sicht</h2><div style="max-width:280px;margin:6px auto 0;"><style>
-@keyframes sweep{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-.rsweep{animation:sweep 3.5s linear infinite;transform-origin:130px 100px;}
-</style>
-<svg viewBox="0 0 260 200" style="width:100%;height:auto;" aria-hidden="true">
-<circle cx="130" cy="100" r="72" fill="#0c2036"/>
-<circle cx="130" cy="100" r="72" fill="none" stroke="#1f4b73" stroke-width="2"/>
-<g class="rsweep"><path d="M130,100 L130,28 A72 72 0 0 1 190,64 Z" fill="#2e87c4" opacity="0.28"/></g>
-<path d="M112,132 C120,96 140,96 148,132 C140,140 120,140 112,132 Z" fill="#eaf3fb"/>
-<circle cx="112" cy="120" r="4" fill="#c0392b"/><circle cx="148" cy="120" r="4" fill="#1d8a5a"/><circle cx="130" cy="136" r="4" fill="#ffffff"/>
-<text x="130" y="188" text-anchor="middle" font-size="11" fill="#5d6b78">Lichter · Radar · Ausguck</text>
-</svg></div><p class="figcap">Bei Nacht (Sonnenuntergang bis -aufgang) und bei verminderter Sicht: <b>Lichter führen</b>, bei Sicht zusätzlich Schallsignale, das <b>Radar</b> einschalten und besetzen, verstärkt <b>Ausguck</b> halten und Rettungsmittel bereithalten. Wer allein in der Plicht steht, trägt Rettungsgurt und pickt sich ein.</p></section>
+  <section class="card szene-card">
+    <h2><span class="n">🎬</span>Bei Nacht & verminderter Sicht</h2>
+    <div class="szene" data-szene="nacht"></div>
+    <p class="figcap">Bei Nacht Lichter führen; bei verminderter Sicht zusätzlich Schallsignale geben, das Radar einschalten und besetzen, verstärkt Ausguck halten und Rettungsmittel bereithalten.</p>
+  </section>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
     <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
@@ -48,6 +41,7 @@
 <script>
 var QUIZ = [{"q": "Was ist bei verminderter Sicht zu tun?", "opts": ["Schneller fahren", "Lichter führen, Schallsignale geben, Radar besetzen, verstärkt Ausguck", "Segel bergen und warten", "Nur hupen"], "correct": 1, "expl": "Lichter und Schallsignale, Radar (falls vorhanden) einschalten und besetzen, verstärkt Ausguck halten."}, {"q": "Wie ist „Nacht“ definiert?", "opts": ["22 bis 6 Uhr", "Von Sonnenuntergang bis Sonnenaufgang", "Nur bei Neumond", "Wenn es regnet"], "correct": 1, "expl": "Als Nacht gilt die Zeit von Sonnenuntergang bis Sonnenaufgang."}, {"q": "Wann ist das Radar besonders wichtig?", "opts": ["Nur bei Flaute", "In verkehrsreichen Seegebieten bei Nacht/Sicht", "Nur im Hafen", "Nie"], "correct": 1, "expl": "Besonders in verkehrsreichen Seegebieten sollte das Radar eingeschaltet und besetzt sein."}, {"q": "Wer muss nachts den Rettungsgurt tragen und sich einpicken?", "opts": ["Niemand", "Der allein in der Plicht stehende Rudergänger und jeder außerhalb der Plicht", "Nur der Skipper", "Nur bei Sturm"], "correct": 1, "expl": "Der allein in der Plicht stehende Rudergänger und jedes Crewmitglied außerhalb der Plicht tragen Gurt und picken sich ein."}];
 </script>
+<script src="../../../assets/szenen.js"></script><script src="../../../assets/szenen-kurs.js"></script><script src="../../../assets/szenen-technik.js"></script>
 <script src="../../../assets/lektion.js"></script>
 </body>
 </html>

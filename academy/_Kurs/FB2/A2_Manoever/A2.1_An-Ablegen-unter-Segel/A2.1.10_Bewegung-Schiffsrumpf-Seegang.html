@@ -26,54 +26,10 @@
     <ul class="objectives"><li>Du kannst Gieren, Stampfen, Rollen und Schlingern unterscheiden.</li><li>Du weißt, um welche Achse welche Bewegung erfolgt.</li><li>Du kennst eine Technik, um das Stampfen zu vermindern.</li></ul>
   </section>
   <section class="card"><h2><span class="n">1</span>Die vier Begriffe</h2><div class="step"><div class="ic">↔️</div><div class="tx"><b>Gieren</b><br>Ausbrechen des Bugs von der Kurslinie nach Backbord oder Steuerbord (Drehung um die Hochachse).</div></div><div class="step"><div class="ic">🆙</div><div class="tx"><b>Stampfen</b><br>Heben und Senken von Bug und Heck (Bewegung um die Querachse).</div></div><div class="step"><div class="ic">🔄</div><div class="tx"><b>Rollen</b><br>Seitliches Schaukeln des Rumpfes (Bewegung um die Längsachse).</div></div><div class="step"><div class="ic">🌀</div><div class="tx"><b>Schlingern</b><br>Mehrere dieser Bewegungen gleichzeitig.</div></div></section><section class="card"><h2><span class="n">2</span>Stampfen vermindern</h2><div class="step"><div class="ic">🌊</div><div class="tx"><b>Wellen „aussteuern“</b><br>Bei hohem Seegang lässt sich das Stampfen vermindern, indem man die heranrollenden Wellen aussteuert: gegen den Wellenberg anluven und im Wellental abfallen.</div></div><div class="keybox"><p>💡 <b>Achsen-Merker:</b> Gieren = Hochachse, Stampfen = Querachse, Rollen = Längsachse.</p></div></section>
-  <section class="card">
+  <section class="card szene-card">
     <h2><span class="n">🎬</span>Die Bewegungen im Bild</h2>
-    <style>
-.mov-wrap{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:6px;}
-.mov{flex:1 1 150px; max-width:200px; text-align:center;}
-.mov svg{width:100%; height:130px;}
-.mov .cap{font-weight:600; color:var(--navy2); margin-top:4px;}
-.mov .sub{font-size:13px; color:var(--muted);}
-@keyframes yaw{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(14deg)}}
-@keyframes pitch{0%,100%{transform:rotate(-11deg)}50%{transform:rotate(11deg)}}
-@keyframes roll{0%,100%{transform:rotate(-17deg)}50%{transform:rotate(17deg)}}
-.g-yaw{animation:yaw 3s ease-in-out infinite; transform-origin:60px 60px;}
-.g-pitch{animation:pitch 2.4s ease-in-out infinite; transform-origin:62px 66px;}
-.g-roll{animation:roll 2.6s ease-in-out infinite; transform-origin:60px 84px;}
-</style>
-    <div class="mov-wrap">
-      <div class="mov">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <line x1="22" y1="106" x2="98" y2="106" stroke="#cfe0ee" stroke-width="2"/>
-          <g class="g-yaw">
-            <path d="M60,20 C70,40 73,74 68,98 L52,98 C47,74 50,40 60,20 Z" fill="#13314f"/>
-            <line x1="60" y1="30" x2="60" y2="92" stroke="#7aa6cf" stroke-width="2"/>
-          </g>
-        </svg>
-        <div class="cap">Gieren</div><div class="sub">um die Hochachse</div>
-      </div>
-      <div class="mov">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <line x1="12" y1="92" x2="108" y2="92" stroke="#cfe0ee" stroke-width="2"/>
-          <g class="g-pitch">
-            <path d="M26,70 C44,82 80,82 98,70 L98,64 C80,74 44,74 26,62 Z" fill="#13314f"/>
-            <line x1="62" y1="66" x2="62" y2="30" stroke="#1f4b73" stroke-width="3"/>
-          </g>
-        </svg>
-        <div class="cap">Stampfen</div><div class="sub">um die Querachse</div>
-      </div>
-      <div class="mov">
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <line x1="16" y1="96" x2="104" y2="96" stroke="#cfe0ee" stroke-width="2"/>
-          <g class="g-roll">
-            <path d="M44,62 L76,62 L84,82 C70,92 50,92 36,82 Z" fill="#13314f"/>
-            <line x1="60" y1="62" x2="60" y2="22" stroke="#1f4b73" stroke-width="3"/>
-          </g>
-        </svg>
-        <div class="cap">Rollen</div><div class="sub">um die Längsachse</div>
-      </div>
-    </div>
-    <p style="margin-top:14px; color:var(--muted); font-size:14px;">Treten mehrere dieser Bewegungen gleichzeitig auf, spricht man von <b>Schlingern</b>.</p>
+    <div class="szene" data-szene="rumpf"></div>
+    <p class="figcap">Gieren (Hochachse), Stampfen (Querachse), Rollen (Längsachse) – treten mehrere Bewegungen gleichzeitig auf, spricht man von <b>Schlingern</b>.</p>
   </section>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
@@ -90,6 +46,7 @@
 <script>
 var QUIZ = [{"q": "Was bezeichnet „Gieren“?", "opts": ["Heben und Senken des Bugs", "Ausbrechen des Bugs nach Bb oder Stbd", "Seitliches Schaukeln", "Mehrere Bewegungen gleichzeitig"], "correct": 1, "expl": "Gieren ist das Ausbrechen des Bugs von der Kurslinie nach Backbord oder Steuerbord (Hochachse)."}, {"q": "Was ist „Stampfen“?", "opts": ["Drehung um die Längsachse", "Heben und Senken von Bug und Heck (Querachse)", "Ausbrechen des Bugs", "Seitliche Drift"], "correct": 1, "expl": "Stampfen ist das Heben und Senken von Bug und Heck um die Querachse."}, {"q": "Was bezeichnet „Rollen“?", "opts": ["Seitliches Schaukeln um die Längsachse", "Das Ausbrechen des Bugs", "Heben und Senken des Bugs", "Der Vollkreis"], "correct": 0, "expl": "Rollen ist das seitliche Schaukeln des Rumpfes um die Längsachse."}, {"q": "Was ist „Schlingern“?", "opts": ["Eine Drehung um die Hochachse", "Mehrere der Bewegungen gleichzeitig", "Nur Rollen", "Nur Stampfen"], "correct": 1, "expl": "Schlingern ist das gleichzeitige Auftreten mehrerer dieser Bewegungen."}, {"q": "Wie vermindert man Stampfen bei hohem Seegang?", "opts": ["Mehr Segel setzen", "Wellen aussteuern: gegen den Wellenberg anluven, im Wellental abfallen", "Anker werfen", "Geradeaus mit Vollgas"], "correct": 1, "expl": "Durch „Aussteuern“: gegen den Wellenberg anluven und im Wellental abfallen."}];
 </script>
+<script src="../../../../assets/szenen.js"></script><script src="../../../../assets/szenen-kurs.js"></script><script src="../../../../assets/szenen-technik.js"></script>
 <script src="../../../../assets/lektion.js"></script>
 </body>
 </html>

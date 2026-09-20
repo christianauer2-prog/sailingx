@@ -26,22 +26,10 @@
     <ul class="objectives"><li>Du kennst den Ablauf beim Ablegen von einer Boje.</li><li>Du weißt, wie ein backgesetztes Segel den Bug wegdreht.</li><li>Du erkennst die Parallele zum Anker-auf-Manöver.</li></ul>
   </section>
   <section class="card"><h2><span class="n">1</span>Ablauf Schritt für Schritt</h2><div class="step"><div class="ic">⛵</div><div class="tx"><b>Großsegel setzen</b><br>Zuerst das Großsegel setzen und festlegen, nach welcher Seite man absegeln will.</div></div><div class="step"><div class="ic">💨</div><div class="tx"><b>Segel backsetzen</b><br>Auf der gewählten Seite Fock oder Großsegel backsetzen – evtl. mit Hilfe eines Bullenstanders – und Ruder legen.</div></div><div class="step"><div class="ic">🪢</div><div class="tx"><b>Vorleine los</b><br>Die Vorleine loswerfen; das backgesetzte Segel dreht den Bug weg von der Boje.</div></div><div class="step"><div class="ic">✅</div><div class="tx"><b>Frei: Segel dicht</b><br>Sobald die Jacht von der Boje freigetrieben ist: Großsegel dichtnehmen, Fock setzen.</div></div><div class="keybox"><p>💡 <b>Parallele:</b> Im Prinzip gleich verfährt man beim Anker-auf unter Segel.</p></div></section>
-  <section class="card">
+  <section class="card szene-card">
     <h2><span class="n">🎬</span>Ablegen von der Boje</h2>
-    <div style="max-width:300px;margin:6px auto 0;"><style>
-@keyframes swingoff{0%{transform:rotate(0)}45%{transform:rotate(-24deg)}100%{transform:rotate(-24deg) translate(46px,-10px)}}
-.boat8{animation:swingoff 4.2s ease-in-out infinite;transform-origin:120px 120px;}
-</style>
-<svg viewBox="0 0 280 180" style="width:100%;height:auto;" aria-hidden="true">
-<defs><marker id="bo8" markerWidth="9" markerHeight="9" refX="4" refY="7" orient="auto"><path d="M0,0 L4,7 L8,0 Z" fill="#5d6b78"/></marker></defs>
-<text x="40" y="150" font-size="11" fill="#5d6b78">Boje</text>
-<circle cx="48" cy="120" r="9" fill="none" stroke="#1f4b73" stroke-width="2"/><circle cx="48" cy="120" r="3" fill="#1f4b73"/>
-<line x1="56" y1="118" x2="104" y2="110" stroke="#cfe0ee" stroke-width="2"/>
-<g class="boat8"><path d="M120,82 C130,100 132,138 128,160 L112,160 C108,138 110,100 120,82 Z" fill="#13314f"/><path d="M120,118 L150,108 L150,130 Z" fill="#2e87c4"/></g>
-<path d="M152,72 q34,16 24,52" fill="none" stroke="#5d6b78" stroke-width="2" marker-end="url(#bo8)" opacity="0.85"/>
-<text x="150" y="66" font-size="11" fill="#5d6b78">Bug dreht weg</text>
-</svg></div>
-    <p style="margin-top:12px; color:#5d6b78; font-size:14px;">Großsegel setzen, auf der Absegelseite <b>back</b>, Ruder legen, Vorleine los – das backstehende Segel dreht den Bug von der Boje weg.</p>
+    <div class="szene" data-szene="boje-ablegen"></div>
+    <p class="figcap">Das Großsegel setzen, die Fock auf der gewünschten Seite back halten und die Vorleine loswerfen: Der Bug dreht von der Boje weg, dann Fock auf der richtigen Seite dichtholen und abfallen.</p>
   </section>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
@@ -58,6 +46,7 @@
 <script>
 var QUIZ = [{"q": "Was wird beim Ablegen von einer Boje zuerst gesetzt?", "opts": ["Die Fock", "Das Großsegel", "Der Spinnaker", "Der Anker"], "correct": 1, "expl": "Zuerst wird das Großsegel gesetzt und die Absegelseite festgelegt."}, {"q": "Wie dreht man den Bug von der Boje weg?", "opts": ["Mit dem Motor", "Durch ein backgesetztes Segel (evtl. Bullenstander)", "Mit dem Anker", "Durch Gewichtsverlagerung"], "correct": 1, "expl": "Ein auf der gewählten Seite backgesetztes Segel dreht den Bug weg."}, {"q": "Welche Leine wird gelöst, um abzulegen?", "opts": ["Die Achterleine", "Die Vorleine", "Die Spring", "Die Brustleine"], "correct": 1, "expl": "Die Vorleine wird losgeworfen; danach treibt die Jacht von der Boje frei."}, {"q": "Was tut man, sobald die Jacht frei ist?", "opts": ["Anker werfen", "Großsegel dichtnehmen und Fock setzen", "Segel bergen", "Beidrehen"], "correct": 1, "expl": "Sobald frei: Großsegel dichtnehmen und Fock setzen."}, {"q": "Welchem Manöver entspricht das Ablegen von einer Boje im Prinzip?", "opts": ["Dem Anker-auf unter Segel", "Dem Reffen", "Dem Beiliegen", "Dem Schiften"], "correct": 0, "expl": "Es verläuft im Prinzip gleich wie das Anker-auf unter Segel."}];
 </script>
+<script src="../../../../assets/szenen.js"></script><script src="../../../../assets/szenen-kurs.js"></script><script src="../../../../assets/szenen-technik.js"></script>
 <script src="../../../../assets/lektion.js"></script>
 </body>
 </html>

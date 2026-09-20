@@ -21,18 +21,11 @@
   <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Das <b>Lot</b> misst die Wassertiefe. Früher ein Senkblei, heute fast immer ein Echolot.</p>
     <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du weißt, wie ein Echolot funktioniert.</li><li>Du kennst die Tiefenangaben der Seekarte.</li><li>Du kennst die Tiefenlinien (Isobathen).</li></ul></section>
   <section class="card"><h2><span class="n">1</span>Echolot & Karte</h2><div class="step"><div class="ic">📡</div><div class="tx"><b>Echolot</b><br>Ein Geber sendet ein Ultraschall-Signal; aus der Laufzeit des am Grund reflektierten Echos errechnet das Gerät die Tiefe. Meist mit einstellbarem Flachwasser-Alarm.</div></div><div class="step"><div class="ic">🗺️</div><div class="tx"><b>In der Seekarte</b><br>Wassertiefen stehen in Metern (alte englische Karten: Fathoms/Fuß). Tiefenlinien (Isobathen) verbinden Punkte gleicher Tiefe.</div></div></section>
-  <section class="card"><h2><span class="n">🎬</span>Das Echolot</h2><div style="max-width:300px;margin:6px auto 0;"><style>
-@keyframes ping{0%{transform:translateY(0);opacity:1}90%{opacity:1}100%{transform:translateY(66px);opacity:0}}
-.ping{animation:ping 2s ease-in infinite;}
-</style>
-<svg viewBox="0 0 300 150" style="width:100%;height:auto;" aria-hidden="true">
-<rect x="0" y="0" width="300" height="34" fill="#eaf3fb"/>
-<path d="M110,20 C130,10 170,10 190,20 L182,34 L118,34 Z" fill="#13314f"/>
-<rect x="0" y="120" width="300" height="30" fill="#efe6d2"/><text x="10" y="140" font-size="10" fill="#8a5a0b">Meeresgrund</text>
-<circle class="ping" cx="150" cy="40" r="4" fill="#2e87c4"/>
-<line x1="150" y1="36" x2="150" y2="120" stroke="#2e87c4" stroke-width="1" stroke-dasharray="3 4"/>
-<text x="158" y="86" font-size="10.5" fill="#2e87c4">Impuls → Echo → Tiefe</text>
-</svg></div><p class="figcap">Das <b>Echolot</b> sendet ein Ultraschall-Signal, das am Grund reflektiert wird; aus der Laufzeit errechnet das Gerät die Tiefe. In der Seekarte stehen Wassertiefen in Metern; <b>Tiefenlinien</b> (Isobathen) verbinden Punkte gleicher Tiefe.</p></section>
+  <section class="card szene-card">
+    <h2><span class="n">🎬</span>Das Echolot</h2>
+    <div class="szene" data-szene="echolot"></div>
+    <p class="figcap">Das Echolot misst die Laufzeit eines Ultraschall-Impulses bis zum Grund und zurück: Tiefe = Schallgeschwindigkeit × Laufzeit ÷ 2. Den eingestellten Offset (Geber, Kiel oder Wasseroberfläche) beachten.</p>
+  </section>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
     <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
@@ -48,6 +41,7 @@
 <script>
 var QUIZ = [{"q": "Wie misst ein Echolot die Tiefe?", "opts": ["Mit einem Senkblei", "Über die Laufzeit eines am Grund reflektierten Ultraschall-Signals", "Per GPS", "Mit dem Log"], "correct": 1, "expl": "Aus der Laufzeit des reflektierten Echos wird die Tiefe errechnet."}, {"q": "In welcher Einheit stehen Tiefen in modernen Seekarten?", "opts": ["In Metern", "In Kilometern", "In Seemeilen", "In Knoten"], "correct": 0, "expl": "In Metern (alte englische Karten in Fathoms/Fuß)."}, {"q": "Was sind Isobathen?", "opts": ["Windlinien", "Tiefenlinien (Punkte gleicher Tiefe)", "Kurslinien", "Isogonen"], "correct": 1, "expl": "Isobathen sind Tiefenlinien, die Punkte gleicher Wassertiefe verbinden."}];
 </script>
+<script src="../../../../assets/szenen.js"></script><script src="../../../../assets/szenen-kurs.js"></script><script src="../../../../assets/szenen-technik.js"></script>
 <script src="../../../../assets/lektion.js"></script>
 </body>
 </html>

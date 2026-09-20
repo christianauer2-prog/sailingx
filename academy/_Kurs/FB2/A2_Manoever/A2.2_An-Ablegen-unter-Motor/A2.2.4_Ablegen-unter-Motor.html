@@ -21,21 +21,11 @@
   <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Beim Ablegen längsseits ist die <b>Derivation</b> entscheidend: Der Drehpunkt einer Jacht liegt nicht im Heck, sondern etwa mittschiffs.</p>
     <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du verstehst die Derivation und die daraus folgende Gefahr.</li><li>Du kennst ein sauberes Ablegemanöver mit Schraubeneffekt.</li><li>Du weißt, warum die Anlegeseite das Ablegen beeinflusst.</li></ul></section>
   <section class="card"><h2><span class="n">1</span>Sauberes Ablegen mit dem Schraubeneffekt</h2><div class="step"><div class="ic">🧭</div><div class="tx"><b>Günstige Ausgangslage</b><br>Am einfachsten, wenn zuvor mit der Seite angelegt wurde, die dem Drehsinn der Schraube in Vorausfahrt entspricht (z. B. linksgängige Schraube → Backbordseite).</div></div><div class="step"><div class="ic">↪️</div><div class="tx"><b>Bug an, Heck weg</b><br>Alle Leinen los, hart Ruder zur Landseite, Bug gut abfendern; ein kurzer Gasschub voraus dreht den Bug zur Mauer und das Heck weg.</div></div><div class="step"><div class="ic">↩️</div><div class="tx"><b>Sofort Retour</b><br>Noch vor der Vorausfahrt – ohne Ruderänderung – sofort Retourgang und Gas: Der Schraubeneffekt dreht das Heck weiter weg. Sobald Rückwärtsfahrt anliegt, Ruder legen.</div></div><div class="keybox"><p>💡 <b>Derivation:</b> Nimmt eine längsseits liegende Jacht Fahrt auf und legt Ruder von der Mauer weg, dreht der Bug weg – das Heck aber zur Mauer hin. Daher wenig Ruder, wenig Schub und gut abfendern.</p></div></section>
-  <section class="card"><h2><span class="n">🎬</span>Derivation: der Drehpunkt liegt mittschiffs</h2><div style="max-width:300px;margin:6px auto 0;"><style>
-@keyframes piv{0%,100%{transform:rotate(0)}50%{transform:rotate(9deg)}}
-.pivb{animation:piv 3.4s ease-in-out infinite;transform-origin:140px 92px;}
-</style>
-<svg viewBox="0 0 280 170" style="width:100%;height:auto;" aria-hidden="true">
-<rect x="0" y="0" width="14" height="170" fill="#b4b2a9"/>
-<text x="22" y="20" font-size="11" fill="#2c2c2a">Kaimauer</text>
-<g class="pivb">
-<path d="M72,92 C96,80 184,80 208,92 C184,104 96,104 72,92 Z" fill="#13314f"/>
-<line x1="72" y1="92" x2="58" y2="104" stroke="#1f4b73" stroke-width="3"/>
-</g>
-<circle cx="140" cy="92" r="3.5" fill="#c0392b"/>
-<text x="140" y="120" text-anchor="middle" font-size="11" fill="#c0392b">Drehpunkt</text>
-<text x="150" y="150" text-anchor="middle" font-size="11" fill="#5d6b78">Heck schwenkt zur Mauer</text>
-</svg></div><p class="figcap">Der Drehpunkt liegt etwa mittschiffs: Legt man Ruder von der Mauer weg, dreht zwar der Bug weg – das <b>Heck schwenkt aber zur Mauer</b>. Daher wenig Ruder, wenig Schub, gut abfendern.</p></section>
+  <section class="card szene-card">
+    <h2><span class="n">🎬</span>Derivation: der Drehpunkt liegt mittschiffs</h2>
+    <div class="szene" data-szene="ablegen-motor"></div>
+    <p class="figcap">Der Drehpunkt liegt etwa mittschiffs: Mit Ruder von der Mauer weg schwenkt das Heck zur Mauer. Günstiger ist es, den Radeffekt beim Rückwärtsfahren zu nutzen.</p>
+  </section>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
     <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
@@ -51,6 +41,7 @@
 <script>
 var QUIZ = [{"q": "Wo liegt der Drehpunkt einer Jacht?", "opts": ["Im Heck", "Etwa mittschiffs", "Im Bug", "Am Kiel ganz vorne"], "correct": 1, "expl": "Der Drehpunkt liegt etwa mittschiffs – das ist der Kern der Derivation."}, {"q": "Was passiert mit dem Heck, wenn man Ruder von der Mauer weg legt und Fahrt aufnimmt?", "opts": ["Es bleibt an Ort", "Es schwenkt zur Mauer hin", "Es hebt sich", "Es dreht vom Wasser weg"], "correct": 1, "expl": "Der Bug dreht weg, aber das Heck schwenkt zur Mauer – Beschädigungsgefahr."}, {"q": "Welche Gegenmaßnahmen nennt man gegen diese Gefahr?", "opts": ["Viel Ruder, viel Schub", "Wenig Ruder, wenig Schub, gut abfendern", "Sofort Vollgas", "Anker werfen"], "correct": 1, "expl": "Wenig Ruder, wenig Schub und gutes Abfendern verhindern Schäden am Heck."}, {"q": "Wie nutzt das saubere Ablegemanöver den Schraubeneffekt?", "opts": ["Durch Dauer-Vorausfahrt", "Kurzer Gasschub voraus, dann sofort Retourgang – der Schraubeneffekt dreht das Heck weg", "Durch Ankermanöver", "Durch Backsetzen der Fock"], "correct": 1, "expl": "Erst kurz voraus (Bug an, Heck weg), dann sofort Retourgang – der Schraubeneffekt dreht das Heck weiter von der Mauer weg."}];
 </script>
+<script src="../../../../assets/szenen.js"></script><script src="../../../../assets/szenen-kurs.js"></script><script src="../../../../assets/szenen-technik.js"></script>
 <script src="../../../../assets/lektion.js"></script>
 </body>
 </html>

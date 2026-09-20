@@ -21,21 +21,11 @@
   <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Der <b>Propeller</b> setzt die Motorkraft in Vortrieb um – und erzeugt dabei den für Hafenmanöver wichtigen Radeffekt.</p>
     <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du kennst Bauformen und Maße des Propellers.</li><li>Du weißt, wozu Opferanoden dienen.</li><li>Du verstehst den Radeffekt und wie man die Drehrichtung feststellt.</li></ul></section>
   <section class="card"><h2><span class="n">1</span>Bauform & Schutz</h2><div class="step"><div class="ic">🌀</div><div class="tx"><b>Propeller</b><br>Zwei- oder dreiflügelig aus Bronze/Alu, teils als Faltpropeller (weniger Widerstand, aber geringerer Wirkungsgrad). Maße: Durchmesser und Steigung (Weg pro Umdrehung in festem Medium).</div></div><div class="step"><div class="ic">🔋</div><div class="tx"><b>Opferanoden</b><br>Welle und Propeller werden durch Opferanoden („Zinkmaus“) vor elektrolytischer Korrosion geschützt – sie werden erneuert, sobald korrodiert.</div></div></section><section class="card"><h2><span class="n">2</span>Radeffekt</h2><div class="step"><div class="ic">↔️</div><div class="tx"><b>Wirkung</b><br>Die Drehrichtung (von achtern gesehen: rechts-/linksgängig) versetzt beim Gasgeben das Heck seitlich. In Vorausfahrt beim Losfahren spürbar, viel stärker rückwärts – und umso stärker, je größer die Schraube und je langsamer die Fahrt.</div></div><div class="step"><div class="ic">🔍</div><div class="tx"><b>Feststellen</b><br>Bei Neuübernahme: einen Schub Rückwärts-Gas geben und beobachten, wohin das Heck wandert. In Vorausfahrt wirkt der Effekt zur Gegenseite.</div></div></section>
-  <section class="card"><h2><span class="n">🎬</span>Propeller & Radeffekt</h2><div style="max-width:240px;margin:6px auto 0;"><style>
-@keyframes prot{0%,100%{transform:rotate(0)}50%{transform:rotate(-12deg)}}
-.pr{animation:prot 3s ease-in-out infinite;transform-origin:80px 60px;}
-</style>
-<svg viewBox="0 0 200 175" style="width:100%;height:auto;" aria-hidden="true">
-<defs><marker id="pe" markerWidth="9" markerHeight="9" refX="4" refY="7" orient="auto"><path d="M0,0 L4,7 L8,0 Z" fill="#c0392b"/></marker></defs>
-<g class="pr">
-<path d="M80,60 C60,44 66,70 80,72 Z" fill="#1f4b73"/><path d="M80,60 C100,44 94,70 80,72 Z" fill="#1f4b73"/><path d="M80,60 C96,80 66,80 80,72 Z" fill="#1f4b73"/>
-<circle cx="80" cy="66" r="6" fill="#13314f"/>
-</g>
-<path d="M108,52 a34 34 0 0 1 6,34" fill="none" stroke="#2e87c4" stroke-width="2" marker-end="url(#pe)"/>
-<text x="118" y="44" font-size="10" fill="#2e87c4">Drehrichtung</text>
-<path d="M80,120 q-30,6 -44,-6" fill="none" stroke="#c0392b" stroke-width="2.5" marker-end="url(#pe)"/>
-<text x="30" y="150" font-size="10.5" fill="#c0392b">Heck wird versetzt</text>
-</svg></div><p class="figcap">Zwei- oder dreiflügelige Propeller (Bronze/Alu), teils als Faltpropeller. Maße: Durchmesser und Steigung. <b>Opferanoden</b> („Zinkmaus“) schützen vor elektrolytischer Korrosion. Die Drehrichtung (von achtern gesehen) bestimmt den <b>Radeffekt</b>: das Heck wird seitlich versetzt – stärker rückwärts und je größer/langsamer die Schraube.</p></section>
+  <section class="card szene-card">
+    <h2><span class="n">🎬</span>Propeller & Radeffekt</h2>
+    <div class="szene" data-szene="propeller"></div>
+    <p class="figcap">Die Drehrichtung (von achtern gesehen) bestimmt den Radeffekt: Rechtsgängige Schraube – rückwärts geht das Heck nach Backbord; linksgängige – nach Steuerbord. Rückwärts ist der Effekt am stärksten.</p>
+  </section>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
     <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
@@ -51,6 +41,7 @@
 <script>
 var QUIZ = [{"q": "Welche zwei Maße beschreiben einen Propeller?", "opts": ["Länge und Breite", "Durchmesser und Steigung", "Gewicht und Farbe", "Höhe und Tiefe"], "correct": 1, "expl": "Ein Propeller wird über Durchmesser und Steigung beschrieben."}, {"q": "Wozu dienen Opferanoden?", "opts": ["Zur Geschwindigkeit", "Zum Schutz von Welle und Propeller vor elektrolytischer Korrosion", "Zur Kühlung", "Zum Trimmen"], "correct": 1, "expl": "Die Opferanoden („Zinkmaus“) korrodieren zuerst und schützen so Welle und Propeller."}, {"q": "Wann ist der Radeffekt am stärksten?", "opts": ["Bei schneller Vorausfahrt", "Bei Rückwärtsfahrt und langsamer, großer Schraube", "Nie", "Nur unter Segel"], "correct": 1, "expl": "Der Radeffekt ist rückwärts am stärksten – und umso mehr, je größer/langsamer die Schraube."}, {"q": "Wie stellt man die Drehrichtung fest?", "opts": ["Am Typenschild allein", "Rückwärts-Gas geben und beobachten, wohin das Heck wandert", "Durch Wiegen", "Gar nicht"], "correct": 1, "expl": "Ein Schub Rückwärts-Gas zeigt, wohin das Heck wandert; in Vorausfahrt wirkt der Effekt zur Gegenseite."}];
 </script>
+<script src="../../../assets/szenen.js"></script><script src="../../../assets/szenen-kurs.js"></script><script src="../../../assets/szenen-technik.js"></script>
 <script src="../../../assets/lektion.js"></script>
 </body>
 </html>

@@ -21,22 +21,11 @@
   <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Beim <b>Segeltrimm</b> regulierst du die Spannung an den Lieken, die Verwindung des Segels (den „Twist“) und die Stellung der Segel so, dass je nach Windverhältnissen optimaler Vortrieb entsteht.</p>
     <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du kannst erklären, was Segeltrimm bewirkt.</li><li>Du erkennst ein gut getrimmtes Segel.</li><li>Du kennst die zwei Grundregeln des Trimmens.</li></ul></section>
   <section class="card"><h2><span class="n">1</span>Woran man guten Trimm erkennt</h2><div class="step"><div class="ic">〰️</div><div class="tx"><b>Keine Falten</b><br>Ein gut getrimmtes Segel zeigt keine Falten.</div></div><div class="step"><div class="ic">🎈</div><div class="tx"><b>Kaum Gegenbauch</b><br>Es hat keinen oder nur einen ganz geringen Gegenbauch.</div></div><div class="step"><div class="ic">🚩</div><div class="tx"><b>Killt nicht</b><br>Es killt (flattert) nicht.</div></div><div class="keybox"><p>⚠️ Längeres Killen-lassen beschädigt Tuch, Latten, Taschen und Nähte – also nicht dauerhaft killen lassen.</p></div></section><section class="card"><h2><span class="n">2</span>Zwei Grundregeln</h2><div class="step"><div class="ic">➡️</div><div class="tx"><b>Von vorne nach achtern</b><br>Die Segel werden immer in der Reihenfolge von vorne nach achtern getrimmt.</div></div><div class="step"><div class="ic">⛵</div><div class="tx"><b>Möglichst aufrecht segeln</b><br>Bei viel Lage nimmt der Lateralplan ab und die Abtrift zu – der Wind wird nicht optimal genutzt. Moderne Jachten segelt man daher möglichst aufrecht.</div></div></section>
-  <section class="card"><h2><span class="n">🎬</span>Gut getrimmt vs. killend</h2><div style="display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin-top:6px;">
-<div style="text-align:center;"><svg viewBox="0 0 130 140" width="150" aria-hidden="true">
-<line x1="30" y1="14" x2="30" y2="116" stroke="#5f5e5a" stroke-width="3"/>
-<path d="M30,18 Q82,55 104,110 L30,110 Z" fill="#e8f2fa" stroke="#1f4b73" stroke-width="2"/>
-<line x1="58" y1="62" x2="84" y2="60" stroke="#1d8a5a" stroke-width="2.5"/>
-</svg><div style="font-weight:600;color:#1d8a5a;font-size:13px;">gut getrimmt ✓</div></div>
-<div style="text-align:center;"><style>
-@keyframes flut{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
-.flut{animation:flut .35s ease-in-out infinite;}
-</style>
-<svg viewBox="0 0 130 140" width="150" aria-hidden="true">
-<line x1="30" y1="14" x2="30" y2="116" stroke="#5f5e5a" stroke-width="3"/>
-<path d="M30,18 Q82,55 104,110 L30,110 Z" fill="#fbeae8" stroke="#c0392b" stroke-width="2"/>
-<g class="flut"><path d="M36,30 q7,5 0,9 q-7,5 0,9 q7,5 0,9" fill="none" stroke="#c0392b" stroke-width="2"/></g>
-</svg><div style="font-weight:600;color:#c0392b;font-size:13px;">killt / flattert ✗</div></div>
-</div><p class="figcap">Ein gut getrimmtes Segel macht <b>keine Falten</b>, hat kaum Gegenbauch und <b>killt nicht</b>. Längeres Killen beschädigt Tuch, Latten, Taschen und Nähte.</p></section>
+  <section class="card szene-card">
+    <h2><span class="n">🎬</span>Gut getrimmt vs. killend</h2>
+    <div class="szene" data-szene="trimm"></div>
+    <p class="figcap">Ein gut getrimmtes Segel macht <b>keine Falten</b>, hat kaum Gegenbauch und killt nicht. Längeres Killen beschädigt Tuch, Latten, Lattentaschen und Nähte.</p>
+  </section>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
     <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
@@ -52,6 +41,7 @@
 <script>
 var QUIZ = [{"q": "Was reguliert man beim Segeltrimm?", "opts": ["Nur die Segelfarbe", "Liek-Spannung, Twist und Segelstellung für optimalen Vortrieb", "Ausschließlich den Großbaum", "Die Motordrehzahl"], "correct": 1, "expl": "Getrimmt werden Liek-Spannung, die Verwindung (Twist) und die Stellung der Segel – für optimalen Vortrieb je nach Wind."}, {"q": "Woran erkennt man ein gut getrimmtes Segel?", "opts": ["Es flattert leicht", "Keine Falten, kaum Gegenbauch, kein Killen", "Es steht möglichst bauchig", "Es hat viele Falten"], "correct": 1, "expl": "Gut getrimmt heißt: keine Falten, kaum Gegenbauch und kein Killen."}, {"q": "In welcher Reihenfolge trimmt man die Segel?", "opts": ["Von achtern nach vorne", "Von vorne nach achtern", "Nur das Großsegel", "In beliebiger Reihenfolge"], "correct": 1, "expl": "Immer von vorne nach achtern."}, {"q": "Warum segelt man moderne Jachten möglichst aufrecht?", "opts": ["Aus optischen Gründen", "Weil bei viel Lage Lateralplan abnimmt und Abtrift zunimmt", "Damit der Motor kühlt", "Um Treibstoff zu sparen"], "correct": 1, "expl": "Bei viel Lage sinkt der Lateralplan, die Abtrift steigt und der Wind wird schlechter genutzt."}, {"q": "Was passiert bei längerem Killen-lassen?", "opts": ["Nichts", "Tuch, Latten, Taschen und Nähte werden beschädigt", "Das Segel wird schneller", "Die Jacht luvt an"], "correct": 1, "expl": "Längeres Killen beschädigt Material, Latten, Taschen und Nähte."}];
 </script>
+<script src="../../../../assets/szenen.js"></script><script src="../../../../assets/szenen-kurs.js"></script><script src="../../../../assets/szenen-technik.js"></script>
 <script src="../../../../assets/lektion.js"></script>
 </body>
 </html>

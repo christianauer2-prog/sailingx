@@ -21,16 +21,11 @@
   <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Auf Fahrtenjachten ab etwa 8 m werden fast ausschließlich <b>Diesel-Innenbordmotoren</b> verwendet. Warum – und wie funktionieren sie?</p>
     <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du weißt, warum Diesel dem Benzinmotor vorgezogen wird.</li><li>Du verstehst das Arbeitsprinzip des Dieselmotors.</li><li>Du kennst Ein- und Zweikreiskühlung.</li></ul></section>
   <section class="card"><h2><span class="n">1</span>Diesel vs. Benzin</h2><div class="step"><div class="ic">⛽</div><div class="tx"><b>Warum Diesel</b><br>Diesel ist robust, sparsam und wirtschaftlich. Benzin ist zwar leichter/billiger, aber die Dämpfe sind hochexplosiv und schwerer als Luft (sammeln sich im Boot), und die Zündanlage ist nässeempfindlich.</div></div><div class="step"><div class="ic">⚖️</div><div class="tx"><b>Leistung</b><br>Faustregel: etwa 3 kW pro Tonne Bootsgewicht (12-m-Jacht ~8–10 t → ca. 30 kW / 40 PS).</div></div></section><section class="card"><h2><span class="n">2</span>Arbeitsprinzip & Kühlung</h2><div class="step"><div class="ic">🔥</div><div class="tx"><b>Selbstzünder</b><br>Der Diesel wird fein zerstäubt in die durch Verdichtung erhitzte Luft eingespritzt und entzündet sich selbst; der 3. Takt (Verbrennung) ist der Arbeitstakt. Strom braucht nur der Anlasser.</div></div><div class="step"><div class="ic">💧</div><div class="tx"><b>Kühlung</b><br>Einkreis (Seewasser direkt, „nasser Auspuff“) ist einfach, aber anfällig; Zweikreis (Seewasser kühlt über Wärmetauscher einen Süßwasserkreis) wird meist verwendet.</div></div></section>
-  <section class="card"><h2><span class="n">🎬</span>Der Viertakt-Diesel</h2><div style="max-width:240px;margin:6px auto 0;"><style>
-@keyframes pist{0%{transform:translateY(0)}25%{transform:translateY(52px)}50%{transform:translateY(0)}75%{transform:translateY(52px)}100%{transform:translateY(0)}}
-.piston{animation:pist 4s ease-in-out infinite;}
-</style>
-<svg viewBox="0 0 160 170" style="width:100%;height:auto;" aria-hidden="true">
-<rect x="54" y="18" width="52" height="96" rx="4" fill="#eaf3fb" stroke="#1f4b73" stroke-width="2"/>
-<g class="piston"><rect x="58" y="40" width="44" height="26" rx="2" fill="#1f4b73"/></g>
-<line x1="80" y1="66" x2="80" y2="150" stroke="#5f5e5a" stroke-width="3"/>
-<circle cx="80" cy="150" r="12" fill="none" stroke="#5f5e5a" stroke-width="3"/><circle cx="80" cy="150" r="3" fill="#5f5e5a"/>
-</svg></div><p class="figcap">Auf Jachten ab ~8 m fast nur <b>Diesel-Innenborder</b>. Der Diesel ist ein Selbstzünder: eingespritztes Öl entzündet sich an der durch Verdichtung erhitzten Luft. Die vier Takte: Ansaugen → Verdichten → <b>Arbeiten</b> (3. Takt) → Ausstoßen. Gekühlt wird ein- oder zweikreisig (meist Zweikreis mit Wärmetauscher).</p></section>
+  <section class="card szene-card">
+    <h2><span class="n">🎬</span>Der Viertakt-Diesel</h2>
+    <div class="szene" data-szene="viertakt"></div>
+    <p class="figcap">Ansaugen → Verdichten → Arbeiten → Ausstoßen: Der Diesel ist ein <b>Selbstzünder</b> – der eingespritzte Kraftstoff entzündet sich an der durch Verdichtung erhitzten Luft.</p>
+  </section>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
     <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
@@ -46,6 +41,7 @@
 <script>
 var QUIZ = [{"q": "Warum werden Benzin-Innenborder kaum verwendet?", "opts": ["Zu teuer", "Explosive Dämpfe (schwerer als Luft) und nässeempfindliche Zündanlage", "Zu schwer", "Zu laut"], "correct": 1, "expl": "Benzindämpfe sind hochexplosiv und sammeln sich im Boot; die Zündanlage ist störungsanfällig."}, {"q": "Wie zündet der Dieselmotor?", "opts": ["Über eine Zündkerze", "Durch Selbstentzündung an verdichteter, erhitzter Luft", "Durch Glühlampe", "Gar nicht"], "correct": 1, "expl": "Der Diesel ist ein Selbstzünder – kein Zündfunke nötig."}, {"q": "Welcher Takt ist der Arbeitstakt?", "opts": ["1. (Ansaugen)", "2. (Verdichten)", "3. (Verbrennung)", "4. (Ausstoßen)"], "correct": 2, "expl": "Der 3. Takt (Verbrennung/Expansion) liefert die Energie."}, {"q": "Welche Kühlung wird bei Jachtmotoren meist verwendet?", "opts": ["Luftkühlung", "Einkreiskühlung", "Zweikreiskühlung", "Keine"], "correct": 2, "expl": "Meist die Zweikreiskühlung: Seewasser kühlt über einen Wärmetauscher den Süßwasserkreis."}, {"q": "Welche Motorleistung ist grob angebracht?", "opts": ["Ca. 3 kW pro Tonne Bootsgewicht", "1 kW pro Tonne", "10 kW pro Tonne", "So viel wie möglich"], "correct": 0, "expl": "Faustregel: etwa 3 kW pro Tonne Bootsgewicht."}];
 </script>
+<script src="../../../assets/szenen.js"></script><script src="../../../assets/szenen-kurs.js"></script><script src="../../../assets/szenen-technik.js"></script>
 <script src="../../../assets/lektion.js"></script>
 </body>
 </html>

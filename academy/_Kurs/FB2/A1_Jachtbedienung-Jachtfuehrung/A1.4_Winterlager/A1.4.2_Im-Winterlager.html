@@ -56,34 +56,10 @@
     </div>
   </section>
 
-  <section class="card">
+  <section class="card szene-card">
     <h2><span class="n">🎬</span>Frostschutz & Hinterlüftung</h2>
-    <style>
-.wl-grid{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px;}
-.wl-cell{flex:1 1 150px;border:1px solid #dde5ec;border-radius:10px;padding:10px;text-align:center;}
-.wl-cell svg{width:100%;height:110px;}
-.wl-t{font-weight:600;color:#1f4b73;font-size:14px;margin-top:4px;}
-@keyframes drip{0%{transform:translateY(0);opacity:1}80%{opacity:1}100%{transform:translateY(24px);opacity:0}}
-.drop{animation:drip 1.8s ease-in infinite;}
-@keyframes airm{0%{transform:translateX(0)}100%{transform:translateX(13px)}}
-.airm{animation:airm 1.6s ease-in-out infinite alternate;}
-</style>
-<div class="wl-grid">
-<div class="wl-cell"><svg viewBox="0 0 140 110" aria-hidden="true">
-<rect x="40" y="20" width="60" height="34" rx="6" fill="none" stroke="#1f4b73" stroke-width="3"/>
-<line x1="70" y1="54" x2="70" y2="68" stroke="#1f4b73" stroke-width="3"/>
-<circle class="drop" cx="70" cy="72" r="4" fill="#2e87c4"/>
-<line x1="28" y1="92" x2="112" y2="92" stroke="#cfe0ee" stroke-width="2"/>
-</svg><div class="wl-t">Wasser raus / Frostschutz</div></div>
-<div class="wl-cell"><svg viewBox="0 0 140 110" aria-hidden="true">
-<defs><marker id="a4" markerWidth="8" markerHeight="8" refX="4" refY="6" orient="auto"><path d="M0,0 L4,6 L8,0 Z" fill="#2e87c4"/></marker></defs>
-<path d="M18,40 L70,16 L122,40" fill="none" stroke="#5f5e5a" stroke-width="2"/>
-<path d="M30,86 C50,76 90,76 110,86 C90,94 50,94 30,86 Z" fill="#13314f"/>
-<g class="airm"><path d="M38,60 q14,-8 28,0" fill="none" stroke="#2e87c4" stroke-width="2" marker-end="url(#a4)"/></g>
-<g class="airm"><path d="M72,66 q14,-8 28,0" fill="none" stroke="#85b7eb" stroke-width="2" marker-end="url(#a4)"/></g>
-</svg><div class="wl-t">Plane mit Hinterlüftung</div></div>
-</div>
-    <p style="margin-top:12px; color:#5d6b78; font-size:14px;">Bei Frostgefahr Wasser aus Kühl-/Auspuffsystem und Bilge entfernen (oder Frostschutz) und unter der Plane für <b>Luftzirkulation</b> sorgen.</p>
+    <div class="szene" data-szene="winterlager"></div>
+    <p class="figcap">Bei Frostgefahr Wasser aus Kühlsystem, Auspuffsystem und Bilge entfernen (oder Frostschutz ins Kühlsystem) und die Plane so abspannen, dass die Luft zirkulieren kann.</p>
   </section>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
@@ -156,6 +132,7 @@ var QUIZ = [
     }
   ];
 </script>
+<script src="../../../../assets/szenen.js"></script><script src="../../../../assets/szenen-kurs.js"></script><script src="../../../../assets/szenen-technik.js"></script>
 <script src="../../../../assets/lektion.js"></script>
 </body>
 </html>
