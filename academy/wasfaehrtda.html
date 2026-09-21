@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Was fährt da? · SailingX-Academy</title>
+<meta name="description" content="Was fährt da? – Das wertvollste Kartenspiel für Segler*innen: Lichter, Signalkörper und Schallsignale nach KVR mit Lernkartei, Prüfungsmodus und Nachtwache trainieren.">
+<link rel="canonical" href="https://sailingx.at/academy/wasfaehrtda.html">
+<meta property="og:title" content="Was fährt da? – Das wertvollste Kartenspiel für Segler*innen">
+<meta property="og:description" content="Lichter bei Nacht, Signalkörper bei Tag, Schallsignale im Nebel – spielerisch sicher erkennen.">
+<meta property="og:image" content="https://sailingx.at/academy/assets/og-bild.png">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/ueben.css">
+<link rel="stylesheet" href="assets/wfd.css">
+</head>
+<body>
+<header class="topbar"><div class="topbar-in">
+  <a class="brand" href="index.html"><img src="assets/logo.svg" alt="SailingX" width="160" height="87"><span>Academy</span></a>
+  <nav class="topnav"><a href="../">Sailing X</a><a href="kursuebersicht.html">Kursübersicht</a><a href="ueben.html" aria-current="page">Üben</a><a href="werkzeugkasten.html">Werkzeugkasten</a><a class="cta" href="kurs.html">Zum Kurs →</a></nav>
+</div></header>
+
+<section class="wfd-hero">
+  <div class="wrap wfd-hero-in">
+    <div>
+      <span class="wfd-kicker">Üben · Lichterführung &amp; Schallsignale</span>
+      <h1>Was fährt da?</h1>
+      <p class="wfd-claim">Das wertvollste Kartenspiel für Segler*innen</p>
+      <p class="wfd-lead">Jedes Fahrzeug ist eine Karte mit drei Seiten: <b>was du nachts siehst</b>, <b>was du tagsüber siehst</b> und <b>was du im Nebel hörst</b>. Die Lernkartei merkt sich, was noch nicht sitzt.</p>
+    </div>
+    <div class="wfd-stats" aria-label="Umfang">
+      <div><b id="st-karten">47</b><span>Karten</span></div>
+      <div><b id="st-seiten">80</b><span>Kartenseiten</span></div>
+      <div><b id="st-schall">36</b><span>Signale zum Anhören</span></div>
+      <div><b>4</b><span>Blickwinkel bei Nacht</span></div>
+    </div>
+  </div>
+</section>
+<div class="rainbow" aria-hidden="true"></div>
+
+<main class="wrap page" id="wfd-app">
+  <p class="wfd-msg" id="wfd-msg" hidden></p>
+  <nav class="tabs" role="tablist" aria-label="Übungsart">
+    <a href="#trainer" id="tab-trainer" role="tab">🎴 Trainer</a>
+    <a href="#lernen" id="tab-lernen" role="tab">📖 Kartendeck</a>
+    <a href="#pruefung" id="tab-pruefung" role="tab">✅ Prüfung</a>
+    <a href="#nachtwache" id="tab-nachtwache" role="tab">🌙 Nachtwache</a>
+    <a href="#fortschritt" id="tab-fortschritt" role="tab">📊 Fortschritt</a>
+  </nav>
+
+  <!-- Trainer -->
+  <section class="tabpanel" id="panel-trainer" role="tabpanel">
+    <div class="wfd-tools">
+      <div class="seg" role="group" aria-label="Frage zeigen als">
+        <button type="button" data-trmode="mix" aria-pressed="true">Gemischt</button>
+        <button type="button" data-trmode="nacht" aria-pressed="false">Nacht</button>
+        <button type="button" data-trmode="tag" aria-pressed="false">Tag</button>
+        <button type="button" data-trmode="schall" aria-pressed="false">Schall</button>
+      </div>
+      <div class="chips" id="tr-filter"></div>
+    </div>
+    <div class="tr-layout">
+      <div id="tr-stage">
+        <div class="flip"><div class="wcard" id="tr-card">
+          <div class="side front" id="tr-front"></div>
+          <div class="side back" id="tr-back"></div>
+        </div></div>
+        <div class="tr-foot">
+          <button type="button" class="b b-primary" id="tr-turn">Karte umdrehen</button>
+          <span class="tr-count" id="tr-count"></span>
+        </div>
+        <p class="kbd">Tastatur: <kbd>Leertaste</kbd> umdrehen · <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> bewerten</p>
+      </div>
+      <div id="tr-done" hidden></div>
+      <aside class="tr-side">
+        <h2>So funktioniert’s</h2>
+        <p>Die Karte zeigt eine Seite – Lichter, Signalkörper oder Signal. Überleg dir die Antwort, dreh um und bewerte dich ehrlich.</p>
+        <p><b>Gewusst</b> schiebt die Karte ein Fach weiter: Sie kommt nach 1, 2, 4 und 8 Tagen wieder. <b>Nicht gewusst</b> holt sie zurück in Fach 1.</p>
+        <div class="tr-boxes-wrap"><span>Deine Fächer</span><div class="tr-boxes" id="tr-boxes"></div></div>
+        <p class="muted small">Grundlage: <a href="kurs.html#_Kurs%2FFB2%2FD_Gesetze%2FD2_KVR%2FD2.4_Lichterfuehrung-Grundlagen.html">D.2.4</a> · <a href="kurs.html#_Kurs%2FFB2%2FD_Gesetze%2FD2_KVR%2FD2.5_Lichterfuehrung-Wer-fuehrt-was.html">D.2.5</a> · <a href="kurs.html#_Kurs%2FFB2%2FD_Gesetze%2FD2_KVR%2FD2.6_Schallsignale.html">D.2.6</a> · <a href="kurs.html#_Kurs%2FFB2%2FF_Sicherheit%2FF9_Seenotsignale.html">F.9</a></p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Kartendeck -->
+  <section class="tabpanel" id="panel-lernen" role="tabpanel">
+    <div class="chips" id="lern-filter"></div>
+    <p class="lern-count" id="lern-count"></p>
+    <div class="lern-grid" id="lern-grid"></div>
+    <div class="lern-detail" id="lern-detail" hidden></div>
+  </section>
+
+  <!-- Prüfung -->
+  <section class="tabpanel" id="panel-pruefung" role="tabpanel">
+    <div class="chips" id="pr-filter"></div>
+    <div class="panel pr-panel"><h2>Prüfungsmodus</h2><p class="intro">20 zufällige Fragen, vier Antworten, keine zweite Chance – wie in der Prüfung. Fehler landen automatisch im Trainer in Fach 1.</p><div id="pr-box"></div></div>
+  </section>
+
+  <!-- Nachtwache -->
+  <section class="tabpanel" id="panel-nachtwache" role="tabpanel">
+    <div class="panel pr-panel nw-panel"><h2>Nachtwache</h2><p class="intro">Du stehst nachts am Ruder deiner Segeljacht. Erkenne, was da fährt – und entscheide, wer ausweichen muss.</p><div id="nw-box"></div></div>
+  </section>
+
+  <!-- Fortschritt -->
+  <section class="tabpanel" id="panel-fortschritt" role="tabpanel">
+    <div class="fs-grid">
+      <div class="panel fs-panel"><h2>Lernkartei</h2><p class="intro" id="fs-sum"></p><div class="leitner" id="fs-leitner"></div></div>
+      <div class="panel fs-panel"><h2>Nach Kategorie</h2><div class="cats" id="fs-cats"></div>
+        <div class="facets"><span><i style="background:var(--ok)"></i>sicher</span><span><i style="background:var(--accent)"></i>in Arbeit</span><span><i style="background:var(--line)"></i>neu</span></div></div>
+    </div>
+    <div class="panel fs-panel fs-wide">
+      <h2>Auf ein anderes Gerät übertragen</h2>
+      <p class="intro">Dein Fortschritt liegt nur in diesem Browser. Mit dem Code oder QR-Code nimmst du ihn aufs Handy mit – vorhandener Fortschritt wird nur ergänzt.</p>
+      <div class="row-btns"><button type="button" class="b b-primary" id="fs-share">Code und QR-Code zeigen</button></div>
+      <div class="fs-trans" id="fs-trans" hidden><div class="qr" id="fs-qr"></div><div><label for="fs-code" class="small muted">Code</label><input id="fs-code" class="fs-in" readonly><button type="button" class="b b-ghost" id="fs-copy">Kopieren</button></div></div>
+      <div class="fs-imp"><label for="fs-in" class="small muted">Code von einem anderen Gerät einfügen</label><div class="fs-row"><input id="fs-in" class="fs-in" placeholder="WFD1.…"><button type="button" class="b b-ghost" id="fs-import">Übernehmen</button></div><p class="small" id="fs-imsg"></p></div>
+      <p class="small"><button type="button" class="linkbtn" id="fs-reset">Fortschritt zurücksetzen</button></p>
+    </div>
+  </section>
+
+  <p class="legend">Inhalte nach den Kollisionsverhütungsregeln (KVR, in Österreich Seestraßenordnung), Regeln 21–35 und Anhang IV. Die Töne werden im Browser erzeugt und sind zeitlich verkürzt.</p>
+</main>
+
+<footer class="sitefoot"><div class="foot-in">
+  <div><img src="assets/logo-negativ.svg" alt="SailingX" width="120" height="65"><b>SailingX-Academy</b> · der Online-Segelkurs von <a href="../">Sailing X</a></div>
+  <div><a href="kursuebersicht.html">Kursübersicht</a> · <a href="ueben.html">Üben</a> · <a href="wasfaehrtda.html">Was fährt da?</a> · <a href="werkzeugkasten.html">Werkzeugkasten</a> · <a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a></div>
+</div></footer>
+<script src="assets/vendor/qrcode.js"></script>
+<script src="assets/wfd-daten.js"></script>
+<script src="assets/wfd.js"></script>
+</body>
+</html>
