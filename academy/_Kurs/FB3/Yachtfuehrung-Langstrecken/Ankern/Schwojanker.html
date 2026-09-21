@@ -38,15 +38,52 @@ function ckCalc(){var t=parseFloat(document.getElementById('ck-t').value),f=pars
  var lo,hi;
  if(f===4){lo=3;hi=5;}else if(f===7.5){lo=7;hi=8;}else{lo=8;hi=10;}
  o.className='out show';o.innerHTML='<div class="big">'+(t*lo).toFixed(0)+' – '+(t*hi).toFixed(0)+' m</div><div>empfohlene Länge ('+lo+'–'+hi+'× Wassertiefe)</div>';}
-</script></section><section class="card"><h2><span class="n">🎬</span>Schwojradius & Ankerpeilung</h2><div style="max-width:320px;margin:6px auto 0;"><svg viewBox="0 0 260 200" style="width:100%;height:auto;" aria-hidden="true">
-<circle cx="130" cy="120" r="80" fill="#dcecfb" stroke="#2e87c4" stroke-width="1.5" stroke-dasharray="5 4"/>
-<path d="M126,60 l8,0 l-2,-14 l-4,0 z" fill="#13314f"/>
-<circle cx="130" cy="120" r="4" fill="#8a5a0b"/><text x="136" y="124" font-size="9.5" fill="#8a5a0b">Anker</text>
-<line x1="130" y1="120" x2="130" y2="52" stroke="#5d6b78" stroke-dasharray="3 3"/>
-<line x1="130" y1="120" x2="205" y2="95" stroke="#c0392b" stroke-width="1.4"/><line x1="130" y1="120" x2="70" y2="70" stroke="#c0392b" stroke-width="1.4"/>
-<text x="150" y="90" font-size="9" fill="#c0392b">Deckpeilungen ~90°</text>
-<text x="60" y="195" font-size="9.5" fill="#2e87c4">Schwojradius = Kettenlänge + Schiffslänge</text>
-</svg></div><p class="figcap">Beim <b>Schwojanker</b> (nur ein Buganker) gilt: Die Kettenlänge richtet sich nach dem höchsten Wasserstand (Tide + Wellenhöhe). Faustwerte: <b>3–5×</b> Wassertiefe (nur Kette), <b>7–8×</b> (Kettenvorlauf + Trosse), <b>8–10×</b> (nur Trosse). Der <b>Schwojradius</b> = Kettenlänge + Schiffslänge muss frei von Untiefen und anderen Schiffen bleiben (Schiffe schwojen unterschiedlich). <b>Ankerpeilung</b>: mit zwei Deckpeilungen ungefähr im rechten Winkel kontrollieren (markante Punkte genügen).</p></section>
+</script></section><section class="card">
+    <h2><span class="n">🎬</span>Schwojradius & Ankerpeilung</h2>
+    <div class="fig-wrap"><svg viewBox="0 0 720 480" role="img" aria-label="Schwojkreis um den Anker mit Deckpeilungen zu zwei Landmarken"><defs><marker id="f138n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#173746"/></marker><marker id="f138b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2289c6"/></marker></defs><rect width="720" height="480" rx="10" fill="#dcedf5"/>
+<path d="M0,10 Q0,0 10,0 L46,0 Q60,120 44,230 Q36,330 60,392 Q140,420 300,428 Q420,432 452,480 L10,480 Q0,480 0,470 Z" fill="#e9e2d2" stroke="#a89f8a" stroke-width="2"/>
+<circle cx="250" cy="210" r="150" fill="#c9e2ef" stroke="#2289c6" stroke-width="2" stroke-dasharray="7 5"/>
+<path d="M388,60 q30,-14 46,6 q12,20 -8,30 q-26,10 -38,-10 z" fill="#b7d3a8" stroke="#6f8f60" stroke-dasharray="3 3"/>
+<text x="412.0" y="48.0" class="fg fg-s fg-c">Untiefe</text>
+<g transform="translate(355.0,210.0) rotate(270)" opacity="0.75"><path d="M0,-45.0 C14.4,-24.750000000000004 16.0,-4.5 16.0,15.749999999999998 C16.0,36.0 12.8,45.0 8.8,45.0 L-8.8,45.0 C-12.8,45.0 -16.0,36.0 -16.0,15.749999999999998 C-16.0,-4.5 -14.4,-24.750000000000004 0,-45.0 Z" fill="#fbfbf8" stroke="#173746" stroke-width="2" stroke-dasharray="5 4"/></g>
+<g transform="translate(145.0,210.00000000000003) rotate(450)" opacity="0.75"><path d="M0,-45.0 C14.4,-24.750000000000004 16.0,-4.5 16.0,15.749999999999998 C16.0,36.0 12.8,45.0 8.8,45.0 L-8.8,45.0 C-12.8,45.0 -16.0,36.0 -16.0,15.749999999999998 C-16.0,-4.5 -14.4,-24.750000000000004 0,-45.0 Z" fill="#fbfbf8" stroke="#173746" stroke-width="2" stroke-dasharray="5 4"/></g>
+<g transform="translate(310.22552581685983,123.98903534965586) rotate(215)" opacity="0.75"><path d="M0,-45.0 C14.4,-24.750000000000004 16.0,-4.5 16.0,15.749999999999998 C16.0,36.0 12.8,45.0 8.8,45.0 L-8.8,45.0 C-12.8,45.0 -16.0,36.0 -16.0,15.749999999999998 C-16.0,-4.5 -14.4,-24.750000000000004 0,-45.0 Z" fill="#fbfbf8" stroke="#173746" stroke-width="2" stroke-dasharray="5 4"/></g>
+<g transform="translate(250,210) rotate(180) scale(1)" fill="none" stroke="#173746" stroke-width="2.4" stroke-linecap="round"><circle cx="0" cy="-12" r="3.5"/><line x1="0" y1="-8.5" x2="0" y2="11"/><line x1="-7" y1="-4" x2="7" y2="-4"/><path d="M-11,3 Q-10,12 0,12 Q10,12 11,3"/><path d="M-13,6 L-11,2 L-8,5" /><path d="M13,6 L11,2 L8,5"/></g>
+<line x1="250" y1="222" x2="250" y2="270.0" stroke="#8a5a2b" stroke-width="2.6"/>
+<g transform="translate(250,315.0) rotate(0)" opacity="1"><path d="M0,-45.0 C14.4,-24.750000000000004 16.0,-4.5 16.0,15.749999999999998 C16.0,36.0 12.8,45.0 8.8,45.0 L-8.8,45.0 C-12.8,45.0 -16.0,36.0 -16.0,15.749999999999998 C-16.0,-4.5 -14.4,-24.750000000000004 0,-45.0 Z" fill="#fbfbf8" stroke="#173746" stroke-width="2"/><rect x="-7.2" y="-2.25" width="14.4" height="20.25" rx="4" fill="#dfe5e9" stroke="#173746" stroke-width="1"/><circle cx="0" cy="-9.9" r="3" fill="#173746"/></g>
+<text x="264.0" y="200.0" class="fg fg-s fg-b">Anker</text>
+<line x1="250" y1="210" x2="368.2" y2="302.3" stroke="#173746" stroke-width="1.6" marker-end="url(#f138n)"/>
+<text x="284.0" y="336.0" class="fg fg-s fg-b">Schwojradius</text>
+<line x1="330" y1="16" x2="330" y2="60" stroke="#2289c6" stroke-width="3" marker-end="url(#f138b)"/>
+<text x="318.0" y="38.0" class="fg fg-s fg-a fg-b fg-e">Wind</text>
+<line x1="250" y1="315.0" x2="42" y2="315.0" stroke="#d7263d" stroke-width="1.8" stroke-dasharray="6 4"/>
+<line x1="250" y1="315.0" x2="250" y2="436" stroke="#d7263d" stroke-width="1.8" stroke-dasharray="6 4"/>
+<path d="M232,315.0 L232,333.0 L250,333.0" fill="none" stroke="#d7263d" stroke-width="1.4"/>
+<g transform="translate(30,315.0)"><rect x="-2" y="-8" width="16" height="22" fill="#fbfbf8" stroke="#173746" stroke-width="1.5"/><path d="M-2,-8 L6,-26 L14,-8 Z" fill="#d7263d" stroke="#173746" stroke-width="1.2"/></g>
+<text x="22.0" y="351.0" class="fg fg-s">Kirchturm</text>
+<g transform="translate(250,452)"><path d="M-6,14 L-4,-14 L4,-14 L6,14 Z" fill="#fbfbf8" stroke="#173746" stroke-width="1.5"/><rect x="-4" y="-4" width="8" height="6" fill="#d7263d"/><circle cx="0" cy="-18" r="4" fill="#f4c20d" stroke="#173746"/></g>
+<text x="264.0" y="460.0" class="fg fg-s">Leuchtturm</text>
+<text x="92.0" y="303.0" class="fg fg-s fg-r fg-b">Deckpeilung 1</text>
+<text x="260.0" y="408.0" class="fg fg-s fg-r fg-b">Deckpeilung 2</text>
+<rect x="470" y="96" width="238" height="372" rx="8" fill="#f7fafc" stroke="#dfe5e9"/>
+<text x="484.0" y="124.0" class="fg fg-h">Kettenlänge</text>
+<text x="484.0" y="148.0" class="fg fg-s">nach höchstem</text>
+<text x="484.0" y="170.0" class="fg fg-s">Wasserstand</text>
+<text x="484.0" y="204.0" class="fg fg-b">3–5 ×</text>
+<text x="554.0" y="204.0" class="fg fg-s">nur Kette</text>
+<text x="484.0" y="236.0" class="fg fg-b">7–8 ×</text>
+<text x="554.0" y="236.0" class="fg fg-s">Kette + Trosse</text>
+<text x="484.0" y="268.0" class="fg fg-b">8–10 ×</text>
+<text x="554.0" y="268.0" class="fg fg-s">nur Trosse</text>
+<text x="484.0" y="292.0" class="fg fg-s">× Wassertiefe</text>
+<line x1="484" y1="310" x2="694" y2="310" stroke="#dfe5e9" stroke-width="2"/>
+<text x="484.0" y="340.0" class="fg fg-h">Schwojradius</text>
+<text x="484.0" y="366.0" class="fg fg-b">= Kettenlänge</text>
+<text x="484.0" y="390.0" class="fg fg-b">+ Schiffslänge</text>
+<text x="484.0" y="418.0" class="fg fg-s">frei von Untiefen</text>
+<text x="484.0" y="438.0" class="fg fg-s">und anderen Schiffen</text></svg></div>
+<p class="figcap">Vor Anker liegt das Schiff mit dem Bug zum Anker und schwojt bei drehendem Wind auf einem Kreis: <b>Schwojradius = Kettenlänge + Schiffslänge</b> – dieser Kreis muss frei von Untiefen und anderen Schiffen sein. Die Kettenlänge richtet sich nach dem höchsten Wasserstand (Tide + Wellenhöhe): 3–5× Wassertiefe mit nur Kette, 7–8× mit Kette und Trosse, 8–10× mit nur Trosse. Ob der Anker hält, kontrolliert man mit zwei <b>Deckpeilungen</b> vom Schiff zu markanten Landmarken, ungefähr im rechten Winkel.</p>
+  </section>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
     <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>

@@ -20,14 +20,97 @@
 <!-- INHALT:START -->
   <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Eine <b>Wetterkarte</b> fasst alle wetterrelevanten Infos grafisch zusammen – man muss ihre Symbole lesen können.</p>
     <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du kennst die Karteninhalte.</li><li>Du liest Front- und Windsymbole.</li><li>Du deutest das Stationsmodell.</li></ul></section>
-  <section class="card"><h2><span class="n">1</span>Inhalt & Fronten</h2><div class="step"><div class="ic">🗺️</div><div class="tx"><b>Inhalt</b><br>Isobaren mit Hochs/Tiefs (H/L), der Verlauf von Warm-, Kalt- und Okklusionsfronten und oft Stationsmeldungen.</div></div><div class="step"><div class="ic">➡️</div><div class="tx"><b>Fronten</b><br>Warmfront rot (Rundungen), Kaltfront blau (Zacken), Okklusion violett. Rundungen/Zacken zeigen in die Zugrichtung.</div></div></section><section class="card"><h2><span class="n">2</span>Wind & Station</h2><div class="step"><div class="ic">💨</div><div class="tx"><b>Windpfeil</b><br>Pfeil ohne Spitze zur Station; Striche geben die Stärke: kurz = 1 Bft (5 kn), lang = 2 Bft (10 kn), Fähnchen = 10 Bft (30 kn).</div></div><div class="step"><div class="ic">⭕</div><div class="tx"><b>Station</b><br>Der Füllgrad des Stationskreises zeigt die Bewölkung; Zusatzsymbole für Regen, Nebel, Gewitter, Hagel, Schnee; ein Strich die Drucktendenz.</div></div></section>
-  <section class="card"><h2><span class="n">🎬</span>Symbole der Wetterkarte</h2><div style="max-width:360px;margin:6px auto 0;"><svg viewBox="0 0 360 150" style="width:100%;height:auto;" aria-hidden="true">
-<line x1="20" y1="26" x2="120" y2="26" stroke="#c0392b" stroke-width="3"/><g fill="#c0392b"><path d="M40,26 a8,8 0 0,1 16,0 z"/><path d="M75,26 a8,8 0 0,1 16,0 z"/></g><text x="130" y="30" font-size="11" fill="#5d6b78">Warmfront (rot, Rundungen)</text>
-<line x1="20" y1="56" x2="120" y2="56" stroke="#2e87c4" stroke-width="3"/><g fill="#2e87c4"><path d="M40,56 l8,-9 l8,9 z"/><path d="M75,56 l8,-9 l8,9 z"/></g><text x="130" y="60" font-size="11" fill="#5d6b78">Kaltfront (blau, Zacken)</text>
-<line x1="20" y1="86" x2="120" y2="86" stroke="#7d3c98" stroke-width="3"/><g fill="#7d3c98"><path d="M40,86 a7,7 0 0,1 14,0 z"/><path d="M70,86 l7,-8 l7,8 z"/></g><text x="130" y="90" font-size="11" fill="#5d6b78">Okklusion (violett)</text>
-<line x1="55" y1="128" x2="105" y2="112" stroke="#13314f" stroke-width="2"/><line x1="105" y1="112" x2="113" y2="105" stroke="#13314f" stroke-width="2"/><circle cx="55" cy="128" r="5" fill="none" stroke="#13314f" stroke-width="2"/>
-<text x="130" y="120" font-size="11" fill="#5d6b78">Wind: kurz 1 Bft · lang 2 Bft · Fähnchen 10 Bft</text>
-</svg></div><p class="figcap">Die <b>Wetterkarte</b> zeigt Isobaren mit H/L, die Fronten (Warmfront rot mit Rundungen, Kaltfront blau mit Zacken, Okklusion violett – die Symbole zeigen in die Zugrichtung) und oft Stationsmeldungen. Windrichtung = Pfeil ohne Spitze zur Station; Windstärke über Striche: kurz = 1 Bft (5 kn), lang = 2 Bft (10 kn), Fähnchen = 10 Bft (30 kn). Der Füllgrad des Stationskreises zeigt die Bewölkung, dazu Symbole für Regen, Nebel, Gewitter usw.</p></section>
+  <section class="card"><h2><span class="n">1</span>Inhalt & Fronten</h2><div class="step"><div class="ic">🗺️</div><div class="tx"><b>Inhalt</b><br>Isobaren mit Hochs/Tiefs (H/L), der Verlauf von Warm-, Kalt- und Okklusionsfronten und oft Stationsmeldungen.</div></div><div class="step"><div class="ic">➡️</div><div class="tx"><b>Fronten</b><br>Warmfront rot (Rundungen), Kaltfront blau (Zacken), Okklusion violett. Rundungen/Zacken zeigen in die Zugrichtung.</div></div></section><section class="card"><h2><span class="n">2</span>Wind & Station</h2><div class="step"><div class="ic">💨</div><div class="tx"><b>Windpfeil</b><br>Pfeil ohne Spitze zur Station; Striche geben die Stärke: kurz = 5 kn (1 Bft), lang = 10 kn (2 Bft), Fähnchen (Wimpel) = 50 kn (≈ 10 Bft).</div></div><div class="step"><div class="ic">⭕</div><div class="tx"><b>Station</b><br>Der Füllgrad des Stationskreises zeigt die Bewölkung; Zusatzsymbole für Regen, Nebel, Gewitter, Hagel, Schnee; ein Strich die Drucktendenz.</div></div></section>
+  <section class="card">
+    <h2><span class="n">🎬</span>Symbole der Wetterkarte</h2>
+    <div class="fig-wrap"><svg viewBox="0 0 720 560" role="img" aria-label="Frontsymbole, Windpfeile, Bedeckungsgrad und Wettersymbole der Wetterkarte"><defs><marker id="f135n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#173746"/></marker></defs><rect width="720" height="560" rx="10" fill="#f7fafc"/>
+<rect x="12" y="12" width="340" height="226" rx="8" fill="#eaf2f7"/>
+<rect x="368" y="12" width="340" height="396" rx="8" fill="#eaf2f7"/>
+<rect x="12" y="250" width="340" height="158" rx="8" fill="#eaf2f7"/>
+<rect x="12" y="420" width="696" height="128" rx="8" fill="#eaf2f7"/>
+<text x="28.0" y="40.0" class="fg fg-h">Fronten</text>
+<path d="M30.0,92.0 L31.0,92.0 L32.0,92.0 L33.0,92.0 L34.0,92.0 L35.0,92.0 L36.0,92.0 L37.0,92.0 L38.0,92.0 L39.0,92.0 L40.0,92.0 L41.0,92.0 L42.0,92.0 L43.0,92.0 L44.0,92.0 L45.0,92.0 L46.0,92.0 L47.0,92.0 L48.0,92.0 L49.0,92.0 L50.0,92.0 L51.0,92.0 L52.0,92.0 L53.0,92.0 L54.0,92.0 L55.0,92.0 L56.0,92.0 L57.0,92.0 L58.0,92.0 L59.0,92.0 L60.0,92.0 L61.0,92.0 L62.0,92.0 L63.0,92.0 L64.0,92.0 L65.0,92.0 L66.0,92.0 L67.0,92.0 L68.0,92.0 L69.0,92.0 L70.0,92.0 L71.0,92.0 L72.0,92.0 L73.0,92.0 L74.0,92.0 L75.0,92.0 L76.0,92.0 L77.0,92.0 L78.0,92.0 L79.0,92.0 L80.0,92.0 L81.0,92.0 L82.0,92.0 L83.0,92.0 L84.0,92.0 L85.0,92.0 L86.0,92.0 L87.0,92.0 L88.0,92.0 L89.0,92.0 L90.0,92.0 L91.0,92.0 L92.0,92.0 L93.0,92.0 L94.0,92.0 L95.0,92.0 L96.0,92.0 L97.0,92.0 L98.0,92.0 L99.0,92.0 L100.0,92.0 L101.0,92.0 L102.0,92.0 L103.0,92.0 L104.0,92.0 L105.0,92.0 L106.0,92.0 L107.0,92.0 L108.0,92.0 L109.0,92.0 L110.0,92.0 L111.0,92.0 L112.0,92.0 L113.0,92.0 L114.0,92.0 L115.0,92.0 L116.0,92.0 L117.0,92.0 L118.0,92.0 L119.0,92.0 L120.0,92.0 L121.0,92.0 L122.0,92.0 L123.0,92.0 L124.0,92.0 L125.0,92.0 L126.0,92.0 L127.0,92.0 L128.0,92.0 L129.0,92.0 L130.0,92.0 L131.0,92.0 L132.0,92.0 L133.0,92.0 L134.0,92.0 L135.0,92.0 L136.0,92.0 L137.0,92.0 L138.0,92.0 L139.0,92.0 L140.0,92.0 L141.0,92.0 L142.0,92.0 L143.0,92.0 L144.0,92.0 L145.0,92.0 L146.0,92.0 L147.0,92.0 L148.0,92.0 L149.0,92.0 L150.0,92.0 L151.0,92.0 L152.0,92.0 L153.0,92.0 L154.0,92.0 L155.0,92.0 L156.0,92.0 L157.0,92.0 L158.0,92.0 L159.0,92.0 L160.0,92.0 L161.0,92.0 L162.0,92.0 L163.0,92.0 L164.0,92.0 L165.0,92.0 L166.0,92.0 L167.0,92.0 L168.0,92.0 L169.0,92.0 L170.0,92.0 L171.0,92.0 L172.0,92.0 L173.0,92.0 L174.0,92.0 L175.0,92.0 L176.0,92.0 L177.0,92.0 L178.0,92.0 L179.0,92.0 L180.0,92.0 L181.0,92.0 L182.0,92.0 L183.0,92.0 L184.0,92.0 L185.0,92.0 L186.0,92.0 L187.0,92.0 L188.0,92.0 L189.0,92.0 L190.0,92.0 L191.0,92.0 L192.0,92.0 L193.0,92.0 L194.0,92.0 L195.0,92.0 L196.0,92.0 L197.0,92.0 L198.0,92.0 L199.0,92.0 L200.0,92.0" fill="none" stroke="#d7263d" stroke-width="3"/>
+<path d="M44.0,92.0 A8.0,8.0 0 0 1 60.0,92.0 Z" fill="#d7263d"/>
+<path d="M78.0,92.0 A8.0,8.0 0 0 1 94.0,92.0 Z" fill="#d7263d"/>
+<path d="M112.0,92.0 A8.0,8.0 0 0 1 128.0,92.0 Z" fill="#d7263d"/>
+<path d="M146.0,92.0 A8.0,8.0 0 0 1 162.0,92.0 Z" fill="#d7263d"/>
+<path d="M180.0,92.0 A8.0,8.0 0 0 1 196.0,92.0 Z" fill="#d7263d"/>
+<text x="216.0" y="97.0" class="fg fg-b">Warmfront</text>
+<path d="M30.0,142.0 L31.0,142.0 L32.0,142.0 L33.0,142.0 L34.0,142.0 L35.0,142.0 L36.0,142.0 L37.0,142.0 L38.0,142.0 L39.0,142.0 L40.0,142.0 L41.0,142.0 L42.0,142.0 L43.0,142.0 L44.0,142.0 L45.0,142.0 L46.0,142.0 L47.0,142.0 L48.0,142.0 L49.0,142.0 L50.0,142.0 L51.0,142.0 L52.0,142.0 L53.0,142.0 L54.0,142.0 L55.0,142.0 L56.0,142.0 L57.0,142.0 L58.0,142.0 L59.0,142.0 L60.0,142.0 L61.0,142.0 L62.0,142.0 L63.0,142.0 L64.0,142.0 L65.0,142.0 L66.0,142.0 L67.0,142.0 L68.0,142.0 L69.0,142.0 L70.0,142.0 L71.0,142.0 L72.0,142.0 L73.0,142.0 L74.0,142.0 L75.0,142.0 L76.0,142.0 L77.0,142.0 L78.0,142.0 L79.0,142.0 L80.0,142.0 L81.0,142.0 L82.0,142.0 L83.0,142.0 L84.0,142.0 L85.0,142.0 L86.0,142.0 L87.0,142.0 L88.0,142.0 L89.0,142.0 L90.0,142.0 L91.0,142.0 L92.0,142.0 L93.0,142.0 L94.0,142.0 L95.0,142.0 L96.0,142.0 L97.0,142.0 L98.0,142.0 L99.0,142.0 L100.0,142.0 L101.0,142.0 L102.0,142.0 L103.0,142.0 L104.0,142.0 L105.0,142.0 L106.0,142.0 L107.0,142.0 L108.0,142.0 L109.0,142.0 L110.0,142.0 L111.0,142.0 L112.0,142.0 L113.0,142.0 L114.0,142.0 L115.0,142.0 L116.0,142.0 L117.0,142.0 L118.0,142.0 L119.0,142.0 L120.0,142.0 L121.0,142.0 L122.0,142.0 L123.0,142.0 L124.0,142.0 L125.0,142.0 L126.0,142.0 L127.0,142.0 L128.0,142.0 L129.0,142.0 L130.0,142.0 L131.0,142.0 L132.0,142.0 L133.0,142.0 L134.0,142.0 L135.0,142.0 L136.0,142.0 L137.0,142.0 L138.0,142.0 L139.0,142.0 L140.0,142.0 L141.0,142.0 L142.0,142.0 L143.0,142.0 L144.0,142.0 L145.0,142.0 L146.0,142.0 L147.0,142.0 L148.0,142.0 L149.0,142.0 L150.0,142.0 L151.0,142.0 L152.0,142.0 L153.0,142.0 L154.0,142.0 L155.0,142.0 L156.0,142.0 L157.0,142.0 L158.0,142.0 L159.0,142.0 L160.0,142.0 L161.0,142.0 L162.0,142.0 L163.0,142.0 L164.0,142.0 L165.0,142.0 L166.0,142.0 L167.0,142.0 L168.0,142.0 L169.0,142.0 L170.0,142.0 L171.0,142.0 L172.0,142.0 L173.0,142.0 L174.0,142.0 L175.0,142.0 L176.0,142.0 L177.0,142.0 L178.0,142.0 L179.0,142.0 L180.0,142.0 L181.0,142.0 L182.0,142.0 L183.0,142.0 L184.0,142.0 L185.0,142.0 L186.0,142.0 L187.0,142.0 L188.0,142.0 L189.0,142.0 L190.0,142.0 L191.0,142.0 L192.0,142.0 L193.0,142.0 L194.0,142.0 L195.0,142.0 L196.0,142.0 L197.0,142.0 L198.0,142.0 L199.0,142.0 L200.0,142.0" fill="none" stroke="#2289c6" stroke-width="3"/>
+<path d="M44.0,142.0 L52.0,131.6 L60.0,142.0 Z" fill="#2289c6"/>
+<path d="M78.0,142.0 L86.0,131.6 L94.0,142.0 Z" fill="#2289c6"/>
+<path d="M112.0,142.0 L120.0,131.6 L128.0,142.0 Z" fill="#2289c6"/>
+<path d="M146.0,142.0 L154.0,131.6 L162.0,142.0 Z" fill="#2289c6"/>
+<path d="M180.0,142.0 L188.0,131.6 L196.0,142.0 Z" fill="#2289c6"/>
+<text x="216.0" y="147.0" class="fg fg-b">Kaltfront</text>
+<path d="M30.0,192.0 L31.0,192.0 L32.0,192.0 L33.0,192.0 L34.0,192.0 L35.0,192.0 L36.0,192.0 L37.0,192.0 L38.0,192.0 L39.0,192.0 L40.0,192.0 L41.0,192.0 L42.0,192.0 L43.0,192.0 L44.0,192.0 L45.0,192.0 L46.0,192.0 L47.0,192.0 L48.0,192.0 L49.0,192.0 L50.0,192.0 L51.0,192.0 L52.0,192.0 L53.0,192.0 L54.0,192.0 L55.0,192.0 L56.0,192.0 L57.0,192.0 L58.0,192.0 L59.0,192.0 L60.0,192.0 L61.0,192.0 L62.0,192.0 L63.0,192.0 L64.0,192.0 L65.0,192.0 L66.0,192.0 L67.0,192.0 L68.0,192.0 L69.0,192.0 L70.0,192.0 L71.0,192.0 L72.0,192.0 L73.0,192.0 L74.0,192.0 L75.0,192.0 L76.0,192.0 L77.0,192.0 L78.0,192.0 L79.0,192.0 L80.0,192.0 L81.0,192.0 L82.0,192.0 L83.0,192.0 L84.0,192.0 L85.0,192.0 L86.0,192.0 L87.0,192.0 L88.0,192.0 L89.0,192.0 L90.0,192.0 L91.0,192.0 L92.0,192.0 L93.0,192.0 L94.0,192.0 L95.0,192.0 L96.0,192.0 L97.0,192.0 L98.0,192.0 L99.0,192.0 L100.0,192.0 L101.0,192.0 L102.0,192.0 L103.0,192.0 L104.0,192.0 L105.0,192.0 L106.0,192.0 L107.0,192.0 L108.0,192.0 L109.0,192.0 L110.0,192.0 L111.0,192.0 L112.0,192.0 L113.0,192.0 L114.0,192.0 L115.0,192.0 L116.0,192.0 L117.0,192.0 L118.0,192.0 L119.0,192.0 L120.0,192.0 L121.0,192.0 L122.0,192.0 L123.0,192.0 L124.0,192.0 L125.0,192.0 L126.0,192.0 L127.0,192.0 L128.0,192.0 L129.0,192.0 L130.0,192.0 L131.0,192.0 L132.0,192.0 L133.0,192.0 L134.0,192.0 L135.0,192.0 L136.0,192.0 L137.0,192.0 L138.0,192.0 L139.0,192.0 L140.0,192.0 L141.0,192.0 L142.0,192.0 L143.0,192.0 L144.0,192.0 L145.0,192.0 L146.0,192.0 L147.0,192.0 L148.0,192.0 L149.0,192.0 L150.0,192.0 L151.0,192.0 L152.0,192.0 L153.0,192.0 L154.0,192.0 L155.0,192.0 L156.0,192.0 L157.0,192.0 L158.0,192.0 L159.0,192.0 L160.0,192.0 L161.0,192.0 L162.0,192.0 L163.0,192.0 L164.0,192.0 L165.0,192.0 L166.0,192.0 L167.0,192.0 L168.0,192.0 L169.0,192.0 L170.0,192.0 L171.0,192.0 L172.0,192.0 L173.0,192.0 L174.0,192.0 L175.0,192.0 L176.0,192.0 L177.0,192.0 L178.0,192.0 L179.0,192.0 L180.0,192.0 L181.0,192.0 L182.0,192.0 L183.0,192.0 L184.0,192.0 L185.0,192.0 L186.0,192.0 L187.0,192.0 L188.0,192.0 L189.0,192.0 L190.0,192.0 L191.0,192.0 L192.0,192.0 L193.0,192.0 L194.0,192.0 L195.0,192.0 L196.0,192.0 L197.0,192.0 L198.0,192.0 L199.0,192.0 L200.0,192.0" fill="none" stroke="#8e44ad" stroke-width="3"/>
+<path d="M44.0,192.0 L52.0,181.6 L60.0,192.0 Z" fill="#8e44ad"/>
+<path d="M78.0,192.0 A8.0,8.0 0 0 1 94.0,192.0 Z" fill="#8e44ad"/>
+<path d="M112.0,192.0 L120.0,181.6 L128.0,192.0 Z" fill="#8e44ad"/>
+<path d="M146.0,192.0 A8.0,8.0 0 0 1 162.0,192.0 Z" fill="#8e44ad"/>
+<path d="M180.0,192.0 L188.0,181.6 L196.0,192.0 Z" fill="#8e44ad"/>
+<text x="216.0" y="197.0" class="fg fg-b">Okklusion</text>
+<line x1="334" y1="50" x2="334" y2="22" stroke="#173746" stroke-width="2" marker-end="url(#f135n)"/>
+<text x="322.0" y="42.0" class="fg fg-s fg-e">Zugrichtung</text>
+<text x="384.0" y="40.0" class="fg fg-h">Windpfeil (Wind aus West)</text>
+<line x1="528" y1="100" x2="418" y2="100" stroke="#173746" stroke-width="2.4"/>
+<circle cx="528" cy="100" r="8" fill="#fff" stroke="#173746" stroke-width="2.2"/>
+<line x1="429" y1="100" x2="424.5" y2="87" stroke="#173746" stroke-width="2.4"/>
+<text x="548.0" y="105.0" class="fg fg-b">5 kn</text>
+<line x1="528" y1="158" x2="418" y2="158" stroke="#173746" stroke-width="2.4"/>
+<circle cx="528" cy="158" r="8" fill="#fff" stroke="#173746" stroke-width="2.2"/>
+<line x1="418" y1="158" x2="409" y2="132" stroke="#173746" stroke-width="2.4"/>
+<text x="548.0" y="163.0" class="fg fg-b">10 kn</text>
+<line x1="528" y1="216" x2="418" y2="216" stroke="#173746" stroke-width="2.4"/>
+<circle cx="528" cy="216" r="8" fill="#fff" stroke="#173746" stroke-width="2.2"/>
+<line x1="418" y1="216" x2="409" y2="190" stroke="#173746" stroke-width="2.4"/>
+<line x1="429" y1="216" x2="424.5" y2="203" stroke="#173746" stroke-width="2.4"/>
+<text x="548.0" y="221.0" class="fg fg-b">15 kn</text>
+<line x1="528" y1="274" x2="418" y2="274" stroke="#173746" stroke-width="2.4"/>
+<circle cx="528" cy="274" r="8" fill="#fff" stroke="#173746" stroke-width="2.2"/>
+<path d="M418,274 L409,246 L432,274 Z" fill="#173746"/>
+<text x="548.0" y="279.0" class="fg fg-b">50 kn</text>
+<line x1="528" y1="332" x2="418" y2="332" stroke="#173746" stroke-width="2.4"/>
+<circle cx="528" cy="332" r="8" fill="#fff" stroke="#173746" stroke-width="2.2"/>
+<path d="M418,332 L409,304 L432,332 Z" fill="#173746"/>
+<line x1="436" y1="332" x2="427" y2="306" stroke="#173746" stroke-width="2.4"/>
+<line x1="447" y1="332" x2="442.5" y2="319" stroke="#173746" stroke-width="2.4"/>
+<text x="548.0" y="337.0" class="fg fg-b">65 kn</text>
+<text x="384.0" y="72.0" class="fg fg-s">Schaft zeigt, woher der Wind kommt</text>
+<text x="538.0" y="390.0" class="fg fg-s fg-c">kurz 5 · lang 10 · Fähnchen 50 kn</text>
+<text x="28.0" y="278.0" class="fg fg-h">Bedeckung (Achtel)</text>
+<circle cx="52" cy="330" r="16" fill="#fff" stroke="#173746" stroke-width="2.2"/>
+<text x="52.0" y="372.0" class="fg fg-s fg-c">0/8</text>
+<circle cx="116" cy="330" r="16" fill="#fff" stroke="#173746" stroke-width="2.2"/>
+<path d="M116,330 L116,314 A16,16 0 0 1 132.0,330.0 Z" fill="#173746"/>
+<text x="116.0" y="372.0" class="fg fg-s fg-c">2/8</text>
+<circle cx="180" cy="330" r="16" fill="#fff" stroke="#173746" stroke-width="2.2"/>
+<path d="M180,330 L180,314 A16,16 0 0 1 180.0,346.0 Z" fill="#173746"/>
+<text x="180.0" y="372.0" class="fg fg-s fg-c">4/8</text>
+<circle cx="244" cy="330" r="16" fill="#fff" stroke="#173746" stroke-width="2.2"/>
+<path d="M244,330 L244,314 A16,16 0 1 1 228.0,330.0 Z" fill="#173746"/>
+<text x="244.0" y="372.0" class="fg fg-s fg-c">6/8</text>
+<circle cx="308" cy="330" r="16" fill="#fff" stroke="#173746" stroke-width="2.2"/>
+<circle cx="308" cy="330" r="16" fill="#173746"/>
+<text x="308.0" y="372.0" class="fg fg-s fg-c">8/8</text>
+<text x="182.0" y="396.0" class="fg fg-s fg-c">wolkenlos → bedeckt</text>
+<text x="28.0" y="448.0" class="fg fg-h">Wettersymbole</text>
+<circle cx="120" cy="488" r="6" fill="#1f9d55"/>
+<path d="M238,480 a6,6 0 1 1 5,10 q-2,6 -8,9" fill="#1f9d55" stroke="#1f9d55" stroke-width="2"/>
+<line x1="350.0" y1="488.0" x2="370.0" y2="488.0" stroke="#1f9d55" stroke-width="2.6"/>
+<line x1="355.0" y1="479.3" x2="365.0" y2="496.7" stroke="#1f9d55" stroke-width="2.6"/>
+<line x1="365.0" y1="479.3" x2="355.0" y2="496.7" stroke="#1f9d55" stroke-width="2.6"/>
+<line x1="466" y1="480" x2="494" y2="480" stroke="#f39129" stroke-width="2.6"/>
+<line x1="466" y1="488" x2="494" y2="488" stroke="#f39129" stroke-width="2.6"/>
+<line x1="466" y1="496" x2="494" y2="496" stroke="#f39129" stroke-width="2.6"/>
+<path d="M588,484 L612,484 L600,502 Z" fill="none" stroke="#1f9d55" stroke-width="2.4"/><circle cx="600" cy="474" r="4.5" fill="#1f9d55"/>
+<text x="120.0" y="532.0" class="fg fg-s fg-c">Regen</text>
+<text x="240.0" y="532.0" class="fg fg-s fg-c">Niesel</text>
+<text x="360.0" y="532.0" class="fg fg-s fg-c">Schnee</text>
+<text x="480.0" y="532.0" class="fg fg-s fg-c">Nebel</text>
+<text x="600.0" y="532.0" class="fg fg-s fg-c">Regenschauer</text></svg></div>
+<p class="figcap">Wetterkarten zeigen Isobaren mit Hoch (H) und Tief (T, engl. L), die <b>Fronten</b> – Warmfront rot mit Rundungen, Kaltfront blau mit Zacken, Okklusion violett; die Symbole zeigen in Zugrichtung – und Stationsmeldungen. Der <b>Windpfeil</b> zeigt ohne Spitze zur Station, der Schaft liegt auf der Seite, aus der der Wind kommt; Stärke: kurzer Strich 5 kn, langer Strich 10 kn, <b>Fähnchen 50 kn</b>. Der Füllgrad des Stationskreises gibt die Bewölkung in Achteln an, dazu Symbole für Regen, Nebel, Schnee usw.</p>
+  </section>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
     <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
@@ -41,7 +124,7 @@
   <p class="foot">SailingX-Academy · 5.2 Wetterkarten &amp; Symbole<br><a href="../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../ueben.html" data-top>Üben</a> · <a href="../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../datenschutz.html" data-top>Datenschutz</a></p>
 </main>
 <script>
-var QUIZ = [{"q": "Welche Farbe hat die Kaltfront?", "opts": ["Rot", "Blau", "Violett", "Grün"], "correct": 1, "expl": "Kaltfront = blau (Zacken)."}, {"q": "Wofür steht ein Fähnchen am Windpfeil?", "opts": ["1 Bft", "2 Bft", "10 Bft (30 kn)", "Windstille"], "correct": 2, "expl": "Ein Fähnchen = 10 Bft bzw. 30 kn."}, {"q": "Was zeigt der Füllgrad des Stationskreises?", "opts": ["Die Temperatur", "Den Bewölkungsgrad", "Den Druck", "Die Windrichtung"], "correct": 1, "expl": "Wie stark der Kreis gefüllt ist = Bewölkung."}, {"q": "Wohin zeigen die Front-Symbole?", "opts": ["Nach Norden", "In die Zugrichtung", "Zur Sonne", "Zufällig"], "correct": 1, "expl": "Immer in die Zugrichtung der Front."}, {"q": "Welche Farbe hat die Okklusionsfront?", "opts": ["Rot", "Blau", "Violett", "Gelb"], "correct": 2, "expl": "Violett."}];
+var QUIZ = [{"q": "Welche Farbe hat die Kaltfront?", "opts": ["Rot", "Blau", "Violett", "Grün"], "correct": 1, "expl": "Kaltfront = blau (Zacken)."}, {"q": "Wofür steht ein Fähnchen am Windpfeil?", "opts": ["5 kn", "10 kn", "50 kn (≈ 10 Bft)", "Windstille"], "correct": 2, "expl": "Ein Fähnchen (Wimpel) steht für 50 kn, das entspricht etwa 10 Bft."}, {"q": "Was zeigt der Füllgrad des Stationskreises?", "opts": ["Die Temperatur", "Den Bewölkungsgrad", "Den Druck", "Die Windrichtung"], "correct": 1, "expl": "Wie stark der Kreis gefüllt ist = Bewölkung."}, {"q": "Wohin zeigen die Front-Symbole?", "opts": ["Nach Norden", "In die Zugrichtung", "Zur Sonne", "Zufällig"], "correct": 1, "expl": "Immer in die Zugrichtung der Front."}, {"q": "Welche Farbe hat die Okklusionsfront?", "opts": ["Rot", "Blau", "Violett", "Gelb"], "correct": 2, "expl": "Violett."}];
 </script>
 <script src="../../../assets/lektion.js"></script>
 </body>

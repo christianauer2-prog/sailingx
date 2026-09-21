@@ -21,13 +21,47 @@
   <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Gesegelt wird nach dem scheinbaren Wind – doch den <b>wahren Wind</b> zu kennen hilft bei der Taktik.</p>
     <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du kennst die drei Bestimmungsmethoden.</li><li>Du verstehst das Winddreieck.</li><li>Du weißt, wann welche Methode passt.</li></ul></section>
   <section class="card"><h2><span class="n">1</span>Stillstand & Wende</h2><div class="step"><div class="ic">🛑</div><div class="tx"><b>Bei Stillstand</b><br>Schiff aufstoppen (Aufschießer), Windrichtung am Anzeiger/Verklicker ablesen und im Rechenturm auf rechtweisend umrechnen (Eigengeschwindigkeit nicht zu hoch!).</div></div><div class="step"><div class="ic">↩️</div><div class="tx"><b>Mit Wende</b><br>Auf beiden Bügen bei gleicher Segelstellung und Geschwindigkeit den Kompasskurs ablesen und auf rwK umrechnen. Der wahre Wind liegt genau zwischen den beiden rwK.</div></div></section><section class="card"><h2><span class="n">2</span>Winddreieck</h2><div class="step"><div class="ic">📐</div><div class="tx"><b>Konstruktion</b><br>Wie ein Stundendreieck: rwK + Fahrt des Bootes auftragen, dann die Schiffsseitenpeilung + Stärke des scheinbaren Windes. Die Resultierende ist der wahre Wind (Richtung + Stärke). Ein Windrichtungsanzeiger ist dafür nötig.</div></div></section>
-  <section class="card"><h2><span class="n">🎬</span>Winddreieck: wahrer Wind</h2><div style="max-width:300px;margin:6px auto 0;"><svg viewBox="0 0 240 180" style="width:100%;height:auto;" aria-hidden="true">
-<circle cx="50" cy="150" r="4" fill="#13314f"/>
-<line x1="50" y1="150" x2="50" y2="50" stroke="#1f4b73" stroke-width="2.5" marker-end="url(#a1)"/><text x="54" y="60" font-size="10" fill="#1f4b73">FdW (Boot, rwK)</text>
-<line x1="50" y1="50" x2="150" y2="80" stroke="#c0392b" stroke-width="2.5" marker-end="url(#a2)"/><text x="105" y="58" font-size="10" fill="#c0392b">scheinb. Wind</text>
-<line x1="50" y1="150" x2="150" y2="80" stroke="#1d8a5a" stroke-width="2.5" marker-end="url(#a3)"/><text x="120" y="140" font-size="10" fill="#1d8a5a">wahrer Wind</text>
-<defs><marker id="a1" markerWidth="8" markerHeight="8" refX="4" refY="1" orient="auto"><path d="M0,8 L4,0 L8,8 Z" fill="#1f4b73"/></marker><marker id="a2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#c0392b"/></marker><marker id="a3" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#1d8a5a"/></marker></defs>
-</svg></div><p class="figcap">Segel stellt man nach dem <b>scheinbaren</b> Wind – den <b>wahren</b> Wind zu kennen hilft aber (v. a. bei Leichtwind). Drei Wege: (1) <b>Stillstand</b> – Schiff aufstoppen, Windrichtung am Anzeiger ablesen und im Rechenturm auf rwN umrechnen. (2) <b>Wende</b> – auf beiden Bügen bei gleicher Segelstellung/Geschwindigkeit den rwK ablesen; der wahre Wind liegt genau in der Mitte. (3) <b>Winddreieck</b> – rwK + Fahrt des Bootes und die Schiffsseitenpeilung + Stärke des scheinbaren Windes auftragen; die Resultierende ist der wahre Wind (Richtung + Stärke).</p></section>
+  <section class="card">
+    <h2><span class="n">🎬</span>Winddreieck: wahrer Wind</h2>
+    <div class="fig-wrap"><svg viewBox="0 0 720 424" role="img" aria-label="Winddreieck: Bootsfahrt plus scheinbarer Wind ergibt den wahren Wind">
+<defs>
+<marker id="f127n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#173746"/></marker>
+<marker id="f127r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d7263d"/></marker>
+<marker id="f127g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f9d55"/></marker>
+</defs>
+<rect width="720" height="424" rx="10" fill="#eef4f8"/>
+
+<line x1="72" y1="150" x2="72" y2="94" stroke="#173746" stroke-width="2.2" marker-end="url(#f127n)"/>
+<text x="72" y="82" class="fg fg-b fg-c">N</text>
+
+<line x1="330" y1="166" x2="330" y2="122" stroke="#8796a0" stroke-width="1.4" stroke-dasharray="6 5"/>
+<text x="330" y="112" class="fg fg-s fg-c">rwK 000°</text>
+<line x1="330" y1="310" x2="399" y2="252" stroke="#8796a0" stroke-width="1.4" stroke-dasharray="6 5"/>
+<path d="M330,264 A46,46 0 0 1 365.2,280.4" fill="none" stroke="#8796a0" stroke-width="1.4"/>
+<text x="356" y="256" class="fg fg-s">50°</text>
+
+<line x1="330" y1="310" x2="330" y2="166" stroke="#173746" stroke-width="3.4" marker-end="url(#f127n)"/>
+<line x1="330" y1="166" x2="146" y2="320" stroke="#d7263d" stroke-width="3.4" marker-end="url(#f127r)"/>
+<line x1="330" y1="310" x2="146" y2="320" stroke="#1f9d55" stroke-width="3.8" marker-end="url(#f127g)"/>
+
+<polygon points="330,326 337,338 337,352 323,352 323,338" fill="#fbfbf8" stroke="#2a4452" stroke-width="1.6"/>
+
+<rect x="436" y="108" width="270" height="204" rx="10" fill="#ffffff" stroke="#cddbe3" stroke-width="1.5"/>
+<line x1="450" y1="133" x2="486" y2="133" stroke="#173746" stroke-width="3.4" marker-end="url(#f127n)"/>
+<text x="496" y="138" class="fg fg-b">Fahrt des Bootes</text>
+<text x="496" y="162" class="fg fg-s">rwK 000° · 6 kn</text>
+<line x1="450" y1="197" x2="486" y2="197" stroke="#d7263d" stroke-width="3.4" marker-end="url(#f127r)"/>
+<text x="496" y="202" class="fg fg-b fg-r">scheinbarer Wind</text>
+<text x="496" y="226" class="fg fg-s">aus 050° · 10 kn</text>
+<line x1="450" y1="261" x2="486" y2="261" stroke="#1f9d55" stroke-width="3.8" marker-end="url(#f127g)"/>
+<text x="496" y="266" class="fg fg-b fg-g">wahrer Wind</text>
+<text x="496" y="290" class="fg fg-s">aus 087° · 7,7 kn</text>
+
+<text x="360" y="384" class="fg fg-s fg-c">Andere Wege: aufstoppen und die Windrichtung ablesen</text>
+<text x="360" y="408" class="fg fg-s fg-c">oder wenden – der wahre Wind liegt genau zwischen beiden rwK</text>
+</svg></div>
+<p class="figcap">Gesegelt wird nach dem <b>scheinbaren</b> Wind, für die Taktik hilft der <b>wahre</b> Wind. Im <b>Winddreieck</b> trägt man zuerst Kurs und Fahrt des Bootes an (hier rwK 000°, 6 kn) und hängt daran den scheinbaren Wind mit seiner Schiffsseitenpeilung und Stärke (aus 050°, 10 kn). Die Verbindung vom Startpunkt zur Spitze ist der wahre Wind – hier aus 087° mit 7,7 kn. Er kommt also achterlicher und ist schwächer als der scheinbare Wind. Ohne Zeichnung geht es auch: Schiff aufstoppen und die Windrichtung ablesen, oder auf beiden Bügen bei gleicher Segelstellung den rwK ablesen – der wahre Wind liegt genau dazwischen.</p>
+  </section>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
     <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>

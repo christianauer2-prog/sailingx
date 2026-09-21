@@ -189,4 +189,19 @@ body.nur-rechner .calc > h3{display:none;}
   .sx-steps li button{font-size:13.5px;}
 }
 @media (max-width:560px){.sx-lbl{font-size:18px;stroke-width:4px;}.sx-lbl-klein,.sx-lbl-kai{font-size:15px;}.sx-lbl-gross{font-size:20px;}}
+/* Statische Lehrgrafiken (einheitlicher Stil) */
+.fig-wrap{margin:6px 0 0;border-radius:12px;background:#f7fafc;box-shadow:inset 0 0 0 1px var(--line);padding:10px;overflow:hidden;}
+.fig-wrap svg{display:block;width:100%;height:auto;}
+.fg{font-family:var(--font);font-size:14px;fill:#173746;font-weight:500;paint-order:stroke;stroke:#f7fafc;stroke-width:4px;stroke-linejoin:round;}
+.fg-s{font-size:12.5px;fill:#5b6770;}
+.fg-h{font-size:16px;font-weight:700;}
+.fg-b{font-weight:700;}
+.fg-c{text-anchor:middle;}
+.fg-e{text-anchor:end;}
+.fg-r{fill:#b3132b;}
+.fg-g{fill:#157a41;}
+.fg-a{fill:#1f6fa6;}
+.fg-w{fill:#fff;stroke:rgba(8,20,30,.55);}
+.fg-n{stroke:none;}
+@media (max-width:560px){.fig-wrap{padding:6px;}.fg{font-size:19px;stroke-width:5px;}.fg-s{font-size:17px;}.fg-h{font-size:21px;}}
 @media print{.sx-ctrl{display:none;}}

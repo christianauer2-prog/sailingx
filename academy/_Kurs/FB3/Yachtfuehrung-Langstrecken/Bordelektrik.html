@@ -38,14 +38,62 @@ function cbCalc(){var w=parseFloat(document.getElementById('cb-w').value),v=pars
  if(isNaN(w)||isNaN(v)||isNaN(h)||v<=0){o.className='out show';o.innerHTML='Bitte Watt, Volt und Stunden eingeben.';return;}
  var a=w/v, ah=a*h;
  o.className='out show';o.innerHTML='<div>'+w+' W ÷ '+v+' V = '+a.toFixed(1)+' A</div><div class="big">Belastung = '+ah.toFixed(1)+' Ah</div>';}
-</script></section><section class="card"><h2><span class="n">🎬</span>Zwei-Batterie-System</h2><div style="max-width:340px;margin:6px auto 0;"><svg viewBox="0 0 340 140" style="width:100%;height:auto;" aria-hidden="true">
-<rect x="20" y="40" width="80" height="50" rx="4" fill="#e8f2fa" stroke="#1f4b73" stroke-width="1.5"/><text x="60" y="60" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1f4b73">Starter</text><text x="60" y="76" text-anchor="middle" font-size="9" fill="#5d6b78">nur Motor</text>
-<rect x="130" y="40" width="80" height="50" rx="4" fill="#e8f2fa" stroke="#1f4b73" stroke-width="1.5"/><text x="170" y="60" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1f4b73">Verbraucher</text><text x="170" y="76" text-anchor="middle" font-size="9" fill="#5d6b78">Licht, Geräte…</text>
-<circle cx="285" cy="65" r="26" fill="#fff4e0" stroke="#e0a800" stroke-width="1.5"/><text x="285" y="62" text-anchor="middle" font-size="9.5" fill="#b5820a">Licht-</text><text x="285" y="74" text-anchor="middle" font-size="9.5" fill="#b5820a">maschine</text>
-<line x1="210" y1="65" x2="259" y2="65" stroke="#e0a800" stroke-width="2" marker-end="url(#lm)"/>
-<line x1="100" y1="80" x2="130" y2="80" stroke="#5d6b78" stroke-width="1.5"/><text x="70" y="120" font-size="9.5" fill="#13314f">Hauptschalter trennt vom Bordnetz</text>
-<defs><marker id="lm" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#e0a800"/></marker></defs>
-</svg></div><p class="figcap">Strom (meist <b>12 V</b>) braucht man für Start, Lichter und Geräte. Moderne Jachten haben mindestens zwei Batterien: eine reine <b>Starterbatterie</b>, die andere(n) für alle Verbraucher – so lässt sich der Motor auch nach starkem Verbrauch noch starten und lädt dann über die <b>Lichtmaschine</b> nach (24-V-Netze: 12-V-Batterien in Reihe). Batteriepflege: nicht tiefentladen, regelmäßig nachladen, nicht überladen (Knallgas – Explosionsgefahr!), gut durchlüftet aufstellen, Säurestand halten, Pole sauber/mit Polfett. Kapazität in Amperestunden (Ah).</p></section>
+</script></section><section class="card">
+    <h2><span class="n">🎬</span>Zwei-Batterie-System</h2>
+    <div class="fig-wrap"><svg viewBox="0 0 720 470" role="img" aria-label="Schaltbild eines Zwei-Batterie-Systems mit Ladung und Verbrauchern"><defs><marker id="f140g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f9d55"/></marker><marker id="f140n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#173746"/></marker></defs><rect width="720" height="470" rx="10" fill="#f7fafc"/>
+<rect x="20" y="62" width="130" height="86" rx="8" fill="#fff" stroke="#173746" stroke-width="2"/>
+<text x="85.0" y="88.0" class="fg fg-s fg-c">Licht-</text>
+<text x="85.0" y="110.0" class="fg fg-s fg-c">maschine</text>
+<text x="85.0" y="132.0" class="fg fg-s fg-c">(Motor läuft)</text>
+<rect x="20" y="250" width="130" height="70" rx="8" fill="#fff" stroke="#173746" stroke-width="2"/>
+<text x="85.0" y="279.0" class="fg fg-s fg-c">Ladegerät</text>
+<text x="85.0" y="301.0" class="fg fg-s fg-c">Landstrom</text>
+<rect x="190" y="150" width="124" height="90" rx="8" fill="#e8f5ec" stroke="#1f9d55" stroke-width="2"/>
+<text x="252.0" y="178.0" class="fg fg-s fg-c">Ladestrom-</text>
+<text x="252.0" y="200.0" class="fg fg-s fg-c">verteiler</text>
+<text x="252.0" y="222.0" class="fg fg-s fg-c">Trenndioden</text>
+<rect x="374" y="62" width="12" height="8" fill="#173746"/><rect x="456" y="62" width="12" height="8" fill="#173746"/>
+<rect x="356" y="70" width="130" height="74" rx="8" fill="#eef4f7" stroke="#173746" stroke-width="2"/>
+<text x="421.0" y="101.0" class="fg fg-s fg-c">Starter-</text>
+<text x="421.0" y="123.0" class="fg fg-s fg-c">batterie</text>
+<text x="380.0" y="56.0" class="fg fg-s fg-b fg-c">−</text>
+<text x="462.0" y="56.0" class="fg fg-s fg-b fg-c fg-r">+</text>
+<rect x="374" y="248" width="12" height="8" fill="#173746"/><rect x="456" y="248" width="12" height="8" fill="#173746"/>
+<rect x="356" y="256" width="130" height="74" rx="8" fill="#eef4f7" stroke="#173746" stroke-width="2"/>
+<text x="421.0" y="287.0" class="fg fg-s fg-c">Verbraucher-</text>
+<text x="421.0" y="309.0" class="fg fg-s fg-c">batterie</text>
+<text x="380.0" y="242.0" class="fg fg-s fg-b fg-c">−</text>
+<text x="462.0" y="242.0" class="fg fg-s fg-b fg-c fg-r">+</text>
+<path d="M150,105 L170,105 L170,175 L186,175" stroke="#1f9d55" stroke-width="3" fill="none" marker-end="url(#f140g)"/>
+<path d="M150,285 L170,285 L170,215 L186,215" stroke="#1f9d55" stroke-width="3" fill="none" marker-end="url(#f140g)"/>
+<path d="M314,175 L334,175 L334,107 L352,107" stroke="#1f9d55" stroke-width="3" fill="none" marker-end="url(#f140g)"/>
+<path d="M314,215 L334,215 L334,293 L352,293" stroke="#1f9d55" stroke-width="3" fill="none" marker-end="url(#f140g)"/>
+<line x1="486" y1="107" x2="506" y2="107" stroke="#173746" stroke-width="3"/>
+<circle cx="506" cy="107" r="4" fill="#173746"/><circle cx="540" cy="107" r="4" fill="#173746"/><line x1="506" y1="107" x2="538" y2="93" stroke="#173746" stroke-width="3"/>
+<line x1="486" y1="293" x2="506" y2="293" stroke="#173746" stroke-width="3"/>
+<circle cx="506" cy="293" r="4" fill="#173746"/><circle cx="540" cy="293" r="4" fill="#173746"/><line x1="506" y1="293" x2="538" y2="279" stroke="#173746" stroke-width="3"/>
+<text x="523.0" y="82.0" class="fg fg-s fg-c">Haupt-</text>
+<text x="523.0" y="140.0" class="fg fg-s fg-c">schalter</text>
+<text x="523.0" y="268.0" class="fg fg-s fg-c">Haupt-</text>
+<text x="523.0" y="326.0" class="fg fg-s fg-c">schalter</text>
+<path d="M540,107 L570,107" stroke="#173746" stroke-width="3" fill="none" marker-end="url(#f140n)"/>
+<path d="M540,293 L570,293" stroke="#173746" stroke-width="3" fill="none" marker-end="url(#f140n)"/>
+<rect x="574" y="76" width="134" height="62" rx="8" fill="#fff" stroke="#173746" stroke-width="2"/>
+<text x="641.0" y="101.0" class="fg fg-s fg-c">Anlasser</text>
+<text x="641.0" y="123.0" class="fg fg-s fg-c">Motorstart</text>
+<rect x="574" y="240" width="134" height="106" rx="8" fill="#fff" stroke="#173746" stroke-width="2"/>
+<text x="641.0" y="265.0" class="fg fg-s fg-c">Bordnetz</text>
+<text x="641.0" y="287.0" class="fg fg-s fg-c">Licht, Funk,</text>
+<text x="641.0" y="309.0" class="fg fg-s fg-c">Instrumente,</text>
+<text x="641.0" y="331.0" class="fg fg-s fg-c">Kühlschrank</text>
+<line x1="24" y1="392" x2="64" y2="392" stroke="#1f9d55" stroke-width="3" marker-end="url(#f140g)"/>
+<text x="74.0" y="397.0" class="fg fg-s">Laden</text>
+<line x1="160" y1="392" x2="200" y2="392" stroke="#173746" stroke-width="3" marker-end="url(#f140n)"/>
+<text x="210.0" y="397.0" class="fg fg-s">Entnahme</text>
+<text x="24.0" y="428.0" class="fg fg-s fg-b">Starterbatterie bleibt voll →</text>
+<text x="24.0" y="452.0" class="fg fg-s fg-b">Motor startet auch bei leerer Verbraucherbatterie</text></svg></div>
+<p class="figcap">Zwei-Batterie-System (meist 12 V): Die <b>Lichtmaschine</b> (bei laufendem Motor) oder das <b>Ladegerät</b> am Landstrom lädt über den <b>Ladestromverteiler</b> beide Batterien, ohne sie miteinander zu verbinden. Die <b>Starterbatterie</b> versorgt nur den Anlasser, die <b>Verbraucherbatterie</b> das übrige Bordnetz; <b>Hauptschalter</b> trennen jede Batterie vom Netz. Batteriepflege: nicht tiefentladen, regelmäßig nachladen, nicht überladen (Knallgas – Explosionsgefahr!), gut belüftet aufstellen, Pole sauber und gefettet. Kapazität in Amperestunden (Ah).</p>
+  </section>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
     <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>

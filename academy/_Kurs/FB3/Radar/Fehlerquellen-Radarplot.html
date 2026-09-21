@@ -21,14 +21,52 @@
   <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Der <b>Radarplot</b> liefert Kollisionsdaten – aber das Radarbild hat viele Fehlerquellen.</p>
     <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du kennst CPA, TCPA & Co.</li><li>Du kennst die wichtigsten Fehlerquellen.</li><li>Du kennst die KVR-Pflicht zum Ausguck.</li></ul></section>
   <section class="card"><h2><span class="n">1</span>Radarplot</h2><div class="step"><div class="ic">🎯</div><div class="tx"><b>CPA & TCPA</b><br>Aus zwei Radar-Positionen des Gegners ergibt sich der relative Kurs und daraus CPA (kürzester Passierabstand), TCPA (Zeit bis dahin) sowie wahrer Kurs/Fahrt des Gegners. Weitere Begriffe: RaSP (Radarseitenpeilung), PCPA/SPCPA.</div></div></section><section class="card"><h2><span class="n">2</span>Fehlerquellen</h2><div class="step"><div class="ic">⚠️</div><div class="tx"><b>Nicht dargestellt</b><br>Hintereinander liegende Objekte, kleine/GFK-Boote (falsche Sicherheit!), flache Küsten; dicht liegende Objekte verschmelzen; Regen/Seegang überdecken Echos.</div></div><div class="step"><div class="ic">👻</div><div class="tx"><b>Falschechos</b><br>Überreichweiten, Nebenzipfel- und Mehrfachechos, Interferenz durch fremde Radare, toter Winkel durch den eigenen Mast, Reichweitenverlust bei Krängung, verzerrte Größen.</div></div><div class="step"><div class="ic">⚖️</div><div class="tx"><b>KVR-Pflicht</b><br>Radar verbraucht viel Strom, daher auf Jachten oft nur gelegentlich an – rechtlich heikel: laut KVR Regel 5 ist der Ausguck „jederzeit“ mit „jedem verfügbaren Mittel“ zu halten.</div></div></section>
-  <section class="card"><h2><span class="n">🎬</span>Fehlerquellen & Radarplot (CPA)</h2><div style="max-width:300px;margin:6px auto 0;"><svg viewBox="0 0 220 200" style="width:100%;height:auto;" aria-hidden="true">
-<circle cx="110" cy="110" r="90" fill="#0f2740"/>
-<g fill="none" stroke="#2e6b4f" stroke-width="1"><circle cx="110" cy="110" r="45"/><circle cx="110" cy="110" r="88"/></g>
-<circle cx="160" cy="55" r="5" fill="#7CFC00"/><circle cx="132" cy="80" r="5" fill="#7CFC00"/>
-<line x1="160" y1="55" x2="105" y2="120" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
-<line x1="110" y1="110" x2="118" y2="97" stroke="#f4d03f" stroke-width="2"/><text x="120" y="95" font-size="8" fill="#f4d03f">CPA</text>
-<text x="30" y="188" font-size="9" fill="#9fe0b8">relativer Kurs des Gegners</text>
-</svg></div><p class="figcap">Der <b>Radarplot</b> ermittelt aus zwei Radar-Positionen den relativen Kurs eines Begegners und daraus <b>CPA</b> (kürzester Passierabstand), <b>TCPA</b> (Zeit bis dahin) sowie den wahren Kurs/Fahrt des Gegners. <b>Fehlerquellen:</b> hintereinander liegende Objekte fehlen, kleine/GFK-Boote werden kaum erfasst (falsche Sicherheit!), Größen sind verzerrt, flache Küsten fehlen, Regen/Seegang überdecken Echos, Überreichweiten, Nebenzipfel- und Mehrfachechos, Interferenz, toter Winkel durch den eigenen Mast, Reichweitenverlust bei Krängung. Merke: ein vorhandenes Radar ist laut KVR (Regel 5, Ausguck „mit jedem verfügbaren Mittel") eigentlich einzusetzen.</p></section>
+  <section class="card">
+    <h2><span class="n">🎬</span>Fehlerquellen & Radarplot (CPA)</h2>
+    <div class="fig-wrap"><svg viewBox="0 0 720 470" role="img" aria-label="Radarplot mit Relativbewegung, CPA, TCPA und Vektordreieck"><defs><marker id="f129r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d7263d"/></marker><marker id="f129b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2289c6"/></marker><marker id="f129o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f39129"/></marker></defs><rect width="720" height="470" rx="10" fill="#f7fafc"/>
+<circle cx="235" cy="245" r="208" fill="#dfe5e9"/><circle cx="235" cy="245" r="200" fill="#e8f3ec" stroke="#173746" stroke-width="2"/>
+<circle cx="235" cy="245" r="66.66666666666667" fill="none" stroke="#6f9a82" stroke-width="1" stroke-dasharray="4 4"/>
+<circle cx="235" cy="245" r="133.33333333333334" fill="none" stroke="#6f9a82" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="174.3" y="263.0" class="fg fg-s">2 sm</text>
+<text x="107.7" y="263.0" class="fg fg-s">4 sm</text>
+<text x="41.0" y="263.0" class="fg fg-s">6 sm</text>
+<line x1="235" y1="245" x2="235" y2="45" stroke="#173746" stroke-width="1.6"/>
+<text x="235.0" y="35.0" class="fg fg-s fg-c">Vorauslinie 000°</text>
+<path d="M235,232 C241,239 241,251 239,255 L231,255 C229,251 229,239 235,232 Z" fill="#173746"/>
+<line x1="335.0" y1="195.0" x2="240.0" y2="321.6666666666667" stroke="#d7263d" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#f129r)"/>
+<line x1="375.0" y1="141.66666666666666" x2="335.0" y2="195.0" stroke="#d7263d" stroke-width="3"/>
+<line x1="235" y1="245" x2="275.0" y2="275.0" stroke="#173746" stroke-width="2.2"/>
+<path d="M270.2,281.4 L263.8,276.59999999999997 L268.6,270.2" fill="none" stroke="#173746" stroke-width="1.2"/>
+<circle cx="275.0" cy="275.0" r="4.5" fill="#fff" stroke="#173746" stroke-width="2"/>
+<line x1="375.0" y1="208.33333333333331" x2="375.0" y2="147.66666666666666" stroke="#2289c6" stroke-width="2.6" marker-end="url(#f129b)"/>
+<line x1="375.0" y1="208.33333333333331" x2="340.0" y2="196.7" stroke="#f39129" stroke-width="2.6" marker-end="url(#f129o)"/>
+<circle cx="375.0" cy="141.66666666666666" r="6" fill="#1f9d55" stroke="#173746" stroke-width="1.5"/>
+<circle cx="335.0" cy="195.0" r="6" fill="#1f9d55" stroke="#173746" stroke-width="1.5"/>
+<circle cx="375.0" cy="208.33333333333331" r="3" fill="#173746"/>
+<text x="363.0" y="133.7" class="fg fg-b fg-e">O</text>
+<text x="323.0" y="197.0" class="fg fg-b fg-e">A</text>
+<text x="385.0" y="220.3" class="fg fg-b">W</text>
+<text x="287.0" y="295.0" class="fg fg-b">CPA</text>
+<circle cx="486" cy="40" r="6" fill="#1f9d55" stroke="#173746" stroke-width="1.5"/>
+<text x="514.0" y="45.0" class="fg fg-b">Echo O · A</text>
+<text x="514.0" y="69.0" class="fg fg-s">12:00 · 12:12 Uhr</text>
+<line x1="468" y1="106" x2="504" y2="106" stroke="#d7263d" stroke-width="3"/>
+<text x="514.0" y="111.0" class="fg fg-b">Relativbewegung</text>
+<text x="514.0" y="135.0" class="fg fg-s">O→A, verlängert</text>
+<line x1="468" y1="172" x2="504" y2="172" stroke="#173746" stroke-width="2.2"/>
+<text x="514.0" y="177.0" class="fg fg-b">CPA = 1,5 sm</text>
+<text x="514.0" y="201.0" class="fg fg-s">Lot von der Bildmitte</text>
+<circle cx="486" cy="238" r="4.5" fill="#fff" stroke="#173746" stroke-width="2"/>
+<text x="514.0" y="243.0" class="fg fg-b">TCPA = 12:30 Uhr</text>
+<text x="514.0" y="267.0" class="fg fg-s">18 min nach A</text>
+<line x1="468" y1="304" x2="502" y2="304" stroke="#2289c6" stroke-width="2.6" marker-end="url(#f129b)"/>
+<text x="514.0" y="309.0" class="fg fg-b">Eigenfahrt W→O</text>
+<text x="514.0" y="333.0" class="fg fg-s">000°, 10 kn (12 min)</text>
+<line x1="468" y1="370" x2="502" y2="370" stroke="#f39129" stroke-width="2.6" marker-end="url(#f129o)"/>
+<text x="514.0" y="375.0" class="fg fg-b">Gegner wahr W→A</text>
+<text x="514.0" y="399.0" class="fg fg-s">ca. 288°, 6,3 kn</text></svg></div>
+<p class="figcap">Radarplot (vorausorientiert, eigener Kurs 000°, 10 kn): Die Echos <b>O</b> (12:00) und <b>A</b> (12:12) ergeben die <b>Relativbewegung</b> des Gegners. Das Lot von der Bildmitte auf deren Verlängerung ist der <b>CPA</b> (hier 1,5 sm), die Zeit bis dorthin der <b>TCPA</b> (3 sm bei 10 kn relativ = 18 min → 12:30). Trägt man die eigene Fahrt rückwärts von O ab (Punkt W), liefert <b>W→A</b> wahren Kurs und Fahrt des Gegners. Radarbilder haben Fehlerquellen: kleine GFK-Boote, Regen- und Seegangsechos, Mehrfach- und Falschechos, toter Winkel durch den Mast.</p>
+  </section>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
     <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
