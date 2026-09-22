@@ -1,0 +1,171 @@
+@import url("fonts.css");
+/* ==========================================================================
+   SailingX-Academy – Spickzettel & Checklisten (A4, druckoptimiert)
+   Ein Blatt = genau eine A4-Seite. Bildschirm: Papier-Vorschau mit Werkzeugleiste.
+   ========================================================================== */
+:root{
+  --stage:#122b38; --navy:#173746; --navy2:#1f5a78; --accent:#2289c6; --accent-soft:#e6f1f8;
+  --ink:#1f2a31; --muted:#5b6770; --line:#d5dde2; --soft:#f3f6f8; --ok:#1d8a5a; --warn:#c77700; --red:#d32f2f;
+  --rainbow:linear-gradient(90deg,#e4282b,#f39129,#f5dd2b,#3baa4a,#1fa385,#2289c6,#34479e);
+  --font:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --pk:var(--accent); --pk-soft:#e8f2fa;
+}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+html,body{margin:0;}
+body.spick{background:#dfe5e9;font-family:var(--font);color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision;font-kerning:normal;}
+
+/* ---------- Werkzeugleiste (nur Bildschirm) ---------- */
+.sp-bar{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);}
+.sp-bar-in{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:8px 16px;flex-wrap:wrap;}
+.sp-bar a,.sp-bar button{font:inherit;font-size:14px;}
+.sp-back{color:var(--navy2);text-decoration:none;font-weight:500;margin-right:auto;}
+.sp-back:hover{color:var(--accent);}
+.sp-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:10px;padding:7px 14px;font-weight:600;text-decoration:none;cursor:pointer;}
+.sp-btn:hover{border-color:var(--accent);color:var(--accent);}
+.sp-btn.pri{background:var(--accent);border-color:var(--accent);color:#fff;}
+.sp-btn.pri:hover{background:#1b72a6;color:#fff;}
+.sp-nav{display:flex;gap:6px;}
+.sp-stage{padding:22px 12px 40px;display:flex;justify-content:center;}
+.sp-paper{box-shadow:0 10px 40px rgba(18,43,56,.22);background:#fff;}
+
+/* ---------- Blatt ---------- */
+.sheet{width:210mm;height:297mm;padding:9mm 11mm 7mm;display:flex;flex-direction:column;background:#fff;overflow:hidden;position:relative;
+  font-size:8pt;line-height:1.34;}
+.sheet[data-pack="kern"]{--pk:#2289c6;--pk-soft:#e8f2fa;}
+.sheet[data-pack="bord"]{--pk:#1d8a5a;--pk-soft:#e7f4ed;}
+.sheet[data-pack="not"]{--pk:#d32f2f;--pk-soft:#fdecec;}
+.sheet[data-pack="nav"]{--pk:#34479e;--pk-soft:#eceef8;}
+
+.sh-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:2.2mm;}
+.sh-brand{display:flex;align-items:center;gap:2.6mm;}
+.sh-brand img{height:10.5mm;width:auto;display:block;}
+.sh-brand span{font-size:7.2pt;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-left:2.6mm;border-left:.3mm solid var(--line);font-weight:500;}
+.sh-pack{display:flex;align-items:center;gap:2mm;font-size:7.4pt;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--pk);}
+.sh-pack i{display:inline-block;width:2.6mm;height:2.6mm;border-radius:50%;background:var(--pk);}
+.sh-rain{height:1.1mm;background:var(--rainbow);border-radius:1mm;}
+.sh-title{display:flex;align-items:flex-end;justify-content:space-between;gap:6mm;margin:3.4mm 0 3mm;}
+.sh-title h1{margin:0;font-size:19pt;line-height:1.12;font-weight:600;color:var(--navy);letter-spacing:-.01em;}
+.sh-title p{margin:0;font-size:8.2pt;color:var(--muted);text-align:right;max-width:78mm;line-height:1.35;}
+.sh-body{flex:1;display:flex;flex-direction:column;gap:3mm;min-height:0;}
+.sh-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:6mm;border-top:.3mm solid var(--line);padding-top:2mm;margin-top:2.4mm;font-size:6.8pt;color:var(--muted);line-height:1.4;}
+.sh-foot b{color:var(--navy);font-weight:600;}
+.sh-foot .qr{display:flex;align-items:center;gap:2mm;text-align:right;}
+.sh-foot .qr svg{width:15mm;height:15mm;display:block;}
+
+/* Notfallkarte: kräftiger Titelbalken */
+.sheet[data-pack="not"] .sh-title{background:var(--red);color:#fff;border-radius:3mm;padding:3.4mm 5mm;margin:3mm 0 3.2mm;align-items:center;}
+.sheet[data-pack="not"] .sh-title h1{color:#fff;font-size:24pt;}
+.sheet[data-pack="not"] .sh-title p{color:#ffe1e1;font-size:9pt;font-weight:500;}
+.sheet[data-pack="not"]{font-size:10pt;line-height:1.38;}
+
+/* ---------- Bausteine ---------- */
+.row{display:grid;gap:3.2mm;}
+.c2{grid-template-columns:1fr 1fr;} .c3{grid-template-columns:1fr 1fr 1fr;} .c4{grid-template-columns:repeat(4,1fr);}
+.c21{grid-template-columns:2fr 1fr;} .c12{grid-template-columns:1fr 2fr;} .c32{grid-template-columns:3fr 2fr;}
+.grow{flex:1;}
+.blk{border:.3mm solid var(--line);border-radius:2.4mm;padding:2.6mm 3mm 2.8mm;background:#fff;break-inside:avoid;}
+.blk.soft{background:var(--soft);border-color:var(--soft);}
+.blk.pk{background:var(--pk-soft);border-color:transparent;}
+.blk.warn{background:#fff5e6;border-color:#f3d19b;}
+.blk.alarm{background:#fdecec;border-color:#f3b4b4;}
+h2.bh{margin:0 0 1.6mm;font-size:8.2pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pk);display:flex;align-items:center;gap:1.6mm;}
+h2.bh .n{display:inline-flex;align-items:center;justify-content:center;width:4.4mm;height:4.4mm;border-radius:50%;background:var(--pk);color:#fff;font-size:7pt;letter-spacing:0;}
+h3.sh3{margin:1.6mm 0 .8mm;font-size:8.6pt;font-weight:600;color:var(--navy);}
+.blk p{margin:0 0 1.2mm;} .blk p:last-child{margin-bottom:0;}
+.muted{color:var(--muted);} .sm{font-size:7.4pt;} b,strong{font-weight:600;color:var(--navy);}
+.blk ul{margin:0;padding-left:3.6mm;} .blk li{margin:0 0 .7mm;} .blk li:last-child{margin-bottom:0;}
+.merke{background:var(--pk);color:#fff;border-radius:2.4mm;padding:2.4mm 3.4mm;font-weight:500;}
+.merke b{color:#fff;}
+.merke .snd i{background:#fff;}
+
+/* Tabellen */
+table.t{width:100%;border-collapse:collapse;font-size:inherit;}
+table.t th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:1.2mm 1.8mm;font-size:.92em;}
+table.t th:first-child{border-top-left-radius:1.6mm;} table.t th:last-child{border-top-right-radius:1.6mm;}
+table.t td{padding:.8mm 1.6mm;border-bottom:.25mm solid var(--line);vertical-align:top;}
+table.t tr:nth-child(even) td{background:#f7f9fa;}
+table.t td.c,table.t th.c{text-align:center;} table.t td.r{text-align:right;}
+table.t td.nw{white-space:nowrap;}
+table.t td.sig{width:1%;white-space:nowrap;padding-right:3mm;vertical-align:middle;}
+
+/* Checklisten */
+ul.chk{list-style:none;margin:0;padding:0;}
+ul.chk li{position:relative;padding-left:5.2mm;margin:0 0 1.15mm;}
+ul.chk li::before{content:"";position:absolute;left:0;top:.35mm;width:3.2mm;height:3.2mm;border:.35mm solid var(--pk);border-radius:.8mm;background:#fff;}
+ul.chk li small{display:block;color:var(--muted);font-size:.88em;line-height:1.3;}
+.fields{display:grid;grid-template-columns:repeat(4,1fr);gap:2mm 4mm;}
+.field{font-size:7pt;color:var(--muted);border-bottom:.3mm solid #9aa7b0;padding-bottom:4.6mm;}
+
+/* Notfall-Schritte */
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:st;}
+ol.steps>li{counter-increment:st;position:relative;padding:0 0 0 11mm;margin:0 0 2.6mm;min-height:8mm;}
+ol.steps>li::before{content:counter(st);position:absolute;left:0;top:-.4mm;width:8mm;height:8mm;border-radius:50%;background:var(--pk);color:#fff;font-weight:700;font-size:12pt;display:flex;align-items:center;justify-content:center;}
+ol.steps>li b{font-size:1.06em;}
+ol.steps.sm>li{padding-left:8.6mm;min-height:6.4mm;margin-bottom:1.8mm;}
+ol.steps.sm>li::before{width:6.2mm;height:6.2mm;font-size:9pt;}
+
+/* Schallsignale: Punkt = kurz, Balken = lang */
+.snd{display:inline-flex;align-items:center;gap:1.1mm;vertical-align:middle;flex-wrap:nowrap;}
+.snd i{display:inline-block;height:2.6mm;background:var(--navy);border-radius:1.3mm;}
+.snd i.s{width:2.6mm;} .snd i.l{width:8.4mm;} .snd i.d{width:22mm;} .snd i.gap{width:1.8mm;background:none;}
+.snd i.m{width:1.6mm;height:1.6mm;} .snd i.ml{width:4.8mm;height:1.6mm;}
+.snd i.b{width:2.8mm;height:2.8mm;background:none;border:.5mm solid var(--navy);border-radius:50%;}
+.snd i.r{width:10mm;height:2.8mm;border-radius:.6mm;background:repeating-linear-gradient(90deg,var(--navy) 0 .7mm,transparent .7mm 1.3mm);}
+.snd i.g{width:6mm;height:2.8mm;border-radius:.6mm;background:#8a6d12;}
+.snd em{font-style:normal;font-size:.86em;color:var(--muted);margin-left:.6mm;}
+
+/* Bilder */
+.fig>svg{display:block;width:100%;height:auto;}
+.figcap{font-size:7pt;color:var(--muted);margin-top:.8mm;line-height:1.3;}
+.pill{display:inline-block;border-radius:99px;padding:0 1.8mm;font-size:.88em;font-weight:600;background:var(--pk-soft);color:var(--pk);}
+.dot{display:inline-block;width:2.4mm;height:2.4mm;border-radius:50%;vertical-align:-.2mm;margin-right:.6mm;border:.2mm solid rgba(0,0,0,.25);}
+.dot.w{background:#fff6d8;} .dot.r{background:#e8302a;} .dot.g{background:#1fb865;} .dot.y{background:#ffc72c;}
+
+/* Karten-Raster (Lichter) */
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4mm;}
+.vc{border:.3mm solid var(--line);border-radius:2mm;padding:1.6mm 1.8mm 1.8mm;break-inside:avoid;}
+.vc h4{margin:0 0 1mm;font-size:7.8pt;font-weight:600;color:var(--navy);line-height:1.2;}
+.vc .imgs{display:grid;grid-template-columns:1fr 1fr;gap:1.2mm;}
+.vc .imgs>svg{display:block;width:100%;height:auto;border-radius:1.2mm;}
+.vc .imgs .no{display:flex;align-items:center;justify-content:center;background:var(--soft);border-radius:1.2mm;color:var(--muted);font-size:6.4pt;text-align:center;padding:1mm;aspect-ratio:400/196;}
+.vc p{margin:1mm 0 0;font-size:7pt;line-height:1.28;color:var(--ink);}
+
+/* ---------- Bildschirm: Blatt auf Handybreite verkleinern ---------- */
+@media screen and (max-width:840px){ .sp-stage{padding:12px 0 30px;} }
+
+/* ---------- Druck ---------- */
+@page{size:A4;margin:0;}
+@media print{
+  body.spick{background:#fff;}
+  .sp-bar,.sp-hint{display:none!important;}
+  .sp-stage{padding:0;display:block;}
+  .sp-paper{box-shadow:none;zoom:1!important;}
+}
+
+/* Seezeichen mit Text */
+.zc{display:grid;grid-template-columns:14mm 1fr;gap:2mm;align-items:center;font-size:.94em;line-height:1.3;}
+.zc>svg{display:block;width:100%;height:auto;}
+
+/* Beaufort-Farbskala */
+table.bft td:first-child{color:#fff;font-size:1.05em;}
+.b0{background:#9fd3ee!important;color:#173746!important;} .b1{background:#7cc3e6!important;color:#173746!important;} .b2{background:#5ab3dd!important;}
+.b3{background:#3aa0d2!important;} .b4{background:#2289c6!important;} .b5{background:#1f9d8b!important;} .b6{background:#5aa845!important;}
+.b7{background:#c8a21a!important;} .b8{background:#e58a1f!important;} .b9{background:#e0621f!important;} .b10{background:#d8401f!important;}
+.b11{background:#b8261f!important;} .b12{background:#7d1a2a!important;}
+table.bft td[rowspan]{background:#fff!important;border-left:.25mm solid var(--line);vertical-align:middle;}
+.alpha{display:grid;grid-template-columns:1fr 1fr;gap:.4mm 3mm;font-size:.98em;}.alpha b{display:inline-block;width:4mm;}
+.flexcol{display:flex;flex-direction:column;}
+.lines{flex:1;min-height:12mm;background:repeating-linear-gradient(180deg,transparent 0 6.1mm,#9aa7b0 6.1mm 6.4mm);}
+.smoke{display:inline-block;width:3.4mm;height:3.4mm;border-radius:50%;vertical-align:-.6mm;border:.2mm solid #9aa7b0;}
+.fcase{background:var(--soft);border-radius:2mm;padding:2mm 2.6mm;} .fcase p{margin:.8mm 0 0;} .fcase>b{font-size:1.02em;}
+.script{background:#fff5f5;border-radius:2mm;padding:2mm 3mm;}
+.script p{margin:0 0 1.1mm;} .script p:last-child{margin:0;} .script b{color:#b71c1c;}
+.blank{display:inline-block;width:28mm;border-bottom:.3mm solid #9aa7b0;height:3.6mm;vertical-align:-1mm;} .blank.s{width:18mm;}
+.nsig svg{display:block;width:100%;height:auto;border-radius:1.6mm;}
+.nsig p{margin:.8mm 0 0;font-size:.86em;line-height:1.25;}
+.nsig-t{background:var(--soft);border-radius:1.6mm;padding:2mm;}
+.nsig-t p{font-size:.84em;}
+table.rtx{font-size:.94em;} table.rtx td{padding:.6mm 1.6mm;} table.rtx tr.res td{background:var(--pk-soft)!important;font-weight:700;color:var(--navy);}
+table.ueb td{height:5.6mm;padding:0 1.6mm;border-right:.25mm solid var(--line);} table.ueb tr:nth-child(odd) td{background:#fff!important;}
+.fig.cap>svg{max-height:40mm;width:auto;max-width:100%;margin:0 auto;}
+.sh-foot .qr span{white-space:nowrap;}

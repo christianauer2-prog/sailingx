@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navigation kompakt · Spickzettel · SailingX-Academy</title>
+<meta name="description" content="Weg–Zeit–Fahrt, Stromdreieck, Feuer in der Kimm, Peilungen, Reichweite und Einheiten.">
+<link rel="canonical" href="https://sailingx.at/academy/spickzettel/navformeln.html">
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="stylesheet" href="../assets/spick.css">
+</head>
+<body class="spick">
+<div class="sp-bar"><div class="sp-bar-in">
+  <a class="sp-back" href="../spickzettel.html#nav">← Alle Spickzettel</a>
+  <span class="sp-nav"><a class="sp-btn" href="kurs.html" title="Vorheriges Blatt" aria-label="Vorheriges Blatt">‹</a><a class="sp-btn" href="gezeiten.html" title="Nächstes Blatt" aria-label="Nächstes Blatt">›</a></span>
+  <button type="button" class="sp-btn" onclick="window.print()">🖨 Drucken</button>
+  <a class="sp-btn pri" href="pdf/navformeln.pdf" download="SailingX-Navigation-kompakt.pdf">⬇ PDF</a>
+</div></div>
+<div class="sp-stage"><div class="sp-paper" id="paper">
+<article class="sheet" data-pack="nav">
+  <header class="sh-head">
+    <div class="sh-brand"><img src="../assets/logo.svg" alt="SailingX"><span>Academy</span></div>
+    <div class="sh-pack"><i></i>Navigation &amp; Wetter</div>
+  </header>
+  <div class="sh-rain"></div>
+  <div class="sh-title"><h1>Navigation kompakt</h1><p>Formeln und Verfahren<br>für den Kartentisch</p></div>
+  <div class="sh-body">
+    <div class="row" style="grid-template-columns:1fr 1.25fr">
+      <div class="blk">
+        <h2 class="bh"><span class="n">1</span>Weg – Zeit – Fahrt</h2>
+        <div style="display:grid;grid-template-columns:24mm 1fr;gap:3mm;align-items:center">
+          <div class="fig"><svg viewBox="0 0 120 96" role="img" aria-label="Weg-Zeit-Fahrt-Dreieck"><polygon points="60,6 114,90 6,90" fill="#eef1fa" stroke="#34479e" stroke-width="2"/><line x1="24" y1="56" x2="96" y2="56" stroke="#34479e" stroke-width="1.6"/><line x1="60" y1="56" x2="60" y2="90" stroke="#34479e" stroke-width="1.6"/><text x="60" y="46" font-size="17" font-weight="700" fill="#173746" text-anchor="middle">s</text><text x="40" y="80" font-size="17" font-weight="700" fill="#173746" text-anchor="middle">v</text><text x="80" y="80" font-size="17" font-weight="700" fill="#173746" text-anchor="middle">t</text></svg></div>
+          <div><p style="font-size:1.1em;margin-bottom:.8mm"><b>s = v · t</b> &nbsp; <b>t = s / v</b> &nbsp; <b>v = s / t</b></p>
+            <p class="sm" style="margin:0">s in sm, v in kn, t in Stunden – <b>Minuten ÷ 60</b>!<br>Oben abdecken, was gesucht ist.</p></div>
+        </div>
+        <table class="t sm" style="margin-top:1.6mm">
+          <tr><td>6 kn, 45 min</td><td class="r">6 × 0,75 = <b>4,5 sm</b></td></tr>
+          <tr><td>14 sm mit 5 kn</td><td class="r">14 ÷ 5 = 2,8 h = <b>2 h 48 min</b></td></tr>
+          <tr><td>9 sm in 1 h 30 min</td><td class="r">9 ÷ 1,5 = <b>6 kn</b></td></tr>
+        </table>
+        <p class="sm" style="margin:1.4mm 0 0"><b>ETA</b> Ankunftszeit · <b>ETE</b> Fahrtdauer · <b>Etmal</b> Strecke von 12:00 bis 12:00 Uhr · <b>Passierabstand</b> kürzester Abstand vom Kurs zum Objekt</p>
+      </div>
+      <div class="blk">
+        <h2 class="bh"><span class="n">2</span>Stromdreieck (Stundendreieck)</h2>
+        <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:3mm;align-items:start">
+          <div class="fig"><svg viewBox="0 0 200 170" role="img" aria-label="Stromdreieck"><defs><marker id="sdG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#1f9d8b"/></marker><marker id="sdB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#2289c6"/></marker><marker id="sdR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#d32f2f"/></marker></defs><rect width="200" height="170" rx="8" fill="#eef1fa"/><line x1="30" y1="118" x2="30" y2="18" stroke="#5b6770" stroke-width=".8" stroke-dasharray="2 2"/><text x="30" y="14" font-size="7.4" fill="#5b6770" text-anchor="middle">N</text><line x1="30" y1="118" x2="62.9" y2="137.0" stroke="#1f9d8b" stroke-width="2.6" marker-end="url(#sdG)"/><line x1="62.9" y1="137.0" x2="143.5" y2="56.4" stroke="#2289c6" stroke-width="2.6" marker-end="url(#sdB)"/><line x1="30" y1="118" x2="143.5" y2="56.4" stroke="#d32f2f" stroke-width="2.8" marker-end="url(#sdR)"/><circle cx="30" cy="118" r="3" fill="#173746"/><text x="40" y="50" font-size="8.4" font-weight="700" fill="#d32f2f">KüG 062°</text><text x="40" y="60" font-size="8.4" font-weight="700" fill="#d32f2f">FüG 6,8 kn</text><text x="124" y="112" font-size="8.4" font-weight="700" fill="#2289c6">KdW 045°</text><text x="124" y="122" font-size="8.4" font-weight="700" fill="#2289c6">FdW 6 kn</text><text x="70" y="150" font-size="8.4" font-weight="700" fill="#1f9d8b">Strom 120°</text><text x="70" y="160" font-size="8.4" font-weight="700" fill="#1f9d8b">2 kn</text><text x="8" y="132" font-size="8.4" font-weight="600" fill="#173746">Start</text></svg></div>
+          <div class="sm">
+            <p>Für <b>1 Stunde</b> gezeichnet: Knoten = Seemeilen.</p>
+            <p><b>Merkregel:</b> Alles „<b>Grund</b>“ (KüG, FüG) beginnt an der <b>Stromwurzel</b>, alles „<b>Wasser</b>“ (KdW, FdW) an der <b>Stromspitze</b>.</p>
+            <p><b>Fall 2a</b> – wo lande ich? Strom und KdW/FdW aneinanderhängen → KüG und FüG.</p>
+            <p><b>Fall 2b</b> – was steuere ich? KüG als Linie, Zirkel mit FdW von der Stromspitze → Vorhaltekurs KdW.</p>
+            <p style="margin:0"><b>ETA immer mit der FüG</b> – die Logge zeigt nur die Fahrt durchs Wasser.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row c3">
+      <div class="blk">
+        <h2 class="bh"><span class="n">3</span>Feuer in der Kimm</h2>
+        <p style="font-size:1.05em"><b>E (sm) = 2,1·√H + 2,1·√h</b></p>
+        <p class="sm">H = Feuerhöhe, h = Augenhöhe, beide in m. <b>Nicht</b> die Höhen addieren!</p>
+        <p class="sm" style="margin:0">Beispiel: Feuer 49 m, Auge 4 m → 2,1·7 + 2,1·2 = <b>18,9 sm</b>. Taucht das Feuer auf, stehst du auf diesem Kreis.</p>
+      </div>
+      <div class="blk">
+        <h2 class="bh"><span class="n">4</span>Tragweite ≠ Sichtweite</h2>
+        <p class="sm"><b>Nenntragweite</b>: Lichtstärke bei 10 sm Normsicht – steht in Karte und Leuchtfeuerverzeichnis.</p>
+        <p class="sm" style="margin:0"><b>Geographische Sichtweite</b>: nur Feuer- und Augenhöhe (im Verzeichnis für 5 m Augenhöhe). Sichtbar ist ein Feuer nur, wenn <b>beide</b> reichen.</p>
+      </div>
+      <div class="blk">
+        <h2 class="bh"><span class="n">5</span>Rumpfgeschwindigkeit</h2>
+        <p style="font-size:1.05em"><b>v (kn) ≈ 2,43 · √LWL (m)</b></p>
+        <p class="sm" style="margin:0">Höchstfahrt eines Verdrängers. Beispiel: LWL 9 m → etwa <b>7,3 kn</b>; 10 m → etwa 7,7 kn.</p>
+      </div>
+    </div>
+
+    <div class="blk">
+      <h2 class="bh"><span class="n">6</span>Standort bestimmen</h2>
+      <div class="row c4" style="gap:3mm">
+        <div><h3 class="sh3">Kreuzpeilung</h3><p class="sm" style="margin:0">Zwei (besser drei) Objekte kurz nacheinander peilen. Schnittwinkel nahe <b>90°</b>. Das querab liegende Objekt <b>zuletzt</b> peilen. Großes Fehlerdreieck: wiederholen, im Zweifel den ungünstigsten Punkt annehmen.</p></div>
+        <div><h3 class="sh3">Doppelpeilung</h3><p class="sm" style="margin:0">Ein Objekt zweimal peilen, dazwischen Kurs halten und die <b>versegelte Strecke</b> messen. Erste Standlinie um diese Strecke parallel versetzen – Schnitt mit der zweiten = Ort.</p></div>
+        <div><h3 class="sh3">Vierstrichpeilung</h3><p class="sm" style="margin:0">Objekt unter <b>45°</b> zum Kurs peilen, dann <b>querab (90°)</b>. Die dazwischen versegelte Strecke = <b>Abstand</b> zum Objekt beim Querabpeilen.</p></div>
+        <div><h3 class="sh3">Weitere Standlinien</h3><p class="sm" style="margin:0"><b>Deckpeilung</b> (zwei Objekte in Linie) – die genaueste. <b>Abstand</b> per Radar = Kreis um das Objekt. <b>Tiefenlinie</b> mit dem Lot.</p></div>
+      </div>
+    </div>
+
+    <div class="row c3 grow">
+      <div class="blk pk">
+        <h2 class="bh"><span class="n">7</span>Einheiten</h2>
+        <p class="sm"><b>1 sm</b> = 1852 m = 1 Bogenminute der Breite</p>
+        <p class="sm"><b>1 kn</b> = 1 sm/h ≈ 1,85 km/h ≈ 0,5 m/s</p>
+        <p class="sm"><b>1 Kabellänge</b> = 0,1 sm ≈ 185 m</p>
+        <p class="sm" style="margin:0">Entfernungen in der Karte immer am <b>Breitenrand</b> abgreifen – nie am Längenrand.</p>
+      </div>
+      <div class="blk">
+        <h2 class="bh"><span class="n">8</span>Reichweite unter Motor</h2>
+        <p class="sm"><b>Reichweite</b> mit höchstens <b>90 %</b> der Tankfüllung rechnen. <b>Aktionsradius</b> (hin und zurück) = halbe Reichweite.</p>
+        <p class="sm">Verbrauch unter Volllast etwa <b>0,2–0,3 l pro kW und Stunde</b> – real rund 3–4 l/h für eine 12-m-Jacht bei Marschfahrt.</p>
+        <p class="sm" style="margin:0">Beispiel: 150 l Tank, 3,5 l/h, 6 kn → 135 l ÷ 3,5 ≈ 38 h × 6 kn ≈ <b>230 sm</b> Reichweite.</p>
+      </div>
+      <div class="blk">
+        <h2 class="bh"><span class="n">9</span>Koppeln</h2>
+        <ul class="sm">
+          <li>Vom letzten <b>sicheren Ort</b> aus den Weg fortschreiben.</li>
+          <li><b>Koppelort</b>: kurzer Querstrich zur Kurslinie, dazu Uhrzeit und Logstand.</li>
+          <li>Regelmäßig – mindestens stündlich – mit Uhrzeit ins <b>Logbuch</b>.</li>
+          <li>Wahrer Ort weicht ab? Das ist die <b>Besteckversetzung</b> (Strom, Abdrift, Steuerfehler, Instrumente).</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <footer class="sh-foot">
+    <div><b>SailingX-Academy</b> · Navigation &amp; Wetter · Stand September 2026<br>Lernhilfe zum Online-Kurs – maßgeblich sind die geltenden Vorschriften, Seekarten und Handbücher.<br>Vertiefung im Kurs: C.4.5 Koppelnavigation · 3.5 Stromdreieck · C.4.7 Feuer in der Kimm · sailingx.at/academy</div>
+    <div class="qr"><span>Lektion<br>online öffnen</span><svg class="segno"><path class="qrline" stroke="#173746" d="M0 0.5h7m1 0h1m2 0h3m1 0h3m1 0h2m2 0h1m4 0h2m1 0h1m1 0h2m2 0h1m2 0h1m1 0h7m-49 1h1m5 0h1m2 0h1m1 0h3m1 0h4m3 0h1m1 0h5m1 0h1m4 0h1m2 0h3m1 0h1m5 0h1m-49 1h1m1 0h3m1 0h1m2 0h2m1 0h1m1 0h3m2 0h2m2 0h1m1 0h3m1 0h1m1 0h3m1 0h2m2 0h2m1 0h1m1 0h3m1 0h1m-49 1h1m1 0h3m1 0h1m1 0h2m2 0h5m1 0h1m5 0h3m1 0h1m1 0h2m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-49 1h1m1 0h3m1 0h1m1 0h2m2 0h1m1 0h1m1 0h2m4 0h5m1 0h5m3 0h1m5 0h1m1 0h3m1 0h1m-49 1h1m5 0h1m1 0h1m1 0h1m1 0h1m3 0h2m1 0h1m1 0h2m3 0h2m3 0h2m1 0h5m3 0h1m5 0h1m-49 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-41 1h1m2 0h1m4 0h7m3 0h1m2 0h1m2 0h1m6 0h2m-41 1h1m3 0h1m1 0h3m2 0h2m5 0h2m2 0h5m2 0h2m1 0h6m3 0h5m2 0h1m-47 1h2m1 0h1m1 0h2m3 0h1m1 0h1m2 0h2m1 0h1m1 0h1m3 0h2m1 0h2m2 0h1m1 0h1m1 0h2m2 0h3m1 0h2m1 0h1m-49 1h1m3 0h4m9 0h3m2 0h1m1 0h1m1 0h1m1 0h1m1 0h2m1 0h3m1 0h9m-45 1h1m2 0h1m6 0h1m1 0h1m1 0h3m1 0h1m2 0h3m2 0h1m1 0h1m2 0h1m3 0h3m2 0h2m1 0h1m1 0h1m1 0h1m-48 1h2m1 0h7m3 0h1m2 0h2m1 0h1m1 0h4m4 0h1m1 0h1m1 0h4m2 0h1m3 0h1m1 0h2m-48 1h1m2 0h1m3 0h1m2 0h4m2 0h1m1 0h3m3 0h1m1 0h2m1 0h2m1 0h1m2 0h1m1 0h3m2 0h1m3 0h2m-47 1h6m1 0h1m2 0h1m1 0h1m2 0h4m2 0h1m4 0h1m1 0h2m7 0h1m2 0h3m1 0h1m-46 1h2m1 0h3m1 0h2m2 0h2m1 0h1m1 0h2m3 0h2m3 0h1m1 0h2m1 0h1m1 0h2m9 0h1m1 0h2m-48 1h2m1 0h5m2 0h1m1 0h2m1 0h1m2 0h2m1 0h1m1 0h2m1 0h1m2 0h5m2 0h3m2 0h4m1 0h1m-46 1h2m1 0h1m3 0h1m1 0h1m1 0h2m3 0h1m2 0h3m1 0h1m1 0h2m2 0h1m1 0h1m2 0h5m2 0h1m2 0h1m1 0h2m-48 1h2m2 0h2m6 0h5m1 0h3m4 0h3m5 0h2m3 0h1m2 0h1m2 0h2m-42 1h1m1 0h2m2 0h1m3 0h1m3 0h1m2 0h1m1 0h1m4 0h1m1 0h2m3 0h1m1 0h1m1 0h2m1 0h2m1 0h1m-47 1h3m1 0h3m8 0h5m2 0h3m1 0h2m1 0h2m1 0h1m1 0h1m1 0h1m1 0h1m1 0h8m-47 1h1m2 0h2m1 0h1m1 0h2m1 0h3m1 0h2m2 0h1m1 0h1m2 0h3m1 0h2m2 0h1m1 0h1m2 0h2m1 0h2m3 0h1m-44 1h7m1 0h1m4 0h1m1 0h1m3 0h12m1 0h1m2 0h1m1 0h5m-44 1h4m3 0h1m1 0h6m1 0h3m2 0h1m3 0h2m4 0h1m2 0h1m4 0h1m3 0h1m1 0h3m-46 1h2m1 0h1m1 0h1m2 0h9m2 0h1m1 0h1m1 0h1m3 0h1m1 0h1m1 0h4m2 0h1m1 0h1m1 0h4m-48 1h1m2 0h2m3 0h1m1 0h1m4 0h1m1 0h1m2 0h3m3 0h1m1 0h3m1 0h2m3 0h2m1 0h1m3 0h1m2 0h2m-49 1h1m1 0h7m2 0h5m1 0h1m1 0h1m2 0h5m2 0h2m1 0h2m4 0h7m1 0h1m-43 1h1m7 0h1m1 0h1m1 0h5m1 0h2m1 0h1m6 0h1m1 0h4m4 0h1m3 0h1m1 0h1m-49 1h3m1 0h1m1 0h5m1 0h1m1 0h3m2 0h7m1 0h1m1 0h2m1 0h2m1 0h2m1 0h1m1 0h1m2 0h1m1 0h2m1 0h1m-49 1h1m8 0h1m3 0h1m3 0h2m3 0h1m1 0h1m2 0h1m1 0h2m2 0h1m3 0h2m1 0h1m1 0h4m-40 1h1m2 0h3m3 0h3m2 0h1m4 0h1m3 0h4m1 0h1m1 0h3m1 0h1m5 0h1m-46 1h2m1 0h2m2 0h2m1 0h1m1 0h4m1 0h3m1 0h2m1 0h4m1 0h1m4 0h1m1 0h2m3 0h2m2 0h2m-48 1h9m1 0h2m1 0h1m1 0h4m1 0h4m2 0h3m5 0h2m1 0h1m2 0h2m1 0h1m2 0h2m-45 1h3m1 0h5m1 0h3m2 0h1m1 0h2m1 0h3m2 0h2m1 0h1m1 0h2m6 0h1m2 0h2m-46 1h3m1 0h1m1 0h1m1 0h3m1 0h1m3 0h4m1 0h1m3 0h1m3 0h1m1 0h4m1 0h1m3 0h2m1 0h1m1 0h3m-47 1h2m2 0h1m5 0h1m1 0h3m1 0h4m1 0h2m3 0h1m4 0h4m1 0h3m1 0h2m1 0h1m1 0h1m1 0h1m-49 1h1m3 0h1m1 0h1m1 0h4m2 0h4m5 0h1m2 0h2m2 0h1m1 0h2m1 0h4m3 0h1m2 0h4m-49 1h1m2 0h1m3 0h1m3 0h1m3 0h2m1 0h1m1 0h1m3 0h1m3 0h3m2 0h1m4 0h3m3 0h2m-45 1h1m3 0h4m1 0h4m2 0h3m1 0h1m3 0h2m3 0h2m1 0h1m5 0h2m4 0h1m1 0h1m-46 1h3m5 0h3m2 0h2m1 0h2m2 0h1m1 0h1m2 0h2m1 0h2m1 0h4m1 0h1m3 0h1m4 0h1m-47 1h3m3 0h1m3 0h1m3 0h2m1 0h1m1 0h1m2 0h6m1 0h2m1 0h2m1 0h2m1 0h1m1 0h9m-41 1h2m2 0h1m1 0h1m5 0h1m1 0h1m3 0h6m1 0h1m3 0h4m3 0h2m-46 1h7m1 0h1m5 0h1m7 0h1m1 0h1m1 0h1m2 0h3m3 0h1m1 0h2m1 0h1m1 0h1m1 0h2m1 0h1m-48 1h1m5 0h1m2 0h4m4 0h3m1 0h2m3 0h2m2 0h1m1 0h1m2 0h2m3 0h1m3 0h1m1 0h2m-48 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h2m3 0h2m1 0h8m2 0h8m1 0h6m1 0h2m-48 1h1m1 0h3m1 0h1m2 0h3m2 0h1m2 0h1m1 0h5m3 0h1m1 0h5m1 0h2m1 0h1m1 0h3m3 0h2m-48 1h1m1 0h3m1 0h1m3 0h2m1 0h2m4 0h1m6 0h1m1 0h4m1 0h4m3 0h2m1 0h1m2 0h1m-47 1h1m5 0h1m2 0h1m3 0h5m3 0h1m3 0h2m1 0h2m1 0h1m1 0h2m4 0h2m5 0h2m-48 1h7m1 0h1m1 0h1m4 0h1m3 0h1m3 0h4m2 0h5m2 0h1m1 0h2m3 0h6"/></svg></div>
+  </footer>
+</article>
+</div></div>
+<script>
+(function(){var p=document.getElementById('paper');function fit(){var w=document.documentElement.clientWidth-(window.innerWidth<840?0:24);var s=Math.min(1,w/794);p.style.zoom=s<1?s.toFixed(3):'';}fit();window.addEventListener('resize',fit);})();
+</script>
+</body>
+</html>

@@ -53,6 +53,8 @@ function ctCalc(){var hs=parseFloat(document.getElementById('ct-hs').value),he=p
  var hub=Math.abs(he-hs);
  o.className='out show';o.innerHTML='<div class="big">Wasserstand ≈ '+h.toFixed(2)+' m</div><div>Tidenhub '+hub.toFixed(2)+' m · '+(frac*100).toFixed(0)+' % '+(he>hs?'gestiegen':'gefallen')+'</div>';}
 </script></section>
+<!-- SPICK-LINK -->
+  <div class="keybox" style="margin-top:22px">📄 <b>Zum Ausdrucken:</b> <a href="../../../../spickzettel/gezeiten.html" data-top>Gezeiten</a> – je Thema eine A4-Seite, auch als PDF. <a href="../../../../spickzettel.html" data-top>Alle Spickzettel</a></div>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
     <p class="quiz-intro">Wähle eine Antwort – du erhältst sofort Rückmeldung.</p>
@@ -64,7 +66,7 @@ function ctCalc(){var hs=parseFloat(document.getElementById('ct-hs').value),he=p
     <a class="prev" href="C7.1_Grundlagen.html" data-nav="_Kurs/FB2/C_Navigation/C7_Gezeiten/C7.1_Grundlagen.html"><small>← Vorherige Lektion</small><span>C.7.1 Gezeiten – Grundlagen</span></a>
     <a class="next" href="../../D_Gesetze/D1_Allgemeines/D1_Behoerden.html" data-nav="_Kurs/FB2/D_Gesetze/D1_Allgemeines/D1_Behoerden.html"><small>Nächstes Modul →</small><span>D.1 Gesetze &amp; Schifffahrtsbehörden</span></a>
   </nav>
-  <p class="foot">SailingX-Academy · C.7.2 Gezeitenberechnung &amp; Zwölftelregel<br><a href="../../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../../ueben.html" data-top>Üben</a> · <a href="../../../../wasfaehrtda.html" data-top>Was fährt da?</a> · <a href="../../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../../datenschutz.html" data-top>Datenschutz</a></p>
+  <p class="foot">SailingX-Academy · C.7.2 Gezeitenberechnung &amp; Zwölftelregel<br><a href="../../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../../ueben.html" data-top>Üben</a> · <a href="../../../../wasfaehrtda.html" data-top>Was fährt da?</a> · <a href="../../../../spickzettel.html" data-top>Spickzettel</a> · <a href="../../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../../datenschutz.html" data-top>Datenschutz</a></p>
 </main>
 <script>
 var QUIZ = [{"q": "Wie ist der Tidenverlauf?", "opts": ["Gleichmäßig", "Anfangs/Ende langsam, Mitte rasch (sinusförmig)", "Sprunghaft", "Linear steigend"], "correct": 1, "expl": "Annähernd eine Sinuskurve: langsam–schnell–langsam."}, {"q": "Wie lautet die Zwölftelregel (Stunden 1–6)?", "opts": ["2·2·2·2·2·2", "1·2·3·3·2·1", "3·3·3·3", "1·1·4·4·1·1"], "correct": 1, "expl": "1/12, 2/12, 3/12, 3/12, 2/12, 1/12."}, {"q": "Wie viel Hub ist nach 3 Stunden erreicht?", "opts": ["3/12", "6/12 (die Hälfte)", "9/12", "12/12"], "correct": 1, "expl": "1+2+3 = 6/12, also die Hälfte des Hubs."}, {"q": "Was steht in einem Tidenkalender?", "opts": ["Nur Windrichtungen", "HW/NW-Zeiten, Wasserstände, Mondphasen", "Nur die Missweisung", "Kursempfehlungen"], "correct": 1, "expl": "Eintrittszeiten von HW/NW, Wasserstände und Mondphasen."}, {"q": "Auf welches Niveau beziehen sich Kartentiefen in Gezeitenrevieren meist?", "opts": ["Mittleres Hochwasser", "Mittleres Springniedrigwasser (MSpNw)", "Meeresspiegel-Mittel", "Höchstes HW"], "correct": 1, "expl": "Meist auf mittleres Springniedrigwasser (Vorsichtsprinzip)."}];

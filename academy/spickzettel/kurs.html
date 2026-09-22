@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kursrechnung · Spickzettel · SailingX-Academy</title>
+<meta name="description" content="KpK → MwK → RwK → KdW → KüG mit Vorzeichenregeln, Beispielen und der Rückrechnung.">
+<link rel="canonical" href="https://sailingx.at/academy/spickzettel/kurs.html">
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="stylesheet" href="../assets/spick.css">
+</head>
+<body class="spick">
+<div class="sp-bar"><div class="sp-bar-in">
+  <a class="sp-back" href="../spickzettel.html#nav">← Alle Spickzettel</a>
+  <span class="sp-nav"><a class="sp-btn" href="seenot.html" title="Vorheriges Blatt" aria-label="Vorheriges Blatt">‹</a><a class="sp-btn" href="navformeln.html" title="Nächstes Blatt" aria-label="Nächstes Blatt">›</a></span>
+  <button type="button" class="sp-btn" onclick="window.print()">🖨 Drucken</button>
+  <a class="sp-btn pri" href="pdf/kurs.pdf" download="SailingX-Kursrechnung.pdf">⬇ PDF</a>
+</div></div>
+<div class="sp-stage"><div class="sp-paper" id="paper">
+<article class="sheet" data-pack="nav">
+  <header class="sh-head">
+    <div class="sh-brand"><img src="../assets/logo.svg" alt="SailingX"><span>Academy</span></div>
+    <div class="sh-pack"><i></i>Navigation &amp; Wetter</div>
+  </header>
+  <div class="sh-rain"></div>
+  <div class="sh-title"><h1>Kursrechnung</h1><p>Der Rechenturm vom Kompass-<br>bis zum Kartenkurs</p></div>
+  <div class="sh-body">
+    <div class="row" style="grid-template-columns:1.2fr 1fr">
+      <div class="blk fig"><h2 class="bh"><span class="n">1</span>Der Rechenturm</h2><svg viewBox="0 0 330 202" role="img" aria-label="Rechenturm der Kursrechnung"><rect x="2" y="2" width="326" height="19" rx="4" fill="#e8eaf6"/><text x="12" y="15" font-size="11" font-weight="700" fill="#173746">KpK</text><text x="62" y="15" font-size="9" font-weight="600" fill="#173746">Kompasskurs</text><text x="170" y="15" font-size="8" fill="#5b6770">am Kompass abgelesen</text><text x="12" y="37" font-size="10" font-weight="700" fill="#34479e">± Abl</text><text x="62" y="37" font-size="8.6" fill="#173746">Deviation</text><text x="170" y="37" font-size="8" fill="#5b6770">Deviationstabelle, je Kurs</text><rect x="2" y="46" width="326" height="19" rx="4" fill="#e8eaf6"/><text x="12" y="59" font-size="11" font-weight="700" fill="#173746">MwK</text><text x="62" y="59" font-size="9" font-weight="600" fill="#173746">missweisender Kurs</text><text x="170" y="59" font-size="8" fill="#5b6770">bezogen auf Magnetisch-Nord</text><text x="12" y="81" font-size="10" font-weight="700" fill="#34479e">± Mw</text><text x="62" y="81" font-size="8.6" fill="#173746">Missweisung</text><text x="170" y="81" font-size="8" fill="#5b6770">Kompassrose der Seekarte</text><rect x="2" y="90" width="326" height="19" rx="4" fill="#e8eaf6"/><text x="12" y="103" font-size="11" font-weight="700" fill="#173746">RwK</text><text x="62" y="103" font-size="9" font-weight="600" fill="#173746">rechtweisender Kurs</text><text x="170" y="103" font-size="8" fill="#5b6770">bezogen auf geogr. Nord</text><text x="12" y="125" font-size="10" font-weight="700" fill="#34479e">± BW</text><text x="62" y="125" font-size="8.6" fill="#173746">Beschickung Wind</text><text x="170" y="125" font-size="8" fill="#5b6770">Wind von Bb +, von Stb −</text><rect x="2" y="134" width="326" height="19" rx="4" fill="#e8eaf6"/><text x="12" y="147" font-size="11" font-weight="700" fill="#173746">KdW</text><text x="62" y="147" font-size="9" font-weight="600" fill="#173746">Kurs durchs Wasser</text><text x="170" y="147" font-size="8" fill="#5b6770"></text><text x="12" y="169" font-size="10" font-weight="700" fill="#34479e">± BS</text><text x="62" y="169" font-size="8.6" fill="#173746">Beschickung Strom</text><text x="170" y="169" font-size="8" fill="#5b6770">aus dem Stromdreieck</text><rect x="2" y="178" width="326" height="19" rx="4" fill="#34479e"/><text x="12" y="191" font-size="11" font-weight="700" fill="#fff">KüG</text><text x="62" y="191" font-size="9" font-weight="600" fill="#fff">Kurs über Grund</text><text x="170" y="191" font-size="8" fill="#dfe3f5">= Kartenkurs</text></svg></div>
+      <div class="flexcol" style="gap:3mm">
+        <div class="blk pk">
+          <h2 class="bh">Vorzeichen</h2>
+          <p><b>Ost (E) = +</b> &nbsp;·&nbsp; <b>West (W) = −</b><br>rechtsdrehend (im Uhrzeigersinn) = +</p>
+          <p><b>Kompass → Karte:</b> von oben nach unten rechnen, Vorzeichen wie angegeben.</p>
+          <p style="margin:0"><b>Karte → Kompass:</b> von unten nach oben rechnen – <b>jedes Vorzeichen umkehren</b>.</p>
+        </div>
+        <div class="blk">
+          <h2 class="bh">Fehler vermeiden</h2>
+          <ul>
+            <li>Deviation immer für den <b>anliegenden</b> Kurs nehmen.</li>
+            <li>Missweisung aufs <b>aktuelle Jahr</b> umrechnen: Wert + jährliche Änderung × Jahre.</li>
+            <li>Beim Anlegen des Kursdreiecks auf den <b>180°-Fehler</b> achten.</li>
+            <li>Über 360° → 360 abziehen, unter 0° → 360 addieren.</li>
+            <li>Zur Kontrolle <b>in Gegenrichtung</b> nachrechnen.</li>
+            <li><b>Strom</b> setzt <b>nach</b> einer Richtung – <b>Wind</b> kommt <b>aus</b> einer Richtung.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="blk">
+      <h2 class="bh"><span class="n">2</span>Beispiele</h2>
+      <div class="row c4" style="gap:3mm;align-items:start">
+        <table class="t rtx"><tr><th colspan="2">Kompass → Karte</th></tr>
+          <tr><td>KpK</td><td class="r">153°</td></tr><tr><td>Abl</td><td class="r">+ 5°</td></tr><tr><td>MwK</td><td class="r">158°</td></tr>
+          <tr><td>Mw</td><td class="r">− 2°</td></tr><tr class="res"><td>RwK</td><td class="r">156°</td></tr></table>
+        <table class="t rtx"><tr><th colspan="2">Karte → Kompass</th></tr>
+          <tr class="res"><td>RwK</td><td class="r">290°</td></tr><tr><td>Mw +4° → −</td><td class="r">− 4°</td></tr><tr><td>MwK</td><td class="r">286°</td></tr>
+          <tr><td>Abl −10° → +</td><td class="r">+ 10°</td></tr><tr><td>KpK</td><td class="r">296°</td></tr></table>
+        <table class="t rtx"><tr><th colspan="2">Voller Turm</th></tr>
+          <tr><td>KpK</td><td class="r">050°</td></tr><tr><td>Abl (W)</td><td class="r">− 3°</td></tr><tr><td>MwK</td><td class="r">047°</td></tr><tr><td>Mw (E)</td><td class="r">+ 2°</td></tr>
+          <tr><td>RwK</td><td class="r">049°</td></tr><tr><td>BW (Wind Bb)</td><td class="r">+ 5°</td></tr><tr><td>KdW</td><td class="r">054°</td></tr>
+          <tr><td>BS</td><td class="r">− 4°</td></tr><tr class="res"><td>KüG</td><td class="r">050°</td></tr></table>
+        <table class="t rtx"><tr><th colspan="2">Rückwärts</th></tr>
+          <tr class="res"><td>KüG (gewünscht)</td><td class="r">120°</td></tr><tr><td>BS +6° → −</td><td class="r">114°</td></tr>
+          <tr><td>BW −4° → +</td><td class="r">118°</td></tr><tr><td>Mw +3° → −</td><td class="r">115°</td></tr>
+          <tr><td>Abl +2° → −</td><td class="r">113°</td></tr><tr><td><b>KpK steuern</b></td><td class="r"><b>113°</b></td></tr></table>
+      </div>
+      <p class="sm muted" style="margin:1.6mm 0 0">In die Karte schreibt man z. B. <b>156 (153)</b> – rechtweisender Kurs und in Klammer der Kompasskurs.</p>
+    </div>
+
+    <div class="blk grow">
+      <h2 class="bh"><span class="n">3</span>Zum Üben – Rechenturm ausfüllen</h2>
+      <table class="t rtx ueb"><tr><th></th><th class="c">Aufgabe 1</th><th class="c">Aufgabe 2</th><th class="c">Aufgabe 3</th><th class="c">Aufgabe 4</th><th class="c">Aufgabe 5</th></tr><tr><td class="nw"><b>KpK</b></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="nw"><b>± Abl</b></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="nw"><b>MwK</b></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="nw"><b>± Mw</b></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="nw"><b>RwK</b></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="nw"><b>± BW</b></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="nw"><b>KdW</b></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="nw"><b>± BS</b></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="nw"><b>KüG</b></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+    </div>
+
+  </div>
+  <footer class="sh-foot">
+    <div><b>SailingX-Academy</b> · Navigation &amp; Wetter · Stand September 2026<br>Lernhilfe zum Online-Kurs – maßgeblich sind die geltenden Vorschriften, Seekarten und Handbücher.<br>Vertiefung im Kurs: 3.2 Der vollständige Rechenturm · C.4.2 Kurse · C.4.3 Abdrift · sailingx.at/academy</div>
+    <div class="qr"><span>Lektion<br>online öffnen</span><svg class="segno"><path class="qrline" stroke="#173746" d="M0 0.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m2 0h2m1 0h2m4 0h4m2 0h7m-41 1h1m5 0h1m1 0h1m1 0h2m2 0h1m1 0h2m3 0h3m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m5 0h1m-41 1h1m1 0h3m1 0h1m3 0h3m1 0h1m3 0h1m2 0h2m1 0h2m6 0h1m1 0h1m1 0h3m1 0h1m-41 1h1m1 0h3m1 0h1m1 0h1m1 0h5m3 0h5m1 0h1m2 0h3m1 0h1m2 0h1m1 0h3m1 0h1m-41 1h1m1 0h3m1 0h1m2 0h2m5 0h5m2 0h7m1 0h1m2 0h1m1 0h3m1 0h1m-41 1h1m5 0h1m2 0h3m1 0h1m1 0h1m2 0h3m5 0h1m2 0h1m1 0h1m2 0h1m5 0h1m-41 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-33 1h1m1 0h1m2 0h1m1 0h3m8 0h2m1 0h2m-31 1h1m1 0h2m1 0h3m2 0h3m2 0h1m1 0h3m1 0h2m1 0h1m1 0h7m1 0h1m2 0h1m1 0h2m-39 1h2m3 0h2m3 0h2m1 0h1m2 0h4m1 0h1m4 0h5m1 0h3m1 0h3m-38 1h5m1 0h1m3 0h2m6 0h4m3 0h3m2 0h2m3 0h2m-39 1h1m2 0h1m11 0h1m2 0h1m2 0h1m2 0h2m1 0h1m1 0h1m1 0h1m-33 1h2m2 0h10m7 0h2m2 0h2m2 0h1m1 0h1m3 0h1m1 0h3m-40 1h1m1 0h1m1 0h1m2 0h2m2 0h1m2 0h4m5 0h1m5 0h1m1 0h4m2 0h1m1 0h2m-41 1h1m2 0h4m2 0h2m4 0h2m1 0h1m5 0h1m3 0h1m1 0h3m1 0h1m1 0h1m1 0h3m-41 1h1m4 0h1m1 0h1m1 0h1m2 0h1m2 0h1m3 0h4m1 0h1m1 0h3m2 0h2m1 0h1m1 0h2m-38 1h5m1 0h2m1 0h7m2 0h8m1 0h1m4 0h1m3 0h1m-36 1h1m3 0h1m1 0h3m1 0h1m2 0h1m2 0h4m2 0h2m2 0h1m1 0h2m1 0h2m1 0h1m-34 1h5m1 0h1m1 0h1m3 0h1m2 0h1m2 0h2m2 0h4m2 0h1m1 0h2m2 0h1m1 0h2m-38 1h1m2 0h1m1 0h1m2 0h2m2 0h1m7 0h1m1 0h4m1 0h1m1 0h1m1 0h3m1 0h3m-40 1h2m1 0h2m1 0h3m1 0h4m1 0h1m2 0h1m3 0h5m1 0h3m1 0h1m1 0h1m1 0h3m-38 1h3m1 0h1m1 0h1m1 0h4m1 0h3m1 0h2m2 0h3m2 0h2m2 0h7m1 0h2m-38 1h6m2 0h1m5 0h2m2 0h5m2 0h2m2 0h2m1 0h1m1 0h3m-40 1h2m1 0h2m2 0h1m1 0h2m1 0h1m2 0h2m1 0h1m5 0h4m2 0h2m2 0h1m1 0h1m2 0h2m-37 1h6m5 0h3m4 0h1m1 0h3m2 0h1m1 0h1m6 0h1m1 0h1m-41 1h1m1 0h2m3 0h2m3 0h2m2 0h2m1 0h1m4 0h1m2 0h2m2 0h2m1 0h1m2 0h4m-40 1h1m3 0h2m3 0h1m1 0h1m1 0h1m1 0h6m6 0h1m1 0h8m1 0h2m-41 1h1m2 0h1m4 0h1m1 0h1m1 0h1m1 0h1m3 0h2m1 0h1m1 0h1m3 0h2m1 0h3m2 0h3m2 0h1m-41 1h1m2 0h1m2 0h2m1 0h1m1 0h2m3 0h3m3 0h1m2 0h1m1 0h1m3 0h3m2 0h2m-37 1h1m3 0h1m4 0h1m8 0h1m2 0h1m1 0h1m1 0h2m4 0h1m2 0h1m1 0h2m-39 1h1m5 0h1m2 0h2m1 0h1m1 0h1m1 0h3m1 0h1m2 0h2m2 0h4m2 0h6m-36 1h1m1 0h1m2 0h8m1 0h1m2 0h1m3 0h1m1 0h1m1 0h2m1 0h1m2 0h1m2 0h2m1 0h1m-40 1h1m1 0h1m1 0h4m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m1 0h1m2 0h2m2 0h1m1 0h5m1 0h2m-32 1h3m1 0h1m3 0h1m2 0h1m3 0h1m3 0h2m1 0h1m1 0h1m3 0h1m1 0h1m1 0h1m-41 1h7m1 0h4m2 0h2m1 0h1m3 0h4m1 0h1m2 0h4m1 0h1m1 0h4m-40 1h1m5 0h1m1 0h1m1 0h1m1 0h1m3 0h1m1 0h5m1 0h4m4 0h1m3 0h1m2 0h2m-41 1h1m1 0h3m1 0h1m3 0h1m1 0h2m4 0h5m1 0h1m2 0h3m2 0h5m1 0h1m1 0h1m-41 1h1m1 0h3m1 0h1m1 0h2m1 0h1m3 0h2m1 0h3m4 0h1m2 0h1m2 0h2m3 0h1m1 0h2m-40 1h1m1 0h3m1 0h1m1 0h1m6 0h1m1 0h3m2 0h1m1 0h2m5 0h2m2 0h1m2 0h3m-41 1h1m5 0h1m4 0h1m1 0h1m1 0h5m1 0h4m7 0h1m1 0h1m1 0h2m1 0h1m-40 1h7m1 0h1m1 0h3m2 0h1m4 0h4m1 0h2m3 0h3m1 0h1m4 0h1"/></svg></div>
+  </footer>
+</article>
+</div></div>
+<script>
+(function(){var p=document.getElementById('paper');function fit(){var w=document.documentElement.clientWidth-(window.innerWidth<840?0:24);var s=Math.min(1,w/794);p.style.zoom=s<1?s.toFixed(3):'';}fit();window.addEventListener('resize',fit);})();
+</script>
+</body>
+</html>
