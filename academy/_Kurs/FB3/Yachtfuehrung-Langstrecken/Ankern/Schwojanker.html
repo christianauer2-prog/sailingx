@@ -20,13 +20,13 @@
 <!-- INHALT:START -->
   <section class="card"><h2><span class="n">i</span>Worum geht es?</h2><p>Der <b>Schwojanker</b> (nur ein Buganker) ist der Normalfall – mit einigen Besonderheiten.</p>
     <h3>Lernziele dieser Lektion</h3><ul class="objectives"><li>Du kennst die Faustwerte für die Kettenlänge.</li><li>Du verstehst den Schwojradius.</li><li>Du weißt, wann eine Ankerwache nötig ist.</li></ul></section>
-  <section class="card"><h2><span class="n">1</span>Länge & Radius</h2><div class="step"><div class="ic">📏</div><div class="tx"><b>Kettenlänge</b><br>Immer vom höchsten Wasserstand (Tide + Wellenhöhe) abhängig: 3–5× nur Kette, 7–8× Kette + Trosse, 8–10× nur Trosse. Ein Reitgewicht verkürzt die Länge nicht.</div></div><div class="step"><div class="ic">🔵</div><div class="tx"><b>Schwojradius</b><br>= Kettenlänge + Schiffslänge. Muss frei von Untiefen und anderen Schiffen sein – Schiffe schwojen unterschiedlich!</div></div></section><section class="card"><h2><span class="n">2</span>Kontrolle</h2><div class="step"><div class="ic">🧭</div><div class="tx"><b>Ankerpeilung</b><br>Mit zwei Deckpeilungen ungefähr im rechten Winkel kontrollieren, ob der Anker hält (markante Punkte genügen).</div></div><div class="step"><div class="ic">👀</div><div class="tx"><b>Ankerwache</b><br>Nötig bei schlechtem Grund oder drehendem Wind/Strom. Bei 180°-Drehung bricht der Anker praktisch immer aus – prüfen, ob er wieder fasst. Elektronische Wachen (Tiefe, GPS) helfen, der Alarm wird nachts aber leicht überhört.</div></div></section>
+  <section class="card"><h2><span class="n">1</span>Länge & Radius</h2><div class="step"><div class="ic">📏</div><div class="tx"><b>Kettenlänge</b><br>Immer vom höchsten Wasserstand (Tide + Wellenhöhe) abhängig: 3–5× nur Kette, 6–7× Kette + Trosse, 8–10× nur Trosse. Ein Reitgewicht verkürzt die Länge nicht.</div></div><div class="step"><div class="ic">🔵</div><div class="tx"><b>Schwojradius</b><br>= Kettenlänge + Schiffslänge. Muss frei von Untiefen und anderen Schiffen sein – Schiffe schwojen unterschiedlich!</div></div></section><section class="card"><h2><span class="n">2</span>Kontrolle</h2><div class="step"><div class="ic">🧭</div><div class="tx"><b>Ankerpeilung</b><br>Mit zwei Deckpeilungen ungefähr im rechten Winkel kontrollieren, ob der Anker hält (markante Punkte genügen).</div></div><div class="step"><div class="ic">👀</div><div class="tx"><b>Ankerwache</b><br>Nötig bei schlechtem Grund oder drehendem Wind/Strom. Bei 180°-Drehung bricht der Anker praktisch immer aus – prüfen, ob er wieder fasst. Elektronische Wachen (Tiefe, GPS) helfen, der Alarm wird nachts aber leicht überhört.</div></div></section>
   <section class="card"><h2><span class="n">🧮</span>Kettenlängen-Rechner</h2>
 <div class="calc" id="ck">
 <h3>🧮 Kettenlängen-Rechner</h3>
 <div class="row">
  <div class="fld"><label>Wassertiefe bei Hochwasser (m)</label><input id="ck-t" type="number" step="0.5" placeholder="5"></div>
- <div class="fld"><label>Ausbringung</label><select id="ck-m"><option value="4">nur Kette (3–5×)</option><option value="7.5">Kette + Trosse (7–8×)</option><option value="9">nur Trosse (8–10×)</option></select></div>
+ <div class="fld"><label>Ausbringung</label><select id="ck-m"><option value="4">nur Kette (3–5×)</option><option value="7.5">Kette + Trosse (6–7×)</option><option value="9">nur Trosse (8–10×)</option></select></div>
 </div>
 <button class="go" onclick="ckCalc()">Berechnen</button>
 <div class="out" id="ck-out"></div>
@@ -71,7 +71,7 @@ function ckCalc(){var t=parseFloat(document.getElementById('ck-t').value),f=pars
 <text x="484.0" y="170.0" class="fg fg-s">Wasserstand</text>
 <text x="484.0" y="204.0" class="fg fg-b">3–5 ×</text>
 <text x="554.0" y="204.0" class="fg fg-s">nur Kette</text>
-<text x="484.0" y="236.0" class="fg fg-b">7–8 ×</text>
+<text x="484.0" y="236.0" class="fg fg-b">6–7 ×</text>
 <text x="554.0" y="236.0" class="fg fg-s">Kette + Trosse</text>
 <text x="484.0" y="268.0" class="fg fg-b">8–10 ×</text>
 <text x="554.0" y="268.0" class="fg fg-s">nur Trosse</text>
@@ -82,7 +82,7 @@ function ckCalc(){var t=parseFloat(document.getElementById('ck-t').value),f=pars
 <text x="484.0" y="390.0" class="fg fg-b">+ Schiffslänge</text>
 <text x="484.0" y="418.0" class="fg fg-s">frei von Untiefen</text>
 <text x="484.0" y="438.0" class="fg fg-s">und anderen Schiffen</text></svg></div>
-<p class="figcap">Vor Anker liegt das Schiff mit dem Bug zum Anker und schwojt bei drehendem Wind auf einem Kreis: <b>Schwojradius = Kettenlänge + Schiffslänge</b> – dieser Kreis muss frei von Untiefen und anderen Schiffen sein. Die Kettenlänge richtet sich nach dem höchsten Wasserstand (Tide + Wellenhöhe): 3–5× Wassertiefe mit nur Kette, 7–8× mit Kette und Trosse, 8–10× mit nur Trosse. Ob der Anker hält, kontrolliert man mit zwei <b>Deckpeilungen</b> vom Schiff zu markanten Landmarken, ungefähr im rechten Winkel.</p>
+<p class="figcap">Vor Anker liegt das Schiff mit dem Bug zum Anker und schwojt bei drehendem Wind auf einem Kreis: <b>Schwojradius = Kettenlänge + Schiffslänge</b> – dieser Kreis muss frei von Untiefen und anderen Schiffen sein. Die Kettenlänge richtet sich nach dem höchsten Wasserstand (Tide + Wellenhöhe): 3–5× Wassertiefe mit nur Kette, 6–7× mit Kette und Trosse, 8–10× mit nur Trosse. Ob der Anker hält, kontrolliert man mit zwei <b>Deckpeilungen</b> vom Schiff zu markanten Landmarken, ungefähr im rechten Winkel.</p>
   </section>
 <!-- INHALT:ENDE -->
   <section class="card" id="quiz"><h2><span class="n">?</span>Selbsttest</h2>
@@ -97,7 +97,7 @@ function ckCalc(){var t=parseFloat(document.getElementById('ck-t').value),f=pars
   <p class="foot">SailingX-Academy · 2.1.2 Ankern mit nur einem Anker<br><a href="../../../../kursuebersicht.html" data-top>Kursübersicht</a> · <a href="../../../../ueben.html" data-top>Üben</a> · <a href="../../../../wasfaehrtda.html" data-top>Was fährt da?</a> · <a href="../../../../spickzettel.html" data-top>Spickzettel</a> · <a href="../../../../werkzeugkasten.html" data-top>Werkzeugkasten</a> · <a href="../../../../../impressum.html" data-top>Impressum</a> · <a href="../../../../../datenschutz.html" data-top>Datenschutz</a></p>
 </main>
 <script>
-var QUIZ = [{"q": "Wovon hängt die Kettenlänge ab?", "opts": ["Vom Schiffsgewicht", "Vom höchsten Wasserstand (Tide + Wellen)", "Von der Windrichtung", "Von der Farbe"], "correct": 1, "expl": "Immer vom höchsten Wasserstand."}, {"q": "Welcher Faktor gilt, wenn nur Kette verwendet wird?", "opts": ["3–5×", "7–8×", "8–10×", "1×"], "correct": 0, "expl": "Nur Kette: 3–5× Wassertiefe."}, {"q": "Wie berechnet sich der Schwojradius?", "opts": ["Nur die Kettenlänge", "Kettenlänge + Schiffslänge", "Kettenlänge − Schiffslänge", "Doppelte Wassertiefe"], "correct": 1, "expl": "Kettenlänge plus Schiffslänge."}, {"q": "Wann ist eine Ankerwache nötig?", "opts": ["Nie", "Bei schlechtem Grund oder drehendem Wind/Strom", "Nur tagsüber", "Nur im Hafen"], "correct": 1, "expl": "Bei schlechtem Ankergrund oder drehendem Wind/Strom."}, {"q": "Was passiert bei 180°-Drehung meist?", "opts": ["Der Anker hält besser", "Der Anker bricht aus", "Nichts", "Die Kette reißt"], "correct": 1, "expl": "Der Anker bricht praktisch immer aus und muss neu fassen."}];
+var QUIZ = [{"q": "Wovon hängt die Kettenlänge ab?", "opts": ["Vom Schiffsgewicht", "Vom höchsten Wasserstand (Tide + Wellen)", "Von der Windrichtung", "Von der Farbe"], "correct": 1, "expl": "Immer vom höchsten Wasserstand."}, {"q": "Welcher Faktor gilt, wenn nur Kette verwendet wird?", "opts": ["3–5×", "6–7×", "8–10×", "1×"], "correct": 0, "expl": "Nur Kette: 3–5× Wassertiefe."}, {"q": "Wie berechnet sich der Schwojradius?", "opts": ["Nur die Kettenlänge", "Kettenlänge + Schiffslänge", "Kettenlänge − Schiffslänge", "Doppelte Wassertiefe"], "correct": 1, "expl": "Kettenlänge plus Schiffslänge."}, {"q": "Wann ist eine Ankerwache nötig?", "opts": ["Nie", "Bei schlechtem Grund oder drehendem Wind/Strom", "Nur tagsüber", "Nur im Hafen"], "correct": 1, "expl": "Bei schlechtem Ankergrund oder drehendem Wind/Strom."}, {"q": "Was passiert bei 180°-Drehung meist?", "opts": ["Der Anker hält besser", "Der Anker bricht aus", "Nichts", "Die Kette reißt"], "correct": 1, "expl": "Der Anker bricht praktisch immer aus und muss neu fassen."}];
 </script>
 <script src="../../../../assets/lektion.js"></script>
 </body>
