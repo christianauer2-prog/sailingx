@@ -82,6 +82,18 @@ ul.les .ln{flex:0 0 auto;min-width:52px;color:var(--accent);font-weight:600;font
 .modal-btns .mb-primary{background:var(--accent);border-color:var(--accent);color:#fff;}
 .modal-box hr{border:0;border-top:1px solid var(--line);margin:14px 0;}
 .tr-msg{font-size:13.5px;color:var(--ok);min-height:1em;}
+/* Volltextsuche */
+.ft{padding:6px 0 4px;border-bottom:1px solid var(--line);}
+.ft-h{padding:10px 16px 4px;font-size:11.5px;font-weight:600;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;}
+.ft-i{display:block;padding:8px 14px 9px 16px;text-decoration:none;color:var(--ink);border-left:3px solid transparent;}
+.ft-i:hover,.ft-i:focus{background:var(--accent-soft);border-left-color:var(--accent);}
+.ft-t{display:block;font-size:13.5px;font-weight:600;color:var(--navy);line-height:1.35;}
+.ft-t b{color:var(--accent);font-weight:600;margin-right:4px;}
+.ft-s{display:block;font-size:12.5px;color:var(--muted);line-height:1.45;margin-top:2px;}
+.ft mark{background:#ffe27a;color:inherit;border-radius:2px;padding:0 1px;}
+.ft-sp .ft-t{color:var(--navy2);}
+.ft-more{display:block;margin:4px 16px 8px;background:none;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font:inherit;font-size:12.5px;color:var(--navy2);cursor:pointer;}
+.ft-more:hover{border-color:var(--accent);}
 .nohit{padding:18px 16px;color:var(--muted);font-size:14px;display:none;}
 
 /* Inhalt */
