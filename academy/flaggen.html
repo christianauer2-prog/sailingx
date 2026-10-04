@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signalflaggen · SailingX-Academy</title>
+<meta name="description" content="Die internationalen Signalflaggen lernen: Tafel mit Buchstabe, Funkname, Morsezeichen und Bedeutung – dazu sieben Übungen vom Flaggen-Quiz bis zum Buchstabieren mit Ersatzwimpeln.">
+<link rel="canonical" href="https://sailingx.at/academy/flaggen.html">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/ueben.css">
+<link rel="stylesheet" href="assets/flaggen.css">
+</head>
+<body>
+<header class="topbar"><div class="topbar-in">
+  <a class="brand" href="index.html"><img src="assets/logo.svg" alt="SailingX" width="160" height="87"><span>Academy</span></a>
+  <nav class="topnav"><a class="topnav-eng" href="../">Sailing X</a><a href="kursuebersicht.html">Kursübersicht</a><a href="ueben.html">Üben</a><a href="werkzeugkasten.html">Werkzeugkasten</a><a href="logbuch.html">Logbuch</a><a href="funk.html">Funk</a><a href="flaggen.html" aria-current="page">Flaggen</a><a class="cta" href="kurs.html">Zum Kurs →</a></nav>
+</div></header>
+<section class="pagehead"><div class="wrap"><h1>Signalflaggen</h1><p>Alle 40 Flaggen und Wimpel des Internationalen Signalbuchs: Buchstabe, Funkname, Morsezeichen und Bedeutung auf einer Tafel – und sieben Übungen, die vom Wiedererkennen bis zum Buchstabieren mit Ersatzwimpeln führen.</p></div></section>
+
+<main class="wrap page fl">
+  <nav class="tabs" role="tablist">
+    <a href="#tafel" id="tab-tafel" role="tab">🚩 Tafel</a>
+    <a href="#ueben" id="tab-ueben" role="tab">🎯 Üben</a>
+    <a href="#theorie" id="tab-theorie" role="tab">📘 Theorie</a>
+  </nav>
+
+  <!-- ===== Tafel ===== -->
+  <section class="tabpanel" id="panel-tafel" role="tabpanel">
+    <div class="fl-leiste">
+      <div class="fk-schalter" role="group" aria-label="Auswahl">
+        <span>Zeigen</span>
+        <button type="button" class="an" data-gruppe="alle">Alle</button>
+        <button type="button" data-gruppe="buchstaben">Buchstaben</button>
+        <button type="button" data-gruppe="zahlen">Zahlen</button>
+        <button type="button" data-gruppe="sonder">Wimpel</button>
+      </div>
+      <label class="fl-suche"><span class="sr">Suchen</span><input type="search" id="flSuche" placeholder="Suchen: Buchstabe, Name oder Bedeutung …"></label>
+    </div>
+    <div class="fl-gitter" id="flGitter"></div>
+    <p class="lb-hinweis">Tipp: Auf eine Flagge tippen öffnet die Karte mit Bedeutung, Zusatzbedeutungen und Morsezeichen zum Anhören.</p>
+  </section>
+
+  <!-- ===== Üben ===== -->
+  <section class="tabpanel" id="panel-ueben" role="tabpanel">
+    <div id="fl-modi">
+      <div class="fl-leiste">
+        <span class="fk-fortschritt" id="flFortschritt"></span>
+      </div>
+      <div class="fl-modikarten" id="flModi"></div>
+      <p class="lb-hinweis">Jede Runde dauert ein bis drei Minuten. Falsch beantwortete Flaggen kommen am Ende der Runde noch einmal.</p>
+    </div>
+
+    <div id="fl-runde" hidden>
+      <div class="fl-rkopf">
+        <button type="button" class="lb-back" id="rundeZurueck">← Alle Übungen</button>
+        <h2 id="rundeTitel">Übung</h2>
+        <div class="fl-meter"><i id="rundeBalken"></i></div>
+        <p class="fl-stand" id="rundeStand"></p>
+      </div>
+      <div class="fl-frage" id="rundeFrage"></div>
+    </div>
+  </section>
+
+  <!-- ===== Theorie ===== -->
+  <section class="tabpanel" id="panel-theorie" role="tabpanel">
+    <div id="flTheorie"></div>
+    <p class="lb-hinweis">Weiter im Kurs: <a href="kurs.html#_Kurs%2FFB2%2FF_Sicherheit%2FF9_Seenotsignale.html">F.9 Seenotsignale</a> · <a href="funk.html">📻 Funk-Trainer</a> · <a href="wasfaehrtda.html">🎴 Was fährt da?</a></p>
+  </section>
+</main>
+
+<footer class="sitefoot"><div class="foot-in">
+  <div><img src="assets/logo-negativ.svg" alt="SailingX" width="120" height="65"><b>SailingX-Academy</b> · der Online-Segelkurs von <a href="../">Sailing X</a></div>
+  <div><a href="kursuebersicht.html">Kursübersicht</a> · <a href="ueben.html">Üben</a> · <a href="funk.html">Funk</a> · <a href="flaggen.html">Flaggen</a> · <a href="logbuch.html">Logbuch</a> · <a href="wasfaehrtda.html">Was fährt da?</a> · <a href="spickzettel.html">Spickzettel</a> · <a href="werkzeugkasten.html">Werkzeugkasten</a> · <a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a></div>
+</div></footer>
+<script src="assets/flaggen-daten.js"></script>
+<script src="assets/flaggen.js"></script>
+</body>
+</html>

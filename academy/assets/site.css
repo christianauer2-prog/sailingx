@@ -127,3 +127,7 @@ ol.ov-list a:hover{background:var(--accent-soft);}
   .stage h1{font-size:33px;} .stage-in{padding:48px 20px 56px;} h2.sec{font-size:25px;}
   .ov-c{display:none;} .ov-d{display:none;}
 }
+
+/* Laengere Navigation: ab mittlerer Breite enger setzen */
+@media (max-width:1180px){.topnav{gap:15px;font-size:14.5px;}}
+@media (max-width:1060px){.topnav{gap:12px;font-size:14px;}.topnav a.topnav-eng{display:none;}}
