@@ -1,0 +1,144 @@
+/* ==========================================================================
+   SailingX-Academy – Logbuch
+   Bildschirm: Törnliste, Eintragsmaske, Tagesblöcke.
+   Druck: A4 quer, Kopfzeile mit Schiff und Crew auf jeder Seite.
+   ========================================================================== */
+.lb{max-width:1000px;}
+@media screen{.lb-view{animation:lbein .18s ease-out;}}
+@keyframes lbein{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+.lb-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px;}
+.lb-head h2{margin:0;font-size:24px;font-weight:600;color:var(--navy);}
+.lb-head .row-btns{margin-top:0;}
+.b.sm{font-size:14px;padding:8px 13px;}
+.lb-gross{font-size:17px;padding:14px 24px;}
+.lb-klein{font-size:13px;color:var(--muted);margin:8px 0 0;line-height:1.5;}
+.lb-hinweis{background:var(--accent-soft);border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.6;color:var(--ink);margin:26px 0 0;max-width:72ch;}
+.lb-hinweis b{color:var(--navy);}
+
+/* --- Törnliste --- */
+.lb-karten{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
+.lb-karte{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px;}
+.lb-karte h3{margin:0;font-size:18px;font-weight:600;color:var(--navy);line-height:1.3;}
+.lb-karte .meta{font-size:13.5px;color:var(--muted);line-height:1.6;}
+.lb-karte .zahlen{display:flex;gap:18px;border-top:1px solid var(--line);padding-top:10px;margin-top:auto;}
+.lb-karte .zahlen b{display:block;font-size:19px;color:var(--navy);font-weight:600;}
+.lb-karte .zahlen span{font-size:12px;color:var(--muted);}
+.lb-karte .row-btns{margin-top:4px;gap:8px;}
+.lb-leer{background:var(--white);border:1px dashed var(--line);border-radius:16px;padding:30px;text-align:center;color:var(--muted);}
+
+/* --- Formulare --- */
+.lb-panel{max-width:none;}
+.lb-panel fieldset{border:0;border-top:1px solid var(--line);margin:0 0 20px;padding:16px 0 0;}
+.lb-panel fieldset:first-of-type{border-top:0;padding-top:0;}
+.lb-panel legend{font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--navy2);padding:0;margin-bottom:12px;}
+.lb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:12px 14px;}
+.lb-grid > label{display:flex;flex-direction:column;gap:4px;font-size:14px;}
+.lb-grid > label[hidden]{display:none;}
+.lb-grid > label > span{color:var(--muted);font-size:12.5px;font-weight:500;}
+.lb-grid > label > span i{color:#c0392b;font-style:normal;}
+.lb-grid .w2{grid-column:span 2;}
+.lb-grid .w3{grid-column:1/-1;}
+.lb input,.lb select,.lb textarea{font-family:inherit;font-size:15.5px;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:9px;padding:10px 11px;width:100%;}
+.lb input:focus,.lb select:focus,.lb textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent);}
+.lb textarea{resize:vertical;line-height:1.5;}
+.lb-mitbtn{display:flex;gap:6px;}
+.lb-mini{flex:0 0 auto;font-family:inherit;font-size:13px;font-weight:600;color:var(--navy2);background:var(--sand);border:1px solid var(--line);border-radius:9px;padding:0 12px;cursor:pointer;}
+.lb-mini:hover{border-color:var(--accent);color:var(--accent);}
+.lb-check{display:flex;align-items:center;gap:8px;height:42px;}
+.lb-check input{width:20px;height:20px;}
+.lb-check label{font-size:14.5px;}
+.lb-crew{display:flex;flex-direction:column;gap:8px;margin-bottom:10px;}
+.lb-zeile{display:grid;grid-template-columns:1.4fr 1fr .8fr .8fr auto;gap:8px;align-items:center;}
+.lb-zeile .weg{flex:0 0 auto;border:0;background:none;font-size:19px;line-height:1;color:var(--muted);cursor:pointer;padding:4px 6px;}
+.lb-zeile .weg:hover{color:#c0392b;}
+
+/* --- Logbuch-Kopf --- */
+.lb-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:20px;}
+.lb-top h2{margin:2px 0 2px;font-size:26px;font-weight:600;color:var(--navy);}
+.lb-back{background:none;border:0;font-family:inherit;font-size:14px;color:var(--navy2);cursor:pointer;padding:0;}
+.lb-back:hover{color:var(--accent);}
+.lb-sub{margin:0;font-size:14px;color:var(--muted);}
+.lb-top-btns{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.lb-fuehrer{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);background:var(--white);border:1px solid var(--line);border-radius:10px;padding:4px 10px 4px 12px;}
+.lb-fuehrer select{border:0;padding:5px 2px;font-size:14px;width:auto;min-width:110px;}
+.lb-fuehrer select:focus{outline:none;}
+
+/* --- Neuer Eintrag --- */
+.lb-neu{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:18px;}
+.lb-ereignisse{display:flex;flex-wrap:wrap;gap:7px;}
+.lb-ereignisse button{font-family:inherit;font-size:13.5px;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:8px 13px;cursor:pointer;color:var(--navy);}
+.lb-ereignisse button:hover{border-color:var(--accent);color:var(--accent);}
+.lb-eintrag{margin-bottom:22px;border-color:var(--accent);}
+.lb-ehead{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:14px;}
+.lb-ehead b{font-size:17px;color:var(--navy);}
+.lb-ehead .lb-klein{margin:0;}
+
+/* --- Tagesblöcke und Einträge --- */
+.lb-tag{background:var(--white);border:1px solid var(--line);border-radius:16px;margin-bottom:18px;overflow:hidden;}
+.lb-tag > h3{margin:0;padding:14px 18px;background:var(--stage);color:#fff;font-size:16px;font-weight:600;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:baseline;}
+.lb-tag > h3 span{font-size:13px;font-weight:400;color:#bdd3de;}
+.lb-wetter{padding:12px 18px;border-bottom:1px solid var(--line);background:var(--sand);}
+.lb-wetter .wq{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:8px;}
+.lb-wetter .wq a{font-size:13px;text-decoration:none;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:5px 11px;color:var(--navy2);}
+.lb-wetter .wq a:hover{border-color:var(--accent);color:var(--accent);}
+.lb-wetter textarea{font-size:14.5px;}
+.lb-eintraege{list-style:none;margin:0;padding:0;}
+.lb-e{display:grid;grid-template-columns:62px 1fr;gap:0 14px;padding:12px 18px;border-bottom:1px solid var(--line);font-size:14.5px;}
+.lb-e:last-child{border-bottom:0;}
+.lb-e .zeit{font-weight:600;color:var(--navy);font-variant-numeric:tabular-nums;}
+.lb-e .nr{display:block;font-size:11.5px;color:var(--muted);font-weight:400;}
+.lb-e .kopf{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;}
+.lb-e .ereignis{background:var(--accent-soft);color:var(--navy2);font-size:12.5px;font-weight:600;border-radius:7px;padding:2px 8px;}
+.lb-e .ereignis.warn{background:#fdecec;color:#c0392b;}
+.lb-e .werte{color:var(--ink);line-height:1.6;}
+.lb-e .werte b{font-weight:600;color:var(--navy);}
+.lb-e .bem{color:var(--ink);margin-top:3px;}
+.lb-e .fuss{font-size:12px;color:var(--muted);margin-top:4px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.lb-e .fuss button{background:none;border:0;font-family:inherit;font-size:12px;color:var(--navy2);cursor:pointer;padding:0;text-decoration:underline;}
+.lb-e.korrigiert .werte,.lb-e.korrigiert .bem{text-decoration:line-through;color:var(--muted);}
+.lb-e.berichtigung{background:#fffaf0;}
+.lb-tagfuss{padding:14px 18px;background:var(--sand);border-top:1px solid var(--line);}
+.lb-tagfuss .summe{display:flex;flex-wrap:wrap;gap:22px;margin-bottom:10px;}
+.lb-tagfuss .summe b{display:block;font-size:17px;color:var(--navy);}
+.lb-tagfuss .summe span{font-size:12px;color:var(--muted);}
+
+/* --- Druckansicht --- */
+.lb-blatt{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px;overflow-x:auto;}
+.lb-tabelle{width:100%;border-collapse:collapse;table-layout:fixed;font-size:10.5px;color:#111;}
+.lb-tabelle th,.lb-tabelle td{border:.4px solid #8a97a0;padding:3px 4px;vertical-align:top;text-align:left;overflow-wrap:anywhere;}
+.lb-tabelle thead th{background:#eef3f6;font-weight:600;font-size:10px;}
+.lb-kopfzeile td{border:0;padding:0 0 5px;}
+.lb-kopfzeile .kz{display:flex;flex-wrap:wrap;gap:3px 20px;align-items:baseline;border-bottom:1.1px solid #2b3a44;padding-bottom:4px;}
+.lb-kopfzeile .kz > span{min-width:0;overflow-wrap:anywhere;}
+.lb-kopfzeile .kz .t{font-size:14px;font-weight:700;color:#122b38;}
+.lb-kopfzeile .kz .p{font-size:10px;color:#333;}
+.lb-kopfzeile .kz .p b{color:#000;}
+.lb-tagzeile td{background:#dfe9ef;font-weight:700;font-size:11px;}
+.lb-tagzeile .wb{font-weight:400;font-size:10px;}
+.lb-summe td{background:#f3f6f8;font-size:10px;}
+.lb-tabelle tfoot td{border:0;padding-top:6px;font-size:9.5px;color:#333;}
+.lb-unterschrift{display:flex;justify-content:space-between;gap:30px;align-items:flex-end;}
+.lb-unterschrift .sig{border-top:.6px solid #333;width:58mm;text-align:center;padding-top:2px;}
+.lb-durch{text-decoration:line-through;}
+
+@media (max-width:720px){
+  .lb-grid{grid-template-columns:repeat(auto-fit,minmax(142px,1fr));}
+  .lb-grid .w2{grid-column:1/-1;}
+  .lb-zeile{grid-template-columns:1fr 1fr auto;}
+  .lb-top-btns{width:100%;}
+  .lb-e{grid-template-columns:54px 1fr;padding:12px 13px;}
+  .lb-tag > h3{padding:12px 13px;}
+  .lb-wetter,.lb-tagfuss{padding:12px 13px;}
+}
+
+@media print{
+  @page{size:A4 landscape;margin:11mm 10mm 12mm;}
+  body{background:#fff;}
+  .topbar,.pagehead,.sitefoot,.lb-noprint,.lb-hinweis{display:none!important;}
+  .wrap{max-width:none;padding:0;}
+  .page{padding:0;}
+  .lb-blatt{border:0;border-radius:0;padding:0;overflow:visible;}
+  .lb-tabelle thead{display:table-header-group;}
+  .lb-tabelle tfoot{display:table-footer-group;}
+  .lb-tabelle tr{break-inside:avoid;}
+}

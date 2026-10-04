@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logbuch · SailingX-Academy</title>
+<meta name="description" content="Digitales Logbuch für den Törn: Einträge mit automatischer Uhrzeit und Position, Crewliste, Tagesabschluss und Ausdruck im A4-Format.">
+<link rel="canonical" href="https://sailingx.at/academy/logbuch.html">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/ueben.css">
+<link rel="stylesheet" href="assets/logbuch.css">
+</head>
+<body>
+<header class="topbar"><div class="topbar-in">
+  <a class="brand" href="index.html"><img src="assets/logo.svg" alt="SailingX" width="160" height="87"><span>Academy</span></a>
+  <nav class="topnav"><a href="../">Sailing X</a><a href="kursuebersicht.html">Kursübersicht</a><a href="ueben.html">Üben</a><a href="werkzeugkasten.html">Werkzeugkasten</a><a href="logbuch.html" aria-current="page">Logbuch</a><a class="cta" href="kurs.html">Zum Kurs →</a></nav>
+</div></header>
+<section class="pagehead"><div class="wrap"><h1>Logbuch</h1><p>Führe dein Logbuch je Törn: Uhrzeit und Position kommen automatisch, die Crew steht auf jeder gedruckten Seite, und gespeicherte Einträge bleiben unverändert stehen – wie es sich für ein Logbuch gehört.</p></div></section>
+
+<main class="wrap page lb">
+
+  <!-- ===== Törnliste ===== -->
+  <section id="v-liste" class="lb-view">
+    <div class="lb-head">
+      <h2>Deine Törns</h2>
+      <div class="row-btns">
+        <button type="button" class="b b-primary" id="btnNeuerToern">＋ Neuer Törn</button>
+        <button type="button" class="b b-ghost" id="btnImport">Sicherung einlesen</button>
+        <input type="file" id="importFile" accept="application/json,.json" hidden>
+      </div>
+    </div>
+    <div id="toernListe"></div>
+    <p class="lb-hinweis" id="datenHinweis">
+      <b>Wo liegen die Daten?</b> Das Logbuch wird in diesem Browser auf diesem Gerät gespeichert – es geht nichts an einen Server.
+      Das heißt auch: Lösche die Browserdaten nicht, ohne vorher zu sichern, und lege nach jedem Törntag eine Sicherung an („Sichern" beim Törn).
+    </p>
+  </section>
+
+  <!-- ===== Törn anlegen / Stammdaten ===== -->
+  <section id="v-stamm" class="lb-view" hidden>
+    <div class="lb-head"><h2 id="stammTitel">Neuer Törn</h2><button type="button" class="b b-ghost" id="stammZurueck">Zurück</button></div>
+    <form id="stammForm" class="panel lb-panel" autocomplete="off">
+      <fieldset>
+        <legend>Törn</legend>
+        <div class="lb-grid">
+          <label class="w2"><span>Törnbezeichnung <i>*</i></span><input name="name" required maxlength="80" placeholder="z. B. Kornaten Mai 2026"></label>
+          <label><span>Revier</span><input name="revier" maxlength="60" placeholder="z. B. Nordadria"></label>
+          <label><span>Starthafen</span><input name="start" maxlength="60" placeholder="z. B. Marina Kaštela"></label>
+          <label><span>Zielhafen</span><input name="ziel" maxlength="60"></label>
+          <label><span>Beginn</span><input name="von" type="date"></label>
+          <label><span>Ende</span><input name="bis" type="date"></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Schiff</legend>
+        <div class="lb-grid">
+          <label><span>Schiffsname</span><input name="schiffName" maxlength="60" placeholder="z. B. Bavaria 46 „Luna“"></label>
+          <label><span>Typ</span><input name="schiffTyp" maxlength="60"></label>
+          <label><span>Flagge</span><input name="flagge" maxlength="40" placeholder="z. B. Kroatien"></label>
+          <label><span>Rufzeichen</span><input name="rufzeichen" maxlength="20" placeholder="z. B. 9A1234"></label>
+          <label><span>MMSI</span><input name="mmsi" maxlength="12" inputmode="numeric"></label>
+          <label><span>Charterfirma / Eigner</span><input name="charter" maxlength="60"></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Verantwortung</legend>
+        <div class="lb-grid">
+          <label><span>Schiffsführer / Skipper <i>*</i></span><input name="skipper" required maxlength="60"></label>
+          <label><span>Logbuchführer</span><input name="fuehrer" maxlength="60" placeholder="leer = Skipper"></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Crew</legend>
+        <div id="crewRows" class="lb-crew"></div>
+        <button type="button" class="b b-ghost sm" id="crewPlus">＋ Crewmitglied</button>
+        <p class="lb-klein">Die Crewliste steht im Kopf jeder gedruckten Seite. Wer erst später zusteigt, bekommt ein Datum bei „an Bord ab“.</p>
+      </fieldset>
+      <fieldset>
+        <legend>Wetterquellen</legend>
+        <div id="wqRows" class="lb-crew"></div>
+        <button type="button" class="b b-ghost sm" id="wqPlus">＋ Wetterquelle</button>
+        <p class="lb-klein">Deine Seiten für den Wetterbericht. Im Logbuch erscheinen sie als Knöpfe beim Tageswetter – öffnen, Wesentliches hineinkopieren, fertig.</p>
+      </fieldset>
+      <div class="row-btns">
+        <button type="submit" class="b b-primary" id="stammSpeichern">Logbuch starten</button>
+        <button type="button" class="b b-ghost" id="stammAbbrechen">Abbrechen</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ===== Das Logbuch ===== -->
+  <section id="v-buch" class="lb-view" hidden>
+    <div class="lb-top">
+      <div>
+        <button type="button" class="lb-back" id="buchZurueck">← Alle Törns</button>
+        <h2 id="buchTitel">Törn</h2>
+        <p class="lb-sub" id="buchSub"></p>
+      </div>
+      <div class="lb-top-btns">
+        <label class="lb-fuehrer"><span>Logbuchführer</span><select id="fuehrerWahl"></select></label>
+        <button type="button" class="b b-ghost sm" id="btnStamm">Stammdaten</button>
+        <button type="button" class="b b-ghost sm" id="btnDruck">Drucken / PDF</button>
+        <button type="button" class="b b-ghost sm" id="btnExport">Sichern</button>
+      </div>
+    </div>
+
+    <div class="lb-neu">
+      <button type="button" class="b b-primary lb-gross" id="btnNeuerEintrag">＋ Neuer Eintrag</button>
+      <div class="lb-ereignisse" id="ereignisKnoepfe"></div>
+    </div>
+
+    <form id="eintragForm" class="panel lb-panel lb-eintrag" hidden autocomplete="off">
+      <div class="lb-ehead"><b id="eintragTitel">Neuer Eintrag</b><span id="eintragHinweis" class="lb-klein"></span></div>
+      <div class="lb-grid">
+        <label><span>Datum <i>*</i></span><input name="datum" type="date" required></label>
+        <label><span>Bordzeit <i>*</i></span><span class="lb-mitbtn"><input name="uhrzeit" type="time" required><button type="button" class="lb-mini" id="btnJetzt" title="Aktuelle Uhrzeit übernehmen">jetzt</button></span></label>
+        <label><span>Ereignis</span><select name="art" id="artWahl"></select></label>
+        <label id="wacheFeld" hidden><span>Wache übernimmt</span><select name="wache" id="wacheWahl"></select></label>
+        <label><span>Ort / Hafen / Bucht</span><input name="ort" maxlength="60" placeholder="bei Ablegen, Anlegen, Ankern"></label>
+        <label class="w2"><span>Position</span><span class="lb-mitbtn"><input name="pos" placeholder="43°12,4' N  016°23,8' E" maxlength="40"><button type="button" class="lb-mini" id="btnGps" title="Position vom Gerät übernehmen">GPS</button></span></label>
+        <label><span>Kurs rechtweisend (°)</span><input name="kurs" inputmode="numeric" maxlength="3"></label>
+        <label><span>Kompasskurs (°)</span><input name="kompass" inputmode="numeric" maxlength="3"></label>
+        <label><span>Log (sm)</span><input name="log" inputmode="decimal" maxlength="8"></label>
+        <label><span>Fahrt (kn)</span><input name="fahrt" inputmode="decimal" maxlength="5"></label>
+        <label><span>Wind aus</span><select name="windRi" id="windRiWahl"></select></label>
+        <label><span>Wind (Bft)</span><input name="windBft" inputmode="numeric" maxlength="2"></label>
+        <label><span>Böen (Bft)</span><input name="boeen" inputmode="numeric" maxlength="2"></label>
+        <label><span>Seegang</span><select name="see" id="seeWahl"></select></label>
+        <label><span>Sicht</span><select name="sicht" id="sichtWahl"></select></label>
+        <label><span>Luftdruck (hPa)</span><input name="druck" inputmode="numeric" maxlength="6"></label>
+        <label><span>Bewölkung (Achtel)</span><input name="wolken" inputmode="numeric" maxlength="1" placeholder="0–8"></label>
+        <label><span>Lufttemperatur (°C)</span><input name="temp" inputmode="decimal" maxlength="5"></label>
+        <label><span>Besegelung / Antrieb</span><input name="segel" list="segelListe" maxlength="60" placeholder="z. B. Groß + Genua"></label>
+        <label><span>Motor</span><span class="lb-check"><input type="checkbox" name="motor" id="motorAn"><label for="motorAn">läuft</label></span></label>
+        <label><span>Motorstunden (Zähler)</span><input name="motorStd" inputmode="decimal" maxlength="8"></label>
+        <label class="w3"><span>Bemerkung / Vorkommnis</span><textarea name="bemerkung" rows="2" maxlength="600"></textarea></label>
+      </div>
+      <datalist id="segelListe">
+        <option value="Groß + Genua"></option><option value="Groß + Fock"></option><option value="1. Reff + Genua teilweise gerollt"></option>
+        <option value="2. Reff + Fock"></option><option value="Sturmfock"></option><option value="Segel geborgen, Motor"></option><option value="vor Anker"></option><option value="im Hafen"></option>
+      </datalist>
+      <div class="row-btns">
+        <button type="submit" class="b b-primary">Eintrag speichern</button>
+        <button type="button" class="b b-ghost" id="eintragAbbrechen">Abbrechen</button>
+      </div>
+      <p class="lb-klein">Gespeicherte Einträge lassen sich nicht mehr ändern. Ein Fehler wird mit „Berichtigen“ richtiggestellt – der ursprüngliche Eintrag bleibt lesbar stehen.</p>
+    </form>
+
+    <div id="eintraege"></div>
+  </section>
+
+  <!-- ===== Druckansicht ===== -->
+  <section id="v-druck" class="lb-view" hidden>
+    <div class="lb-head lb-noprint">
+      <h2>Druckansicht</h2>
+      <div class="row-btns">
+        <button type="button" class="b b-primary" id="btnDruckJetzt">Drucken</button>
+        <button type="button" class="b b-ghost" id="druckZurueck">Zurück zum Logbuch</button>
+      </div>
+    </div>
+    <p class="lb-hinweis lb-noprint">Im Druckdialog <b>Querformat</b> wählen. Tipp: Drucke jeden Tag aus und unterschreibe die Seite – damit erfüllt das Logbuch die Form, die für Papierlogbücher gilt.</p>
+    <div id="druckBlatt" class="lb-blatt"></div>
+  </section>
+
+</main>
+
+<footer class="sitefoot lb-noprint"><div class="foot-in">
+  <div><img src="assets/logo-negativ.svg" alt="SailingX" width="120" height="65"><b>SailingX-Academy</b> · der Online-Segelkurs von <a href="../">Sailing X</a></div>
+  <div><a href="kursuebersicht.html">Kursübersicht</a> · <a href="ueben.html">Üben</a> · <a href="logbuch.html">Logbuch</a> · <a href="wasfaehrtda.html">Was fährt da?</a> · <a href="spickzettel.html">Spickzettel</a> · <a href="werkzeugkasten.html">Werkzeugkasten</a> · <a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a></div>
+</div></footer>
+<script src="assets/logbuch.js"></script>
+</body>
+</html>
