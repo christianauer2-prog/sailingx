@@ -122,6 +122,11 @@ window.FUNK = (function () {
         { ul: [
           'Der <b>erste Anruf</b> läuft über Kanal 16, danach sofort auf einen <b>Arbeitskanal</b> wechseln.',
           'Vor dem Anruf hören, ob der Kanal frei ist. Keine Antwort? Erst nach <b>zwei Minuten</b> erneut rufen.'
+        ] },
+        { h: 'Küstenfunkstellen', ul: [
+          'Sie sind die Drehscheibe im Revier: <b>Wetterberichte</b> und Warnnachrichten, <b>Vermittlung von Gesprächen</b>, Annahme von <b>Not- und Dringlichkeitsverkehr</b>.',
+          '<b>Seewetterberichte</b> werden auf Kanal 16 <b>angekündigt</b> und auf einem Arbeitskanal <b>durchgegeben</b> – mitschreiben: Gebiet, Gültigkeit, Wind mit Böen, See, Sicht.',
+          'Angerufen wird auf <b>Kanal 16</b> oder per <b>DSC</b>; den Arbeitskanal weist die Station zu. Ihre MMSI beginnt mit <b>zwei Nullen</b>.'
         ] }
       ],
       uebung: 'marina'
@@ -166,7 +171,7 @@ window.FUNK = (function () {
           'Nach dem Alarm schaltet das Gerät selbst auf <b>Kanal 16</b> – dort folgt der gesprochene MAYDAY.',
           'Die <b>Bestätigung</b> kommt normalerweise von einer Küstenfunkstelle. Andere Schiffe antworten per Sprechfunk, nicht mit DSC.',
           'Versehentlich ausgelöst? <b>Nicht ausschalten</b> – auf Kanal 16 melden und den Fehlalarm widerrufen.',
-          'Routineanrufe gehen auch per DSC: MMSI des Gegenübers wählen, Arbeitskanal vorschlagen, senden – das Gerät der Gegenseite klingelt.'
+          'Routineanrufe gehen auch per DSC: Anruftyp <b>Routine</b>, <b>MMSI</b> des Gegenübers, <b>Arbeitskanal</b> vorschlagen, senden – das Gerät der Gegenseite meldet sich akustisch. Nach der Bestätigung geht es per Sprechfunk auf dem vereinbarten Kanal weiter.'
         ] }
       ],
       uebung: 'dsc'
@@ -352,6 +357,152 @@ window.FUNK = (function () {
           antwort: { de: 'Sailing X – hier ist Adriatic Star. Verstanden, Sie passieren hinter meinem Heck. Ich halte Kurs und Geschwindigkeit. Out.', en: 'Sailing X – this is Adriatic Star. Roger, you will pass astern. I maintain course and speed. Out.' } }
       ],
       merke: { de: 'Beschreibe dich so, dass der andere dich findet: Richtung, Abstand, Fahrzeugart. Und sag, was du tust – nicht, was er tun soll.', en: 'Describe yourself so the other ship can find you: bearing, distance, type. And say what you will do – not what he should do.' }
+    },
+
+
+    {
+      id: 'wetter', gruppe: 'Routineverkehr', icon: '🌦️', dauer: '4 Min.',
+      titel: { de: 'Wetterbericht abrufen', en: 'Getting the forecast' },
+      lage: { de: 'Für die Nacht ist Bora angesagt. Du willst den Seewetterbericht von Split Radio hören – angekündigt wird er auf Kanal 16.', en: 'Bora is forecast for the night. You want the sea area forecast from Split Radio – it is announced on channel 16.' },
+      schritte: [
+        { typ: 'info', kanal: 16,
+          text: { de: 'Du hörst Kanal 16 ab. Da kommt die Ankündigung.', en: 'You are listening on channel 16. Here comes the announcement.' },
+          durchsage: { von: { de: 'Split Radio', en: 'Split Radio' },
+            text: { de: 'SÉCURITÉ, SÉCURITÉ, SÉCURITÉ – an alle Funkstellen, an alle Funkstellen. Hier ist Split Radio. Seewetterbericht für die mittlere Adria folgt auf Kanal sechs sieben.', en: 'SÉCURITÉ, SÉCURITÉ, SÉCURITÉ – all stations, all stations. This is Split Radio. Sea area forecast for the central Adriatic follows on channel six seven.' } } },
+        { typ: 'kanal', ziel: 67, hinweis: { de: 'Stelle den angekündigten Kanal ein.', en: 'Set the announced channel.' },
+          erklaerung: { de: 'Angekündigt wird auf 16, durchgegeben wird auf dem Arbeitskanal – so bleibt 16 frei.', en: 'Announced on 16, transmitted on a working channel – that keeps 16 clear.' } },
+        { typ: 'info', kanal: 67,
+          text: { de: 'Schreib mit: Gebiet, Gültigkeit, Wind, See, Sicht.', en: 'Write it down: area, validity, wind, sea, visibility.' },
+          durchsage: { von: { de: 'Split Radio', en: 'Split Radio' },
+            text: { de: 'Wettervorhersage für die mittlere Adria, ausgegeben um 12 Uhr UTC, gültig bis morgen 12 Uhr UTC. Wind Nordost vier bis fünf Beaufort, in der Nacht zunehmend sieben, in Böen acht. See mäßig bewegt bis grob. Sicht gut, in Schauern mäßig.', en: 'Weather forecast for the central Adriatic, issued at 12 hundred UTC, valid until tomorrow 12 hundred UTC. Wind north-east four to five, increasing seven during the night, gusts eight. Sea moderate to rough. Visibility good, moderate in showers.' } } },
+        { typ: 'wahl', frage: { de: 'Was gehört davon ins Logbuch?', en: 'What goes into the logbook?' },
+          optionen: [
+            { de: 'Gebiet, Gültigkeit, Wind mit Böen, See und Sicht – dazu Uhrzeit und Quelle', en: 'Area, validity, wind with gusts, sea and visibility – plus time and source', ok: true },
+            { de: 'Nur die Windstärke', en: 'Only the wind force' },
+            { de: 'Nichts – der Bericht steht ohnehin im Internet', en: 'Nothing – it is on the internet anyway' },
+            { de: 'Nur die Uhrzeit der Durchsage', en: 'Only the time of the broadcast' }],
+          erklaerung: { de: 'Der Eintrag muss später nachvollziehbar machen, auf welcher Grundlage du entschieden hast – darum auch Uhrzeit und Quelle.', en: 'The entry must later show on what basis you decided – hence time and source as well.' } },
+        { typ: 'wahl', frage: { de: 'Sieben Beaufort aus Nordost in der Nacht, und du liegst in einer nach Nordost offenen Bucht. Was tust du?', en: 'Force seven from north-east tonight, and you are anchored in a bay open to the north-east. What do you do?' },
+          optionen: [
+            { de: 'Noch bei Tageslicht in eine geschützte Bucht oder einen Hafen verholen', en: 'Move to a sheltered bay or harbour while it is still daylight', ok: true },
+            { de: 'Mehr Kette stecken und abwarten', en: 'Veer more chain and wait' },
+            { de: 'Einen zweiten Anker werfen und schlafen gehen', en: 'Lay a second anchor and turn in' },
+            { de: 'Nichts – Bora wird meist übertrieben', en: 'Nothing – bora is usually overrated' }],
+          erklaerung: { de: 'Eine auflandige Bucht bei 7 Beaufort ist kein Ankerplatz. Die Entscheidung fällt früh und bei Licht – mit mehr Kette wird aus einer falschen Bucht keine richtige.', en: 'A bay open to the wind is no anchorage in force 7. Decide early and in daylight – more chain does not turn the wrong bay into the right one.' } },
+        { typ: 'funkspruch', kanal: 16,
+          hinweis: { de: 'Angenommen, du hast die Durchsage verpasst: Frage den Bericht bei Split Radio nach.', en: 'Suppose you missed the broadcast: ask Split Radio for the forecast.' },
+          teile: [
+            { de: 'Split Radio, Split Radio', en: 'Split Radio, Split Radio' },
+            { de: 'hier ist Sailing X, Sailing X, Sailing X', en: 'this is Sailing X, Sailing X, Sailing X' },
+            { de: 'Rufzeichen Oscar Echo X-Ray eins zwei drei vier', en: 'call sign Oscar Echo X-Ray one two three four' },
+            { de: 'wir bitten um die aktuelle Wettervorhersage für die mittlere Adria', en: 'we request the latest forecast for the central Adriatic' },
+            { de: 'OVER', en: 'OVER' }
+          ],
+          stoerer: [
+            { de: 'bitte Kanal sieben null', en: 'please channel seven zero', warum: { de: 'Kanal 70 ist reiner Datenkanal für DSC – dort wird nie gesprochen.', en: 'Channel 70 is DSC data only – never speak on it.' } },
+            { de: 'wir brauchen sofort Hilfe', en: 'we require immediate assistance', warum: { de: 'Das wäre ein Notruf. Hier geht es um eine ganz normale Auskunft.', en: 'That would be a distress call. This is an ordinary request for information.' } }
+          ],
+          antwort: { de: 'Sailing X – hier ist Split Radio. Wettervorhersage folgt auf Kanal sechs sieben. Over.', en: 'Sailing X – this is Split Radio. Forecast follows on channel six seven. Over.' } }
+      ],
+      merke: { de: 'Seewetterberichte werden auf Kanal 16 angekündigt und auf einem Arbeitskanal durchgegeben. Mitschreiben: Gebiet, Gültigkeit, Wind mit Böen, See, Sicht – und ins Logbuch mit Uhrzeit und Quelle.', en: 'Sea area forecasts are announced on 16 and transmitted on a working channel. Note down area, validity, wind with gusts, sea and visibility – and log it with time and source.' }
+    },
+
+    {
+      id: 'kuestenfunk', gruppe: 'Routineverkehr', icon: '🗼', dauer: '4 Min.',
+      titel: { de: 'Verkehr über eine Küstenfunkstelle', en: 'Working a coast radio station' },
+      lage: { de: 'Kein Handynetz in der Bucht. Du willst dem Charterbetrieb ausrichten, dass ihr einen Tag später zurückkommt – über Split Radio.', en: 'No mobile network in the bay. You want to let the charter base know that you will return a day later – through Split Radio.' },
+      schritte: [
+        { typ: 'funkspruch', kanal: 16,
+          hinweis: { de: 'Rufe die Küstenfunkstelle auf Kanal 16.', en: 'Call the coast station on channel 16.' },
+          teile: [
+            { de: 'Split Radio, Split Radio', en: 'Split Radio, Split Radio' },
+            { de: 'hier ist Sailing X, Sailing X, Sailing X', en: 'this is Sailing X, Sailing X, Sailing X' },
+            { de: 'Rufzeichen Oscar Echo X-Ray eins zwei drei vier', en: 'call sign Oscar Echo X-Ray one two three four' },
+            { de: 'wir bitten um die Vermittlung eines Telefongesprächs', en: 'we request a link call' },
+            { de: 'OVER', en: 'OVER' }
+          ],
+          stoerer: [{ de: 'wir möchten unserem Charterbetrieb ausrichten, dass wir später kommen', en: 'we want to tell our charter base that we will be late', warum: { de: 'Der Inhalt kommt erst auf dem zugewiesenen Kanal – Kanal 16 bleibt frei.', en: 'The content belongs on the assigned channel – keep 16 clear.' } }],
+          antwort: { de: 'Sailing X – hier ist Split Radio. Wechseln Sie auf Kanal zwei vier. Over.', en: 'Sailing X – this is Split Radio. Change to channel two four. Over.' } },
+        { typ: 'kanal', ziel: 24, hinweis: { de: 'Stelle den zugewiesenen Kanal der Küstenfunkstelle ein.', en: 'Set the channel assigned by the coast station.' },
+          erklaerung: { de: 'Küstenfunkstellen arbeiten auf eigenen Kanälen – die Zuweisung kommt von der Station.', en: 'Coast stations use their own channels – the station assigns one.' } },
+        { typ: 'funkspruch', kanal: 24,
+          hinweis: { de: 'Nenne, wen du erreichen willst – und bleib knapp.', en: 'State whom you want to reach – and keep it short.' },
+          teile: [
+            { de: 'Split Radio – hier ist Sailing X', en: 'Split Radio – this is Sailing X' },
+            { de: 'wir bitten um eine Verbindung nach Kroatien', en: 'we request a connection to Croatia' },
+            { de: 'Nummer null zwei eins – drei vier fünf sechs sieben acht', en: 'number zero two one – three four five six seven eight' },
+            { de: 'Teilnehmer ist unser Charterbetrieb in Kaštela', en: 'the subscriber is our charter base in Kaštela' },
+            { de: 'OVER', en: 'OVER' }
+          ],
+          stoerer: [{ de: 'MAYDAY Sailing X', en: 'MAYDAY Sailing X', warum: { de: 'Keine Notlage – das hier ist ganz normaler öffentlicher Verkehr.', en: 'No distress – this is ordinary public correspondence.' } }],
+          antwort: { de: 'Sailing X – hier ist Split Radio. Verstanden. Wir stellen die Verbindung her, bleiben Sie auf Kanal zwei vier. Over.', en: 'Sailing X – this is Split Radio. Roger. We are putting you through, stand by on channel two four. Over.' } },
+        { typ: 'wahl', frage: { de: 'Wofür ist eine Küstenfunkstelle sonst noch da?', en: 'What else is a coast station there for?' },
+          optionen: [
+            { de: 'Wetter- und Verkehrsmeldungen, Vermittlung von Gesprächen, Annahme von Not- und Dringlichkeitsverkehr', en: 'Weather and navigational warnings, link calls, handling distress and urgency traffic', ok: true },
+            { de: 'Nur für Notrufe', en: 'Distress calls only' },
+            { de: 'Für Gespräche zwischen Jachten', en: 'For chats between yachts' },
+            { de: 'Für den Kontakt zur Marina', en: 'For contacting the marina' }],
+          erklaerung: { de: 'Küstenfunkstellen sind die Drehscheibe: Sie senden Wetterberichte und Warnnachrichten, vermitteln Gespräche und leiten den Notverkehr – deshalb hören sie ständig Kanal 16 und DSC ab.', en: 'Coast stations are the hub: they broadcast forecasts and warnings, put through calls and control distress traffic – which is why they keep watch on 16 and DSC.' } },
+        { typ: 'wahl', frage: { de: 'Die Küstenfunkstelle antwortet nicht. Was ist die wahrscheinlichste Ursache?', en: 'The coast station does not answer. What is the most likely reason?' },
+          optionen: [
+            { de: 'Du bist zu weit weg – UKW reicht quasi-optisch, zu hohen Küstenfunkstellen etwa 60 Seemeilen', en: 'You are too far away – VHF is quasi-optical, about 60 miles to high coast stations', ok: true },
+            { de: 'Dein Rufzeichen ist nicht registriert', en: 'Your call sign is not registered' },
+            { de: 'Kanal 16 ist für Jachten gesperrt', en: 'Channel 16 is barred for yachts' },
+            { de: 'Küstenfunkstellen arbeiten nur nachts', en: 'Coast stations only work at night' }],
+          erklaerung: { de: 'Hinter einer Insel oder weit draußen ist Schluss. Dann hilft: höher gelegene Position abwarten, über ein anderes Schiff weiterleiten lassen – oder DSC versuchen.', en: 'Behind an island or far offshore the signal is gone. Then: wait for a better position, ask another vessel to relay – or try DSC.' } }
+      ],
+      merke: { de: 'Anruf auf Kanal 16 oder per DSC, Gespräch auf dem zugewiesenen Kanal der Station. Küstenfunkstellen vermitteln, senden Wetter und Warnungen und leiten den Notverkehr.', en: 'Call on 16 or by DSC, talk on the channel the station assigns. Coast stations put calls through, broadcast weather and warnings and control distress traffic.' }
+    },
+
+    {
+      id: 'dscruf', gruppe: 'Routineverkehr', icon: '📲', dauer: '4 Min.',
+      titel: { de: 'DSC-Routineanruf', en: 'DSC routine call' },
+      lage: { de: 'Statt blind auf Kanal 16 zu rufen, rufst du die „Adriatic Star“ direkt per DSC – ihre MMSI 238123456 steht im AIS.', en: 'Instead of calling blindly on 16 you call “Adriatic Star” directly by DSC – AIS shows her MMSI 238123456.' },
+      schritte: [
+        { typ: 'wahl', geraet: 'dsc', frage: { de: 'Welchen Anruftyp wählst du im DSC-Menü?', en: 'Which call type do you choose in the DSC menu?' },
+          optionen: [
+            { de: 'Routine', en: 'Routine', ok: true },
+            { de: 'Dringlichkeit', en: 'Urgency' },
+            { de: 'Sicherheit', en: 'Safety' },
+            { de: 'Notfall', en: 'Distress' }],
+          erklaerung: { de: 'Routine ist der normale Anruf an eine bestimmte Station. Die anderen Kategorien sind für Dringlichkeits-, Sicherheits- und Notverkehr reserviert.', en: 'Routine is the ordinary call to a particular station. The other categories are reserved for urgency, safety and distress traffic.' } },
+        { typ: 'wahl', geraet: 'dsc', frage: { de: 'Welche MMSI gibst du ein?', en: 'Which MMSI do you enter?' },
+          optionen: [
+            { de: '238123456 – Adriatic Star, aus dem AIS', en: '238123456 – Adriatic Star, from AIS', ok: true },
+            { de: '203123456 – die eigene MMSI', en: '203123456 – your own MMSI' },
+            { de: '002380100 – Split Radio', en: '002380100 – Split Radio' },
+            { de: '070 – der DSC-Kanal', en: '070 – the DSC channel' }],
+          erklaerung: { de: 'Die MMSI des Gegenübers – neun Ziffern. Küstenfunkstellen beginnen mit zwei Nullen, Schiffe mit der Landeskennung (Kroatien 238, Österreich 203).', en: 'The other station’s MMSI – nine digits. Coast stations start with two zeros, ships with the country code (Croatia 238, Austria 203).' } },
+        { typ: 'wahl', geraet: 'dsc', frage: { de: 'Welchen Arbeitskanal schlägst du vor?', en: 'Which working channel do you propose?' },
+          optionen: [
+            { de: 'Kanal 06', en: 'Channel 06', ok: true },
+            { de: 'Kanal 16', en: 'Channel 16' },
+            { de: 'Kanal 70', en: 'Channel 70' },
+            { de: 'Kanal 71', en: 'Channel 71' }],
+          erklaerung: { de: 'Kanal 06 ist der Schiff–Schiff-Kanal. 16 bleibt für Anruf und Not frei, 70 ist reiner DSC-Datenkanal, 71 ist in diesem Revier ein Marina-Kanal.', en: 'Channel 06 is ship-to-ship. 16 stays free for calling and distress, 70 is DSC data only, 71 is a marina channel in this area.' } },
+        { typ: 'info', kanal: 6,
+          text: { de: 'Das Gerät sendet den Anruf auf Kanal 70. Die Adriatic Star bestätigt – dein Gerät schaltet selbst auf Kanal 06.', en: 'The set transmits the call on channel 70. Adriatic Star acknowledges – your set switches itself to channel 06.' },
+          durchsage: { von: { de: 'Adriatic Star', en: 'Adriatic Star' },
+            text: { de: 'Sailing X – hier ist Adriatic Star auf Kanal null sechs. Ich höre. Over.', en: 'Sailing X – this is Adriatic Star on channel zero six. Listening. Over.' } } },
+        { typ: 'funkspruch', kanal: 6,
+          hinweis: { de: 'Jetzt per Sprechfunk weiter – sag, wer du bist und was du vorhast.', en: 'Now continue by voice – say who you are and what you intend.' },
+          teile: [
+            { de: 'Adriatic Star – hier ist Sailing X', en: 'Adriatic Star – this is Sailing X' },
+            { de: 'ich bin die Segelyacht zwei Seemeilen an Ihrer Backbordseite', en: 'I am the sailing yacht two miles on your port side' },
+            { de: 'ich drehe nach Steuerbord und passiere hinter Ihrem Heck', en: 'I am altering to starboard and will pass astern of you' },
+            { de: 'OVER', en: 'OVER' }
+          ],
+          stoerer: [{ de: 'bitte bestätigen Sie meinen DSC-Anruf', en: 'please acknowledge my DSC call', warum: { de: 'Die Bestätigung ist schon da – sonst wärt ihr nicht auf diesem Kanal.', en: 'The acknowledgement has already arrived – otherwise you would not be on this channel.' } }],
+          antwort: { de: 'Sailing X – hier ist Adriatic Star. Verstanden, Sie passieren hinter meinem Heck. Ich halte Kurs und Geschwindigkeit. Out.', en: 'Sailing X – this is Adriatic Star. Roger, you will pass astern. I maintain course and speed. Out.' } },
+        { typ: 'wahl', frage: { de: 'Wann ist der DSC-Anruf besser als der Ruf auf Kanal 16?', en: 'When is a DSC call better than calling on 16?' },
+          optionen: [
+            { de: 'Wenn du die MMSI kennst: Das Gerät der Gegenstelle meldet sich akustisch, auch wenn dort gerade niemand auf Kanal 16 achtet', en: 'When you know the MMSI: the other set alerts audibly, even if nobody is paying attention to 16', ok: true },
+            { de: 'Immer – Sprechfunk ist veraltet', en: 'Always – voice is outdated' },
+            { de: 'Nur im Hafen', en: 'Only in harbour' },
+            { de: 'Nur bei Nacht', en: 'Only at night' }],
+          erklaerung: { de: 'DSC ruft gezielt eine Station – auf der Brücke eines Frachters piept es dann. Ohne MMSI bleibt der Anruf auf Kanal 16.', en: 'DSC calls one station directly – on a freighter’s bridge the set beeps. Without the MMSI, call on channel 16.' } }
+      ],
+      merke: { de: 'DSC-Routineanruf: Anruftyp Routine, MMSI der Gegenstelle, Arbeitskanal vorschlagen, senden. Nach der Bestätigung läuft das Gespräch per Sprechfunk auf dem vereinbarten Kanal.', en: 'DSC routine call: type routine, the other station’s MMSI, propose a working channel, send. After the acknowledgement the exchange continues by voice on that channel.' }
     },
 
     /* ===== Notfall ===== */

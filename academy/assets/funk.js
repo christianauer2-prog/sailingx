@@ -112,11 +112,11 @@
   }
 
   /* ======================= Funkgerät ======================= */
-  var KANAELE = [6, 8, 9, 10, 12, 13, 16, 67, 68, 69, 70, 71, 72, 73, 74, 77];
+  var KANAELE = [6, 8, 9, 10, 12, 13, 16, 24, 26, 67, 68, 69, 70, 71, 72, 73, 74, 77];
   var geraet = { kanal: 16, aktiv: false };
   function kanalZeigen() {
     $('fgKanal').textContent = geraet.kanal < 10 ? '0' + geraet.kanal : String(geraet.kanal);
-    $('fgStatus').textContent = geraet.kanal === 70 ? 'DSC · nur Daten' : (geraet.kanal === 16 ? 'ANRUF & NOT' : 'ARBEITSKANAL');
+    $('fgStatus').textContent = geraet.kanal === 70 ? 'DSC · nur Daten' : (geraet.kanal === 16 ? 'ANRUF & NOT' : (geraet.kanal === 24 || geraet.kanal === 26 ? 'KÜSTENFUNKSTELLE' : 'ARBEITSKANAL'));
     $('fgLeistung').textContent = geraet.kanal === 16 ? '25 W' : '1 W / 25 W';
   }
   function kanalSetzen(k) { geraet.kanal = k; kanalZeigen(); }
@@ -262,7 +262,7 @@
           protokoll('fremd', von + ' · Kanal ' + geraet.kanal, a);
           lautsprecher(von, a);
           sprich(a, sp);
-          box.appendChild(antwortKnopf());
+          box.appendChild(antwortKnopf(a));
         } else {
           weiter();
         }
@@ -270,9 +270,10 @@
     }));
     box.appendChild(r);
   }
-  function antwortKnopf() {
+  function antwortKnopf(wiederholen) {
     var r = el('div', 'fk-knoepfe');
     r.appendChild(knopf(U.sp === 'en' ? 'Continue' : 'Weiter', 'b b-primary', weiter));
+    if (wiederholen) r.appendChild(knopf(U.sp === 'en' ? '🔁 Play again' : '🔁 Noch einmal hören', 'b b-ghost', function () { sprich(wiederholen, U.sp); }));
     return r;
   }
 
@@ -288,6 +289,11 @@
         if (o.ok) {
           b.classList.add('richtig');
           Array.prototype.forEach.call(liste.children, function (x) { x.disabled = true; });
+          if (s.geraet === 'dsc') {
+            $('fgStatus').textContent = 'DSC-MENÜ';
+            lautsprecher(sp === 'en' ? 'DSC menu' : 'DSC-Menü', txt(o, sp));
+            protokoll('hinweis', null, (sp === 'en' ? 'DSC menu: ' : 'DSC-Menü: ') + txt(o, sp));
+          }
           rueckmeldung(box, '<b>' + (sp === 'en' ? 'Correct.' : 'Richtig.') + '</b> ' + txt(s.erklaerung, sp));
           box.appendChild(antwortKnopf());
         } else {
@@ -358,8 +364,16 @@
   /* --- Hinweis --- */
   function infoAufgabe(s, box) {
     var sp = U.sp;
-    box.appendChild(el('p', 'fk-frage', txt(s.text, sp)));
+    if (s.text) box.appendChild(el('p', 'fk-frage', txt(s.text, sp)));
     if (s.kanal != null) kanalSetzen(s.kanal);
+    if (s.durchsage) {
+      var von = txt(s.durchsage.von, sp), was = txt(s.durchsage.text, sp);
+      protokoll('fremd', von + ' · Kanal ' + geraet.kanal, was);
+      lautsprecher(von, was);
+      sprich(was, sp);
+      box.appendChild(antwortKnopf(was));
+      return;
+    }
     box.appendChild(antwortKnopf());
   }
 
