@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funk-Trainer · SailingX-Academy</title>
+<meta name="description" content="UKW-Seefunk üben: Theorie kompakt und ein simuliertes Funkgerät für Routineanruf, MAYDAY, PAN PAN, SÉCURITÉ und DSC – in kleinen Einheiten, deutsch und englisch.">
+<link rel="canonical" href="https://sailingx.at/academy/funk.html">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/ueben.css">
+<link rel="stylesheet" href="assets/funk.css">
+</head>
+<body>
+<header class="topbar"><div class="topbar-in">
+  <a class="brand" href="index.html"><img src="assets/logo.svg" alt="SailingX" width="160" height="87"><span>Academy</span></a>
+  <nav class="topnav"><a href="../">Sailing X</a><a href="kursuebersicht.html">Kursübersicht</a><a href="ueben.html">Üben</a><a href="werkzeugkasten.html">Werkzeugkasten</a><a href="logbuch.html">Logbuch</a><a href="funk.html" aria-current="page">Funk</a><a class="cta" href="kurs.html">Zum Kurs →</a></nav>
+</div></header>
+<section class="pagehead"><div class="wrap"><h1>Funk-Trainer</h1><p>UKW-Seefunk zum Mitmachen: die Theorie in kurzen Blöcken – und ein Funkgerät, an dem du den Spruch Baustein für Baustein zusammensetzt, vom Anruf in der Marina bis zum MAYDAY. Jede Einheit dauert wenige Minuten, auf Deutsch und auf Englisch.</p></div></section>
+
+<main class="wrap page fk">
+  <nav class="tabs" role="tablist">
+    <a href="#simulator" id="tab-simulator" role="tab">📻 Simulator</a>
+    <a href="#theorie" id="tab-theorie" role="tab">📘 Theorie</a>
+    <a href="spickzettel/funk.html" class="tab-wfd"><!-- SPICK-LINK -->📄 Spickzettel Funk</a>
+  </nav>
+
+  <!-- ===== Simulator ===== -->
+  <section class="tabpanel" id="panel-simulator" role="tabpanel">
+
+    <div id="fk-liste">
+      <div class="fk-leiste">
+        <div class="fk-schalter" role="group" aria-label="Sprache">
+          <span>Sprache</span>
+          <button type="button" class="an" data-sprache="de">Deutsch</button>
+          <button type="button" data-sprache="en">English</button>
+        </div>
+        <button type="button" class="b b-ghost sm" id="tonSchalter" aria-pressed="true">🔊 Ton an</button>
+        <span class="fk-fortschritt" id="fkFortschritt"></span>
+      </div>
+      <div id="fkEinheiten"></div>
+      <p class="lb-hinweis">Die Funksprüche folgen dem international üblichen Aufbau. Geübt wird hier trocken – gesendet wird an Bord erst mit Funkzeugnis, im Notfall darf jeder funken.</p>
+    </div>
+
+    <div id="fk-uebung" hidden>
+      <div class="fk-kopf">
+        <button type="button" class="lb-back" id="uebungZurueck">← Alle Einheiten</button>
+        <h2 id="uebungTitel">Einheit</h2>
+        <p class="fk-lage" id="uebungLage"></p>
+      </div>
+
+      <div class="fk-raum">
+        <div class="fk-geraet" aria-label="Funkgerät">
+          <div class="fg-display">
+            <div class="fg-ch"><span id="fgKanal">16</span><small>CH</small></div>
+            <div class="fg-info"><span id="fgStatus">DUAL WATCH</span><span id="fgLeistung">25 W</span></div>
+          </div>
+          <div class="fg-ls" id="fgLautsprecher"><span class="fg-ls-leer">Lautsprecher</span></div>
+          <div class="fg-tasten">
+            <button type="button" id="chAb" aria-label="Kanal abwärts">▼</button>
+            <button type="button" id="ch16" class="fg-16">16</button>
+            <button type="button" id="chAuf" aria-label="Kanal aufwärts">▲</button>
+            <div class="fg-dsc" id="fgDsc">
+              <button type="button" class="fg-klappe" id="fgKlappe">DISTRESS</button>
+              <button type="button" class="fg-rot" id="fgRot" hidden><span id="fgRotRing"></span></button>
+            </div>
+          </div>
+          <p class="fg-schiff"><b id="fgSchiff">Sailing X</b><span id="fgDaten">OEX1234 · MMSI 203123456</span></p>
+        </div>
+
+        <div class="fk-arbeit">
+          <ol class="fk-protokoll" id="fkProtokoll"></ol>
+          <div class="fk-aufgabe" id="fkAufgabe"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Theorie ===== -->
+  <section class="tabpanel" id="panel-theorie" role="tabpanel">
+    <div id="fkTheorie"></div>
+    <p class="lb-hinweis">Mehr dazu im Kurs: <a href="kurs.html#_Kurs%2FFB2%2FG_Funknavigation%2FG1_Funk-allgemein%2FG1.1_Grundbegriffe.html">G.1.1 Grundbegriffe</a> · <a href="kurs.html#_Kurs%2FFB2%2FG_Funknavigation%2FG1_Funk-allgemein%2FG1.2_Gesetzliche-Bestimmungen.html">G.1.2 Gesetzliche Bestimmungen</a> · <a href="kurs.html#_Kurs%2FFB2%2FG_Funknavigation%2FG1_Funk-allgemein%2FG1.3_Nautischer-Funkdienst-Sprechfunk.html">G.1.3/4 Sprechfunk</a> · <a href="kurs.html#_Kurs%2FFB2%2FG_Funknavigation%2FG1_Funk-allgemein%2FG1.5_Seenotmeldungen.html">G.1.5 Seenotmeldungen</a></p>
+  </section>
+</main>
+
+<footer class="sitefoot"><div class="foot-in">
+  <div><img src="assets/logo-negativ.svg" alt="SailingX" width="120" height="65"><b>SailingX-Academy</b> · der Online-Segelkurs von <a href="../">Sailing X</a></div>
+  <div><a href="kursuebersicht.html">Kursübersicht</a> · <a href="ueben.html">Üben</a> · <a href="funk.html">Funk</a> · <a href="logbuch.html">Logbuch</a> · <a href="wasfaehrtda.html">Was fährt da?</a> · <a href="spickzettel.html">Spickzettel</a> · <a href="werkzeugkasten.html">Werkzeugkasten</a> · <a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a></div>
+</div></footer>
+<script src="assets/funk-daten.js"></script>
+<script src="assets/funk.js"></script>
+</body>
+</html>
