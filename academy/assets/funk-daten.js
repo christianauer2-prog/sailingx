@@ -18,11 +18,15 @@ window.FUNK = (function () {
 
   /* ---------------- Buchstabiertafel ---------------- */
   var ABC = [
-    ['A', 'Alfa'], ['B', 'Bravo'], ['C', 'Charlie'], ['D', 'Delta'], ['E', 'Echo'], ['F', 'Foxtrot'],
-    ['G', 'Golf'], ['H', 'Hotel'], ['I', 'India'], ['J', 'Juliett'], ['K', 'Kilo'], ['L', 'Lima'],
-    ['M', 'Mike'], ['N', 'November'], ['O', 'Oscar'], ['P', 'Papa'], ['Q', 'Quebec'], ['R', 'Romeo'],
-    ['S', 'Sierra'], ['T', 'Tango'], ['U', 'Uniform'], ['V', 'Victor'], ['W', 'Whiskey'], ['X', 'X-Ray'],
-    ['Y', 'Yankee'], ['Z', 'Zulu']
+    ['A', 'Alfa', 'AL-fah'], ['B', 'Bravo', 'BRAH-wo'], ['C', 'Charlie', 'TSCHAR-lie'],
+    ['D', 'Delta', 'DELL-tah'], ['E', 'Echo', 'ECK-oh'], ['F', 'Foxtrot', 'FOX-trott'],
+    ['G', 'Golf', 'GOLF'], ['H', 'Hotel', 'ho-TELL'], ['I', 'India', 'IN-dia'],
+    ['J', 'Juliett', 'DSCHU-li-ett'], ['K', 'Kilo', 'KI-loh'], ['L', 'Lima', 'LI-mah'],
+    ['M', 'Mike', 'MAIK'], ['N', 'November', 'no-WEM-ber'], ['O', 'Oscar', 'OSS-kah'],
+    ['P', 'Papa', 'pa-PA'], ['Q', 'Quebec', 'ke-BECK'], ['R', 'Romeo', 'ROH-mi-oh'],
+    ['S', 'Sierra', 'si-ERR-ah'], ['T', 'Tango', 'TANG-go'], ['U', 'Uniform', 'JU-ni-form'],
+    ['V', 'Victor', 'WIK-tah'], ['W', 'Whiskey', 'WISS-ki'], ['X', 'X-Ray', 'EXS-rei'],
+    ['Y', 'Yankee', 'JANG-ki'], ['Z', 'Zulu', 'SU-lu']
   ];
 
   /* ---------------- Theorie ---------------- */
@@ -32,40 +36,77 @@ window.FUNK = (function () {
       kurz: 'Was das UKW-Gerät kann und wie weit es reicht.',
       bloecke: [
         { h: 'UKW-Seefunk', ul: [
-          'UKW-Band <b>156–174 MHz</b>, 57 Kanäle. Ausbreitung <b>quasi-optisch</b> – es zählt die Antennenhöhe, nicht die Leistung.',
-          'Reichweite: Schiff–Schiff etwa <b>20–30 sm</b>, zu hohen Küstenfunkstellen bis etwa <b>60 sm</b>.',
-          'Sendeleistung <b>25 W</b> (Standard) und <b>1 W</b> (im Hafen und für Nahbereich – schont den Kanal für alle anderen).'
+          'UKW-Band <b>156–174 MHz</b>, 57 internationale Kanäle. Die Ausbreitung ist <b>quasi-optisch</b> – es zählt die <b>Antennenhöhe</b>, nicht die Leistung.',
+          'Reichweite: Schiff–Schiff etwa <b>20–30 sm</b>, zu einer hoch gelegenen Küstenfunkstelle bis etwa <b>60 sm</b>.',
+          'Festeinbau <b>25 W</b> mit Masttoppantenne, Handfunke <b>5–6 W</b> mit kurzer Antenne auf Augenhöhe – deshalb kommt die Handfunke selbst mit voller Leistung kaum über ein paar Seemeilen.',
+          'Im Hafen und auf kurze Distanz auf <b>1 W</b> herunterschalten: Das hält den Kanal für alle anderen frei.'
         ] },
+        { grafik: 'reichweite', legende: 'Nicht die Watt entscheiden, sondern die Höhe der Antenne über dem Wasser. Wer den Mast nutzt, hört und wird gehört.' },
+        { h: 'Die Bedienelemente', tabelle: [
+          ['Kanalwahl', 'Drehknopf oder ▲▼. Dazu eine eigene <b>Taste 16</b>, die aus jeder Lage sofort auf den Not- und Anrufkanal springt.'],
+          ['Squelch', 'Rauschsperre. Nur so weit zudrehen, dass das Rauschen gerade verschwindet – zu weit zugedreht, und schwache Rufe bleiben unhörbar.'],
+          ['Hi/Lo', 'Umschaltung <b>25 W / 1 W</b>. Im Hafen und für die Nachbaryacht reicht 1 W.'],
+          ['INT / US / CAN', 'Kanalraster. In Europa steht das Gerät auf <b>INT</b>.'],
+          ['Dual / Tri Watch', 'Das Gerät hört neben dem Arbeitskanal <b>Kanal 16</b> mit – Tri Watch zusätzlich einen dritten Kanal.'],
+          ['Sprechtaste (PTT)', 'Solange sie gedrückt ist, sendest du und hörst nichts. Zum Antworten <b>loslassen</b>.']
+        ] },
+        { h: 'Simplex und Duplex', ul: [
+          '<b>Simplex</b>: eine Frequenz, abwechselnd senden und hören. So laufen Kanal 16, die Schiff–Schiff-Kanäle <b>06, 08, 72, 77</b>, Brücke–Brücke <b>13</b>, Hafenkanäle und der Kleinfahrzeug-Sicherheitskanal <b>67</b>.',
+          '<b>Duplex</b>: zwei Frequenzen gleichzeitig – gedacht für Küstenfunkstellen, Gesprächsvermittlung und Marinas (z. B. Kanal <b>80</b>). <b>Zwei Yachten können auf einem Duplexkanal nicht miteinander sprechen</b>, weil sie beide auf derselben Seite senden.'
+        ] },
+        { grafik: 'simplex', legende: 'Simplex: eine Frequenz für beide Richtungen – abwechselnd. Duplex: getrennte Frequenzen für Hin- und Rückweg.' },
         { h: 'Die wichtigsten Kanäle', tabelle: [
-          ['16', 'Not-, Dringlichkeits- und Sicherheitsverkehr sowie <b>erster Anruf</b>. Ständige Hörwache halten.'],
+          ['16', 'Not-, Dringlichkeits- und Sicherheitsverkehr sowie <b>erster Anruf</b>. Ständige Hörwache halten, Kanal freihalten.'],
           ['70', '<b>Nur DSC</b> – digitale Rufe. Auf 70 wird nie gesprochen.'],
-          ['06', 'Schiff–Schiff und Verkehr mit Seenotrettungsmitteln (SAR).'],
-          ['13', 'Brücke–Brücke: Absprachen zur Sicherheit der Schifffahrt.'],
-          ['09, 72, 77', 'Schiff–Schiff, freie Arbeitskanäle.'],
-          ['Marina', 'Je nach Revier, meist <b>71 oder 74</b> – steht im Hafenhandbuch und im Revierführer.']
+          ['06', 'Schiff–Schiff, auch Verkehr mit Seenotrettungsmitteln und Flugzeugen (SAR).'],
+          ['08, 72, 77', 'Schiff–Schiff, freie Arbeitskanäle.'],
+          ['13', 'Brücke–Brücke: kurze Absprachen zur Sicherheit der Schifffahrt („Sie laufen auf uns zu – passieren wir Steuerbord-Steuerbord?“).'],
+          ['15, 17', 'Bordinterner Verkehr, <b>nur 1 W</b>.'],
+          ['67', 'Sicherheitskanal für Kleinfahrzeuge, in vielen Revieren der Arbeitskanal der Küstenwache.'],
+          ['09, 10, 73', 'Hafen, Lotsen und Küstenwache – revierabhängig.'],
+          ['11, 12, 14, 69', 'Hafenverkehr und Verkehrslenkung.'],
+          ['80 / 71 / 74', 'Marinas. Welcher Kanal gilt, steht im <b>Hafenhandbuch und Revierführer</b> – nie raten.'],
+          ['AIS 1 / AIS 2', 'Zwei reservierte Kanäle für <b>AIS</b>-Daten. Dort wird weder gesprochen noch gerufen.']
         ] },
-        { h: 'Bedienung', ul: [
-          '<b>Dual Watch / Tri Watch</b>: Das Gerät hört neben dem Arbeitskanal weiter auf Kanal 16 mit.',
-          '<b>Squelch</b> (Rauschsperre) gerade so weit zudrehen, dass das Rauschen verschwindet – sonst hörst du schwache Rufe nicht.',
-          'Erst <b>hören</b>, ob der Kanal frei ist, dann die Sprechtaste drücken, kurz warten, dann sprechen.'
+        { h: 'Vor jedem Anruf', ol: [
+          'Richtigen Kanal einstellen und <b>zuhören</b>, ob er frei ist.',
+          'Spruch im Kopf fertig haben – bei Not- und Dringlichkeitsrufen aufschreiben.',
+          'Sprechtaste drücken, einen Moment warten, dann sprechen.',
+          'Mit <b>OVER</b> enden und die Taste <b>loslassen</b>.'
         ] }
       ],
       uebung: 'kanalkunde'
     },
     {
-      id: 'recht', icon: '⚖️', titel: 'Zulassung, Rufzeichen, Pflichten',
+      id: 'recht', icon: '⚖️', titel: 'Zulassung, Kennungen, Pflichten',
       kurz: 'Wer senden darf – und wozu man verpflichtet ist.',
       bloecke: [
-        { ul: [
-          'Das Gerät darf frei gekauft werden; <b>Installation und Betrieb brauchen eine Zulassung</b>. Rein empfangende Geräte (Radar, GPS, EPIRB) nicht.',
-          'Mit der Zulassung kommt das <b>Rufzeichen</b> – österreichische Jachten: <b>OEX + vier Ziffern</b> – und die <b>MMSI</b>, die neunstellige Kennung für DSC (Österreich beginnt mit <b>203</b>).',
-          'Senden darf nur, wer ein <b>Funkzeugnis</b> hat: <b>SRC</b> für UKW/DSC in Küstennähe, <b>LRC</b> für Langstrecken, <b>UBI</b> für Binnen. <b>Im Notfall darf jeder funken.</b>',
-          'Die Funkstelle untersteht dem <b>Schiffsführer</b>: Er ordnet den Notruf an und ist für den Funkverkehr an Bord verantwortlich.',
-          '<b>Hörwache</b> auf Kanal 16 halten, Kanal 16 freihalten, keine Privatgespräche, kein Senden auf fremden oder reservierten Kanälen.',
+        { h: 'Zwei Papiere, zwei Kennungen', ul: [
+          'Das Gerät darf frei gekauft werden; <b>Einbau und Betrieb brauchen eine Funkstellenzulassung</b> für das Schiff. Rein empfangende Geräte (Radar, GPS, AIS-Empfänger, NAVTEX) nicht.',
+          'Mit der Zulassung kommt das <b>internationale Rufzeichen</b>. Es gehört zum <b>Schiff</b> und bleibt beim Eigentümerwechsel erhalten – österreichische Jachten tragen <b>OEX + vier Ziffern</b>.',
+          'Eine <b>tragbare</b> Funkstelle wird dagegen auf die <b>Person</b> zugelassen und bekommt eine eigene Kennung, die mit <b>T</b> beginnt.',
+          'Für DSC kommt die <b>MMSI</b> dazu: neun Ziffern, die ersten drei sind die Länderkennung (MID).',
+          'Senden darf nur, wer ein <b>Funkzeugnis</b> hat: <b>SRC</b> für UKW mit DSC in Küstennähe, <b>LRC</b> für Kurz- und Grenzwelle und Satellit, <b>UBI</b> für Binnengewässer. Das Zeugnis gilt <b>lebenslang</b> – <b>im Notfall darf jeder funken</b>.'
+        ] },
+        { h: 'Die neun Ziffern lesen', tabelle: [
+          ['<b>203</b>123456', 'Schiffsfunkstelle. Die ersten drei Ziffern sind die Nationalität.'],
+          ['<b>0</b>203 12345', 'Eine <b>Gruppe</b> von Schiffen – eine führende Null.'],
+          ['<b>00</b>203 1234', 'Eine <b>Küstenfunkstelle</b> – zwei führende Nullen.'],
+          ['MID im Mittelmeer', 'Österreich <b>203</b>, Deutschland <b>211/218</b>, Schweiz <b>269</b>, Kroatien <b>238</b>, Italien <b>247</b>, Slowenien <b>278</b>, Griechenland <b>237/239–241</b>, Großbritannien <b>232–235</b>.'],
+          ['Nachschlagen', 'Die MMSI eines Schiffes findest du in der öffentlichen ITU-Liste – oder bequem im eigenen AIS-Empfänger.']
+        ] },
+        { h: 'Pflichten an Bord', ul: [
+          'Die Funkstelle untersteht dem <b>Schiffsführer</b>. Er ordnet den Notruf an und ist für den Funkverkehr verantwortlich – <b>ohne seine Zustimmung wird nicht gesendet</b>.',
+          '<b>Hörwache</b> auf Kanal 16 halten und den Kanal freihalten.',
+          'Keine <b>Falsch- oder Scherzmeldungen</b> – ein vorgetäuschter Notruf ist strafbar und bindet Rettungskräfte.',
+          '<b>Nie ohne Kennung</b> senden: Jeder Spruch nennt den eigenen Schiffsnamen.',
+          'Keine Privatgespräche von Schiff zu Schiff über Gebühr, keine Musik, keine unnötigen Aussendungen, keine Kraftausdrücke.',
+          'Nur auf <b>zugelassenen Frequenzen</b> senden – nicht auf fremden Hafen-, Behörden- oder Duplexkanälen.',
+          'Im Notfall das Gerät <b>eingeschaltet lassen</b>, auch wenn man gerade nichts sagt.',
           '<b>Hilfeleistung ist Pflicht</b> – außer man gefährdet damit das eigene Schiff und die eigene Crew.'
         ] }
       ],
-      uebung: 'funkwoerter'
+      uebung: 'kennung'
     },
     {
       id: 'sprechen', icon: '🗣️', titel: 'Sprechregeln und Funkwörter',
@@ -84,20 +125,28 @@ window.FUNK = (function () {
           ['I SPELL', 'Ich buchstabiere.'],
           ['ROGER', 'Verstanden.'],
           ['STAND BY', 'Bleiben Sie auf Empfang / warten Sie.'],
+          ['NOTHING MORE', 'Ich habe nichts weiter.'],
+          ['CORRECTION', 'Ich habe mich versprochen – es gilt das Folgende.'],
           ['SEELONCE MAYDAY', '<b>Funkstille</b> – es läuft Notverkehr. Nur die Notverkehrsleitung sendet.'],
           ['SEELONCE FEENEE', 'Der Notverkehr ist beendet, der Kanal ist wieder frei.']
+        ] },
+        { h: 'Funkcheck und Lesbarkeit', ul: [
+          'Ein <b>Funkcheck</b> („radio check“) geht an eine Marina, eine Nachbaryacht oder auf einem <b>Arbeitskanal</b> – <b>nicht auf Kanal 16</b> und nicht an eine Küstenfunkstelle, die ihn als Belegung des Notkanals sieht.',
+          'Die Antwort kommt als Zahl von <b>1 bis 5</b>: 1 = unverständlich, 2 = kaum verständlich, 3 = mit Mühe verständlich, 4 = verständlich, 5 = einwandfrei („loud and clear“).',
+          'Antwortet niemand, hilft meist: Squelch prüfen, Kanal prüfen, auf 25 W schalten, Antennenstecker kontrollieren.'
         ] }
       ],
-      uebung: 'funkwoerter'
+      uebung: 'funkcheck'
     },
     {
       id: 'abc', icon: '🔤', titel: 'Buchstabiertafel',
       kurz: 'Alfa, Bravo, Charlie – und Zahlen ziffernweise.',
       bloecke: [
-        { abc: true },
+        { abc: true, legende: 'Kursiv die Betonung: Sie liegt auf der hervorgehobenen Silbe.' },
         { ul: [
           'Zahlen einzeln sprechen: MMSI 203123456 wird zu „zwei – null – drei – eins – zwei – drei – vier – fünf – sechs“.',
-          'Vor dem Buchstabieren <b>I SPELL</b> ansagen, dann Buchstabe für Buchstabe.'
+          'Vor dem Buchstabieren <b>I SPELL</b> ansagen, dann Buchstabe für Buchstabe.',
+          'Bei Positionen hilft die Form „vier – drei Grad, eins – zwei Komma vier Minuten Nord“.'
         ] }
       ],
       uebung: 'buchstabieren'
@@ -121,12 +170,14 @@ window.FUNK = (function () {
         ] },
         { ul: [
           'Der <b>erste Anruf</b> läuft über Kanal 16, danach sofort auf einen <b>Arbeitskanal</b> wechseln.',
+          'Den Namen des Gerufenen <b>einmal</b> nennen genügt meist; dreimal nur, wenn der Empfang schlecht ist. Nach einem DSC-Ruf reicht immer einmal.',
           'Vor dem Anruf hören, ob der Kanal frei ist. Keine Antwort? Erst nach <b>zwei Minuten</b> erneut rufen.'
         ] },
         { h: 'Küstenfunkstellen', ul: [
           'Sie sind die Drehscheibe im Revier: <b>Wetterberichte</b> und Warnnachrichten, <b>Vermittlung von Gesprächen</b>, Annahme von <b>Not- und Dringlichkeitsverkehr</b>.',
           '<b>Seewetterberichte</b> werden auf Kanal 16 <b>angekündigt</b> und auf einem Arbeitskanal <b>durchgegeben</b> – mitschreiben: Gebiet, Gültigkeit, Wind mit Böen, See, Sicht.',
-          'Angerufen wird auf <b>Kanal 16</b> oder per <b>DSC</b>; den Arbeitskanal weist die Station zu. Ihre MMSI beginnt mit <b>zwei Nullen</b>.'
+          'Angerufen wird auf <b>Kanal 16</b> oder per <b>DSC</b>; den Arbeitskanal weist die Station zu. Ihre MMSI beginnt mit <b>zwei Nullen</b>.',
+          'Die Sendezeiten der Wetterberichte stehen im Revierführer – im Mittelmeer meist alle drei bis vier Stunden, mit einer ausführlichen Ausgabe morgens und abends.'
         ] }
       ],
       uebung: 'marina'
@@ -140,6 +191,7 @@ window.FUNK = (function () {
           ['PAN PAN', '<b>Dringende Hilfe</b> nötig, aber keine akute Gefahr für das ganze Schiff – Motorschaden in Landnähe, Ruderbruch, funkärztliche Beratung.'],
           ['SÉCURITÉ', '<b>Warnung</b> für die Schifffahrt – treibender Container, losgerissene Tonne, Sturmwarnung.']
         ] },
+        { grafik: 'stufen', legende: 'Alle drei beginnen auf Kanal 16. MAYDAY und PAN PAN bleiben dort, eine lange Sicherheitsmeldung wandert auf einen Arbeitskanal.' },
         { h: 'MAYDAY – Reihenfolge', ol: [
           'Mit DSC-Gerät zuerst den <b>Notalarm</b> auslösen (rote Taste), dann Kanal 16, volle Leistung',
           '<b>MAYDAY – MAYDAY – MAYDAY</b>',
@@ -152,11 +204,36 @@ window.FUNK = (function () {
           '<b>Weitere Angaben</b> (Rettungsinsel, Pyrotechnik, Schiff verlassen)',
           '<b>OVER</b> – Taste loslassen und hören. Keine Antwort: in kurzen Abständen wiederholen.'
         ] },
+        { h: 'Eine Eselsbrücke für die Reihenfolge', tabelle: [
+          ['<b>M</b>ayday', 'Dreimal die Ansage, dann wer du bist.'],
+          ['<b>I</b>dentität', 'Schiffsname dreimal, Rufzeichen, MMSI.'],
+          ['<b>P</b>osition', 'Breite und Länge – oder Peilung und Abstand.'],
+          ['<b>D</b>istress', 'Was ist passiert.'],
+          ['<b>A</b>ssistance', 'Welche Hilfe du brauchst.'],
+          ['<b>N</b>umbers', 'Wie viele Personen an Bord, wie viele verletzt.'],
+          ['<b>I</b>nfo', 'Alles, was dem Retter hilft: Rettungsinsel, Pyrotechnik, Farbe des Rumpfs.'],
+          ['<b>O</b>ver', 'Taste loslassen und hören.']
+        ] },
+        { h: 'Einen Notruf quittieren', ul: [
+          'Zuerst <b>mitschreiben</b> und <b>kurz warten</b> – die Küstenfunkstelle hat Vorrang.',
+          'Antwortet niemand, quittierst du selbst: <b>MAYDAY</b> + Name des Havaristen, „hier ist Sailing X“, <b>„Ihr MAYDAY ist empfangen“</b>, dann was du tun kannst, <b>OVER</b>.',
+          'Danach hältst du Verbindung und meldest der Rettungsleitstelle, was du siehst und tust.'
+        ] },
+        { h: 'MAYDAY RELAY – wann sofort, wann nach fünf Minuten', ul: [
+          '<b>Sofort</b>, wenn du eine Not siehst, deren Betroffene selbst nicht senden können: Person im Wasser oder am Felsen, Mensch mit wiederholt gehobenen und gesenkten Armen, Explosion an Bord, abgestürztes Flugzeug.',
+          '<b>Nach etwa fünf Minuten</b>, wenn du den Notruf eines anderen Schiffes gehört hast und auf diesen <b>keine Bestätigung</b> einer Küstenfunkstelle oder eines anderen Schiffes folgt.',
+          'Im Relay nennst du <b>zuerst dich</b>, dann den fremden Notruf mit <b>Zeit, Schiff, Position, Lage und Personenzahl</b>.'
+        ] },
+        { h: 'Fehlalarm widerrufen', ol: [
+          'Das Gerät <b>nicht ausschalten</b>, aber den wiederholten DSC-Alarm beenden (Alarm quittieren bzw. Notalarm abbrechen).',
+          'Auf <b>Kanal 16</b>, volle Leistung: „An alle Funkstellen“ 3×, „hier ist Sailing X“ 3×, Rufzeichen und MMSI.',
+          '<b>„Ich widerrufe meinen Notalarm“</b> – „I say again: cancel my distress alert“ – mit <b>Uhrzeit</b> der Fehlauslösung.',
+          '<b>OUT</b>. Danach auf 16 hörbereit bleiben; eine Küstenfunkstelle fragt oft nach.'
+        ] },
         { ul: [
-          '<b>PAN PAN</b> und <b>SÉCURITÉ</b> gehen an „alle Funkstellen“: Ansage 3×, „an alle Funkstellen“ 3×, dann eigener Name, Position, Lage.',
-          'Sicherheitsmeldungen werden auf 16 <b>angekündigt</b> und auf einem Arbeitskanal <b>durchgegeben</b>.',
-          '<b>MAYDAY RELAY</b>: Du gibst den Notruf eines anderen weiter, wenn dieser selbst nicht mehr senden kann oder niemand antwortet.',
-          'Einen empfangenen Notruf <b>mitschreiben</b>, kurz warten (die Küstenfunkstelle hat Vorrang) und dann antworten, wenn niemand reagiert.'
+          '<b>PAN PAN</b> und <b>SÉCURITÉ</b> gehen an „alle Funkstellen“: Ansage 3×, „an alle Funkstellen“ 3×, dann eigener Name, Rufzeichen, MMSI, Position, Lage, <b>OVER</b>.',
+          'Lange Sicherheitsmeldungen werden auf 16 <b>angekündigt</b> und auf einem Arbeitskanal <b>durchgegeben</b>.',
+          'Eine <b>funkärztliche Beratung</b> ist ein PAN PAN – gerichtet an die nächste Küstenfunkstelle oder an „alle Funkstellen“.'
         ] }
       ],
       uebung: 'mayday'
@@ -166,16 +243,248 @@ window.FUNK = (function () {
       kurz: 'Rote Taste, MMSI, Position – in Sekunden.',
       bloecke: [
         { ul: [
-          '<b>DSC</b> (Digital Selective Calling) sendet auf <b>Kanal 70</b> einen Datensatz: MMSI, Art des Rufs und – wenn ein GPS angeschlossen ist – die <b>Position</b>.',
-          '<b>Notalarm:</b> Klappe öffnen, rote Taste <b>mehrere Sekunden gedrückt halten</b>, bis das Gerät quittiert. Wenn Zeit bleibt, vorher die Art des Notfalls wählen.',
-          'Nach dem Alarm schaltet das Gerät selbst auf <b>Kanal 16</b> – dort folgt der gesprochene MAYDAY.',
-          'Die <b>Bestätigung</b> kommt normalerweise von einer Küstenfunkstelle. Andere Schiffe antworten per Sprechfunk, nicht mit DSC.',
+          '<b>DSC</b> (Digital Selective Calling) ist ein normales UKW-Gerät mit digitalem Alarmteil und <b>GPS-Anschluss</b>. Es sendet auf <b>Kanal 70</b> einen kurzen Datensatz: MMSI, Art des Rufs und – wenn das GPS angeschlossen ist – die <b>Position</b>.',
+          'Gerufen werden kann <b>an alle</b> (Notalarm, Dringlichkeit, Sicherheit), an eine <b>Gruppe</b> oder an ein <b>einzelnes Schiff</b> über seine MMSI.',
+          'Ohne angeschlossenes GPS geht der Alarm <b>ohne Position</b> hinaus – dann die Position von Hand eintragen und auf jeden Fall sprechen.'
+        ] },
+        { h: 'Notalarm', ol: [
+          'Hauptschalter und Funkgerät <b>an</b>.',
+          'Rote <b>Klappe öffnen</b>, Taste einmal drücken; wenn Zeit bleibt, die <b>Art des Notfalls</b> wählen (sinken, Feuer, Mann über Bord …).',
+          'Rote Taste <b>mehrere Sekunden halten</b>, bis das Gerät den Alarm abgesetzt hat.',
+          'Rund <b>15 Sekunden</b> warten, dann auf <b>Kanal 16</b> – das Gerät schaltet selbst um – den gesprochenen <b>MAYDAY</b> absetzen.',
+          'Keine Bestätigung? Alarm und Sprechfunkspruch <b>wiederholen</b> und auf 16 hörbereit bleiben.'
+        ] },
+        { grafik: 'dscablauf', legende: 'Der digitale Alarm ist nur die Alarmierung – gerettet wird nach dem gesprochenen MAYDAY auf Kanal 16.' },
+        { h: 'Routineanruf per DSC', ol: [
+          'Menü <b>DSC-Ruf</b> öffnen',
+          '<b>Individual</b>, dann <b>Routine</b> wählen',
+          '<b>MMSI</b> eintippen oder aus dem Verzeichnis holen',
+          '<b>Arbeitskanal</b> vorschlagen',
+          '<b>Senden</b> – am anderen Gerät schrillt es laut; dort wird der Ton abgestellt und der Ruf bestätigt, danach geht es per Sprechfunk auf dem vereinbarten Kanal weiter.'
+        ] },
+        { h: 'Vor- und Nachteile des DSC-Routinerufs', tabelle: [
+          ['Dafür', 'Kanal 16 bleibt frei, der Alarm am Zielgerät ist unüberhörbar, und ein verpasster Ruf bleibt im Anrufspeicher stehen.'],
+          ['Dagegen', 'Du brauchst die <b>MMSI</b> der Gegenstelle und musst sie eingeben. Jedes Gerätemodell führt anders durchs Menü.']
+        ] },
+        { ul: [
+          'Die <b>Bestätigung</b> eines Notalarms kommt normalerweise von einer Küstenfunkstelle. Andere Schiffe antworten per <b>Sprechfunk</b>, nicht mit DSC – sonst verstummt der Alarm, bevor die Rettungsleitstelle ihn gehört hat.',
           'Versehentlich ausgelöst? <b>Nicht ausschalten</b> – auf Kanal 16 melden und den Fehlalarm widerrufen.',
-          'Routineanrufe gehen auch per DSC: Anruftyp <b>Routine</b>, <b>MMSI</b> des Gegenübers, <b>Arbeitskanal</b> vorschlagen, senden – das Gerät der Gegenseite meldet sich akustisch. Nach der Bestätigung geht es per Sprechfunk auf dem vereinbarten Kanal weiter.'
+          'Auf <b>Kanal 70 wird nie gesprochen</b>; er bleibt frei für Daten.'
         ] }
       ],
       uebung: 'dsc'
+    },
+    {
+      id: 'gmdss', icon: '🛰️', titel: 'GMDSS – das System dahinter',
+      kurz: 'Wer hört mit, wenn du Hilfe brauchst.',
+      bloecke: [
+        { ul: [
+          '<b>GMDSS</b> heißt Weltweites Seenot- und Sicherheitsfunksystem. Die Idee: Ein Notruf soll <b>automatisch</b> und ohne dass jemand zufällig zuhört, bei einer Rettungsleitstelle ankommen.',
+          'Dazu greifen mehrere Bausteine ineinander: <b>DSC</b> auf UKW, Grenz- und Kurzwelle, <b>NAVTEX</b> für Textmeldungen, <b>Satellitenfunk</b>, <b>EPIRB</b> als Notfunkbake, <b>SART</b> als Suchhilfe – und der ganz normale Sprechfunk.',
+          'Koordiniert wird aus einer <b>MRCC</b> (Maritime Rescue Coordination Centre). Sie entscheidet, wer ausläuft, und leitet den Notverkehr.',
+          'Welche Geräte Pflicht sind, hängt vom <b>Seegebiet</b> ab – für Sportboote in Küstennähe ist UKW mit DSC die tragende Säule.'
+        ] },
+        { h: 'Die vier Seegebiete', tabelle: [
+          ['A1', 'In Reichweite einer <b>UKW</b>-Küstenfunkstelle mit DSC – etwa 20 bis 30 sm vor der Küste. Hier segeln wir meistens.'],
+          ['A2', 'In Reichweite einer <b>Grenzwellen</b>-Küstenfunkstelle, etwa bis 150 sm.'],
+          ['A3', 'Im Abdeckungsbereich der <b>geostationären Satelliten</b> – weltweit zwischen etwa 70° Nord und 70° Süd.'],
+          ['A4', 'Der Rest: <b>Polargebiete</b>. Dort trägt die <b>Kurzwelle</b>.']
+        ] },
+        { grafik: 'gmdss', legende: 'Je weiter hinaus, desto größer muss die Reichweite der Ausrüstung sein – A1 ist das Revier des UKW-Seefunks.' },
+        { h: 'NAVTEX', ul: [
+          'Ein eigenes Empfangsgerät, das <b>Textmeldungen</b> ausdruckt oder anzeigt: Seewetterbericht und Sturmwarnungen, nautische Warnnachrichten, Hinweise auf laufende Notfälle.',
+          'Reichweite etwa <b>300 sm</b>. Auf <b>518 kHz</b> kommen die internationalen Meldungen auf <b>Englisch</b>, auf <b>490 kHz</b> die nationalen in der Landessprache.',
+          'Man muss nichts tun und nichts anfordern – das Gerät sammelt mit und filtert nach Gebiet und Meldungsart.'
+        ] },
+        { h: 'AIS', ul: [
+          '<b>AIS</b> sendet laufend Name, MMSI, Rufzeichen, Position, Kurs und Geschwindigkeit über zwei reservierte UKW-Kanäle. Große Schiffe müssen es haben (Class A), Yachten senden freiwillig mit <b>Class B</b> oder empfangen nur.',
+          'Für den Funk ist es Gold wert: Du liest den <b>Namen</b> des Frachters vom Plotter ab und rufst ihn gezielt – oder übernimmst seine <b>MMSI</b> direkt in den DSC-Ruf.',
+          'AIS ersetzt kein Radar: Es zeigt nur, <b>wer selbst sendet</b> – nicht Land, Netze, Treibgut oder die Yacht ohne Transponder.'
+        ] }
+      ],
+      uebung: 'gmdss'
+    },
+    {
+      id: 'notgeraete', icon: '🧭', titel: 'EPIRB, SART und PLB',
+      kurz: 'Die Geräte, die dich finden lassen.',
+      bloecke: [
+        { h: 'EPIRB – die Notfunkbake', ul: [
+          'Sendet auf <b>406 MHz</b> an die <b>COSPAS-SARSAT</b>-Satelliten und wird dadurch weltweit geortet – unabhängig von Funkreichweite und Küstenfunkstelle.',
+          'Sie muss <b>registriert</b> sein, und zwar im Register des <b>Flaggenstaats</b>: Nur so weiß die Leitstelle, welches Schiff da ruft und wen sie anrufen kann.',
+          'Viele Baken haben zusätzlich ein <b>GPS</b> und ein <b>121,5-MHz</b>-Peilsignal für die letzten Meter.',
+          '<b>Versehentlich eingeschaltet?</b> Sofort ausschalten <b>und</b> die nächste Küstenwache anrufen – sonst läuft eine Suche an.',
+          'Eine <b>PLB</b> ist die persönliche Variante am Mann; sie gehört nicht zur vorgeschriebenen GMDSS-Ausrüstung, ist als Rückfallebene aber sehr beliebt.'
+        ] },
+        { h: 'SART – damit der Retter dich auf dem Schirm hat', tabelle: [
+          ['Zwei Bauarten', 'Der <b>Radar-SART</b> arbeitet auf <b>9 GHz</b> und antwortet auf fremde Radarstrahlen. Der <b>AIS-SART</b> sendet über UKW seine eigene GPS-Position.'],
+          ['Wie es arbeitet', 'Der Radar-SART <b>antwortet</b> auf den Radarstrahl eines Schiffes oder Flugzeugs. Der AIS-SART <b>sendet selbst</b> – mit eigenem GPS – seine Position.'],
+          ['Was der Retter sieht', 'Radar: bis zu <b>12 Punkte</b> auf dem Radarschirm, die näher dran zu <b>Bögen</b> und ganz nah zu <b>Kreisen</b> werden. AIS: ein eigenes <b>Symbol</b> auf dem Plotter, dazu Kurs und Abstand.'],
+          ['Information', 'Radar: Richtung und etwa die Entfernung. AIS: <b>genaue GPS-Position</b> samt Kennung.'],
+          ['Wetter', 'Radar: kann bei Regen und hoher See im Störecho untergehen. AIS: sehr robust.'],
+          ['Reichweite', 'Beide etwa <b>5–10 sm</b> von Schiff zu Schiff; der Radar-SART wird vom <b>Suchflugzeug</b> aus deutlich weiter gesehen.'],
+          ['Stärke', 'Radar: funktioniert mit <b>jedem</b> X-Band-Radar. AIS: liefert eine Position, die man direkt ansteuern kann.']
+        ] },
+        { grafik: 'sart', legende: 'Links der Radar-SART: aus der Punktreihe werden Bögen, zuletzt Kreise. Rechts der AIS-SART als eigenes Symbol auf dem Plotter.' },
+        { h: 'An der MMSI erkennen', ul: [
+          'Beginnt eine AIS-Kennung mit <b>970</b>, ist es ein <b>AIS-SART</b>; <b>972</b> ist ein <b>Mann-über-Bord</b>-Sender, <b>974</b> eine AIS-EPIRB.',
+          'Ein solches Symbol auf dem Plotter ist immer ein Notfall – Position notieren, Kurs darauf, Küstenwache informieren.'
+        ] },
+        { h: 'Und das Handy?', ul: [
+          'Als <b>Rückfallebene</b> gut, als Notrufmittel schlecht: Es erreicht immer nur <b>eine</b> Stelle, nicht die Schiffe in der Nähe, hängt an Netz und Akku und liefert keine Position an die Flotte.',
+          'Die Kurznummern der Rettungsleitstellen trotzdem eingespeichert haben – im Mittelmeer etwa <b>112</b>, Griechenland <b>108</b>, Italien <b>1530</b>, Kroatien <b>195</b>, Slowenien <b>080 1800</b>, Malta über <b>Malta Radio</b>. Vor dem Törn im Revierführer prüfen.'
+        ] }
+      ],
+      uebung: 'notgeraete'
+    },
+    {
+      id: 'vokabular', icon: '🌍', titel: 'Funkenglisch',
+      kurz: 'Die Sätze, auf die es im Ernstfall ankommt.',
+      bloecke: [
+        { ul: [
+          'Funkenglisch ist kein Smalltalk: Es sind etwa hundert feste Wendungen. Wer sie kennt, wird auch mit schwerem Akzent verstanden.',
+          'Schiffe sind im Englischen <b>weiblich</b>: „she is sinking“, „I am coming to her assistance“.',
+          'Im Zweifel kurze Hauptsätze – lieber „engine failure, we need a tow“ als ein verschachtelter Satz.'
+        ] },
+        { h: 'Was ist passiert', tabelle: [
+          ['we are sinking', 'wir sinken'],
+          ['we are on fire', 'wir haben Feuer an Bord'],
+          ['we are making water', 'wir haben Wassereinbruch'],
+          ['we have run aground', 'wir sind auf Grund gelaufen'],
+          ['we have capsized', 'wir sind gekentert'],
+          ['we are disabled and adrift', 'wir sind manövrierunfähig und treiben'],
+          ['we have engine failure', 'wir haben Maschinenschaden'],
+          ['we are dismasted', 'wir haben Mastbruch'],
+          ['man overboard', 'Mann über Bord'],
+          ['we are abandoning ship', 'wir verlassen das Schiff']
+        ] },
+        { h: 'Welche Hilfe', tabelle: [
+          ['I require immediate assistance', 'ich brauche sofortige Hilfe'],
+          ['we require a tow', 'wir brauchen Schlepphilfe'],
+          ['we require medical assistance', 'wir brauchen ärztliche Hilfe'],
+          ['we require urgent medical advice', 'wir brauchen dringend funkärztliche Beratung'],
+          ['I am coming to your assistance', 'ich komme Ihnen zu Hilfe'],
+          ['how many persons on board?', 'wie viele Personen an Bord?'],
+          ['four persons on board, one injured', 'vier Personen an Bord, eine verletzt'],
+          ['we have a liferaft', 'wir haben eine Rettungsinsel']
+        ] },
+        { h: 'Verstehen und verstanden werden', tabelle: [
+          ['say again', 'wiederholen Sie'],
+          ['I read you five / loud and clear', 'ich höre Sie einwandfrei'],
+          ['I read you two, say again', 'ich höre Sie schlecht, wiederholen Sie'],
+          ['switch to channel seven one', 'wechseln Sie auf Kanal 71'],
+          ['stand by on channel one six', 'bleiben Sie auf Kanal 16 auf Empfang'],
+          ['what is your position?', 'wie ist Ihre Position?'],
+          ['my position is …', 'meine Position ist …'],
+          ['received mayday, standby', 'MAYDAY empfangen, bleiben Sie auf Empfang']
+        ] },
+        { h: 'Wetter und Revier', tabelle: [
+          ['gale warning', 'Sturmwarnung'],
+          ['strong wind warning', 'Starkwindwarnung'],
+          ['wind north-west, force six, gusts eight', 'Wind Nordwest, 6 Beaufort, Böen 8'],
+          ['sea state rough, visibility poor', 'raue See, schlechte Sicht'],
+          ['veering / backing', 'rechtdrehend / linksdrehend'],
+          ['we request a berth for one night', 'wir bitten um einen Liegeplatz für eine Nacht'],
+          ['our ETA is seventeen thirty local time', 'wir kommen voraussichtlich 17:30 Uhr Ortszeit an']
+        ] }
+      ],
+      uebung: 'vokabeln'
     }
+  ];
+
+  /* ---------------- Funkenglisch: Wendungen für die Vokabel-Einheit ---------------- */
+  var VOKABELN = [
+    /* Notfall und Schaden */
+    { de: 'wir sinken', en: 'we are sinking', gruppe: 'Notfall' },
+    { de: 'wir haben Feuer an Bord', en: 'we are on fire', gruppe: 'Notfall' },
+    { de: 'wir haben Wassereinbruch', en: 'we are making water', gruppe: 'Notfall' },
+    { de: 'wir sind leckgeschlagen', en: 'we have sprung a leak', gruppe: 'Notfall' },
+    { de: 'wir sind auf Grund gelaufen', en: 'we have run aground', gruppe: 'Notfall' },
+    { de: 'wir sind gekentert', en: 'we have capsized', gruppe: 'Notfall' },
+    { de: 'wir haben Schlagseite nach Backbord', en: 'we are listing to port', gruppe: 'Notfall' },
+    { de: 'wir sind manövrierunfähig und treiben', en: 'we are disabled and adrift', gruppe: 'Notfall' },
+    { de: 'wir haben Maschinenschaden', en: 'we have engine failure', gruppe: 'Notfall' },
+    { de: 'wir haben Mastbruch', en: 'we are dismasted', gruppe: 'Notfall' },
+    { de: 'wir haben Ruderschaden', en: 'we have steering failure', gruppe: 'Notfall' },
+    { de: 'Mann über Bord', en: 'man overboard', gruppe: 'Notfall' },
+    { de: 'wir verlassen das Schiff', en: 'we are abandoning ship', gruppe: 'Notfall' },
+    { de: 'Kollision mit einem Fahrzeug', en: 'collision with a vessel', gruppe: 'Notfall' },
+    { de: 'der Anker schliert', en: 'the anchor is dragging', gruppe: 'Notfall' },
+    { de: 'wir haben eine Leine in der Schraube', en: 'we have a rope around the propeller', gruppe: 'Notfall' },
+
+    /* Hilfe anfordern und leisten */
+    { de: 'ich brauche sofortige Hilfe', en: 'I require immediate assistance', gruppe: 'Hilfe' },
+    { de: 'wir brauchen Schlepphilfe', en: 'we require a tow', gruppe: 'Hilfe' },
+    { de: 'wir brauchen ärztliche Hilfe', en: 'we require medical assistance', gruppe: 'Hilfe' },
+    { de: 'wir brauchen dringend funkärztliche Beratung', en: 'we require urgent medical advice', gruppe: 'Hilfe' },
+    { de: 'ich komme Ihnen zu Hilfe', en: 'I am coming to your assistance', gruppe: 'Hilfe' },
+    { de: 'wie viele Personen an Bord?', en: 'how many persons on board?', gruppe: 'Hilfe' },
+    { de: 'vier Personen an Bord, eine verletzt', en: 'four persons on board, one injured', gruppe: 'Hilfe' },
+    { de: 'wir haben eine Rettungsinsel', en: 'we have a liferaft', gruppe: 'Hilfe' },
+    { de: 'wir haben Seenotsignale an Bord', en: 'we have distress flares on board', gruppe: 'Hilfe' },
+    { de: 'wir haben niemanden an Bord verloren', en: 'nobody is missing', gruppe: 'Hilfe' },
+    { de: 'eine Person ist schwer verletzt', en: 'one person is seriously injured', gruppe: 'Hilfe' },
+    { de: 'die Person ist bei Bewusstsein', en: 'the person is conscious', gruppe: 'Hilfe' },
+    { de: 'die Person ist nicht bei Bewusstsein', en: 'the person is unconscious', gruppe: 'Hilfe' },
+    { de: 'wir haben starke Blutung', en: 'we have severe bleeding', gruppe: 'Hilfe' },
+    { de: 'Seenotrettung', en: 'search and rescue', gruppe: 'Hilfe' },
+    { de: 'Rettungsleitstelle', en: 'rescue coordination centre', gruppe: 'Hilfe' },
+    { de: 'Rettungshubschrauber', en: 'rescue helicopter', gruppe: 'Hilfe' },
+    { de: 'Schlepper', en: 'tug', gruppe: 'Hilfe' },
+    { de: 'Notfunkbake', en: 'EPIRB', gruppe: 'Hilfe' },
+
+    /* Verfahren am Gerät */
+    { de: 'hier ist', en: 'this is', gruppe: 'Verfahren' },
+    { de: 'Ende der Durchsage, ich erwarte Antwort', en: 'over', gruppe: 'Verfahren' },
+    { de: 'Gespräch beendet', en: 'out', gruppe: 'Verfahren' },
+    { de: 'wiederholen Sie', en: 'say again', gruppe: 'Verfahren' },
+    { de: 'ich buchstabiere', en: 'I spell', gruppe: 'Verfahren' },
+    { de: 'verstanden', en: 'roger', gruppe: 'Verfahren' },
+    { de: 'bleiben Sie auf Empfang', en: 'stand by', gruppe: 'Verfahren' },
+    { de: 'Berichtigung', en: 'correction', gruppe: 'Verfahren' },
+    { de: 'ich habe nichts weiter', en: 'nothing more', gruppe: 'Verfahren' },
+    { de: 'ich höre Sie einwandfrei', en: 'I read you five, loud and clear', gruppe: 'Verfahren' },
+    { de: 'ich höre Sie schlecht', en: 'I read you two', gruppe: 'Verfahren' },
+    { de: 'wechseln Sie auf Kanal 71', en: 'switch to channel seven one', gruppe: 'Verfahren' },
+    { de: 'bleiben Sie auf Kanal 16 auf Empfang', en: 'stand by on channel one six', gruppe: 'Verfahren' },
+    { de: 'Funkprobe, bitte bestätigen', en: 'radio check, please confirm', gruppe: 'Verfahren' },
+    { de: 'wie ist Ihre Position?', en: 'what is your position?', gruppe: 'Verfahren' },
+    { de: 'meine Position ist', en: 'my position is', gruppe: 'Verfahren' },
+    { de: 'MAYDAY empfangen, bleiben Sie auf Empfang', en: 'received mayday, standby', gruppe: 'Verfahren' },
+    { de: 'Funkstille, es läuft Notverkehr', en: 'seelonce mayday', gruppe: 'Verfahren' },
+    { de: 'der Notverkehr ist beendet', en: 'seelonce feenee', gruppe: 'Verfahren' },
+    { de: 'ich widerrufe meinen Notalarm', en: 'cancel my distress alert', gruppe: 'Verfahren' },
+    { de: 'Rufzeichen', en: 'call sign', gruppe: 'Verfahren' },
+    { de: 'an alle Funkstellen', en: 'all stations', gruppe: 'Verfahren' },
+    { de: 'Küstenfunkstelle', en: 'coast radio station', gruppe: 'Verfahren' },
+    { de: 'Arbeitskanal', en: 'working channel', gruppe: 'Verfahren' },
+
+    /* Wetter */
+    { de: 'Sturmwarnung', en: 'gale warning', gruppe: 'Wetter' },
+    { de: 'Starkwindwarnung', en: 'strong wind warning', gruppe: 'Wetter' },
+    { de: 'Wind Nordwest, 6 Beaufort', en: 'wind north-west, force six', gruppe: 'Wetter' },
+    { de: 'Böen bis 8 Beaufort', en: 'gusts up to force eight', gruppe: 'Wetter' },
+    { de: 'rechtdrehend', en: 'veering', gruppe: 'Wetter' },
+    { de: 'linksdrehend', en: 'backing', gruppe: 'Wetter' },
+    { de: 'raue See', en: 'rough sea', gruppe: 'Wetter' },
+    { de: 'Dünung aus Südwest', en: 'swell from south-west', gruppe: 'Wetter' },
+    { de: 'schlechte Sicht', en: 'poor visibility', gruppe: 'Wetter' },
+    { de: 'Nebelbänke', en: 'fog patches', gruppe: 'Wetter' },
+    { de: 'Gewitter', en: 'thunderstorms', gruppe: 'Wetter' },
+    { de: 'Luftdruck fallend', en: 'pressure falling', gruppe: 'Wetter' },
+
+    /* Hafen und Revier */
+    { de: 'wir bitten um einen Liegeplatz für eine Nacht', en: 'we request a berth for one night', gruppe: 'Hafen' },
+    { de: 'wir sind eine 12-Meter-Segelyacht', en: 'we are a twelve metre sailing yacht', gruppe: 'Hafen' },
+    { de: 'wir kommen voraussichtlich 17:30 Uhr an', en: 'our ETA is seventeen thirty', gruppe: 'Hafen' },
+    { de: 'gibt es einen freien Liegeplatz?', en: 'is there a berth available?', gruppe: 'Hafen' },
+    { de: 'wir liegen vor dem Hafeneingang', en: 'we are off the harbour entrance', gruppe: 'Hafen' },
+    { de: 'Tiefgang 1,90 Meter', en: 'our draft is one decimal nine metres', gruppe: 'Hafen' },
+    { de: 'wir passieren Steuerbord an Steuerbord', en: 'we pass starboard to starboard', gruppe: 'Hafen' },
+    { de: 'wir halten uns gut frei', en: 'we keep well clear', gruppe: 'Hafen' },
+    { de: 'wir ankern in der Bucht', en: 'we are anchoring in the bay', gruppe: 'Hafen' },
+    { de: 'treibender Container', en: 'drifting container', gruppe: 'Hafen' },
+    { de: 'eine Tonne ist losgerissen', en: 'a buoy is adrift', gruppe: 'Hafen' },
+    { de: 'Verkehrstrennungsgebiet', en: 'traffic separation scheme', gruppe: 'Hafen' }
   ];
 
   /* ---------------- Übungseinheiten ----------------
@@ -687,8 +996,298 @@ window.FUNK = (function () {
           erklaerung: { de: 'SEELONCE MAYDAY heißt Funkstille für alle, die nichts zum Notfall beizutragen haben. Du bleibst beteiligt – aber knapp.', en: 'SEELONCE MAYDAY means radio silence for everyone with nothing to add. You stay involved – but keep it short.' } }
       ],
       merke: { de: 'Mitschreiben, antworten, weitergeben: MAYDAY RELAY nennt zuerst dich, dann den fremden Notruf mit Zeit, Position und Lage.', en: 'Write it down, answer, relay: a MAYDAY RELAY names you first, then the other vessel’s call with time, position and situation.' }
+    },
+
+    {
+      id: 'funkcheck', gruppe: 'Grundlagen', icon: '🎤', dauer: '4 Min.',
+      titel: { de: 'Funkprobe und Lesbarkeit', en: 'Radio check and readability' },
+      lage: { de: 'Das Gerät ist neu eingebaut. Du willst wissen, ob es sauber sendet – und wie man eine Funkprobe richtig macht.', en: 'The set has just been installed. You want to know whether it transmits properly – and how a radio check is done correctly.' },
+      schritte: [
+        { typ: 'wahl', frage: { de: 'Wohin richtest du den Funkcheck?', en: 'Where do you direct the radio check?' },
+          optionen: [
+            { de: 'An eine Nachbaryacht oder die Marina, auf einem Arbeitskanal', en: 'To a nearby yacht or the marina, on a working channel', ok: true },
+            { de: 'An alle Funkstellen auf Kanal 16', en: 'To all stations on channel 16' },
+            { de: 'An die Küstenfunkstelle auf Kanal 16', en: 'To the coast radio station on channel 16' },
+            { de: 'Auf Kanal 70, da hört jedes DSC-Gerät mit', en: 'On channel 70 – every DSC set listens there' }],
+          erklaerung: { de: 'Kanal 16 muss für Not- und Anrufverkehr frei bleiben, Kanal 70 ist reiner Datenkanal. Eine Funkprobe läuft auf einem Arbeitskanal mit einer Station, die dir antworten kann.', en: 'Channel 16 must stay clear for distress and calling, channel 70 carries data only. A radio check belongs on a working channel with a station that can answer you.' } },
+        { typ: 'kanal', ziel: 72, start: 16,
+          hinweis: { de: 'Stelle einen freien Schiff–Schiff-Kanal ein – 72 ist dafür gedacht.', en: 'Set a free ship-to-ship channel – 72 is meant for that.' },
+          erklaerung: { de: '06, 08, 72 und 77 sind Schiff–Schiff-Kanäle. Vorher kurz hören, ob der Kanal frei ist.', en: '06, 08, 72 and 77 are ship-to-ship channels. Listen first to check the channel is clear.' } },
+        { typ: 'funkspruch', kanal: 72,
+          hinweis: { de: 'Rufe die Nachbaryacht „Alberta“ und bitte um eine Funkprobe.', en: 'Call the neighbouring yacht “Alberta” and ask for a radio check.' },
+          teile: [
+            { de: 'Alberta, Alberta', en: 'Alberta, Alberta' },
+            { de: 'hier ist Sailing X, Rufzeichen OEX1234', en: 'this is Sailing X, call sign OEX1234' },
+            { de: 'Funkprobe – wie hören Sie mich?', en: 'radio check – how do you read me?' },
+            { de: 'OVER', en: 'OVER' }
+          ],
+          stoerer: [
+            { de: 'MAYDAY', en: 'MAYDAY', warum: { de: 'Eine Funkprobe ist Routineverkehr – Notfloskeln haben hier nichts zu suchen.', en: 'A radio check is routine traffic – distress words have no place here.' } },
+            { de: 'an alle Funkstellen', en: 'all stations', warum: { de: 'Du rufst eine bestimmte Station, nicht alle.', en: 'You are calling one particular station, not everybody.' } },
+            { de: 'OUT', en: 'OUT' }],
+          antwort: { de: 'Sailing X – hier ist Alberta. Ich höre Sie Stärke zwei, stark verrauscht. Over.', en: 'Sailing X – this is Alberta. I read you two, very noisy. Over.' } },
+        { typ: 'wahl', frage: { de: 'Stärke zwei heißt: kaum verständlich. Was prüfst du zuerst?', en: 'Readability two means barely readable. What do you check first?' },
+          optionen: [
+            { de: 'Sendeleistung auf 25 W, Squelch und Antennenstecker', en: 'Power set to 25 W, squelch and the aerial connector', ok: true },
+            { de: 'Auf Kanal 16 wechseln, dort ist der Empfang besser', en: 'Switch to channel 16, reception is better there' },
+            { de: 'Lauter stellen', en: 'Turn up the volume' },
+            { de: 'Es noch einmal mit derselben Einstellung versuchen', en: 'Try again with the same settings' }],
+          erklaerung: { de: 'Die Lautstärke ändert nur, was du hörst – nicht, was ankommt. Im Hafen bleibt das Gerät gern auf 1 W stehen; dazu Squelch und Antenne prüfen. Der Kanal ist nicht das Problem.', en: 'Volume only changes what you hear, not what gets out. In harbour the set is often left on 1 W; check squelch and aerial as well. The channel is not the problem.' } },
+        { typ: 'funkspruch', kanal: 72,
+          hinweis: { de: 'Du hast auf 25 W geschaltet. Frag noch einmal nach.', en: 'You have switched to 25 W. Ask again.' },
+          teile: [
+            { de: 'Alberta', en: 'Alberta' },
+            { de: 'hier ist Sailing X', en: 'this is Sailing X' },
+            { de: 'ich habe auf volle Leistung geschaltet – wie hören Sie mich jetzt?', en: 'I have switched to high power – how do you read me now?' },
+            { de: 'OVER', en: 'OVER' }
+          ],
+          stoerer: [{ de: 'Funkprobe', en: 'radio check' }, { de: 'Rufzeichen OEX1234', en: 'call sign OEX1234', warum: { de: 'Beim zweiten Spruch im laufenden Gespräch genügt der Schiffsname.', en: 'Once the exchange is running, the vessel name alone is enough.' } }],
+          antwort: { de: 'Sailing X – hier ist Alberta. Jetzt höre ich Sie Stärke fünf, einwandfrei. Over.', en: 'Sailing X – this is Alberta. Now I read you five, loud and clear. Over.' } },
+        { typ: 'funkspruch', kanal: 72,
+          hinweis: { de: 'Bedanke dich und beende das Gespräch richtig.', en: 'Say thank you and close the exchange properly.' },
+          teile: [
+            { de: 'Alberta', en: 'Alberta' },
+            { de: 'hier ist Sailing X', en: 'this is Sailing X' },
+            { de: 'danke für die Funkprobe', en: 'many thanks for the radio check' },
+            { de: 'OUT', en: 'OUT' }
+          ],
+          stoerer: [
+            { de: 'OVER', en: 'OVER', warum: { de: 'OVER würde eine Antwort erwarten – du beendest das Gespräch.', en: 'OVER would expect a reply – you are ending the exchange.' } },
+            { de: 'OVER AND OUT', en: 'OVER AND OUT', warum: { de: 'Das gibt es im Funkverkehr nicht. Entweder OVER oder OUT.', en: 'That does not exist in radio procedure. Either OVER or OUT.' } }] }
+      ],
+      merke: { de: 'Funkprobe nie auf Kanal 16: Arbeitskanal wählen, eine Station nennen, Antwort als Zahl von 1 bis 5 – 5 heißt einwandfrei. Schwacher Empfang? Leistung, Squelch, Antenne prüfen.', en: 'Never run a radio check on channel 16: pick a working channel, name one station, and the answer comes as a figure from 1 to 5 – five is loud and clear. Weak signal? Check power, squelch and aerial.' }
+    },
+
+    {
+      id: 'vokabeln', gruppe: 'Grundlagen', icon: '🌍', dauer: '3 Min.',
+      generator: 'vokabel', anzahl: 10,
+      titel: { de: 'Funkenglisch', en: 'Radio English' },
+      lage: { de: 'Zehn Wendungen aus Notfall, Hilfe, Verfahren, Wetter und Hafen – jedes Mal neu zusammengestellt. Auf Deutsch gefragt, auf Englisch geantwortet; in der englischen Fassung umgekehrt.', en: 'Ten phrases from distress, assistance, procedure, weather and harbour – shuffled anew each run. Here the English phrase is given and you pick the German meaning.' },
+      schritte: [],
+      merke: { de: 'Die Wendungen sind kurz und fest – wer sie kennt, wird auch mit Akzent verstanden. Schiffe sind im Englischen weiblich: „she is sinking“.', en: 'The phrases are short and fixed – know them and you will be understood whatever your accent. Vessels are feminine in English: “she is sinking”.' }
+    },
+
+    {
+      id: 'kennung', gruppe: 'Grundlagen', icon: '🪪', dauer: '3 Min.',
+      titel: { de: 'Rufzeichen, MMSI, Zeugnis', en: 'Call sign, MMSI, certificate' },
+      lage: { de: 'Sechs Fragen zu den Kennungen des Schiffes und dazu, wer senden darf.', en: 'Six questions on the vessel’s identities and on who may transmit.' },
+      schritte: [
+        { typ: 'wahl', frage: { de: 'Wie viele Ziffern hat eine MMSI?', en: 'How many digits does an MMSI have?' },
+          optionen: [{ de: 'Neun', en: 'Nine', ok: true }, { de: 'Sieben', en: 'Seven' }, { de: 'Zehn', en: 'Ten' }, { de: 'So viele wie das Rufzeichen', en: 'As many as the call sign' }],
+          erklaerung: { de: 'Neun Ziffern, die ersten drei sind die Länderkennung – Österreich 203, Kroatien 238, Italien 247, Slowenien 278, Deutschland 211 und 218.', en: 'Nine digits; the first three identify the nationality – Austria 203, Croatia 238, Italy 247, Slovenia 278, Germany 211 and 218.' } },
+        { typ: 'wahl', frage: { de: 'Du siehst auf dem Plotter die Kennung 00238 1234. Wen rufst du damit?', en: 'The plotter shows the identity 00238 1234. Whom would that call?' },
+          optionen: [{ de: 'Eine Küstenfunkstelle', en: 'A coast radio station', ok: true },
+            { de: 'Eine Gruppe von Schiffen', en: 'A group of vessels' },
+            { de: 'Ein einzelnes Schiff', en: 'An individual vessel' },
+            { de: 'Einen AIS-Notsender', en: 'An AIS distress beacon' }],
+          erklaerung: { de: 'Zwei führende Nullen stehen für eine Küstenfunkstelle, eine führende Null für eine Gruppe. Ein AIS-Notsender beginnt mit 970, 972 oder 974.', en: 'Two leading zeros mean a coast station, one leading zero a group. An AIS distress beacon starts with 970, 972 or 974.' } },
+        { typ: 'wahl', frage: { de: 'Das Schiff wird verkauft. Was passiert mit dem Rufzeichen?', en: 'The boat is sold. What happens to the call sign?' },
+          optionen: [{ de: 'Es bleibt beim Schiff', en: 'It stays with the vessel', ok: true },
+            { de: 'Es bleibt beim alten Eigentümer', en: 'It stays with the former owner' },
+            { de: 'Es verfällt', en: 'It expires' },
+            { de: 'Es geht an den Hafen zurück', en: 'It goes back to the harbour authority' }],
+          erklaerung: { de: 'Das internationale Rufzeichen gehört zur Funkstelle des Schiffes. Nur eine tragbare Funkstelle ist auf eine Person zugelassen – ihre Kennung beginnt mit T.', en: 'The international call sign belongs to the vessel’s radio station. Only a portable set is licensed to a person – its identity starts with T.' } },
+        { typ: 'wahl', frage: { de: 'Welches Zeugnis brauchst du für UKW mit DSC in Küstennähe?', en: 'Which certificate do you need for VHF with DSC near the coast?' },
+          optionen: [{ de: 'SRC', en: 'SRC', ok: true }, { de: 'LRC', en: 'LRC' }, { de: 'UBI', en: 'UBI' }, { de: 'Keines, das Gerät genügt', en: 'None, owning the set is enough' }],
+          erklaerung: { de: 'SRC für UKW mit DSC, LRC für Grenz- und Kurzwelle und Satellit, UBI für Binnengewässer. Das Zeugnis gilt lebenslang.', en: 'SRC for VHF with DSC, LRC for MF/HF and satellite, UBI for inland waters. The certificate is valid for life.' } },
+        { typ: 'wahl', frage: { de: 'Niemand an Bord hat ein Funkzeugnis, das Schiff sinkt. Darf gefunkt werden?', en: 'Nobody on board holds a certificate and the boat is sinking. May you transmit?' },
+          optionen: [{ de: 'Ja – im Notfall darf jeder funken', en: 'Yes – in distress anyone may transmit', ok: true },
+            { de: 'Nein, dann nur Seenotsignale verwenden', en: 'No, use pyrotechnics only' },
+            { de: 'Nur mit Erlaubnis der Küstenfunkstelle', en: 'Only with permission from the coast station' },
+            { de: 'Nur über Telefon', en: 'Only by telephone' }],
+          erklaerung: { de: 'Der Notruf steht über allem. Im Alltag gilt dagegen: Nur mit Zeugnis senden – und nie ohne Zustimmung des Schiffsführers.', en: 'A distress call overrides everything. In normal traffic the rule stands: transmit only with a certificate – and never without the skipper’s consent.' } },
+        { typ: 'wahl', frage: { de: 'Für welches Gerät brauchst du keine Zulassung?', en: 'Which device needs no licence?' },
+          optionen: [{ de: 'Den AIS-Empfänger', en: 'An AIS receiver', ok: true },
+            { de: 'Das UKW-Gerät mit DSC', en: 'The VHF set with DSC' },
+            { de: 'Die Handfunke', en: 'The handheld VHF' },
+            { de: 'Das Satellitentelefon', en: 'The satellite phone' }],
+          erklaerung: { de: 'Rein empfangende Geräte – AIS-Empfänger, NAVTEX, GPS, Radar – brauchen keine Funkstellenzulassung. Alles, was sendet, schon.', en: 'Receive-only equipment – AIS receiver, NAVTEX, GPS, radar – needs no radio licence. Anything that transmits does.' } }
+      ],
+      merke: { de: 'Rufzeichen gehört zum Schiff, MMSI hat neun Ziffern mit der Länderkennung vorn, zwei Nullen vorweg heißt Küstenfunkstelle. SRC für UKW, lebenslang – und im Notfall darf jeder funken.', en: 'The call sign belongs to the vessel, the MMSI has nine digits starting with the nationality, two leading zeros mean a coast station. SRC for VHF, valid for life – and in distress anyone may transmit.' }
+    },
+
+    {
+      id: 'medico', gruppe: 'Notverkehr', icon: '⚕️', dauer: '4 Min.',
+      titel: { de: 'Funkärztliche Beratung', en: 'Urgent medical advice' },
+      lage: { de: 'Ein Crewmitglied ist beim Reffen gestürzt, der Unterarm steht schief und schwillt stark an. Das Schiff ist in Ordnung, ihr seid zwölf Seemeilen vor Split. Du brauchst ärztlichen Rat – kein MAYDAY.', en: 'A crew member fell while reefing; the forearm is badly swollen and out of line. The boat is fine and you are twelve miles off Split. You need medical advice – not a MAYDAY.' },
+      schritte: [
+        { typ: 'wahl', frage: { de: 'Welche Dringlichkeitsstufe wählst du?', en: 'Which priority do you use?' },
+          optionen: [{ de: 'PAN PAN', en: 'PAN PAN', ok: true }, { de: 'MAYDAY', en: 'MAYDAY' }, { de: 'SÉCURITÉ', en: 'SECURITE' }, { de: 'Routineanruf', en: 'A routine call' }],
+          erklaerung: { de: 'Niemand ist in unmittelbarer Lebensgefahr und das Schiff ist nicht gefährdet – das ist Dringlichkeit, also PAN PAN. Verschlechtert sich der Zustand lebensbedrohlich, wird daraus ein MAYDAY.', en: 'Nobody is in immediate danger of life and the vessel is safe – that is urgency, so PAN PAN. If the condition becomes life-threatening it turns into a MAYDAY.' } },
+        { typ: 'kanal', ziel: 16, start: 72,
+          hinweis: { de: 'Auf welchem Kanal setzt du den Dringlichkeitsanruf ab?', en: 'On which channel do you make the urgency call?' },
+          erklaerung: { de: 'Not-, Dringlichkeits- und Sicherheitsverkehr beginnt immer auf Kanal 16, mit voller Leistung.', en: 'Distress, urgency and safety traffic always start on channel 16, at high power.' } },
+        { typ: 'funkspruch', kanal: 16, lang: true,
+          hinweis: { de: 'Setze den PAN PAN an die Küstenfunkstelle Split Radio ab – Lage, Position, und was du brauchst.', en: 'Make the PAN PAN call to Split Radio – situation, position and what you need.' },
+          teile: [
+            { de: 'PAN PAN – PAN PAN – PAN PAN', en: 'PAN PAN – PAN PAN – PAN PAN' },
+            { de: 'Split Radio, Split Radio, Split Radio', en: 'Split Radio, Split Radio, Split Radio' },
+            { de: 'hier ist Sailing X, Sailing X, Sailing X', en: 'this is Sailing X, Sailing X, Sailing X' },
+            { de: 'Rufzeichen OEX1234, MMSI 203123456', en: 'call sign OEX1234, MMSI 203123456' },
+            { de: 'Position 43 Grad 12 Komma 4 Minuten Nord, 016 Grad 23 Komma 8 Minuten Ost', en: 'position 43 degrees 12 decimal 4 minutes North, 016 degrees 23 decimal 8 minutes East' },
+            { de: 'ein Crewmitglied ist gestürzt und hat eine schwere Verletzung am Unterarm', en: 'a crew member has fallen and has a serious injury to the forearm' },
+            { de: 'wir brauchen dringend funkärztliche Beratung', en: 'we require urgent medical advice' },
+            { de: 'vier Personen an Bord, eine verletzt', en: 'four persons on board, one injured' },
+            { de: 'OVER', en: 'OVER' }
+          ],
+          stoerer: [
+            { de: 'an alle Funkstellen, an alle Funkstellen, an alle Funkstellen', en: 'all stations, all stations, all stations', warum: { de: 'Hier rufst du gezielt die Küstenfunkstelle – sie stellt den Arzt her. „An alle Funkstellen“ nimmst du, wenn du keine Station erreichst.', en: 'Here you address the coast station, which puts the doctor through. “All stations” is for when no station answers.' } },
+            { de: 'ich brauche sofortige Hilfe', en: 'I require immediate assistance', warum: { de: 'Du brauchst Rat, nicht die Rettung – das wäre ein MAYDAY.', en: 'You need advice, not rescue – that would be a MAYDAY.' } },
+            { de: 'wir verlassen das Schiff', en: 'we are abandoning ship' }],
+          antwort: { de: 'PAN PAN. Sailing X – hier ist Split Radio. Verstanden, funkärztliche Beratung. Wechseln Sie auf Kanal 26, wir schalten den Arzt dazu. Over.', en: 'PAN PAN. Sailing X – this is Split Radio. Roger, urgent medical advice. Switch to channel 26, we will connect the doctor. Over.' } },
+        { typ: 'kanal', ziel: 26, start: 16,
+          hinweis: { de: 'Wechsle auf den zugewiesenen Arbeitskanal.', en: 'Change to the working channel you were given.' },
+          erklaerung: { de: 'Das Gespräch selbst läuft auf dem Arbeitskanal – Kanal 16 bleibt frei.', en: 'The conversation itself runs on the working channel – channel 16 stays clear.' } },
+        { typ: 'funkspruch', kanal: 26,
+          hinweis: { de: 'Melde dich und beschreibe, was der Arzt wissen muss: Alter, Zustand, was passiert ist, was an Bord ist.', en: 'Report in and describe what the doctor needs: age, condition, what happened, what you carry on board.' },
+          teile: [
+            { de: 'Split Radio', en: 'Split Radio' },
+            { de: 'hier ist Sailing X', en: 'this is Sailing X' },
+            { de: 'Patient ist 38 Jahre alt, bei Bewusstsein, atmet normal', en: 'the patient is 38 years old, conscious and breathing normally' },
+            { de: 'Sturz auf das Deck, Unterarm verformt und stark geschwollen, starke Schmerzen', en: 'fall onto the deck, forearm deformed and badly swollen, severe pain' },
+            { de: 'wir haben eine Bordapotheke mit Schmerzmitteln und Schienen', en: 'we carry a first-aid kit with painkillers and splints' },
+            { de: 'wir laufen Split an, Ankunft in etwa zwei Stunden', en: 'we are heading for Split, arriving in about two hours' },
+            { de: 'OVER', en: 'OVER' }
+          ],
+          stoerer: [{ de: 'PAN PAN – PAN PAN – PAN PAN', en: 'PAN PAN – PAN PAN – PAN PAN', warum: { de: 'Die Ansage gilt dem ersten Anruf auf 16. Auf dem Arbeitskanal sprichst du normal weiter.', en: 'The announcement belongs to the first call on 16. On the working channel you simply carry on.' } }],
+          antwort: { de: 'Sailing X – hier ist Split Radio mit dem Arzt. Arm ruhig stellen und schienen, nichts essen und trinken lassen, kein Schmerzmittel mit Blutverdünnung. Melden Sie sich in 30 Minuten erneut und sofort, wenn Finger kalt oder blau werden. Over.', en: 'Sailing X – this is Split Radio with the doctor. Immobilise and splint the arm, keep the patient nil by mouth, no blood-thinning painkillers. Report again in 30 minutes, and immediately if the fingers turn cold or blue. Over.' } },
+        { typ: 'wahl', frage: { de: 'Der Patient wird zunehmend bewusstlos. Was tust du?', en: 'The patient becomes increasingly unconscious. What do you do?' },
+          optionen: [{ de: 'Jetzt MAYDAY absetzen – es ist Lebensgefahr', en: 'Make a MAYDAY call now – there is danger to life', ok: true },
+            { de: 'Weiter per PAN PAN auf Kanal 26 melden', en: 'Carry on with PAN PAN on channel 26' },
+            { de: 'Auf die nächste Meldung in 30 Minuten warten', en: 'Wait for the next report in 30 minutes' },
+            { de: 'Hafen anrufen und schneller fahren', en: 'Call the marina and motor faster' }],
+          erklaerung: { de: 'Die Stufe richtet sich nach der Lage, nicht nach dem, was man zuerst gewählt hat. Wird es lebensbedrohlich, wird aus PAN PAN ein MAYDAY – notfalls mit DSC-Notalarm.', en: 'The priority follows the situation, not what you chose first. When life is at risk, PAN PAN becomes MAYDAY – with a DSC distress alert if needed.' } }
+      ],
+      merke: { de: 'Funkärztliche Beratung ist PAN PAN: Küstenfunkstelle rufen, auf den Arbeitskanal wechseln, dann Alter, Zustand, Hergang, Bordmittel und ETA nennen. Wird es lebensbedrohlich, sofort MAYDAY.', en: 'Medical advice is a PAN PAN: call the coast station, change to the working channel, then give age, condition, what happened, what you carry and your ETA. If life is at risk, go to MAYDAY at once.' }
+    },
+
+    {
+      id: 'widerrufen', gruppe: 'Notverkehr', icon: '↩️', dauer: '3 Min.',
+      titel: { de: 'Fehlalarm widerrufen', en: 'Cancel a false alert' },
+      lage: { de: 'Beim Aufräumen hat ein Crewmitglied die rote Klappe erwischt – das Gerät hat um 12:30 Uhr einen DSC-Notalarm abgesetzt. Niemand ist in Gefahr. Jetzt zählt nur, dass die Rettungskräfte das sofort erfahren.', en: 'While tidying up, a crew member caught the red cover – the set sent a DSC distress alert at 12:30. Nobody is in danger. All that matters now is that the rescue services hear it straight away.' },
+      schritte: [
+        { typ: 'wahl', frage: { de: 'Was tust du als Erstes?', en: 'What do you do first?' },
+          optionen: [{ de: 'Den wiederholten Alarm am Gerät beenden – das Gerät bleibt an', en: 'Stop the repeating alert on the set – and leave the set switched on', ok: true },
+            { de: 'Das Funkgerät ausschalten', en: 'Switch the radio off' },
+            { de: 'Abwarten, ob sich jemand meldet', en: 'Wait and see whether anybody calls' },
+            { de: 'Die Marina anrufen', en: 'Call the marina' }],
+          erklaerung: { de: 'Ausschalten ist der häufigste Fehler: Der Alarm ist längst unterwegs, und ohne Gerät kannst du den Widerruf nicht aussprechen und die Rückfrage der Küstenfunkstelle nicht hören.', en: 'Switching off is the classic mistake: the alert is already out, and with the set off you can neither speak the cancellation nor hear the coast station call back.' } },
+        { typ: 'kanal', ziel: 16, start: 70,
+          hinweis: { de: 'Auf welchem Kanal sprichst du den Widerruf?', en: 'On which channel do you speak the cancellation?' },
+          erklaerung: { de: 'Der Alarm ging digital auf Kanal 70 hinaus, der Widerruf wird auf Kanal 16 gesprochen – mit voller Leistung, damit ihn alle hören, die den Alarm gesehen haben.', en: 'The alert went out digitally on channel 70; the cancellation is spoken on channel 16 – at high power, so everyone who saw the alert hears it.' } },
+        { typ: 'funkspruch', kanal: 16, lang: true,
+          hinweis: { de: 'Widerrufe den Notalarm – mit Kennung und der Uhrzeit der Fehlauslösung.', en: 'Cancel the distress alert – with your identity and the time of the false alert.' },
+          teile: [
+            { de: 'an alle Funkstellen, an alle Funkstellen, an alle Funkstellen', en: 'all stations, all stations, all stations' },
+            { de: 'hier ist Sailing X, Sailing X, Sailing X', en: 'this is Sailing X, Sailing X, Sailing X' },
+            { de: 'Rufzeichen OEX1234, MMSI 203123456', en: 'call sign OEX1234, MMSI 203123456' },
+            { de: 'ich widerrufe meinen Notalarm', en: 'cancel my distress alert' },
+            { de: 'ich wiederhole: ich widerrufe meinen Notalarm von 12:30 Uhr Ortszeit', en: 'I say again: cancel my distress alert of 12:30 local time' },
+            { de: 'der Alarm wurde versehentlich ausgelöst, an Bord ist alles in Ordnung', en: 'the alert was sent in error, all is well on board' },
+            { de: 'OUT', en: 'OUT' }
+          ],
+          stoerer: [
+            { de: 'MAYDAY – MAYDAY – MAYDAY', en: 'MAYDAY – MAYDAY – MAYDAY', warum: { de: 'Es ist kein Notfall – genau das willst du ja klarstellen.', en: 'There is no distress – that is exactly what you are clearing up.' } },
+            { de: 'OVER', en: 'OVER', warum: { de: 'Der Widerruf erwartet keine Antwort und endet mit OUT. Hörbereit bleibst du trotzdem.', en: 'The cancellation expects no reply and ends with OUT. You still keep listening.' } },
+            { de: 'SEELONCE MAYDAY', en: 'SEELONCE MAYDAY' }],
+          antwort: { de: 'Sailing X – hier ist Split Radio. Widerruf verstanden, Alarm von 12:30 Uhr gelöscht. Bitte bleiben Sie auf Kanal 16. Out.', en: 'Sailing X – this is Split Radio. Cancellation understood, alert of 12:30 cleared. Please remain on channel 16. Out.' } },
+        { typ: 'wahl', frage: { de: 'Was gilt für die nächsten Minuten?', en: 'What applies for the next few minutes?' },
+          optionen: [{ de: 'Auf Kanal 16 hörbereit bleiben – es kommt oft eine Rückfrage', en: 'Keep listening on channel 16 – a call back often follows', ok: true },
+            { de: 'Gerät ausschalten, die Sache ist erledigt', en: 'Switch the set off, the matter is closed' },
+            { de: 'Auf einen Arbeitskanal wechseln', en: 'Change to a working channel' },
+            { de: 'Den Widerruf alle zwei Minuten wiederholen', en: 'Repeat the cancellation every two minutes' }],
+          erklaerung: { de: 'Die Rettungsleitstelle will sich meist persönlich überzeugen und fragt nach Schiff, Position und Lage. Wer dann nicht antwortet, löst erst richtig eine Suche aus.', en: 'The rescue centre usually wants to make sure and will ask about vessel, position and situation. Not answering then is what really starts a search.' } },
+        { typ: 'wahl', frage: { de: 'Und wenn versehentlich die EPIRB angegangen ist?', en: 'And if the EPIRB has been set off by accident?' },
+          optionen: [{ de: 'Ausschalten und sofort die nächste Küstenwache anrufen', en: 'Switch it off and call the nearest coastguard at once', ok: true },
+            { de: 'Nur ausschalten, das genügt', en: 'Just switch it off, that is enough' },
+            { de: 'In eine Metalldose legen', en: 'Put it in a metal tin' },
+            { de: 'Laufen lassen, sie schaltet sich selbst ab', en: 'Let it run, it stops by itself' }],
+          erklaerung: { de: 'Das Signal ist über Satellit längst in einer Leitstelle angekommen. Ausschalten allein beendet die Suche nicht – es braucht den Anruf, der sagt: Fehlalarm.', en: 'The signal has long since reached a rescue centre by satellite. Switching off alone does not end the search – it takes the call that says: false alert.' } }
+      ],
+      merke: { de: 'Fehlalarm: Gerät an lassen, Alarm beenden, auf Kanal 16 an alle Funkstellen widerrufen – mit Kennung und Uhrzeit – und hörbereit bleiben. Dasselbe gilt für EPIRB: ausschalten und anrufen.', en: 'False alert: leave the set on, stop the alert, cancel on channel 16 to all stations – with identity and time – and keep listening. The same for an EPIRB: switch off and phone in.' }
+    },
+
+    {
+      id: 'gmdss', gruppe: 'Geräte & GMDSS', icon: '🛰️', dauer: '3 Min.',
+      titel: { de: 'GMDSS verstehen', en: 'Understanding GMDSS' },
+      lage: { de: 'Sechs Fragen dazu, wie der Notruf vom Schiff bis zur Rettungsleitstelle kommt – und welches Gerät dabei welche Aufgabe hat.', en: 'Six questions on how a distress call travels from the boat to the rescue centre – and what each device does along the way.' },
+      schritte: [
+        { typ: 'wahl', frage: { de: 'Wofür steht GMDSS?', en: 'What does GMDSS stand for?' },
+          optionen: [{ de: 'Weltweites Seenot- und Sicherheitsfunksystem', en: 'Global Maritime Distress and Safety System', ok: true },
+            { de: 'Ein Satellitentelefonnetz', en: 'A satellite telephone network' },
+            { de: 'Die Kanalliste des Seefunks', en: 'The channel list of the marine band' },
+            { de: 'Eine Wetterdatenbank', en: 'A weather database' }],
+          erklaerung: { de: 'Das GMDSS verbindet DSC, NAVTEX, Satellitenfunk, EPIRB, SART und Sprechfunk zu einem System, in dem ein Notruf automatisch bei einer Leitstelle landet.', en: 'GMDSS ties DSC, NAVTEX, satellite communications, EPIRB, SART and voice radio into one system in which a distress call automatically reaches a rescue centre.' } },
+        { typ: 'wahl', frage: { de: 'In welchem Seegebiet segelst du mit UKW und DSC an der kroatischen Küste?', en: 'Which sea area are you in with VHF and DSC along the Croatian coast?' },
+          optionen: [{ de: 'A1', en: 'A1', ok: true }, { de: 'A2', en: 'A2' }, { de: 'A3', en: 'A3' }, { de: 'A4', en: 'A4' }],
+          erklaerung: { de: 'A1 ist die Reichweite einer UKW-Küstenfunkstelle mit DSC, etwa 20 bis 30 sm. A2 ist Grenzwelle, A3 Satellit, A4 die Polargebiete mit Kurzwelle.', en: 'A1 is within range of a VHF coast station with DSC, roughly 20 to 30 miles. A2 is MF, A3 satellite, A4 the polar regions on HF.' } },
+        { typ: 'wahl', frage: { de: 'Was liefert NAVTEX?', en: 'What does NAVTEX provide?' },
+          optionen: [{ de: 'Textmeldungen: Wetter, Warnungen, Hinweise zu Notfällen', en: 'Text messages: weather, warnings and notices of distress incidents', ok: true },
+            { de: 'Sprechverbindungen mit der Küstenfunkstelle', en: 'Voice contact with the coast station' },
+            { de: 'Die Positionen aller Schiffe in der Nähe', en: 'The positions of all vessels nearby' },
+            { de: 'Seekarten zum Herunterladen', en: 'Charts to download' }],
+          erklaerung: { de: 'NAVTEX empfängt nur – rund 300 sm weit, auf 518 kHz international auf Englisch, auf 490 kHz national in der Landessprache.', en: 'NAVTEX only receives – about 300 miles, on 518 kHz internationally in English and on 490 kHz nationally in the local language.' } },
+        { typ: 'wahl', frage: { de: 'Was kann AIS nicht?', en: 'What can AIS not do?' },
+          optionen: [{ de: 'Fahrzeuge zeigen, die selbst kein AIS senden', en: 'Show vessels that do not transmit AIS themselves', ok: true },
+            { de: 'Namen und MMSI eines Frachters anzeigen', en: 'Show a freighter’s name and MMSI' },
+            { de: 'Kurs und Geschwindigkeit anzeigen', en: 'Show course and speed' },
+            { de: 'Ein Notsignal einer Rettungsinsel anzeigen', en: 'Show a distress signal from a liferaft' }],
+          erklaerung: { de: 'AIS zeigt nur, wer selbst sendet. Land, Netze, Treibgut und die Yacht ohne Transponder bleiben unsichtbar – deshalb ersetzt AIS kein Radar und keinen Ausguck.', en: 'AIS shows only those who transmit. Land, nets, flotsam and the yacht without a transponder stay invisible – which is why AIS replaces neither radar nor a lookout.' } },
+        { typ: 'wahl', frage: { de: 'Wer leitet im Notfall die Rettung?', en: 'Who coordinates a rescue?' },
+          optionen: [{ de: 'Die MRCC – die Rettungsleitstelle', en: 'The MRCC – the rescue coordination centre', ok: true },
+            { de: 'Die Marina des Zielhafens', en: 'The marina you were heading for' },
+            { de: 'Das nächste Schiff', en: 'The nearest vessel' },
+            { de: 'Der Charterbetrieb', en: 'The charter company' }],
+          erklaerung: { de: 'Die MRCC nimmt den Notruf an, leitet den Notverkehr und entscheidet, welche Einheiten auslaufen. Das nächste Schiff hilft – geführt wird aus der Leitstelle.', en: 'The MRCC receives the call, controls distress traffic and decides which units are sent. The nearest vessel helps – but the centre is in charge.' } },
+        { typ: 'wahl', frage: { de: 'Warum ist das Handy kein Notrufmittel?', en: 'Why is a mobile phone no substitute for radio?' },
+          optionen: [{ de: 'Es erreicht nur eine Stelle – nicht die Schiffe in der Nähe', en: 'It reaches one place only – not the vessels nearby', ok: true },
+            { de: 'Weil es verboten ist', en: 'Because it is forbidden' },
+            { de: 'Weil es keine Nummern für Rettungsleitstellen gibt', en: 'Because there are no numbers for rescue centres' },
+            { de: 'Weil es auf See immer Netz hat', en: 'Because it always has coverage at sea' }],
+          erklaerung: { de: 'Beim Funk hören alle mit, die helfen könnten. Das Handy hängt an Netz und Akku und bleibt eine gute Rückfallebene – die Nummern der Leitstellen gehören trotzdem eingespeichert.', en: 'On radio everyone who could help is listening. A phone depends on coverage and battery and stays a good backup – the rescue centre numbers belong in it all the same.' } }
+      ],
+      merke: { de: 'GMDSS heißt: Der Notruf findet selbst den Weg zur Leitstelle. In Küstennähe (A1) trägt UKW mit DSC, NAVTEX liefert Text, AIS zeigt nur, wer sendet, und geleitet wird aus der MRCC.', en: 'GMDSS means the distress call finds its own way to the rescue centre. Near the coast (A1) VHF with DSC carries it, NAVTEX brings text, AIS shows only those who transmit, and the MRCC is in charge.' }
+    },
+
+    {
+      id: 'notgeraete', gruppe: 'Geräte & GMDSS', icon: '🧭', dauer: '3 Min.',
+      titel: { de: 'EPIRB, SART und PLB', en: 'EPIRB, SART and PLB' },
+      lage: { de: 'Fünf Fragen zu den Geräten, die dafür sorgen, dass dich jemand findet.', en: 'Five questions on the devices that make sure somebody finds you.' },
+      schritte: [
+        { typ: 'wahl', frage: { de: 'Auf welchem Weg wird eine EPIRB geortet?', en: 'How is an EPIRB located?' },
+          optionen: [{ de: 'Über Satelliten auf 406 MHz', en: 'By satellites on 406 MHz', ok: true },
+            { de: 'Über Kanal 70', en: 'On channel 70' },
+            { de: 'Über das Mobilfunknetz', en: 'Through the mobile network' },
+            { de: 'Über das Radar der Schiffe in der Nähe', en: 'By the radar of nearby vessels' }],
+          erklaerung: { de: 'Die EPIRB sendet auf 406 MHz an die COSPAS-SARSAT-Satelliten – unabhängig von Funkreichweite. Viele Baken peilen zusätzlich auf 121,5 MHz für die letzten Meter.', en: 'The EPIRB transmits on 406 MHz to the COSPAS-SARSAT satellites – independent of radio range. Many also home on 121.5 MHz for the final approach.' } },
+        { typ: 'wahl', frage: { de: 'Warum muss eine EPIRB registriert sein?', en: 'Why must an EPIRB be registered?' },
+          optionen: [{ de: 'Damit die Leitstelle weiß, welches Schiff ruft und wen sie erreichen kann', en: 'So the rescue centre knows which vessel is calling and whom to contact', ok: true },
+            { de: 'Aus Gewährleistungsgründen', en: 'For warranty reasons' },
+            { de: 'Damit sie auf Kanal 16 hörbar wird', en: 'So it can be heard on channel 16' },
+            { de: 'Damit sie zollfrei bleibt', en: 'To keep it duty-free' }],
+          erklaerung: { de: 'Registriert wird beim Register des Flaggenstaats. Ohne Registrierung kommt nur ein anonymes Signal an – das kostet Zeit, die im Notfall fehlt.', en: 'Registration goes to the flag state’s registry. Without it only an anonymous signal arrives – and that costs time you do not have.' } },
+        { typ: 'wahl', frage: { de: 'Was sieht der Retter auf dem Radarschirm, wenn ein Radar-SART antwortet?', en: 'What does a rescuer see on the radar screen when a radar SART responds?' },
+          optionen: [{ de: 'Bis zu zwölf Punkte, die näher dran zu Bögen und Kreisen werden', en: 'Up to twelve dots that turn into arcs and then circles as he closes in', ok: true },
+            { de: 'Einen Kreis mit Kreuz', en: 'A circle with a cross' },
+            { de: 'Die genaue GPS-Position mit Kennung', en: 'The exact GPS position with an identity' },
+            { de: 'Nichts – der SART arbeitet nur über Satellit', en: 'Nothing – a SART works via satellite only' }],
+          erklaerung: { de: 'Der Radar-SART antwortet auf den Radarstrahl: erst eine Punktreihe, dann Bögen, ganz nah Kreise. Der Kreis mit Kreuz auf dem Plotter dagegen ist das Symbol des AIS-SART.', en: 'A radar SART replies to the radar beam: first a line of dots, then arcs, and circles very close in. The circle with a cross on the plotter is the AIS SART symbol.' } },
+        { typ: 'wahl', frage: { de: 'Welchen Vorteil hat der AIS-SART gegenüber dem Radar-SART?', en: 'What is the advantage of an AIS SART over a radar SART?' },
+          optionen: [{ de: 'Er sendet die eigene GPS-Position, die man direkt ansteuern kann', en: 'It transmits its own GPS position, which can be steered to directly', ok: true },
+            { de: 'Er reicht viel weiter zum Suchflugzeug', en: 'It reaches a search aircraft much further out' },
+            { de: 'Er braucht keinen Empfänger beim Retter', en: 'The rescuer needs no receiver at all' },
+            { de: 'Er funktioniert mit jedem Radar', en: 'It works with any radar' }],
+          erklaerung: { de: 'Der AIS-SART liefert Position, Kurs und Abstand und ist bei Regen und hoher See robuster. Dafür funktioniert der Radar-SART mit jedem X-Band-Radar und wird vom Suchflugzeug weiter gesehen.', en: 'The AIS SART gives position, course and range and is more robust in rain and heavy seas. The radar SART, in turn, works with any X-band radar and is seen further out by a search aircraft.' } },
+        { typ: 'wahl', frage: { de: 'Auf dem Plotter erscheint eine AIS-Kennung, die mit 972 beginnt. Was bedeutet das?', en: 'An AIS identity beginning with 972 appears on the plotter. What does it mean?' },
+          optionen: [{ de: 'Ein Mann-über-Bord-Sender ist aktiv', en: 'A man-overboard beacon is active', ok: true },
+            { de: 'Eine Küstenfunkstelle ruft', en: 'A coast station is calling' },
+            { de: 'Ein Schiff aus Slowenien', en: 'A vessel from Slovenia' },
+            { de: 'Ein virtuelles Seezeichen', en: 'A virtual navigation mark' }],
+          erklaerung: { de: '970 ist ein AIS-SART, 972 ein Mann-über-Bord-Sender, 974 eine AIS-EPIRB. Jede dieser Kennungen ist ein Notfall: Position notieren, Kurs darauf, Küstenwache informieren.', en: '970 is an AIS SART, 972 a man-overboard beacon, 974 an AIS EPIRB. Every one of them is a distress case: note the position, head for it, inform the coastguard.' } }
+      ],
+      merke: { de: 'EPIRB ortet über Satellit und muss registriert sein; der Radar-SART malt Punkte, Bögen und Kreise auf den Radarschirm, der AIS-SART eine echte Position auf den Plotter. Kennungen mit 970, 972 oder 974 sind immer ein Notfall.', en: 'An EPIRB is located by satellite and must be registered; a radar SART paints dots, arcs and circles on the radar screen, an AIS SART a real position on the plotter. Identities starting 970, 972 or 974 always mean distress.' }
     }
   ];
 
-  return { SCHIFF: SCHIFF, ABC: ABC, THEORIE: THEORIE, EINHEITEN: EINHEITEN };
+  return { SCHIFF: SCHIFF, ABC: ABC, THEORIE: THEORIE, VOKABELN: VOKABELN, EINHEITEN: EINHEITEN };
 })();

@@ -45,6 +45,202 @@
   }
   window.addEventListener('hashchange', reiter);
 
+  /* ======================= Eigene Grafiken =======================
+     Alle Zeichnungen sind als SVG hier im Code entstanden – keine
+     fremden Bilder, keine eingebetteten Dateien.
+  ================================================================ */
+  var F = {
+    navy: '#173746', akzent: '#2289c6', wasser: '#cfe3ef', hell: '#e7f1f7',
+    linie: '#9fb6c2', sand: '#efe7d8', land: '#dcd2bd',
+    not: '#b53229', dring: '#d98014', sich: '#2289c6', ok: '#1d8a5a'
+  };
+  function svgRahmen(vb, inhalt) {
+    return '<svg class="fk-svg" viewBox="' + vb + '" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
+      + '<defs>'
+      + '<marker id="fkPfeil" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
+      + '<path d="M0,0 L10,5 L0,10 z" fill="' + F.navy + '"/></marker>'
+      + '</defs>' + inhalt + '</svg>';
+  }
+  function t(x, y, s, cls) { return '<text x="' + x + '" y="' + y + '" class="' + (cls || 'tx') + '">' + s + '</text>'; }
+  function kasten(x, y, w, h, fuell, rand) {
+    return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="10" fill="' + fuell + '"'
+      + (rand ? ' stroke="' + rand + '" stroke-width="1.5"' : '') + '/>';
+  }
+  function jacht(x, y, mast) {
+    // Rumpf, Mast und Antenne – schematisch
+    var s = '<path d="M' + (x - 22) + ',' + y + ' L' + (x + 22) + ',' + y + ' L' + (x + 14) + ',' + (y + 10) + ' L' + (x - 14) + ',' + (y + 10) + ' Z" fill="' + F.navy + '"/>';
+    s += '<line x1="' + x + '" y1="' + y + '" x2="' + x + '" y2="' + (y - mast) + '" stroke="' + F.navy + '" stroke-width="2.5"/>';
+    s += '<path d="M' + (x + 2) + ',' + (y - mast + 8) + ' L' + (x + 2) + ',' + (y - 4) + ' L' + (x + 26) + ',' + (y - 4) + ' Z" fill="' + F.akzent + '" opacity=".35"/>';
+    s += '<circle cx="' + x + '" cy="' + (y - mast) + '" r="4" fill="' + F.akzent + '"/>';
+    return s;
+  }
+  function turm(x, y, h) {
+    var s = '<path d="M' + (x - 14) + ',' + y + ' L' + (x - 5) + ',' + (y - h) + ' L' + (x + 5) + ',' + (y - h) + ' L' + (x + 14) + ',' + y + ' Z" fill="none" stroke="' + F.navy + '" stroke-width="2.5"/>';
+    s += '<line x1="' + (x - 10) + '" y1="' + (y - h * 0.45) + '" x2="' + (x + 10) + '" y2="' + (y - h * 0.45) + '" stroke="' + F.navy + '" stroke-width="1.5"/>';
+    s += '<circle cx="' + x + '" cy="' + (y - h - 6) + '" r="4.5" fill="' + F.akzent + '"/>';
+    s += '<line x1="' + x + '" y1="' + (y - h) + '" x2="' + x + '" y2="' + (y - h - 6) + '" stroke="' + F.navy + '" stroke-width="2"/>';
+    return s;
+  }
+
+  var GRAFIK = {
+
+    /* Reichweite: nicht die Watt, die Antennenhöhe entscheidet */
+    reichweite: function () {
+      var s = '';
+      s += '<path d="M0,210 Q310,150 620,210 L620,250 L0,250 Z" fill="' + F.wasser + '"/>';
+      s += '<path d="M0,210 Q310,150 620,210" fill="none" stroke="' + F.akzent + '" stroke-width="2"/>';
+      s += '<path d="M0,250 L0,215 Q30,208 60,206 L60,250 Z" fill="' + F.land + '"/>';
+      s += '<path d="M560,250 L560,205 Q590,208 620,215 L620,250 Z" fill="' + F.land + '"/>';
+      s += jacht(95, 196, 118);
+      s += turm(520, 196, 120);
+      s += '<line x1="95" y1="78" x2="520" y2="70" stroke="' + F.akzent + '" stroke-width="2" stroke-dasharray="7 5"/>';
+      s += t(205, 60, 'Masttopp-Antenne, 25 W', 'tx b');
+      s += t(205, 44, 'bis etwa 60 sm zur Küstenfunkstelle', 'tx sm');
+      s += '<circle cx="118" cy="188" r="4" fill="' + F.dring + '"/>';
+      s += '<line x1="122" y1="188" x2="330" y2="179" stroke="' + F.dring + '" stroke-width="2" stroke-dasharray="4 4"/>';
+      s += '<line x1="330" y1="172" x2="330" y2="186" stroke="' + F.dring + '" stroke-width="2"/>';
+      s += t(150, 152, 'Handfunke 5 W auf Augenhöhe', 'tx b');
+      s += t(150, 167, 'nur wenige Seemeilen – der Horizont', 'tx sm');
+      s += t(345, 182, 'Horizont', 'tx sm');
+      s += t(470, 232, 'Küstenfunkstelle', 'tx sm');
+      return svgRahmen('0 0 620 250', s);
+    },
+
+    /* Simplex und Duplex */
+    simplex: function () {
+      var s = '';
+      s += t(14, 22, 'Simplex – eine Frequenz, abwechselnd', 'tx b');
+      s += kasten(14, 34, 150, 52, F.hell, F.linie) + t(89, 65, 'Sailing X', 'tx mid');
+      s += kasten(456, 34, 150, 52, F.hell, F.linie) + t(531, 65, 'Alberta', 'tx mid');
+      s += '<line x1="176" y1="60" x2="444" y2="60" stroke="' + F.navy + '" stroke-width="2" marker-start="url(#fkPfeil)" marker-end="url(#fkPfeil)"/>';
+      s += t(310, 50, 'eine Frequenz', 'tx mid sm');
+      s += t(310, 80, 'Kanal 16, 06, 08, 13, 67, 72, 77', 'tx mid sm');
+
+      s += t(14, 124, 'Duplex – zwei Frequenzen gleichzeitig', 'tx b');
+      s += kasten(14, 136, 150, 72, F.hell, F.linie) + t(89, 178, 'Sailing X', 'tx mid');
+      s += kasten(456, 136, 150, 72, F.hell, F.linie) + t(531, 168, 'Küstenfunk-', 'tx mid') + t(531, 186, 'stelle', 'tx mid');
+      s += '<line x1="176" y1="158" x2="444" y2="158" stroke="' + F.akzent + '" stroke-width="2" marker-end="url(#fkPfeil)"/>';
+      s += t(310, 150, 'Frequenz 1 – du sendest', 'tx mid sm');
+      s += '<line x1="444" y1="190" x2="176" y2="190" stroke="' + F.ok + '" stroke-width="2" marker-end="url(#fkPfeil)"/>';
+      s += t(310, 206, 'Frequenz 2 – du hörst', 'tx mid sm');
+      s += t(310, 232, 'Zwei Yachten können auf einem Duplexkanal nicht miteinander sprechen.', 'tx mid sm');
+      return svgRahmen('0 0 620 244', s);
+    },
+
+    /* Die drei Stufen */
+    stufen: function () {
+      var reihen = [
+        ['MAYDAY', F.not, 'Not · unmittelbare Gefahr für Schiff oder Leben', 'Kanal 16 · der Schiffsführer ordnet an'],
+        ['PAN PAN', F.dring, 'Dringlichkeit · Hilfe nötig, keine akute Gefahr', 'Kanal 16 · auch funkärztliche Beratung'],
+        ['SÉCURITÉ', F.sich, 'Sicherheit · Warnung für die Schifffahrt', 'auf 16 ankündigen, auf Arbeitskanal durchgeben']
+      ], s = '';
+      s += '<line x1="18" y1="26" x2="18" y2="196" stroke="' + F.linie + '" stroke-width="2" marker-end="url(#fkPfeil)"/>';
+      s += '<text x="12" y="112" class="tx sm" transform="rotate(-90 12 112)" text-anchor="middle">Vorrang</text>';
+      reihen.forEach(function (r, i) {
+        var y = 20 + i * 62;
+        s += kasten(34, y, 150, 50, r[1], null);
+        s += '<text x="109" y="' + (y + 31) + '" class="tx mid stufe">' + r[0] + '</text>';
+        s += t(200, y + 22, r[2], 'tx b');
+        s += t(200, y + 40, r[3], 'tx sm');
+      });
+      return svgRahmen('0 0 620 206', s);
+    },
+
+    /* DSC-Notalarm: vier Schritte */
+    dscablauf: function () {
+      var schritte = [
+        ['Klappe auf, rote Taste halten', 'wenn Zeit bleibt: Art des Notfalls wählen'],
+        ['Kanal 70 – der Datensatz geht raus', 'MMSI, Art des Rufs, Position vom GPS'],
+        ['Die Leitstelle quittiert', 'andere Schiffe antworten per Sprechfunk'],
+        ['Kanal 16 – MAYDAY sprechen', 'das Gerät schaltet selbst um']
+      ], s = '', zeilen = schritte.map(function (sc) { return [umbruch(sc[0], 14), umbruch(sc[1], 17)]; });
+      var hoch = 0;
+      zeilen.forEach(function (z) { hoch = Math.max(hoch, 56 + z[0].length * 18 + 8 + z[1].length * 16); });
+      schritte.forEach(function (sc, i) {
+        var x = 10 + i * 152, z = zeilen[i];
+        s += kasten(x, 30, 140, hoch, i === 0 ? '#f7e3e0' : F.hell, F.linie);
+        s += '<circle cx="' + (x + 22) + '" cy="54" r="13" fill="' + (i === 0 ? F.not : F.navy) + '"/>';
+        s += '<text x="' + (x + 22) + '" y="59" class="tx mid nr">' + (i + 1) + '</text>';
+        z[0].forEach(function (zz, j) { s += t(x + 12, 88 + j * 18, zz, 'tx b'); });
+        z[1].forEach(function (zz, j) { s += t(x + 12, 88 + z[0].length * 18 + 10 + j * 16, zz, 'tx sm'); });
+        if (i < 3) s += '<line x1="' + (x + 142) + '" y1="' + (30 + hoch / 2) + '" x2="' + (x + 158) + '" y2="' + (30 + hoch / 2) + '" stroke="' + F.navy + '" stroke-width="2" marker-end="url(#fkPfeil)"/>';
+      });
+      return svgRahmen('0 0 620 ' + (hoch + 48), s);
+    },
+
+    /* Seegebiete A1 bis A4 */
+    gmdss: function () {
+      var g = [
+        ['A1', '#cfe3ef', ['UKW mit DSC', 'rund 20–30 sm', 'unser Revier']],
+        ['A2', '#b7d6e7', ['Grenzwelle', 'bis etwa 150 sm']],
+        ['A3', '#93bcd4', ['Satellit', 'etwa 70° N bis 70° S']],
+        ['A4', '#6f9cb8', ['Kurzwelle', 'Polargebiete']]
+      ], s = '', x = 56;
+      s += '<path d="M0,0 L56,0 Q44,110 56,230 L0,230 Z" fill="' + F.land + '"/>';
+      g.forEach(function (b, i) {
+        var w = i === 0 ? 120 : 148;
+        s += '<rect x="' + x + '" y="0" width="' + w + '" height="230" fill="' + b[1] + '"/>';
+        s += '<text x="' + (x + w / 2) + '" y="40" class="tx mid gross">' + b[0] + '</text>';
+        b[2].forEach(function (z, j) { s += '<text x="' + (x + w / 2) + '" y="' + (66 + j * 17) + '" class="tx mid band">' + z + '</text>'; });
+        x += w;
+      });
+      s += turm(28, 206, 86);
+      s += jacht(118, 196, 54);
+      s += t(14, 226, 'Küste', 'tx sm');
+      return svgRahmen('0 0 620 230', s);
+    },
+
+    /* SART: Punkte, Bögen, Kreise – und das AIS-Symbol */
+    sart: function () {
+      var s = '', mitten = [[72, 'Punkte', 'weit entfernt'], [196, 'Bögen', 'näher dran'], [320, 'Kreise', 'sehr nah']];
+      mitten.forEach(function (m, k) {
+        var cx = m[0], cy = 92, r = 54;
+        s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="#11242d"/>';
+        s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (r * 0.55) + '" fill="none" stroke="#2f5566" stroke-width="1"/>';
+        s += '<line x1="' + cx + '" y1="' + (cy - r) + '" x2="' + cx + '" y2="' + (cy + r) + '" stroke="#2f5566" stroke-width="1"/>';
+        s += '<line x1="' + (cx - r) + '" y1="' + cy + '" x2="' + (cx + r) + '" y2="' + cy + '" stroke="#2f5566" stroke-width="1"/>';
+        var i, a = -0.9;
+        for (i = 0; i < 12; i++) {
+          var d = 8 + i * 4.0;
+          var px = cx + Math.cos(a) * d, py = cy + Math.sin(a) * d;
+          if (k === 0) s += '<circle cx="' + px.toFixed(1) + '" cy="' + py.toFixed(1) + '" r="2.4" fill="#58d68d"/>';
+          else if (k === 1) s += '<path d="' + bogen(cx, cy, d, a, 0.5) + '" fill="none" stroke="#58d68d" stroke-width="2.2"/>';
+          else s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + d.toFixed(1) + '" fill="none" stroke="#58d68d" stroke-width="1.4" opacity="' + (0.35 + i * 0.05).toFixed(2) + '"/>';
+        }
+        s += '<circle cx="' + cx + '" cy="' + cy + '" r="3" fill="#f5f7f8"/>';
+        s += '<text x="' + cx + '" y="172" class="tx mid b">' + m[1] + '</text>';
+        s += '<text x="' + cx + '" y="188" class="tx mid sm">' + m[2] + '</text>';
+      });
+      s += t(72, 24, 'Radar-SART auf dem Radarschirm', 'tx b');
+      s += kasten(400, 38, 208, 108, '#e9f3ea', F.linie);
+      var i2;
+      for (i2 = 1; i2 < 4; i2++) s += '<line x1="' + (400 + i2 * 52) + '" y1="38" x2="' + (400 + i2 * 52) + '" y2="146" stroke="#cfe0d2" stroke-width="1"/>';
+      for (i2 = 1; i2 < 3; i2++) s += '<line x1="400" y1="' + (38 + i2 * 36) + '" x2="608" y2="' + (38 + i2 * 36) + '" stroke="#cfe0d2" stroke-width="1"/>';
+      s += '<circle cx="504" cy="92" r="16" fill="none" stroke="' + F.not + '" stroke-width="3"/>';
+      s += '<line x1="493" y1="81" x2="515" y2="103" stroke="' + F.not + '" stroke-width="3"/>';
+      s += '<line x1="515" y1="81" x2="493" y2="103" stroke="' + F.not + '" stroke-width="3"/>';
+      s += t(504, 24, 'AIS-SART auf dem Plotter', 'tx mid b');
+      s += t(504, 172, 'Symbol mit echter Position', 'tx mid b');
+      s += t(504, 188, 'Kurs und Abstand ablesbar', 'tx mid sm');
+      return svgRahmen('0 0 620 200', s);
+    }
+  };
+  function bogen(cx, cy, r, mitte, breite) {
+    var a1 = mitte - breite / 2, a2 = mitte + breite / 2;
+    return 'M' + (cx + Math.cos(a1) * r).toFixed(1) + ',' + (cy + Math.sin(a1) * r).toFixed(1)
+      + ' A' + r.toFixed(1) + ',' + r.toFixed(1) + ' 0 0 1 '
+      + (cx + Math.cos(a2) * r).toFixed(1) + ',' + (cy + Math.sin(a2) * r).toFixed(1);
+  }
+  function umbruch(s, n) {
+    var w = String(s).split(' '), z = [], akt = '';
+    w.forEach(function (x) {
+      if ((akt + ' ' + x).trim().length > n) { if (akt) z.push(akt); akt = x; }
+      else akt = (akt ? akt + ' ' : '') + x;
+    });
+    if (akt) z.push(akt);
+    return z;
+  }
+
   /* ======================= Theorie ======================= */
   function theorieZeichnen() {
     var box = $('fkTheorie'); box.innerHTML = '';
@@ -69,8 +265,24 @@
         }
         if (b.abc) {
           var g = el('div', 'fk-abc');
-          D.ABC.forEach(function (p) { var s = el('span'); s.appendChild(el('b', null, p[0])); s.appendChild(el('span', null, p[1])); g.appendChild(s); });
+          D.ABC.forEach(function (p) {
+            var s = el('span');
+            s.appendChild(el('b', null, p[0]));
+            s.appendChild(el('span', null, p[1]));
+            if (p[2]) s.appendChild(el('i', null, p[2]));
+            g.appendChild(s);
+          });
           k.appendChild(g);
+        }
+        if (b.grafik && GRAFIK[b.grafik]) {
+          var fig = el('figure', 'fk-grafik');
+          var huelle = el('div', 'fk-svg-box');
+          huelle.innerHTML = GRAFIK[b.grafik]();
+          fig.appendChild(huelle);
+          if (b.legende) fig.appendChild(el('figcaption', null, b.legende));
+          k.appendChild(fig);
+        } else if (b.legende && !b.grafik) {
+          k.appendChild(el('p', 'fk-legende', b.legende));
         }
       });
       if (t.uebung) {
@@ -79,6 +291,41 @@
         k.appendChild(r);
       }
       box.appendChild(k);
+    });
+  }
+
+  /* ======================= Vokabel-Einheit =======================
+     Die Schritte werden bei jedem Start neu zusammengestellt.
+  ================================================================ */
+  function vokabelSchritte(anzahl) {
+    var alle = D.VOKABELN || [];
+    if (!alle.length) return [];
+    return mischen(alle).slice(0, anzahl).map(function (v) {
+      var gleiche = alle.filter(function (x) { return x !== v && x.gruppe === v.gruppe; });
+      var ablenker = mischen(gleiche).slice(0, 3);
+      while (ablenker.length < 3) {
+        var z = alle[Math.floor(Math.random() * alle.length)];
+        if (z !== v && ablenker.indexOf(z) < 0) ablenker.push(z);
+      }
+      return {
+        typ: 'wahl',
+        frage: {
+          de: '„' + v.de + '“ – wie sagst du das auf Englisch?',
+          en: '“' + v.en + '” – what does that mean in German?'
+        },
+        optionen: [{ de: v.en, en: v.de, ok: true }].concat(ablenker.map(function (x) {
+          return { de: x.en, en: x.de };
+        })),
+        erklaerung: {
+          de: '<b>' + v.en + '</b> = ' + v.de + ' · ' + v.gruppe,
+          en: '<b>' + v.de + '</b> = ' + v.en + ' · ' + v.gruppe
+        }
+      };
+    });
+  }
+  function generatorenFuellen(nurId) {
+    D.EINHEITEN.forEach(function (e) {
+      if (e.generator === 'vokabel' && (!nurId || e.id === nurId)) e.schritte = vokabelSchritte(e.anzahl || 8);
     });
   }
 
@@ -145,6 +392,7 @@
     var e = null;
     D.EINHEITEN.forEach(function (x) { if (x.id === id) e = x; });
     if (!e) return;
+    if (e.generator) generatorenFuellen(e.id);
     if (sprache) { st.sprache = sprache; sichern(); spracheZeigen(); }
     U = { e: e, i: 0, fehler: 0, start: Date.now(), sp: st.sprache };
     $('fk-liste').hidden = true; $('fk-uebung').hidden = false;
@@ -418,5 +666,5 @@
   $('tonSchalter').onclick = function () { st.ton = !st.ton; if (!st.ton) stillLegen(); sichern(); tonZeigen(); };
 
   /* ======================= Start ======================= */
-  spracheZeigen(); tonZeigen(); kanalZeigen(); theorieZeichnen(); listeZeichnen(); reiter();
+  generatorenFuellen(); spracheZeigen(); tonZeigen(); kanalZeigen(); theorieZeichnen(); listeZeichnen(); reiter();
 })();
