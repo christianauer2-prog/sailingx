@@ -4,17 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sailing X - Coaching mit Wirkung auf See</title>
+    <meta name="description" content="Sailing X verbindet Segeln in Kroatien mit professionellem Coaching für Führungskräfte und Teams: Raum, Zeit und Entwicklung auf See.">
+    <link rel="preload" as="image" href="images/hero-sonnenuntergang.jpg">
     <style>
         * {
-            margin: 0; 
+            margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
         }
 
         /* Header */
@@ -37,8 +49,21 @@
             align-items: center;
         }
 
-        .logo {
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand img {
             height: 50px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .brand span {
+            font-size: 1rem;
+            letter-spacing: 1px;
         }
 
         nav a {
@@ -55,23 +80,33 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #4a90a4 0%, #5ba3b5 50%, #6bb5c7 100%);
-            color: white;
-            padding: 150px 2rem 100px;
+            position: relative;
+            margin-top: 82px;
+            min-height: calc(100vh - 82px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
             text-align: center;
-            margin-top: 70px;
+            color: white;
+            padding: 12vh 2rem 4rem;
+            background:
+                linear-gradient(180deg, rgba(15,35,50,0.55) 0%, rgba(15,35,50,0.25) 45%, rgba(15,35,50,0.15) 70%, rgba(15,35,50,0.45) 100%),
+                url('images/hero-sonnenuntergang.jpg') center 60% / cover no-repeat;
         }
 
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 700;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.35);
         }
 
         .hero p {
             font-size: 1.5rem;
             margin-bottom: 2rem;
-            opacity: 0.95;
+            max-width: 850px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
         }
 
         .cta-button {
@@ -117,43 +152,48 @@
             margin-right: auto;
         }
 
-        /* Image Gallery */
-        .gallery {
-            background: white;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 50px;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            aspect-ratio: 4/3;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-
-        .gallery-item img {
+        .band {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
         }
 
-        /* Programs Section */
-        .programs {
+        .band-light {
             background: #f8f9fa;
         }
 
+        /* Konzept */
+        .concept-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .concept-grid .concept-text p {
+            text-align: left;
+            margin-left: 0;
+        }
+
+        .photo {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .concept-photo {
+            aspect-ratio: 16 / 11;
+        }
+
+        .concept-photo img {
+            object-position: 25% center;
+        }
+
+        /* Programs Section */
         .programs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -163,14 +203,31 @@
 
         .program-card {
             background: white;
-            padding: 40px 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .program-card:hover {
             transform: translateY(-10px);
+        }
+
+        .program-image {
+            aspect-ratio: 2.2 / 1;
+            overflow: hidden;
+        }
+
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .program-body {
+            padding: 30px 30px 40px;
         }
 
         .program-card h3 {
@@ -199,8 +256,15 @@
         }
 
         /* USPs Section */
-        .usps {
-            background: white;
+        .usps-band {
+            background:
+                linear-gradient(180deg, rgba(15,35,50,0.55) 0%, rgba(15,35,50,0.45) 100%),
+                url('images/segeln-inseln.jpg') center 45% / cover no-repeat;
+        }
+
+        .usps-band .section h2 {
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .usps-grid {
@@ -211,10 +275,11 @@
         }
 
         .usp-card {
-            background: #f8f9fa;
+            background: rgba(255,255,255,0.92);
             padding: 30px;
             border-radius: 10px;
             text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         .usp-card h3 {
@@ -223,9 +288,77 @@
             color: #2c3e50;
         }
 
-        /* Details Section */
-        .details {
+        .usp-card p {
+            margin-bottom: 0;
+        }
+
+        /* Referenzen */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial {
             background: #f8f9fa;
+            border-radius: 10px;
+            padding: 35px 30px 30px;
+            border-top: 4px solid #4a90a4;
+        }
+
+        .testimonial blockquote {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial blockquote::before {
+            content: "„";
+            font-size: 2.5rem;
+            line-height: 0;
+            color: #f5a623;
+            margin-right: 4px;
+            vertical-align: -0.4em;
+            font-style: normal;
+        }
+
+        .testimonial cite {
+            font-style: normal;
+            font-weight: 600;
+            color: #2c3e50;
+            display: block;
+        }
+
+        .testimonial cite span {
+            display: block;
+            font-weight: 400;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Details Section */
+        .onboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 10px 0 60px;
+        }
+
+        .onboard-grid figure {
+            margin: 0;
+        }
+
+        .onboard-grid .photo {
+            aspect-ratio: 16 / 10;
+        }
+
+        .onboard-grid figcaption {
+            text-align: center;
+            margin-top: 10px;
+            color: #4a90a4;
+            font-weight: 600;
         }
 
         .details-content {
@@ -252,6 +385,7 @@
         }
 
         .cta-section h2 {
+            font-size: 2.5rem;
             color: white;
             margin-bottom: 1.5rem;
         }
@@ -265,7 +399,19 @@
         }
 
         /* Responsive */
+        @media (max-width: 900px) {
+            .concept-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
         @media (max-width: 768px) {
+            .hero {
+                min-height: 75vh;
+                padding-top: 10vh;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
@@ -278,7 +424,16 @@
                 display: none;
             }
 
-            .gallery-grid {
+            .section {
+                padding: 60px 1rem;
+            }
+
+            .section h2,
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .onboard-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -288,15 +443,12 @@
 
     <header>
         <div class="header-content">
-            <div>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <img src="logo.png" alt="Sailing X Logo" style="height: 50px; margin-right: 10px;">
-                    <span style="font-size: 1.0rem; letter-spacing: 1px;">Ein Segelerlebnis das belebt</span>
-                </div>
+            <div class="brand">
+                <img src="logo.png" alt="Sailing X Logo">
+                <span>Ein Segelerlebnis das belebt</span>
             </div>
             <nav>
                 <a href="#konzept">Konzept</a>
-                <a href="#galerie">Galerie</a>
                 <a href="#programme">Programme</a>
                 <a href="#details">Details</a>
                 <a href="academy/">Academy</a>
@@ -308,133 +460,167 @@
     <section class="hero">
         <h1>Nimm das Steuer selbst in die Hand</h1>
         <p>Wir geben dir und deinem Team Raum und die Chance euch weiter zu entwickeln, wie ihr es euch bisher nicht vorstellen konntet</p>
-        <a href="mailto:Christian.auer@leadingX.com" class="cta-button">Lerne uns persönlich kennen</a>
+        <a href="mailto:office@sailingx.at" class="cta-button">Lerne uns persönlich kennen</a>
     </section>
 
     <section class="section" id="konzept">
         <h2>Das Sailing X Konzept</h2>
-        <p>
-            Was ist die Idee von SailingX. Viele von euch haben schon diverse Seminare und Weiterbildungen besucht. Doch wie viel konntet ihr für Euch final nutzen.
-            Persönlich denken wir, dass die Seminare alle für sich wahrscheinlich gut waren, aber es fehlte meist der Raum & die Zeit dies zu verinnerlichen.
-            Aus diesem Grund gehen wir genau in die entgegengesetzte Richtung. Bei uns bekommst du Raum & Zeit und Coaching bzw. Training nach Bedarf zu deinem Thema.
-        </p>
-        <p>
-        Die zentrale Philosophie von Sailing X basiert auf der Analogie zwischen dem manövrieren einer Segelyacht und der Steuerung des eigenen Wirkens. Losgelöst vom Alltag ermöglichen wir nachhaltige Veränderungen und tiefe Einsichten in der Atmosphäre auf See.
-        </p>
-        <p>
-            Das Segeln wird zur realen Metapher für das Halten des Kurses trotz Gegenwind, für flexibles Handeln und die Notwendigkeit effektiver Teamarbeit.
-        </p>
-    </section>
-
-    <!-- Bildergalerie Section -->
-    <section class="section gallery" id="galerie">
-        <h2>Erlebe Sailing X</h2>
-        <p>Die Kombination aus dem belebenden Segelerlebnis und dem intensiven Reflektieren ist einmalig.</p>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="Schiff_Training_SailingX.png" alt="Training an Bord - Sailing X">
+        <div class="concept-grid">
+            <div class="concept-text">
+                <p>
+                    Was ist die Idee von SailingX. Viele von euch haben schon diverse Seminare und Weiterbildungen besucht. Doch wie viel konntet ihr für Euch final nutzen.
+                    Persönlich denken wir, dass die Seminare alle für sich wahrscheinlich gut waren, aber es fehlte meist der Raum & die Zeit dies zu verinnerlichen.
+                    Aus diesem Grund gehen wir genau in die entgegengesetzte Richtung. Bei uns bekommst du Raum & Zeit und Coaching bzw. Training nach Bedarf zu deinem Thema.
+                </p>
+                <p>
+                    Die zentrale Philosophie von Sailing X basiert auf der Analogie zwischen dem manövrieren einer Segelyacht und der Steuerung des eigenen Wirkens. Losgelöst vom Alltag ermöglichen wir nachhaltige Veränderungen und tiefe Einsichten in der Atmosphäre auf See.
+                </p>
+                <p>
+                    Das Segeln wird zur realen Metapher für das Halten des Kurses trotz Gegenwind, für flexibles Handeln und die Notwendigkeit effektiver Teamarbeit.
+                </p>
             </div>
-            <div class="gallery-item">
-                <img src="Schiff_von_hinten_SailingX.png" alt="Segelyacht von hinten - Sailing X">
-            </div>
-            <div class="gallery-item">
-                <img src="Schiff_Abend_SailingX.png" alt="Segelyacht bei Sonnenuntergang - Sailing X">
-            </div>
-            <div class="gallery-item">
-                <img src="Schiff_von_innen_SailingX.png" alt="Innenbereich der Yacht - Sailing X">
+            <div class="photo concept-photo">
+                <img src="images/fruehstueck-gespraech.jpg" alt="Gesprächsrunde beim Frühstück im Cockpit der Yacht" loading="lazy" width="1400" height="788">
             </div>
         </div>
     </section>
 
-    <section class="section programs" id="programme">
-        <h2>Unsere Programme</h2>
-        <div class="programs-grid">
-            <div class="program-card">
-                <h3>Executive Leadership Törn</h3>
-                <p><strong>Für Unternehmer & C-Level-Führungskräfte</strong></p>
-                <ul>
-                    <li>Austausch mit Gleichgesinnten</li>
-                    <li>Ausbrechen aus dem Alltag</li>
-                    <li>Persönliche Betreuung individueller Themen</li>
-                    <li>Strategische Klarheit gewinnen</li>
-                    <li>Raum & Zeit um wieder zu denken und zu fühlen</li>
-                </ul>
-            </div>
+    <div class="band band-light">
+        <section class="section" id="programme">
+            <h2>Unsere Programme</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="images/fruehstueck-bucht.jpg" alt="Gemeinsames Frühstück an Bord in einer ruhigen Bucht" loading="lazy" width="1121" height="489">
+                    </div>
+                    <div class="program-body">
+                        <h3>Executive Leadership Törn</h3>
+                        <p><strong>Für Unternehmer & C-Level-Führungskräfte</strong></p>
+                        <ul>
+                            <li>Austausch mit Gleichgesinnten</li>
+                            <li>Ausbrechen aus dem Alltag</li>
+                            <li>Persönliche Betreuung individueller Themen</li>
+                            <li>Strategische Klarheit gewinnen</li>
+                            <li>Raum & Zeit um wieder zu denken und zu fühlen</li>
+                        </ul>
+                    </div>
+                </div>
 
-            <div class="program-card">
-                <h3>Team Corporate Development</h3>
-                <p><strong>Für Unternehmens-Teams</strong></p>
-                <ul>
-                    <li>Intensives Teambuilding</li>
-                    <li>Definition von Teamrollen</li>
-                    <li>Schaffung eines "Wir"</li>
-                    <li>Aufarbeitung von Konflikten</li>
-                    <li>Zusammenwachsen durch gemeinsame Herausforderungen</li>
-                </ul>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="images/crew-segeln.jpg" alt="Crew im Cockpit beim Segeln unter vollen Segeln" loading="lazy" width="1400" height="933" style="object-position: center 58%;">
+                    </div>
+                    <div class="program-body">
+                        <h3>Team Corporate Development</h3>
+                        <p><strong>Für Unternehmens-Teams</strong></p>
+                        <ul>
+                            <li>Intensives Teambuilding</li>
+                            <li>Definition von Teamrollen</li>
+                            <li>Schaffung eines "Wir"</li>
+                            <li>Aufarbeitung von Konflikten</li>
+                            <li>Zusammenwachsen durch gemeinsame Herausforderungen</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+        </section>
+    </div>
+
+    <div class="band usps-band">
+        <section class="section usps">
+            <h2>Deine Vorteile</h2>
+            <div class="usps-grid">
+                <div class="usp-card">
+                    <h3>🌊 Einzigartige Symbiose</h3>
+                    <p>Die herausragende Kombination aus dem Abenteuer des Segelns und tiefgreifendem, professionell begleiteten Coaching.</p>
+                </div>
+
+                <div class="usp-card">
+                    <h3>🤝 Exklusives Netzwerk</h3>
+                    <p>Austausch mit Gleichgesinnten - Unternehmer, Führungskräfte und Experten in einem moderierten Setting.</p>
+                </div>
+
+                <div class="usp-card">
+                    <h3>⛵ Inspirierende Lernumgebung</h3>
+                    <p>Das Segeln ist aktiver Teil des Coachings. Lerne trotz Gegenwind den Kurs zu halten.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Referenzen: vorbereitet, wird sichtbar geschaltet sobald Inhalte vorliegen.
+         Zum Aktivieren: "hidden" entfernen und Nav-Link <a href="#referenzen">Referenzen</a> ergänzen.
+    <section class="section" id="referenzen" hidden>
+        <h2>Das sagen unsere Teilnehmer</h2>
+        <div class="testimonials-grid">
+            <figure class="testimonial">
+                <blockquote>ZITAT</blockquote>
+                <cite>NAME<span>FUNKTION, UNTERNEHMEN</span></cite>
+            </figure>
         </div>
     </section>
+    -->
 
-    <section class="section usps">
-        <h2>Deine Vorteile</h2>
-        <div class="usps-grid">
-            <div class="usp-card">
-                <h3>🌊 Einzigartige Symbiose</h3>
-                <p>Die herausragende Kombination aus dem Abenteuer des Segelns und tiefgreifendem, professionell begleiteten Coaching.</p>
+    <div class="band band-light">
+        <section class="section details" id="details">
+            <h2>Die Details</h2>
+            <div class="onboard-grid">
+                <figure>
+                    <div class="photo"><img src="images/yacht-marina.jpg" alt="Unsere Segelyacht am Steg in der Marina" loading="lazy" width="1200" height="675"></div>
+                    <figcaption>Die Yacht</figcaption>
+                </figure>
+                <figure>
+                    <div class="photo"><img src="images/salon.jpg" alt="Heller Salon mit Pantry und Sitzecke unter Deck" loading="lazy" width="1200" height="675"></div>
+                    <figcaption>Der Salon</figcaption>
+                </figure>
+                <figure>
+                    <div class="photo"><img src="images/kabine.jpg" alt="Doppelkabine an Bord" loading="lazy" width="1200" height="675"></div>
+                    <figcaption>Die Kabinen</figcaption>
+                </figure>
             </div>
+            <div class="details-content">
+                <div class="detail-item">
+                    <h3>Dauer</h3>
+                    <p>4-7 Tage Törns je nach Bedarf und Setting</p>
+                </div>
 
-            <div class="usp-card">
-                <h3>🤝 Exklusives Netzwerk</h3>
-                <p>Austausch mit Gleichgesinnten - Unternehmer, Führungskräfte und Experten in einem moderierten Setting.</p>
-            </div>
+                <div class="detail-item">
+                    <h3>Destination</h3>
+                    <p>Kroatien - Marina Kastela</p>
+                </div>
 
-            <div class="usp-card">
-                <h3>⛵ Inspirierende Lernumgebung</h3>
-                <p>Das Segeln ist aktiver Teil des Coachings. Lerne trotz Gegenwind den Kurs zu halten.</p>
-            </div>
-        </div>
-    </section>
+                <div class="detail-item">
+                    <h3>Unterbringung</h3>
+                    <p>Moderne Segelyachten (45-56 Fuß) mit Doppelkabinen</p>
+                </div>
 
-    <section class="section details" id="details">
-        <h2>Die Details</h2>
-        <div class="details-content">
-            <div class="detail-item">
-                <h3>Dauer</h3>
-                <p>4-7 Tage Törns je nach Bedarf und Setting</p>
-            </div>
+                <div class="detail-item">
+                    <h3>Expertise an Bord</h3>
+                    <p>Zertifizierte Coaches & Trainer mit Spezialisierung in Leadership, Entrepreneurship, Mindset-Training, Psychologie und Change Management</p>
+                </div>
 
-            <div class="detail-item">
-                <h3>Destination</h3>
-                <p>Kroatien - Marina Kastela</p>
-            </div>
+                <div class="detail-item">
+                    <h3>Segelkenntnisse</h3>
+                    <p>Es ist keinerlei Vorerfahrung nötig, nur der Wille etwas Neues zu lernen und mitzuarbeiten</p>
+                </div>
 
-            <div class="detail-item">
-                <h3>Unterbringung</h3>
-                <p>Moderne Segelyachten (45-56 Fuß) mit Doppelkabinen</p>
-            </div>
+                <div class="detail-item">
+                    <h3>Investition</h3>
+                    <p>Abhängig von der gewünschten Dauer des Törns, der individuell gewünschten Leistungen, der Crewanzahl und dem Termin (saisonale Preisgestaltung bei den Charterkosten) ergeben sich unterschiedliche Investitionsbeträge. Wir erstellen dir gerne eine Aufstellung zu genau deiner Anforderung.</p>
+                </div>
 
-            <div class="detail-item">
-                <h3>Expertise an Bord</h3>
-                <p>Zertifizierte Coaches & Trainer mit Spezialisierung in Leadership, Entrepreneurship, Mindset-Training, Psychologie und Change Management</p>
-            </div>
+                <div class="detail-item">
+                    <h3>Termine</h3>
+                    <p>Terminliche Vereinbarungen mit Unternehmen für interne Törns können 3-9 Monate vor dem gewünschten Veranstaltungstermin getroffen werden. Offene Törns (unternehmensübergreifende finden im September statt). Generell findet die finale Terminfindung immer in Abstimmung mit Euch statt.</p>
+                </div>
 
-            <div class="detail-item">
-                <h3>Segelkenntnisse</h3>
-                <p>Es ist keinerlei Vorerfahrung nötig, nur der Wille etwas Neues zu lernen und mitzuarbeiten</p>
+                <div class="detail-item">
+                    <h3>Verpflegung</h3>
+                    <p>Alles was die kroatische Küche & die Seemannskost hergibt und auszeichnet. Habe noch nie beim Törn abgenommen ;-)</p>
+                </div>
             </div>
-            <div class="detail-item">
-                <h3>Investition</h3>
-                <p>Abhängig von der gewünschten Dauer des Törns, der individuell gewünschten Leistungn, der Crewanzahl und dem Termin (saisonale Preisgestaltung bei den Cahrterkosten) ergeben sich unterschiedliche Investitonsbeträge. Wir erstellen dir gerne eine Aufstellung zu genau deiner Anforderung.</p>
-            </div>            <div class="detail-item">
-                <h3>Termine</h3>
-                <p>Terminliche Vereinbarungen mit Unternehmen für interne Törns können 3-9 Monate vor dem gewünschten Veranstaltungstermin getroffen werden. Offene Törns (unternehmensübergreifende finden im September statt). Generell findet die finale Terminfindung immer in Abstimmung mit Euch statt.</p>
-            </div>
-            <div class="detail-item">
-                <h3>Verpflegung</h3>
-                <p>Alles was die kroatische Küche & die Seemannskost hergibt und auszeichnet. Habe noch nie beim Törn abgenommen ;-)</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <section class="section academy-teaser" id="academy">
         <h2>SailingX-Academy</h2>
@@ -447,14 +633,13 @@
         <p style="font-size: 1.2rem; margin-bottom: 2rem; color: white;">
             Vereinbare ein kostenloses Erstgespräch und erfahre mehr über Sailing X
         </p>
-        <a href="mailto:Christian.auer@leadingX.com" class="cta-button" target="_blank">Jetzt Kontakt aufnehmen</a>
+        <a href="mailto:office@sailingx.at" class="cta-button">Jetzt Kontakt aufnehmen</a>
     </section>
 
     <footer>
         <p>© 2026 Sailing X - Ein LeadingX Programm</p>
         <p style="margin-top: 10px; font-size: 0.9rem;">Transformatives Coaching auf hoher See</p>
-         <p style="margin-top: 20px; font-size: 0.9rem;"><a href="impressum.html" style="color: white; text-decoration: none; margin: 0 10px;">Impressum</a> | <a href="datenschutz.html" style="color: white; text-decoration: none; margin: 0 10px;">Datenschutz</a></p>
-        
+        <p style="margin-top: 20px; font-size: 0.9rem;"><a href="impressum.html" style="color: white; text-decoration: none; margin: 0 10px;">Impressum</a> | <a href="datenschutz.html" style="color: white; text-decoration: none; margin: 0 10px;">Datenschutz</a></p>
     </footer>
 
 </body>
