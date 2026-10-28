@@ -293,49 +293,201 @@
         }
 
         /* Referenzen */
-        .testimonials-grid {
+        .testimonials-intro {
+            color: #5b6b78;
+        }
+
+        .stars {
+            color: #f5a623;
+            font-size: 1.15rem;
+            letter-spacing: 3px;
+            line-height: 1;
+        }
+
+        .review-featured {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: 260px 1fr;
+            gap: 40px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34586b 100%);
+            color: white;
+            border-radius: 14px;
+            padding: 50px 50px 45px;
             margin-top: 50px;
+            box-shadow: 0 15px 35px rgba(44,62,80,0.25);
+            position: relative;
+            overflow: hidden;
         }
 
-        .testimonial {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 35px 30px 30px;
-            border-top: 4px solid #4a90a4;
+        .review-featured::after {
+            content: "\201D";
+            position: absolute;
+            right: 30px;
+            bottom: -70px;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 18rem;
+            line-height: 1;
+            color: rgba(255,255,255,0.06);
+            pointer-events: none;
         }
 
-        .testimonial blockquote {
-            font-size: 1.05rem;
-            line-height: 1.8;
+        .review-featured .review-meta {
+            border-right: 1px solid rgba(255,255,255,0.18);
+            padding-right: 30px;
+        }
+
+        .review-featured .stars {
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .review-featured .review-highlight {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.35rem;
+            line-height: 1.5;
             font-style: italic;
             margin-bottom: 1.5rem;
         }
 
-        .testimonial blockquote::before {
-            content: "„";
-            font-size: 2.5rem;
-            line-height: 0;
-            color: #f5a623;
-            margin-right: 4px;
-            vertical-align: -0.4em;
-            font-style: normal;
+        .review-featured .review-text p {
+            text-align: left;
+            margin: 0 0 1rem;
+            max-width: none;
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.92);
         }
 
-        .testimonial cite {
-            font-style: normal;
+        .review-featured .review-author {
+            color: white;
+        }
+
+        .review-featured .review-date {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+            align-items: stretch;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: 12px;
+            padding: 32px 30px 28px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-top: 4px solid #4a90a4;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .review-card .stars {
+            margin-bottom: 1.1rem;
+        }
+
+        .review-card .review-text {
+            position: relative;
+        }
+
+        .review-card .review-text p {
+            text-align: left;
+            margin: 0 0 1rem;
+            max-width: none;
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .review-card .review-text.is-clamped {
+            max-height: 17.5em;
+            overflow: hidden;
+        }
+
+        .review-card .review-text.is-clamped::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 4em;
+            background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #fff 90%);
+        }
+
+        .review-toggle {
+            align-self: flex-start;
+            background: none;
+            border: none;
+            color: #4a90a4;
+            font: inherit;
             font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            padding: 0;
+            margin: 0.2rem 0 1.2rem;
+        }
+
+        .review-toggle:hover {
+            text-decoration: underline;
+        }
+
+        .review-card .review-footer {
+            margin-top: auto;
+        }
+
+        .review-footer {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e8edf0;
+        }
+
+        .review-featured .review-footer {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        .avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4a90a4 0%, #6bb5c7 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .review-featured .avatar {
+            background: #f5a623;
+            color: #2c3e50;
+        }
+
+        .review-author {
+            font-weight: 700;
             color: #2c3e50;
             display: block;
         }
 
-        .testimonial cite span {
+        .review-date {
+            font-size: 0.9rem;
+            color: #7a8a96;
             display: block;
-            font-weight: 400;
-            color: #666;
-            font-size: 0.95rem;
+        }
+
+        .review-label {
+            display: inline-block;
+            margin-top: 1.4rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #f5a623;
+            font-weight: 700;
         }
 
         /* Details Section */
@@ -399,10 +551,29 @@
         }
 
         /* Responsive */
+        @media (max-width: 1000px) {
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 900px) {
             .concept-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
+            }
+
+            .review-featured {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 35px 25px 30px;
+            }
+
+            .review-featured .review-meta {
+                border-right: none;
+                padding-right: 0;
+                border-bottom: 1px solid rgba(255,255,255,0.18);
+                padding-bottom: 20px;
             }
         }
 
@@ -450,6 +621,7 @@
             <nav>
                 <a href="#konzept">Konzept</a>
                 <a href="#programme">Programme</a>
+                <a href="#referenzen">Referenzen</a>
                 <a href="#details">Details</a>
                 <a href="academy/">Academy</a>
                 <a href="#kontakt">Kontakt</a>
@@ -548,18 +720,77 @@
         </section>
     </div>
 
-    <!-- Referenzen: vorbereitet, wird sichtbar geschaltet sobald Inhalte vorliegen.
-         Zum Aktivieren: "hidden" entfernen und Nav-Link <a href="#referenzen">Referenzen</a> ergänzen.
-    <section class="section" id="referenzen" hidden>
+    <section class="section" id="referenzen">
         <h2>Das sagen unsere Teilnehmer</h2>
-        <div class="testimonials-grid">
-            <figure class="testimonial">
-                <blockquote>ZITAT</blockquote>
-                <cite>NAME<span>FUNKTION, UNTERNEHMEN</span></cite>
-            </figure>
+        <p class="testimonials-intro">Echte Rückmeldungen von Teilnehmerinnen und Teilnehmern unserer SailingX-Törns.</p>
+
+        <article class="review-featured">
+            <div class="review-meta">
+                <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+                <div class="review-footer">
+                    <div class="avatar" aria-hidden="true">E</div>
+                    <div>
+                        <span class="review-author">Emma R.</span>
+                        <span class="review-date">Oktober 2026</span>
+                    </div>
+                </div>
+                <span class="review-label">SailingX-Woche</span>
+            </div>
+            <div>
+                <p class="review-highlight" style="text-align:left; margin-left:0; max-width:none;">„Eine Erfahrung die ich definitiv nur weiterempfehlen kann!“</p>
+                <div class="review-text">
+                    <p>Die SailingX - Woche war für mich eine sehr bereichernde Erfahrung. Besonders spannend war es für mich, da ich vorher noch keine Berührungspunkte mit dem Segeln hatte, mich auf etwas Unbekanntes einzulassen und diese Herausforderung gemeinsam mit einer Gruppe aus neuen Menschen anzugehen. Die Kombination aus Segeln, neuen Erfahrungen und einem inspirierenden Umfeld hat diese Woche für mich einzigartig gemacht. Auch das Coaching, in diesem besonderen Setting, hat mir wertvolle Impulse und neue Perspektiven eröffnet, die mir sowohl persönlich als auch beruflich einen Mehrwert bieten. Ich habe für mich gemerkt, dass man sich durch die Ruhe auf dem Wasser und die Distanz zum Alltag viel offener auf das Coaching einlassen kann. Gleichzeitig bietet das Segeln die Möglichkeit, die besprochenen Themen in Ruhe zu reflektieren und die gewonnen Denkanstöße wirken zu lassen.</p>
+                    <p>Insgesamt eine Woche mit großem Mehrwert, vielen schönen Begegnungen und wertvollen Erfahrungen! Vielen Dank dafür an Christian Auer und das gesamte Team für diese besondere Zeit. Eine Erfahrung die ich definitiv nur weiterempfehlen kann!</p>
+                </div>
+            </div>
+        </article>
+
+        <div class="reviews-grid">
+            <article class="review-card">
+                <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+                <div class="review-text">
+                    <p>Ein rundum inspirierendes Erlebnis! Die Kombination aus Segeln und persönlichem Coaching hat mir neue Perspektiven eröffnet und viele wertvolle Erkenntnisse gebracht. Die einfühlsame Begleitung von Christian Auer und die passenden Impulse haben besonders dazu beigetragen. Ich nehme viel für meinen persönlichen und beruflichen Alltag mit – eine klare Empfehlung!</p>
+                </div>
+                <div class="review-footer">
+                    <div class="avatar" aria-hidden="true">T</div>
+                    <div>
+                        <span class="review-author">Thomas V.</span>
+                        <span class="review-date">Oktober 2026</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="review-card">
+                <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+                <div class="review-text">
+                    <p>Ein fantastisches Erlebnis. Das Segeln war auch ohne Vorkenntnisse überhaupt kein Problem – ich wurde super abgeholt und fühlte mich absolut sicher. Die Ruhe auf dem Boot bietet Raum zur Sortierung der eigenen Gedanken. Auf dieser Basis ist vieles Möglich und mit der Unterstützung von Christian werden Ziele greifbar.</p>
+                </div>
+                <div class="review-footer">
+                    <div class="avatar" aria-hidden="true">A</div>
+                    <div>
+                        <span class="review-author">A.</span>
+                        <span class="review-date">Oktober 2026</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="review-card">
+                <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+                <div class="review-text" data-clamp>
+                    <p>Egal wo man mit seinem Business steht, wer mit Christian nicht zusammenarbeitet verpasst die Chance aktiv weiter voran zu kommen, garantiert. Mehrere 1:1 Sessions mit Ihm als Mentor, als auch eine Woche mit ihm auf einem Segelschiff inklusive Mentoring fernab vom Büroalltag haben bei mir schon unglaubliche Ergebnisse gezielt. Von falschen Glaubenssätzen, die mich in meinem Business zurück gehalten haben, damit verbundenem schlechten Umsatz trotz guter Arbeit bis hinzu einem Alltag, in dem mein Business keinen Spaß mehr gemacht hat. Nach gerade mal ein paar Sessions hat sich das alles für mich gelöst. Energie und Motivation, die ich noch anfangs an meinem Business hatte kommt zurück und plötzlich kommen erste Anfragen automatisch rein.</p>
+                    <p>Was Christian für mich ausmacht? Sein Vertriebsbackground, extreme Bodenständigkeit, eine direkte und ehrliche Kommunikation und vor allem eine Arbeitsweise, bei der man selbst Fehler und Blockaden erkennt ohne es eingeredet zu bekommen.</p>
+                    <p>Auf weitere Erfolgreiche Jahre der Zusammenarbeit!</p>
+                </div>
+                <div class="review-footer">
+                    <div class="avatar" aria-hidden="true">S</div>
+                    <div>
+                        <span class="review-author">S.</span>
+                        <span class="review-date">Oktober 2026</span>
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
-    -->
 
     <div class="band band-light">
         <section class="section details" id="details">
@@ -641,6 +872,27 @@
         <p style="margin-top: 10px; font-size: 0.9rem;">Transformatives Coaching auf hoher See</p>
         <p style="margin-top: 20px; font-size: 0.9rem;"><a href="impressum.html" style="color: white; text-decoration: none; margin: 0 10px;">Impressum</a> | <a href="datenschutz.html" style="color: white; text-decoration: none; margin: 0 10px;">Datenschutz</a></p>
     </footer>
+
+    <script>
+        document.querySelectorAll('.review-text[data-clamp]').forEach(function (el) {
+            el.classList.add('is-clamped');
+            if (el.scrollHeight <= el.clientHeight + 4) {
+                el.classList.remove('is-clamped');
+                return;
+            }
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'review-toggle';
+            btn.textContent = 'Ganzen Bericht lesen';
+            btn.setAttribute('aria-expanded', 'false');
+            btn.addEventListener('click', function () {
+                var open = el.classList.toggle('is-clamped') === false;
+                btn.textContent = open ? 'Weniger anzeigen' : 'Ganzen Bericht lesen';
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+            el.after(btn);
+        });
+    </script>
 
 </body>
 </html>
